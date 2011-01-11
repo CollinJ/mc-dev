@@ -1233,7 +1233,7 @@ public class World implements IBlockAccess {
         }
         J++;
         try {
-            int i1 = 1000;
+            int i1 = 100;
 
             for (; A.size() > 0; ((MetadataChunkBlock) A.remove(A.size() - 1)).a(this)) {
                 if (--i1 <= 0) {
@@ -1290,9 +1290,7 @@ public class World implements IBlockAccess {
         }
         A.add(((new MetadataChunkBlock(enumskyblock, i1, j1, k1, l1, i2, j2))));
         if (A.size() > 0x186a0) {
-            for (; A.size() > 50000; d()) {
-                ;
-            }
+            A.clear();
         }
         y--;
     }
