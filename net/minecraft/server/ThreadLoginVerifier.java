@@ -1,6 +1,7 @@
 package net.minecraft.server;
 
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
 import java.net.URL;
 
 class ThreadLoginVerifier extends Thread {
@@ -22,11 +23,10 @@ class ThreadLoginVerifier extends Thread {
             String s1 = bufferedreader.readLine();
 
             bufferedreader.close();
-            System.out.println((new StringBuilder()).append("THE REPLY IS ").append(s1).toString());
             if (s1.equals("YES")) {
                 NetLoginHandler.a(b, a);
             } else {
-                b.b("Failed to verify username!");
+                b.a("Failed to verify username!");
             }
         } catch (Exception exception) {
             exception.printStackTrace();

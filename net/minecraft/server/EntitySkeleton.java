@@ -8,7 +8,7 @@ public class EntitySkeleton extends EntityMobs {
 
     public EntitySkeleton(World world) {
         super(world);
-        aH = "/mob/skeleton.png";
+        aQ = "/mob/skeleton.png";
     }
 
     protected String d() {
@@ -23,15 +23,15 @@ public class EntitySkeleton extends EntityMobs {
         return "mob.skeletonhurt";
     }
 
-    public void E() {
+    public void G() {
         if (l.b()) {
             float f1 = b(1.0F);
 
-            if (f1 > 0.5F && l.g(MathHelper.b(p), MathHelper.b(q), MathHelper.b(r)) && W.nextFloat() * 30F < (f1 - 0.4F) * 2.0F) {
+            if (f1 > 0.5F && l.h(MathHelper.b(p), MathHelper.b(q), MathHelper.b(r)) && W.nextFloat() * 30F < (f1 - 0.4F) * 2.0F) {
                 Z = 300;
             }
         }
-        super.E();
+        super.G();
     }
 
     protected void a(Entity entity, float f1) {
@@ -39,7 +39,7 @@ public class EntitySkeleton extends EntityMobs {
             double d1 = entity.p - p;
             double d2 = entity.r - r;
 
-            if (aX == 0) {
+            if (bg == 0) {
                 EntityArrow entityarrow = new EntityArrow(l, ((EntityLiving) (this)));
 
                 entityarrow.q += 1.3999999761581421D;
@@ -49,7 +49,7 @@ public class EntitySkeleton extends EntityMobs {
                 l.a(((Entity) (this)), "random.bow", 1.0F, 1.0F / (W.nextFloat() * 0.4F + 0.8F));
                 l.a(((Entity) (entityarrow)));
                 entityarrow.a(d1, d3 + (double) f2, d2, 0.6F, 12F);
-                aX = 30;
+                bg = 30;
             }
             v = (float) ((Math.atan2(d2, d1) * 180D) / 3.1415927410125732D) - 90F;
             ak = true;

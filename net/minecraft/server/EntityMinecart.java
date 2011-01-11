@@ -620,6 +620,42 @@ public class EntityMinecart extends Entity implements IInventory {
         return ak[i];
     }
 
+    public ItemStack a(int i, int k) {
+        if (ak[i] != null) {
+            if (ak[i].a <= k) {
+                ItemStack itemstack = ak[i];
+
+                ak[i] = null;
+                return itemstack;
+            }
+            ItemStack itemstack1 = ak[i].a(k);
+
+            if (ak[i].a == 0) {
+                ak[i] = null;
+            }
+            return itemstack1;
+        } else {
+            return null;
+        }
+    }
+
+    public void a(int i, ItemStack itemstack) {
+        ak[i] = itemstack;
+        if (itemstack != null && itemstack.a > c()) {
+            itemstack.a = c();
+        }
+    }
+
+    public String b() {
+        return "Minecart";
+    }
+
+    public int c() {
+        return 64;
+    }
+
+    public void d() {}
+
     public boolean a(EntityPlayer entityplayer) {
         if (d == 0) {
             if (j != null && (j instanceof EntityPlayer) && j != entityplayer) {
@@ -629,13 +665,15 @@ public class EntityMinecart extends Entity implements IInventory {
                 entityplayer.e(((Entity) (this)));
             }
         } else if (d == 1) {
-            entityplayer.a(((IInventory) (this)));
+            if (!l.z) {
+                entityplayer.a(((IInventory) (this)));
+            }
         } else if (d == 2) {
-            ItemStack itemstack = entityplayer.am.b();
+            ItemStack itemstack = entityplayer.an.e();
 
             if (itemstack != null && itemstack.c == Item.k.aW) {
                 if (--itemstack.a == 0) {
-                    entityplayer.am.a(entityplayer.am.d, ((ItemStack) (null)));
+                    entityplayer.an.a(entityplayer.an.c, ((ItemStack) (null)));
                 }
                 e += 1200;
             }
@@ -643,5 +681,12 @@ public class EntityMinecart extends Entity implements IInventory {
             aj = r - entityplayer.r;
         }
         return true;
+    }
+
+    public boolean a_(EntityPlayer entityplayer) {
+        if (G) {
+            return false;
+        }
+        return entityplayer.b(((Entity) (this))) <= 64D;
     }
 }

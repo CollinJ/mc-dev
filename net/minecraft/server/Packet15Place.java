@@ -9,24 +9,39 @@ public class Packet15Place extends Packet {
     public int b;
     public int c;
     public int d;
-    public int e;
+    public ItemStack e;
 
     public Packet15Place() {}
 
     public void a(DataInputStream datainputstream) {
-        a = ((int) (datainputstream.readShort()));
-        b = datainputstream.readInt();
-        c = datainputstream.read();
-        d = datainputstream.readInt();
-        e = datainputstream.read();
+        a = datainputstream.readInt();
+        b = datainputstream.read();
+        c = datainputstream.readInt();
+        d = datainputstream.read();
+        short word0 = datainputstream.readShort();
+
+        if (word0 >= 0) {
+            byte byte0 = datainputstream.readByte();
+            byte byte1 = datainputstream.readByte();
+
+            e = new ItemStack(((int) (word0)), ((int) (byte0)), ((int) (byte1)));
+        } else {
+            e = null;
+        }
     }
 
     public void a(DataOutputStream dataoutputstream) {
-        dataoutputstream.writeShort(a);
-        dataoutputstream.writeInt(b);
-        dataoutputstream.write(c);
-        dataoutputstream.writeInt(d);
-        dataoutputstream.write(e);
+        dataoutputstream.writeInt(a);
+        dataoutputstream.write(b);
+        dataoutputstream.writeInt(c);
+        dataoutputstream.write(d);
+        if (e == null) {
+            dataoutputstream.writeShort(-1);
+        } else {
+            dataoutputstream.writeShort(e.c);
+            dataoutputstream.writeByte(e.a);
+            dataoutputstream.writeByte(e.d);
+        }
     }
 
     public void a(NetHandler nethandler) {
@@ -34,6 +49,6 @@ public class Packet15Place extends Packet {
     }
 
     public int a() {
-        return 12;
+        return 14;
     }
 }
