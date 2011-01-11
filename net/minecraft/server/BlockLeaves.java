@@ -11,13 +11,17 @@ public class BlockLeaves extends BlockLeavesBase {
         super(i, j, Material.h, false);
         c = 0;
         b = j;
-        a(true);
     }
 
     public void b(World world, int i, int j, int k, int l) {
-        c = 0;
-        g(world, i, j, k);
-        super.b(world, i, j, k, l);
+        if (this != null) {
+            return;
+        } else {
+            c = 0;
+            g(world, i, j, k);
+            super.b(world, i, j, k, l);
+            return;
+        }
     }
 
     public void e(World world, int i, int j, int k, int l) {
@@ -35,6 +39,9 @@ public class BlockLeaves extends BlockLeavesBase {
     }
 
     public void g(World world, int i, int j, int k) {
+        if (this != null) {
+            return;
+        }
         if (c++ >= 100) {
             return;
         }
@@ -83,6 +90,9 @@ public class BlockLeaves extends BlockLeavesBase {
     }
 
     public void a(World world, int i, int j, int k, Random random) {
+        if (this != null) {
+            return;
+        }
         int l = world.b(i, j, k);
 
         if (l == 0) {
