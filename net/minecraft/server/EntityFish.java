@@ -109,7 +109,7 @@ public class EntityFish extends Entity {
             return;
         }
         if (!this.l.z) {
-            ItemStack itemstack = b.I();
+            ItemStack itemstack = b.H();
 
             if (b.G || !b.x() || itemstack == null || itemstack.a() != Item.aP || b(((Entity) (b))) > 1024D) {
                 l();

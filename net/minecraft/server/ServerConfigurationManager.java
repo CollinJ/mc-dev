@@ -62,10 +62,16 @@ public class ServerConfigurationManager {
     }
 
     public void c(EntityPlayerMP entityplayermp) {
-        d.b(entityplayermp);
         l.a(entityplayermp);
         c.e.d(((Entity) (entityplayermp)));
         b.remove(((entityplayermp)));
+        d.b(entityplayermp);
+    }
+
+    public void d(EntityPlayerMP entityplayermp) {
+        d.b(entityplayermp);
+        b.remove(((entityplayermp)));
+        c.e.e(((Entity) (entityplayermp)));
     }
 
     public EntityPlayerMP a(NetLoginHandler netloginhandler, String s, String s1) {
@@ -94,6 +100,26 @@ public class ServerConfigurationManager {
         }
 
         return new EntityPlayerMP(c, ((World) (c.e)), s, new ItemInWorldManager(((World) (c.e))));
+    }
+
+    public EntityPlayerMP e(EntityPlayerMP entityplayermp) {
+        d(entityplayermp);
+        c.k.a(entityplayermp);
+        EntityPlayerMP entityplayermp1 = new EntityPlayerMP(c, ((World) (c.e)), entityplayermp.as, new ItemInWorldManager(((World) (c.e))));
+
+        entityplayermp1.g = entityplayermp.g;
+        entityplayermp1.a = entityplayermp.a;
+        c.e.A.d((int) entityplayermp1.p >> 4, (int) entityplayermp1.r >> 4);
+        for (; c.e.a(((Entity) (entityplayermp1)), entityplayermp1.z).size() != 0; entityplayermp1.a(entityplayermp1.p, entityplayermp1.q + 1.0D, entityplayermp1.r)) {
+            ;
+        }
+        entityplayermp1.a.b(((Packet) (new Packet9())));
+        entityplayermp1.a.d();
+        entityplayermp1.a.a(entityplayermp1.p, entityplayermp1.q, entityplayermp1.r, entityplayermp1.v, entityplayermp1.w);
+        d.a(entityplayermp1);
+        c.e.a(((Entity) (entityplayermp1)));
+        b.add(((entityplayermp1)));
+        return entityplayermp1;
     }
 
     public void b() {

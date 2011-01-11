@@ -76,6 +76,7 @@ public class NetLoginHandler extends NetHandler {
 
             netserverhandler.b(((Packet) (new Packet1Login("", "", entityplayermp.g, e.e.u, (byte) e.e.q.g))));
             netserverhandler.b(((Packet) (new Packet6SpawnPosition(e.e.m, e.e.n, e.e.o))));
+            e.f.a(((Packet) (new Packet3Chat((new StringBuilder()).append("\247e").append(entityplayermp.as).append(" joined the game.").toString()))));
             e.f.a(entityplayermp);
             netserverhandler.a(entityplayermp.p, entityplayermp.q, entityplayermp.r, entityplayermp.v, entityplayermp.w);
             netserverhandler.d();

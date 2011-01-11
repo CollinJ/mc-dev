@@ -219,4 +219,11 @@ public class EntityTrackerEntry {
             throw new IllegalArgumentException((new StringBuilder()).append("Don't know how to add ").append(((((a)).getClass()))).append("!").toString());
         }
     }
+
+    public void b(EntityPlayerMP entityplayermp) {
+        if (p.contains(((entityplayermp)))) {
+            p.remove(((entityplayermp)));
+            entityplayermp.a.b(((Packet) (new Packet29DestroyEntity(a.g))));
+        }
+    }
 }
