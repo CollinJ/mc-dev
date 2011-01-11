@@ -4,10 +4,10 @@ public class BlockOreBlock extends Block {
 
     public BlockOreBlock(int i, int j) {
         super(i, Material.e);
-        bh = j;
+        bg = j;
     }
 
     public int a(int i) {
-        return bh - 16;
+        return bg - 16;
     }
 }

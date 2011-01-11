@@ -7,7 +7,7 @@ public abstract class EntityAnimals extends EntityCreature implements IAnimals {
     }
 
     protected float a(int i, int j, int k) {
-        if (l.a(i, j - 1, k) == Block.v.bi) {
+        if (l.a(i, j - 1, k) == Block.u.bh) {
             return 10F;
         } else {
             return l.j(i, j, k) - 0.5F;
@@ -27,7 +27,7 @@ public abstract class EntityAnimals extends EntityCreature implements IAnimals {
         int j = MathHelper.b(z.b);
         int k = MathHelper.b(r);
 
-        return l.a(i, j - 1, k) == Block.v.bi && l.h(i, j, k) > 8 && super.a();
+        return l.a(i, j - 1, k) == Block.u.bh && l.h(i, j, k) > 8 && super.a();
     }
 
     public int b() {

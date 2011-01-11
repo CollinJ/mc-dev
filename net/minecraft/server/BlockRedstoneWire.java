@@ -105,28 +105,28 @@ public class BlockRedstoneWire extends Block {
             }
 
             if (l == 0 || i1 == 0) {
-                world.g(i, j, k, bi);
-                world.g(i - 1, j, k, bi);
-                world.g(i + 1, j, k, bi);
-                world.g(i, j, k - 1, bi);
-                world.g(i, j, k + 1, bi);
-                world.g(i, j - 1, k, bi);
-                world.g(i, j + 1, k, bi);
+                world.g(i, j, k, bh);
+                world.g(i - 1, j, k, bh);
+                world.g(i + 1, j, k, bh);
+                world.g(i, j, k - 1, bh);
+                world.g(i, j, k + 1, bh);
+                world.g(i, j - 1, k, bh);
+                world.g(i, j + 1, k, bh);
             }
         }
     }
 
     private void h(World world, int i, int j, int k) {
-        if (world.a(i, j, k) != bi) {
+        if (world.a(i, j, k) != bh) {
             return;
         } else {
-            world.g(i, j, k, bi);
-            world.g(i - 1, j, k, bi);
-            world.g(i + 1, j, k, bi);
-            world.g(i, j, k - 1, bi);
-            world.g(i, j, k + 1, bi);
-            world.g(i, j - 1, k, bi);
-            world.g(i, j + 1, k, bi);
+            world.g(i, j, k, bh);
+            world.g(i - 1, j, k, bh);
+            world.g(i + 1, j, k, bh);
+            world.g(i, j, k - 1, bh);
+            world.g(i, j, k + 1, bh);
+            world.g(i, j - 1, k, bh);
+            world.g(i, j + 1, k, bh);
             return;
         }
     }
@@ -137,8 +137,8 @@ public class BlockRedstoneWire extends Block {
             return;
         }
         g(world, i, j, k);
-        world.g(i, j + 1, k, bi);
-        world.g(i, j - 1, k, bi);
+        world.g(i, j + 1, k, bh);
+        world.g(i, j - 1, k, bh);
         h(world, i - 1, j, k);
         h(world, i + 1, j, k);
         h(world, i, j, k - 1);
@@ -170,8 +170,8 @@ public class BlockRedstoneWire extends Block {
         if (world.z) {
             return;
         }
-        world.g(i, j + 1, k, bi);
-        world.g(i, j - 1, k, bi);
+        world.g(i, j + 1, k, bh);
+        world.g(i, j - 1, k, bh);
         g(world, i, j, k);
         h(world, i - 1, j, k);
         h(world, i + 1, j, k);
@@ -200,7 +200,7 @@ public class BlockRedstoneWire extends Block {
     }
 
     private int f(World world, int i, int j, int k, int l) {
-        if (world.a(i, j, k) != bi) {
+        if (world.a(i, j, k) != bh) {
             return l;
         }
         int i1 = world.b(i, j, k);
@@ -291,12 +291,12 @@ public class BlockRedstoneWire extends Block {
     public static boolean b(IBlockAccess iblockaccess, int i, int j, int k) {
         int l = iblockaccess.a(i, j, k);
 
-        if (l == Block.aw.bi) {
+        if (l == Block.av.bh) {
             return true;
         }
         if (l == 0) {
             return false;
         }
-        return Block.n[l].c();
+        return Block.m[l].c();
     }
 }

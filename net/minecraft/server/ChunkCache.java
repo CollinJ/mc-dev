@@ -56,12 +56,12 @@ public class ChunkCache implements IBlockAccess {
         if (l == 0) {
             return Material.a;
         } else {
-            return Block.n[l].bt;
+            return Block.m[l].bs;
         }
     }
 
     public boolean d(int i, int j, int k) {
-        Block block = Block.n[a(i, j, k)];
+        Block block = Block.m[a(i, j, k)];
 
         if (block == null) {
             return false;

@@ -21,7 +21,7 @@ public class EntityPlayerMP extends EntityPlayer {
         int j = world.o;
         int l = world.n;
 
-        if (!world.q.c) {
+        if (!world.q.e) {
             i += V.nextInt(20) - 10;
             l = world.e(i, j);
             j += V.nextInt(20) - 10;
@@ -85,7 +85,7 @@ public class EntityPlayerMP extends EntityPlayer {
 
     public void D() {
         s = t = u = 0.0D;
-        bj = false;
+        bp = false;
         super.D();
     }
 
@@ -105,7 +105,13 @@ public class EntityPlayerMP extends EntityPlayer {
         }
     }
 
-    protected float s() {
+    public float s() {
         return 1.62F;
+    }
+
+    public void e(Entity entity) {
+        super.e(entity);
+        a.b(((Packet) (new Packet39(((Entity) (this)), k))));
+        a.a(p, q, r, v, w);
     }
 }

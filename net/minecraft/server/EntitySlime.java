@@ -17,10 +17,10 @@ public class EntitySlime extends EntityLiving implements IMobs {
         c = 1 << V.nextInt(3);
         G = 0.0F;
         d = V.nextInt(20) + 10;
-        c(c);
+        d(c);
     }
 
-    public void c(int i) {
+    public void d(int i) {
         c = i;
         a(0.6F * (float) i, 0.6F * (float) i);
         aP = i * i;
@@ -71,17 +71,17 @@ public class EntitySlime extends EntityLiving implements IMobs {
             if (entityplayer != null) {
                 d /= 3;
             }
-            bj = true;
+            bp = true;
             if (c > 1) {
                 l.a(((Entity) (this)), "mob.slime", h(), ((V.nextFloat() - V.nextFloat()) * 0.2F + 1.0F) * 0.8F);
             }
             a = 1.0F;
-            bg = 1.0F - V.nextFloat() * 2.0F;
-            bh = 1 * c;
+            bm = 1.0F - V.nextFloat() * 2.0F;
+            bn = 1 * c;
         } else {
-            bj = false;
+            bp = false;
             if (A) {
-                bg = bh = 0.0F;
+                bm = bn = 0.0F;
             }
         }
     }
@@ -93,7 +93,7 @@ public class EntitySlime extends EntityLiving implements IMobs {
                 float f2 = (((float) (i / 2) - 0.5F) * (float) c) / 4F;
                 EntitySlime entityslime = new EntitySlime(l);
 
-                entityslime.c(c / 2);
+                entityslime.d(c / 2);
                 entityslime.c(p + (double) f1, q + 0.5D, r + (double) f2, V.nextFloat() * 360F, 0.0F);
                 l.a(((Entity) (entityslime)));
             }
@@ -101,7 +101,7 @@ public class EntitySlime extends EntityLiving implements IMobs {
         super.l();
     }
 
-    public void a(EntityPlayer entityplayer) {
+    public void b(EntityPlayer entityplayer) {
         if (c > 1 && g(((Entity) (entityplayer))) && (double) a(((Entity) (entityplayer))) < 0.59999999999999998D * (double) c && entityplayer.a(((Entity) (this)), c)) {
             l.a(((Entity) (this)), "mob.slimeattack", 1.0F, (V.nextFloat() - V.nextFloat()) * 0.2F + 1.0F);
         }
@@ -124,7 +124,7 @@ public class EntitySlime extends EntityLiving implements IMobs {
     }
 
     public boolean a() {
-        Chunk chunk = l.b(MathHelper.b(p), MathHelper.b(q));
+        Chunk chunk = l.b(MathHelper.b(p), MathHelper.b(r));
 
         return (c == 1 || l.k > 0) && V.nextInt(10) == 0 && chunk.a(0x3ad8025fL).nextInt(10) == 0 && q < 16D;
     }
