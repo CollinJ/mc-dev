@@ -124,10 +124,7 @@ public class EntityFireball extends Entity {
                     ;
                 }
             }
-            Explosion explosion = new Explosion();
-
-            explosion.a = true;
-            explosion.a(l, ((Entity) (this)), p, q, r, 1.0F);
+            l.a(((Entity) (null)), p, q, r, 1.0F, true);
             l();
         }
         p += s;

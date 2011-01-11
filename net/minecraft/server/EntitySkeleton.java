@@ -8,7 +8,7 @@ public class EntitySkeleton extends EntityMobs {
 
     public EntitySkeleton(World world) {
         super(world);
-        aG = "/mob/skeleton.png";
+        aH = "/mob/skeleton.png";
     }
 
     protected String d() {
@@ -39,7 +39,7 @@ public class EntitySkeleton extends EntityMobs {
             double d1 = entity.p - p;
             double d2 = entity.r - r;
 
-            if (aW == 0) {
+            if (aX == 0) {
                 EntityArrow entityarrow = new EntityArrow(l, ((EntityLiving) (this)));
 
                 entityarrow.q += 1.3999999761581421D;
@@ -49,10 +49,10 @@ public class EntitySkeleton extends EntityMobs {
                 l.a(((Entity) (this)), "random.bow", 1.0F, 1.0F / (W.nextFloat() * 0.4F + 0.8F));
                 l.a(((Entity) (entityarrow)));
                 entityarrow.a(d1, d3 + (double) f2, d2, 0.6F, 12F);
-                aW = 30;
+                aX = 30;
             }
             v = (float) ((Math.atan2(d2, d1) * 180D) / 3.1415927410125732D) - 90F;
-            aj = true;
+            ak = true;
         }
     }
 

@@ -34,6 +34,10 @@ public class EntityTracker {
             } while (true);
         } else if (entity instanceof EntityFish) {
             a(entity, 64, 5, true);
+        } else if (entity instanceof EntityArrow) {
+            a(entity, 64, 5, true);
+        } else if (entity instanceof EntitySnowball) {
+            a(entity, 64, 5, true);
         } else if (entity instanceof EntityItem) {
             a(entity, 64, 20, true);
         } else if (entity instanceof EntityMinecart) {
@@ -87,7 +91,7 @@ public class EntityTracker {
             EntityTrackerEntry entitytrackerentry = (EntityTrackerEntry) iterator.next();
 
             entitytrackerentry.a(c.e.d);
-            if (entitytrackerentry.o && (entitytrackerentry.a instanceof EntityPlayerMP)) {
+            if (entitytrackerentry.p && (entitytrackerentry.a instanceof EntityPlayerMP)) {
                 ((List) (arraylist)).add((((EntityPlayerMP) entitytrackerentry.a)));
             }
         } while (true);
@@ -114,6 +118,14 @@ public class EntityTracker {
 
         if (entitytrackerentry != null) {
             entitytrackerentry.a(packet);
+        }
+    }
+
+    public void b(Entity entity, Packet packet) {
+        EntityTrackerEntry entitytrackerentry = (EntityTrackerEntry) b.a(entity.g);
+
+        if (entitytrackerentry != null) {
+            entitytrackerentry.b(packet);
         }
     }
 

@@ -6,9 +6,9 @@ public class EntityZombie extends EntityMobs {
 
     public EntityZombie(World world) {
         super(world);
-        aG = "/mob/zombie.png";
-        bt = 0.5F;
-        e = 5;
+        aH = "/mob/zombie.png";
+        bu = 0.5F;
+        f = 5;
     }
 
     public void E() {

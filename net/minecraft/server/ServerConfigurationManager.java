@@ -88,7 +88,7 @@ public class ServerConfigurationManager {
         for (int i1 = 0; i1 < b.size(); i1++) {
             EntityPlayerMP entityplayermp = (EntityPlayerMP) b.get(i1);
 
-            if (entityplayermp.as.equalsIgnoreCase(s)) {
+            if (entityplayermp.at.equalsIgnoreCase(s)) {
                 entityplayermp.a.c("You logged in from another location");
             }
         }
@@ -102,7 +102,7 @@ public class ServerConfigurationManager {
         d.b(entityplayermp);
         b.remove(((entityplayermp)));
         c.e.e(((Entity) (entityplayermp)));
-        EntityPlayerMP entityplayermp1 = new EntityPlayerMP(c, ((World) (c.e)), entityplayermp.as, new ItemInWorldManager(((World) (c.e))));
+        EntityPlayerMP entityplayermp1 = new EntityPlayerMP(c, ((World) (c.e)), entityplayermp.at, new ItemInWorldManager(((World) (c.e))));
 
         entityplayermp1.g = entityplayermp.g;
         entityplayermp1.a = entityplayermp.a;
@@ -141,7 +141,7 @@ public class ServerConfigurationManager {
             if (i1 > 0) {
                 s = (new StringBuilder()).append(s).append(", ").toString();
             }
-            s = (new StringBuilder()).append(s).append(((EntityPlayerMP) b.get(i1)).as).toString();
+            s = (new StringBuilder()).append(s).append(((EntityPlayerMP) b.get(i1)).at).toString();
         }
 
         return s;
@@ -275,7 +275,7 @@ public class ServerConfigurationManager {
         for (int i1 = 0; i1 < b.size(); i1++) {
             EntityPlayerMP entityplayermp = (EntityPlayerMP) b.get(i1);
 
-            if (entityplayermp.as.equalsIgnoreCase(s)) {
+            if (entityplayermp.at.equalsIgnoreCase(s)) {
                 return entityplayermp;
             }
         }
@@ -291,13 +291,26 @@ public class ServerConfigurationManager {
         }
     }
 
+    public void a(double d1, double d2, double d3, double d4, Packet packet) {
+        for (int i1 = 0; i1 < b.size(); i1++) {
+            EntityPlayerMP entityplayermp = (EntityPlayerMP) b.get(i1);
+            double d5 = d1 - entityplayermp.p;
+            double d6 = d2 - entityplayermp.q;
+            double d7 = d3 - entityplayermp.r;
+
+            if (d5 * d5 + d6 * d6 + d7 * d7 < d4 * d4) {
+                entityplayermp.a.b(packet);
+            }
+        }
+    }
+
     public void i(String s) {
         Packet3Chat packet3chat = new Packet3Chat(s);
 
         for (int i1 = 0; i1 < b.size(); i1++) {
             EntityPlayerMP entityplayermp = (EntityPlayerMP) b.get(i1);
 
-            if (g(entityplayermp.as)) {
+            if (g(entityplayermp.at)) {
                 entityplayermp.a.b(((Packet) (packet3chat)));
             }
         }

@@ -17,7 +17,7 @@ public class ConsoleLogManager {
         ((Handler) (consolehandler)).setFormatter(((java.util.logging.Formatter) (consolelogformatter)));
         a.addHandler(((Handler) (consolehandler)));
         try {
-            FileHandler filehandler = new FileHandler("server.log");
+            FileHandler filehandler = new FileHandler("server.log", true);
 
             ((Handler) (filehandler)).setFormatter(((java.util.logging.Formatter) (consolelogformatter)));
             a.addHandler(((Handler) (filehandler)));

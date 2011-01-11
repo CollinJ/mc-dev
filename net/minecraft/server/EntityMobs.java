@@ -4,19 +4,19 @@ import java.util.Random;
 
 public class EntityMobs extends EntityCreature implements IMobs {
 
-    protected int e;
+    protected int f;
 
     public EntityMobs(World world) {
         super(world);
-        e = 2;
-        aQ = 20;
+        f = 2;
+        aR = 20;
     }
 
     public void E() {
-        float f = b(1.0F);
+        float f1 = b(1.0F);
 
-        if (f > 0.5F) {
-            bn += 2;
+        if (f1 > 0.5F) {
+            bo += 2;
         }
         super.E();
     }
@@ -44,7 +44,7 @@ public class EntityMobs extends EntityCreature implements IMobs {
                 return true;
             }
             if (entity != this) {
-                f = entity;
+                aj = entity;
             }
             return true;
         } else {
@@ -52,10 +52,10 @@ public class EntityMobs extends EntityCreature implements IMobs {
         }
     }
 
-    protected void a(Entity entity, float f) {
-        if ((double) f < 2.5D && entity.z.e > z.b && entity.z.b < z.e) {
-            aW = 20;
-            entity.a(((Entity) (this)), e);
+    protected void a(Entity entity, float f1) {
+        if ((double) f1 < 2.5D && entity.z.e > z.b && entity.z.b < z.e) {
+            aX = 20;
+            entity.a(((Entity) (this)), f);
         }
     }
 
