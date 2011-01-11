@@ -22,7 +22,7 @@ public class BlockWorkbench extends Block {
     }
 
     public boolean a(World world, int i, int j, int k, EntityPlayer entityplayer) {
-        entityplayer.F();
+        entityplayer.H();
         return true;
     }
 }

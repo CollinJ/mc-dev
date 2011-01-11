@@ -88,7 +88,7 @@ public class ServerConfigurationManager {
         for (int i1 = 0; i1 < b.size(); i1++) {
             EntityPlayerMP entityplayermp = (EntityPlayerMP) b.get(i1);
 
-            if (entityplayermp.ar.equalsIgnoreCase(s)) {
+            if (entityplayermp.as.equalsIgnoreCase(s)) {
                 entityplayermp.a.c("You logged in from another location");
             }
         }
@@ -119,7 +119,7 @@ public class ServerConfigurationManager {
             if (i1 > 0) {
                 s = (new StringBuilder()).append(s).append(", ").toString();
             }
-            s = (new StringBuilder()).append(s).append(((EntityPlayerMP) b.get(i1)).ar).toString();
+            s = (new StringBuilder()).append(s).append(((EntityPlayerMP) b.get(i1)).as).toString();
         }
 
         return s;
@@ -253,7 +253,7 @@ public class ServerConfigurationManager {
         for (int i1 = 0; i1 < b.size(); i1++) {
             EntityPlayerMP entityplayermp = (EntityPlayerMP) b.get(i1);
 
-            if (entityplayermp.ar.equalsIgnoreCase(s)) {
+            if (entityplayermp.as.equalsIgnoreCase(s)) {
                 return entityplayermp;
             }
         }
@@ -275,7 +275,7 @@ public class ServerConfigurationManager {
         for (int i1 = 0; i1 < b.size(); i1++) {
             EntityPlayerMP entityplayermp = (EntityPlayerMP) b.get(i1);
 
-            if (g(entityplayermp.ar)) {
+            if (g(entityplayermp.as)) {
                 entityplayermp.a.b(((Packet) (packet3chat)));
             }
         }

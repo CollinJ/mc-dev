@@ -219,6 +219,16 @@ public class InventoryPlayer implements IInventory {
         return 64;
     }
 
+    public int a(Entity entity) {
+        ItemStack itemstack = a(d);
+
+        if (itemstack != null) {
+            return itemstack.a(entity);
+        } else {
+            return 1;
+        }
+    }
+
     public boolean b(Block block) {
         if (block.bs != Material.d && block.bs != Material.e && block.bs != Material.t && block.bs != Material.s) {
             return true;

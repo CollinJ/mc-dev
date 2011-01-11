@@ -9,16 +9,16 @@ public class EntityMobs extends EntityCreature implements IMobs {
     public EntityMobs(World world) {
         super(world);
         e = 2;
-        aP = 20;
+        aQ = 20;
     }
 
-    public void D() {
+    public void E() {
         float f = b(1.0F);
 
         if (f > 0.5F) {
-            bl += 2;
+            bn += 2;
         }
-        super.D();
+        super.E();
     }
 
     public void b_() {
@@ -31,7 +31,7 @@ public class EntityMobs extends EntityCreature implements IMobs {
     protected Entity k() {
         EntityPlayer entityplayer = l.a(((Entity) (this)), 16D);
 
-        if (entityplayer != null && g(((Entity) (entityplayer)))) {
+        if (entityplayer != null && i(((Entity) (entityplayer)))) {
             return ((Entity) (entityplayer));
         } else {
             return null;
@@ -54,7 +54,7 @@ public class EntityMobs extends EntityCreature implements IMobs {
 
     protected void a(Entity entity, float f) {
         if ((double) f < 2.5D && entity.z.e > z.b && entity.z.b < z.e) {
-            aV = 20;
+            aW = 20;
             entity.a(((Entity) (this)), e);
         }
     }
@@ -76,12 +76,12 @@ public class EntityMobs extends EntityCreature implements IMobs {
         int j = MathHelper.b(z.b);
         int l = MathHelper.b(r);
 
-        if (this.l.a(EnumSkyBlock.a, i, j, l) > V.nextInt(32)) {
+        if (this.l.a(EnumSkyBlock.a, i, j, l) > W.nextInt(32)) {
             return false;
         } else {
             int i1 = this.l.h(i, j, l);
 
-            return i1 <= V.nextInt(8) && super.a();
+            return i1 <= W.nextInt(8) && super.a();
         }
     }
 }

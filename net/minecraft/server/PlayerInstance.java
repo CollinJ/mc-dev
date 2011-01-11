@@ -34,7 +34,7 @@ class PlayerInstance {
         if (b.contains(((entityplayermp)))) {
             throw new IllegalStateException((new StringBuilder()).append("Failed to add player. ").append(((entityplayermp))).append(" already is in chunk ").append(c).append(", ").append(d).toString());
         } else {
-            entityplayermp.ai.add(((e)));
+            entityplayermp.aj.add(((e)));
             entityplayermp.a.b(((Packet) (new Packet50PreChunk(e.a, e.b, true))));
             b.add(((entityplayermp)));
             entityplayermp.f.add(((e)));
@@ -58,7 +58,7 @@ class PlayerInstance {
             PlayerManager.a(a).e.A.c(c, d);
         }
         entityplayermp.f.remove(((e)));
-        if (entityplayermp.ai.contains(((e)))) {
+        if (entityplayermp.aj.contains(((e)))) {
             entityplayermp.a.b(((Packet) (new Packet50PreChunk(c, d, false))));
         }
     }
@@ -105,7 +105,7 @@ class PlayerInstance {
         for (int i1 = 0; i1 < b.size(); i1++) {
             EntityPlayerMP entityplayermp = (EntityPlayerMP) b.get(i1);
 
-            if (entityplayermp.ai.contains(((e)))) {
+            if (entityplayermp.aj.contains(((e)))) {
                 entityplayermp.a.b(packet);
             }
         }

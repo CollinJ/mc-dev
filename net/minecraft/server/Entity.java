@@ -32,38 +32,39 @@ public abstract class Entity {
     public boolean D;
     public boolean E;
     public boolean F;
-    public float G;
+    public boolean G;
     public float H;
     public float I;
     public float J;
     public float K;
-    protected boolean L;
-    protected float M;
+    public float L;
+    protected boolean M;
+    protected float N;
     private int b;
-    public double N;
     public double O;
     public double P;
-    public float Q;
+    public double Q;
     public float R;
-    public boolean S;
-    public float T;
-    public boolean U;
-    protected Random V;
-    public int W;
+    public float S;
+    public boolean T;
+    public float U;
+    public boolean V;
+    protected Random W;
     public int X;
     public int Y;
-    protected int Z;
-    protected boolean aa;
-    public int ab;
+    public int Z;
+    protected int aa;
+    protected boolean ab;
     public int ac;
+    public int ad;
     private boolean c;
-    protected boolean ad;
+    protected boolean ae;
     private double d;
     private double e;
-    public boolean ae;
-    public int af;
+    public boolean af;
     public int ag;
     public int ah;
+    public int ai;
 
     public Entity(World world) {
         g = a++;
@@ -71,32 +72,33 @@ public abstract class Entity {
         i = false;
         A = false;
         D = false;
-        E = true;
-        F = false;
-        G = 0.0F;
-        H = 0.6F;
-        I = 1.8F;
-        J = 0.0F;
+        E = false;
+        F = true;
+        G = false;
+        H = 0.0F;
+        I = 0.6F;
+        J = 1.8F;
         K = 0.0F;
-        L = true;
-        M = 0.0F;
+        L = 0.0F;
+        M = true;
+        N = 0.0F;
         b = 1;
-        Q = 0.0F;
         R = 0.0F;
-        S = false;
-        T = 0.0F;
-        U = false;
-        V = new Random();
-        W = 0;
-        X = 1;
-        Y = 0;
-        Z = 300;
-        aa = false;
-        ab = 0;
-        ac = 300;
+        S = 0.0F;
+        T = false;
+        U = 0.0F;
+        V = false;
+        W = new Random();
+        X = 0;
+        Y = 1;
+        Z = 0;
+        aa = 300;
+        ab = false;
+        ac = 0;
+        ad = 300;
         c = true;
-        ad = false;
         ae = false;
+        af = false;
         l = world;
         a(0.0D, 0.0D, 0.0D);
     }
@@ -114,12 +116,12 @@ public abstract class Entity {
     }
 
     public void l() {
-        F = true;
+        G = true;
     }
 
     protected void a(float f1, float f2) {
-        H = f1;
-        I = f2;
+        I = f1;
+        J = f2;
     }
 
     protected void b(float f1, float f2) {
@@ -131,10 +133,10 @@ public abstract class Entity {
         p = d1;
         q = d2;
         r = d3;
-        float f1 = H / 2.0F;
-        float f2 = I;
+        float f1 = I / 2.0F;
+        float f2 = J;
 
-        z.c(d1 - (double) f1, (d2 - (double) G) + (double) Q, d3 - (double) f1, d1 + (double) f1, (d2 - (double) G) + (double) Q + (double) f2, d3 + (double) f1);
+        z.c(d1 - (double) f1, (d2 - (double) H) + (double) R, d3 - (double) f1, d1 + (double) f1, (d2 - (double) H) + (double) R + (double) f2, d3 + (double) f1);
     }
 
     public void b_() {
@@ -142,57 +144,59 @@ public abstract class Entity {
     }
 
     public void m() {
-        if (k != null && k.F) {
+        if (k != null && k.G) {
             k = null;
         }
-        W++;
-        J = K;
+        X++;
+        K = L;
         m = p;
         n = q;
         o = r;
         y = w;
         x = v;
         if (r()) {
-            if (!aa && !c) {
+            if (!ab && !c) {
                 float f1 = MathHelper.a(s * s * 0.20000000298023224D + t * t + u * u * 0.20000000298023224D) * 0.2F;
 
                 if (f1 > 1.0F) {
                     f1 = 1.0F;
                 }
-                l.a(this, "random.splash", f1, 1.0F + (V.nextFloat() - V.nextFloat()) * 0.4F);
+                l.a(this, "random.splash", f1, 1.0F + (W.nextFloat() - W.nextFloat()) * 0.4F);
                 float f2 = MathHelper.b(z.b);
 
-                for (int i1 = 0; (float) i1 < 1.0F + H * 20F; i1++) {
-                    float f3 = (V.nextFloat() * 2.0F - 1.0F) * H;
-                    float f5 = (V.nextFloat() * 2.0F - 1.0F) * H;
+                for (int i1 = 0; (float) i1 < 1.0F + I * 20F; i1++) {
+                    float f3 = (W.nextFloat() * 2.0F - 1.0F) * I;
+                    float f5 = (W.nextFloat() * 2.0F - 1.0F) * I;
 
-                    l.a("bubble", p + (double) f3, f2 + 1.0F, r + (double) f5, s, t - (double) (V.nextFloat() * 0.2F), u);
+                    l.a("bubble", p + (double) f3, f2 + 1.0F, r + (double) f5, s, t - (double) (W.nextFloat() * 0.2F), u);
                 }
 
-                for (int j1 = 0; (float) j1 < 1.0F + H * 20F; j1++) {
-                    float f4 = (V.nextFloat() * 2.0F - 1.0F) * H;
-                    float f6 = (V.nextFloat() * 2.0F - 1.0F) * H;
+                for (int j1 = 0; (float) j1 < 1.0F + I * 20F; j1++) {
+                    float f4 = (W.nextFloat() * 2.0F - 1.0F) * I;
+                    float f6 = (W.nextFloat() * 2.0F - 1.0F) * I;
 
                     l.a("splash", p + (double) f4, f2 + 1.0F, r + (double) f6, s, t, u);
                 }
             }
-            M = 0.0F;
-            aa = true;
-            Y = 0;
+            N = 0.0F;
+            ab = true;
+            Z = 0;
         } else {
-            aa = false;
+            ab = false;
         }
-        if (Y > 0) {
-            if (ad) {
-                Y -= 4;
-                if (Y < 0) {
-                    Y = 0;
+        if (l.z) {
+            Z = 0;
+        } else if (Z > 0) {
+            if (ae) {
+                Z -= 4;
+                if (Z < 0) {
+                    Z = 0;
                 }
             } else {
-                if (Y % 20 == 0) {
+                if (Z % 20 == 0) {
                     a(((Entity) (null)), 1);
                 }
-                Y--;
+                Z--;
             }
         }
         if (t()) {
@@ -205,9 +209,9 @@ public abstract class Entity {
     }
 
     protected void n() {
-        if (!ad) {
+        if (!ae) {
             a(((Entity) (null)), 4);
-            Y = 600;
+            Z = 600;
         }
     }
 
@@ -226,10 +230,10 @@ public abstract class Entity {
     }
 
     public void c(double d1, double d2, double d3) {
-        if (S) {
+        if (T) {
             z.d(d1, d2, d3);
             p = (z.a + z.d) / 2D;
-            q = (z.b + (double) G) - (double) Q;
+            q = (z.b + (double) H) - (double) R;
             r = (z.c + z.f) / 2D;
             return;
         }
@@ -275,7 +279,7 @@ public abstract class Entity {
         }
 
         z.d(0.0D, d2, 0.0D);
-        if (!E && d7 != d2) {
+        if (!F && d7 != d2) {
             d1 = d2 = d3 = 0.0D;
         }
         boolean flag1 = A || d7 != d2 && d7 < 0.0D;
@@ -285,7 +289,7 @@ public abstract class Entity {
         }
 
         z.d(d1, 0.0D, 0.0D);
-        if (!E && d6 != d1) {
+        if (!F && d6 != d1) {
             d1 = d2 = d3 = 0.0D;
         }
         for (int k1 = 0; k1 < list.size(); k1++) {
@@ -293,16 +297,16 @@ public abstract class Entity {
         }
 
         z.d(0.0D, 0.0D, d3);
-        if (!E && d8 != d3) {
+        if (!F && d8 != d3) {
             d1 = d2 = d3 = 0.0D;
         }
-        if (R > 0.0F && flag1 && Q < 0.05F && (d6 != d1 || d8 != d3)) {
+        if (S > 0.0F && flag1 && R < 0.05F && (d6 != d1 || d8 != d3)) {
             double d10 = d1;
             double d12 = d2;
             double d14 = d3;
 
             d1 = d6;
-            d2 = R;
+            d2 = S;
             d3 = d8;
             AxisAlignedBB axisalignedbb1 = z.b();
 
@@ -314,7 +318,7 @@ public abstract class Entity {
             }
 
             z.d(0.0D, d2, 0.0D);
-            if (!E && d7 != d2) {
+            if (!F && d7 != d2) {
                 d1 = d2 = d3 = 0.0D;
             }
             for (int k2 = 0; k2 < list1.size(); k2++) {
@@ -322,7 +326,7 @@ public abstract class Entity {
             }
 
             z.d(d1, 0.0D, 0.0D);
-            if (!E && d6 != d1) {
+            if (!F && d6 != d1) {
                 d1 = d2 = d3 = 0.0D;
             }
             for (int l2 = 0; l2 < list1.size(); l2++) {
@@ -330,7 +334,7 @@ public abstract class Entity {
             }
 
             z.d(0.0D, 0.0D, d3);
-            if (!E && d8 != d3) {
+            if (!F && d8 != d3) {
                 d1 = d2 = d3 = 0.0D;
             }
             if (d10 * d10 + d14 * d14 >= d1 * d1 + d3 * d3) {
@@ -339,24 +343,17 @@ public abstract class Entity {
                 d3 = d14;
                 z.b(axisalignedbb1);
             } else {
-                Q += 0.5D;
+                R += 0.5D;
             }
         }
         p = (z.a + z.d) / 2D;
-        q = (z.b + (double) G) - (double) Q;
+        q = (z.b + (double) H) - (double) R;
         r = (z.c + z.f) / 2D;
         B = d6 != d1 || d8 != d3;
         C = d7 != d2;
         A = d7 != d2 && d7 < 0.0D;
         D = B || C;
-        if (A) {
-            if (M > 0.0F) {
-                a(M);
-                M = 0.0F;
-            }
-        } else if (d2 < 0.0D) {
-            M -= ((float) (d2));
-        }
+        a(d2, A);
         if (d6 != d1) {
             s = 0.0D;
         }
@@ -369,14 +366,14 @@ public abstract class Entity {
         double d11 = p - d4;
         double d13 = r - d5;
 
-        K += ((float) ((double) MathHelper.a(d11 * d11 + d13 * d13) * 0.59999999999999998D));
-        if (L && !flag) {
+        L += ((float) ((double) MathHelper.a(d11 * d11 + d13 * d13) * 0.59999999999999998D));
+        if (M && !flag) {
             int k3 = MathHelper.b(p);
-            int i4 = MathHelper.b(q - 0.20000000298023224D - (double) G);
+            int i4 = MathHelper.b(q - 0.20000000298023224D - (double) H);
             int l1 = MathHelper.b(r);
             int i3 = l.a(k3, i4, l1);
 
-            if (K > (float) b && i3 > 0) {
+            if (L > (float) b && i3 > 0) {
                 b++;
                 StepSound stepsound = Block.m[i3].bq;
 
@@ -408,23 +405,34 @@ public abstract class Entity {
             }
         }
 
-        Q *= 0.4F;
+        R *= 0.4F;
         boolean flag2 = r();
 
         if (l.c(z)) {
             b(1);
             if (!flag2) {
-                Y++;
-                if (Y == 0) {
-                    Y = 300;
+                Z++;
+                if (Z == 0) {
+                    Z = 300;
                 }
             }
-        } else if (Y <= 0) {
-            Y = -X;
+        } else if (Z <= 0) {
+            Z = -Y;
         }
-        if (flag2 && Y > 0) {
-            l.a(this, "random.fizz", 0.7F, 1.6F + (V.nextFloat() - V.nextFloat()) * 0.4F);
-            Y = -X;
+        if (flag2 && Z > 0) {
+            l.a(this, "random.fizz", 0.7F, 1.6F + (W.nextFloat() - W.nextFloat()) * 0.4F);
+            Z = -Y;
+        }
+    }
+
+    protected void a(double d1, boolean flag) {
+        if (flag) {
+            if (N > 0.0F) {
+                a(N);
+                N = 0.0F;
+            }
+        } else if (d1 < 0.0D) {
+            N -= ((float) (d1));
         }
     }
 
@@ -437,7 +445,7 @@ public abstract class Entity {
     }
 
     protected void b(int i1) {
-        if (!ad) {
+        if (!ae) {
             a(((Entity) (null)), i1);
         }
     }
@@ -495,7 +503,7 @@ public abstract class Entity {
     public float b(float f1) {
         int i1 = MathHelper.b(p);
         double d1 = (z.e - z.b) * 0.66000000000000003D;
-        int j1 = MathHelper.b((q - (double) G) + d1);
+        int j1 = MathHelper.b((q - (double) H) + d1);
         int k1 = MathHelper.b(r);
 
         return l.j(i1, j1, k1);
@@ -507,7 +515,7 @@ public abstract class Entity {
         o = r = d3;
         x = v = f1;
         y = w = f2;
-        Q = 0.0F;
+        R = 0.0F;
         double d4 = x - f1;
 
         if (d4 < -180D) {
@@ -522,7 +530,7 @@ public abstract class Entity {
 
     public void c(double d1, double d2, double d3, float f1, float f2) {
         m = p = d1;
-        n = q = d2 + (double) G;
+        n = q = d2 + (double) H;
         o = r = d3;
         v = f1;
         w = f2;
@@ -584,8 +592,8 @@ public abstract class Entity {
             d2 *= d4;
             d1 *= 0.05000000074505806D;
             d2 *= 0.05000000074505806D;
-            d1 *= 1.0F - T;
-            d2 *= 1.0F - T;
+            d1 *= 1.0F - U;
+            d2 *= 1.0F - U;
             f(-d1, 0.0D, -d2);
             entity.f(d1, 0.0D, d2);
         }
@@ -597,7 +605,12 @@ public abstract class Entity {
         u += d3;
     }
 
+    protected void u() {
+        E = true;
+    }
+
     public boolean a(Entity entity, int i1) {
+        u();
         return false;
     }
 
@@ -605,16 +618,16 @@ public abstract class Entity {
         return false;
     }
 
-    public boolean u() {
+    public boolean v() {
         return false;
     }
 
     public void b(Entity entity, int i1) {}
 
     public boolean c(NBTTagCompound nbttagcompound) {
-        String s1 = v();
+        String s1 = w();
 
-        if (F || s1 == null) {
+        if (G || s1 == null) {
             return false;
         } else {
             nbttagcompound.a("id", s1);
@@ -633,9 +646,9 @@ public abstract class Entity {
         nbttagcompound.a("Rotation", ((NBTBase) (a(new float[] {
             v, w
         }))));
-        nbttagcompound.a("FallDistance", M);
-        nbttagcompound.a("Fire", (short) Y);
-        nbttagcompound.a("Air", (short) ac);
+        nbttagcompound.a("FallDistance", N);
+        nbttagcompound.a("Fire", (short) Z);
+        nbttagcompound.a("Air", (short) ad);
         nbttagcompound.a("OnGround", A);
         a(nbttagcompound);
     }
@@ -649,20 +662,20 @@ public abstract class Entity {
         s = ((NBTTagDouble) nbttaglist1.a(0)).a;
         t = ((NBTTagDouble) nbttaglist1.a(1)).a;
         u = ((NBTTagDouble) nbttaglist1.a(2)).a;
-        m = N = p = ((NBTTagDouble) nbttaglist.a(0)).a;
-        n = O = q = ((NBTTagDouble) nbttaglist.a(1)).a;
-        o = P = r = ((NBTTagDouble) nbttaglist.a(2)).a;
+        m = O = p = ((NBTTagDouble) nbttaglist.a(0)).a;
+        n = P = q = ((NBTTagDouble) nbttaglist.a(1)).a;
+        o = Q = r = ((NBTTagDouble) nbttaglist.a(2)).a;
         x = v = ((NBTTagFloat) nbttaglist2.a(0)).a;
         y = w = ((NBTTagFloat) nbttaglist2.a(1)).a;
-        M = nbttagcompound.f("FallDistance");
-        Y = ((int) (nbttagcompound.c("Fire")));
-        ac = ((int) (nbttagcompound.c("Air")));
+        N = nbttagcompound.f("FallDistance");
+        Z = ((int) (nbttagcompound.c("Fire")));
+        ad = ((int) (nbttagcompound.c("Air")));
         A = nbttagcompound.l("OnGround");
         a(p, q, r);
         b(nbttagcompound);
     }
 
-    protected final String v() {
+    protected final String w() {
         return EntityList.b(this);
     }
 
@@ -710,11 +723,11 @@ public abstract class Entity {
         return entityitem;
     }
 
-    public boolean w() {
-        return !F;
+    public boolean x() {
+        return !G;
     }
 
-    public boolean x() {
+    public boolean y() {
         int i1 = MathHelper.b(p);
         int j1 = MathHelper.b(q + (double) s());
         int k1 = MathHelper.b(r);
@@ -730,8 +743,8 @@ public abstract class Entity {
         return null;
     }
 
-    public void y() {
-        if (k.F) {
+    public void z() {
+        if (k.G) {
             k = null;
             return;
         }
@@ -739,7 +752,7 @@ public abstract class Entity {
         t = 0.0D;
         u = 0.0D;
         b_();
-        k.z();
+        k.A();
         e += k.v - k.x;
         d += k.w - k.y;
         for (; e >= 180D; e -= 360D) {
@@ -776,16 +789,16 @@ public abstract class Entity {
         w += ((float) (d2));
     }
 
-    public void z() {
-        j.a(p, q + j() + j.A(), r);
+    public void A() {
+        j.a(p, q + j() + j.B(), r);
     }
 
-    public double A() {
-        return (double) G;
+    public double B() {
+        return (double) H;
     }
 
     public double j() {
-        return (double) I * 0.75D;
+        return (double) J * 0.75D;
     }
 
     public void e(Entity entity) {
@@ -793,7 +806,7 @@ public abstract class Entity {
         e = 0.0D;
         if (entity == null) {
             if (k != null) {
-                c(k.p, k.z.b + (double) k.I, k.r, v, w);
+                c(k.p, k.z.b + (double) k.J, k.r, v, w);
                 k.j = null;
             }
             k = null;
@@ -802,7 +815,7 @@ public abstract class Entity {
         if (k == entity) {
             k.j = null;
             k = null;
-            c(entity.p, entity.z.b + (double) entity.I, entity.r, v, w);
+            c(entity.p, entity.z.b + (double) entity.J, entity.r, v, w);
             return;
         }
         if (k != null) {
@@ -815,9 +828,9 @@ public abstract class Entity {
         entity.j = this;
     }
 
-    public Vec3D B() {
+    public Vec3D C() {
         return null;
     }
 
-    public void C() {}
+    public void D() {}
 }

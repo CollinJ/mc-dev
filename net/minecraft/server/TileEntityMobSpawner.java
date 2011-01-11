@@ -79,7 +79,7 @@ public class TileEntityMobSpawner extends TileEntity {
                 a.a("flame", d2, d4, d6, 0.0D, 0.0D, 0.0D);
             }
 
-            entityliving.I();
+            entityliving.K();
             d();
         }
 
