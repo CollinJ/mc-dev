@@ -6,14 +6,14 @@ public class EntityCreeper extends EntityMobs {
 
     int a;
     int b;
-    int ad;
-    int ae;
+    int c;
+    int d;
 
     public EntityCreeper(World world) {
         super(world);
-        ad = 30;
-        ae = -1;
-        aC = "/mob/creeper.png";
+        c = 30;
+        d = -1;
+        aF = "/mob/creeper.png";
     }
 
     public void a(NBTTagCompound nbttagcompound) {
@@ -24,51 +24,51 @@ public class EntityCreeper extends EntityMobs {
         super.b(nbttagcompound);
     }
 
-    protected void d_() {
+    protected void c() {
         b = a;
-        if (a > 0 && ae < 0) {
+        if (a > 0 && d < 0) {
             a--;
         }
-        if (ae >= 0) {
-            ae = 2;
+        if (d >= 0) {
+            d = 2;
         }
-        super.d_();
-        if (ae != 1) {
-            ae = -1;
+        super.c();
+        if (d != 1) {
+            d = -1;
         }
-    }
-
-    protected String d() {
-        return "mob.creeper";
     }
 
     protected String e() {
+        return "mob.creeper";
+    }
+
+    protected String f() {
         return "mob.creeperdeath";
     }
 
     public void f(Entity entity) {
         super.f(entity);
         if (entity instanceof EntitySkeleton) {
-            a(Item.aQ.aS + R.nextInt(2), 1);
+            a(Item.aU.aW + V.nextInt(2), 1);
         }
     }
 
     protected void a(Entity entity, float f1) {
-        if (ae <= 0 && f1 < 3F || ae > 0 && f1 < 7F) {
+        if (d <= 0 && f1 < 3F || d > 0 && f1 < 7F) {
             if (a == 0) {
-                h.a(((Entity) (this)), "random.fuse", 1.0F, 0.5F);
+                l.a(((Entity) (this)), "random.fuse", 1.0F, 0.5F);
             }
-            ae = 1;
+            d = 1;
             a++;
-            if (a == ad) {
-                h.a(((Entity) (this)), l, m, n, 3F);
-                j();
+            if (a == c) {
+                l.a(((Entity) (this)), p, q, r, 3F);
+                l();
             }
-            ah = true;
+            ai = true;
         }
     }
 
     protected int g() {
-        return Item.K.aS;
+        return Item.K.aW;
     }
 }

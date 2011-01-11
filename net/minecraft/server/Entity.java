@@ -6,230 +6,247 @@ import java.util.Random;
 public abstract class Entity {
 
     private static int a = 0;
-    public int c;
-    public double d;
-    public boolean e;
-    public Entity f;
-    public Entity g;
-    protected World h;
-    public double i;
-    public double j;
-    public double k;
-    public double l;
+    public int g;
+    public double h;
+    public boolean i;
+    public Entity j;
+    public Entity k;
+    public World l;
     public double m;
     public double n;
     public double o;
     public double p;
     public double q;
-    public float r;
-    public float s;
-    public float t;
-    public float u;
-    public final AxisAlignedBB v = AxisAlignedBB.a(0.0D, 0.0D, 0.0D, 0.0D, 0.0D, 0.0D);
-    public boolean w;
-    public boolean x;
-    public boolean y;
-    public boolean z;
+    public double r;
+    public double s;
+    public double t;
+    public double u;
+    public float v;
+    public float w;
+    public float x;
+    public float y;
+    public final AxisAlignedBB z = AxisAlignedBB.a(0.0D, 0.0D, 0.0D, 0.0D, 0.0D, 0.0D);
     public boolean A;
     public boolean B;
-    public float C;
-    public float D;
-    public float E;
-    public float F;
+    public boolean C;
+    public boolean D;
+    public boolean E;
+    public boolean F;
     public float G;
-    protected boolean H;
-    protected float I;
+    public float H;
+    public float I;
+    public float J;
+    public float K;
+    protected boolean L;
+    protected float M;
     private int b;
-    public double J;
-    public double K;
-    public double L;
-    public float M;
-    public float N;
-    public boolean O;
-    public float P;
-    public boolean Q;
-    protected Random R;
-    public int S;
-    public int T;
-    public int U;
-    protected int V;
-    protected boolean W;
+    public double N;
+    public double O;
+    public double P;
+    public float Q;
+    public float R;
+    public boolean S;
+    public float T;
+    public boolean U;
+    protected Random V;
+    public int W;
     public int X;
     public int Y;
-    private boolean ad;
-    private double ae;
-    private double af;
-    public boolean Z;
-    public int aa;
+    protected int Z;
+    protected boolean aa;
     public int ab;
     public int ac;
+    private boolean c;
+    protected boolean ad;
+    private double d;
+    private double e;
+    public boolean ae;
+    public int af;
+    public int ag;
+    public int ah;
 
     public Entity(World world) {
-        c = a++;
-        d = 1.0D;
-        e = false;
-        w = false;
-        z = false;
-        A = true;
-        B = false;
-        C = 0.0F;
-        D = 0.6F;
-        E = 1.8F;
-        F = 0.0F;
+        g = a++;
+        h = 1.0D;
+        i = false;
+        A = false;
+        D = false;
+        E = true;
+        F = false;
         G = 0.0F;
-        H = true;
-        I = 0.0F;
-        b = 1;
+        H = 0.6F;
+        I = 1.8F;
+        J = 0.0F;
+        K = 0.0F;
+        L = true;
         M = 0.0F;
-        N = 0.0F;
-        O = false;
-        P = 0.0F;
-        Q = false;
-        R = new Random();
-        S = 0;
-        T = 1;
-        U = 0;
-        V = 300;
-        W = false;
-        X = 0;
-        Y = 300;
-        ad = true;
-        Z = false;
-        h = world;
+        b = 1;
+        Q = 0.0F;
+        R = 0.0F;
+        S = false;
+        T = 0.0F;
+        U = false;
+        V = new Random();
+        W = 0;
+        X = 1;
+        Y = 0;
+        Z = 300;
+        aa = false;
+        ab = 0;
+        ac = 300;
+        c = true;
+        ad = false;
+        ae = false;
+        l = world;
         a(0.0D, 0.0D, 0.0D);
     }
 
     public boolean equals(Object obj) {
         if (obj instanceof Entity) {
-            return ((Entity) obj).c == c;
+            return ((Entity) obj).g == g;
         } else {
             return false;
         }
     }
 
     public int hashCode() {
-        return c;
+        return g;
     }
 
-    public void j() {
-        B = true;
+    public void l() {
+        F = true;
     }
 
     protected void a(float f1, float f2) {
-        D = f1;
-        E = f2;
+        H = f1;
+        I = f2;
     }
 
     protected void b(float f1, float f2) {
-        r = f1;
-        s = f2;
+        v = f1;
+        w = f2;
     }
 
     public void a(double d1, double d2, double d3) {
-        l = d1;
-        m = d2;
-        n = d3;
-        float f1 = D / 2.0F;
-        float f2 = E;
+        p = d1;
+        q = d2;
+        r = d3;
+        float f1 = H / 2.0F;
+        float f2 = I;
 
-        v.c(d1 - (double) f1, (d2 - (double) C) + (double) M, d3 - (double) f1, d1 + (double) f1, (d2 - (double) C) + (double) M + (double) f2, d3 + (double) f1);
+        z.c(d1 - (double) f1, (d2 - (double) G) + (double) Q, d3 - (double) f1, d1 + (double) f1, (d2 - (double) G) + (double) Q + (double) f2, d3 + (double) f1);
     }
 
     public void b_() {
-        k();
+        m();
     }
 
-    public void k() {
-        if (g != null && g.B) {
-            g = null;
+    public void m() {
+        if (k != null && k.F) {
+            k = null;
         }
-        S++;
-        F = G;
-        i = l;
-        j = m;
-        k = n;
-        u = s;
-        t = r;
-        if (o()) {
-            if (!W && !ad) {
-                float f1 = MathHelper.a(o * o * 0.20000000298023224D + p * p + q * q * 0.20000000298023224D) * 0.2F;
+        W++;
+        J = K;
+        m = p;
+        n = q;
+        o = r;
+        y = w;
+        x = v;
+        if (r()) {
+            if (!aa && !c) {
+                float f1 = MathHelper.a(s * s * 0.20000000298023224D + t * t + u * u * 0.20000000298023224D) * 0.2F;
 
                 if (f1 > 1.0F) {
                     f1 = 1.0F;
                 }
-                h.a(this, "random.splash", f1, 1.0F + (R.nextFloat() - R.nextFloat()) * 0.4F);
-                float f2 = MathHelper.b(v.b);
+                l.a(this, "random.splash", f1, 1.0F + (V.nextFloat() - V.nextFloat()) * 0.4F);
+                float f2 = MathHelper.b(z.b);
 
-                for (int i1 = 0; (float) i1 < 1.0F + D * 20F; i1++) {
-                    float f3 = (R.nextFloat() * 2.0F - 1.0F) * D;
-                    float f5 = (R.nextFloat() * 2.0F - 1.0F) * D;
+                for (int i1 = 0; (float) i1 < 1.0F + H * 20F; i1++) {
+                    float f3 = (V.nextFloat() * 2.0F - 1.0F) * H;
+                    float f5 = (V.nextFloat() * 2.0F - 1.0F) * H;
 
-                    h.a("bubble", l + (double) f3, f2 + 1.0F, n + (double) f5, o, p - (double) (R.nextFloat() * 0.2F), q);
+                    l.a("bubble", p + (double) f3, f2 + 1.0F, r + (double) f5, s, t - (double) (V.nextFloat() * 0.2F), u);
                 }
 
-                for (int j1 = 0; (float) j1 < 1.0F + D * 20F; j1++) {
-                    float f4 = (R.nextFloat() * 2.0F - 1.0F) * D;
-                    float f6 = (R.nextFloat() * 2.0F - 1.0F) * D;
+                for (int j1 = 0; (float) j1 < 1.0F + H * 20F; j1++) {
+                    float f4 = (V.nextFloat() * 2.0F - 1.0F) * H;
+                    float f6 = (V.nextFloat() * 2.0F - 1.0F) * H;
 
-                    h.a("splash", l + (double) f4, f2 + 1.0F, n + (double) f6, o, p, q);
+                    l.a("splash", p + (double) f4, f2 + 1.0F, r + (double) f6, s, t, u);
                 }
             }
-            I = 0.0F;
-            W = true;
-            U = 0;
+            M = 0.0F;
+            aa = true;
+            Y = 0;
         } else {
-            W = false;
+            aa = false;
         }
-        if (U > 0) {
-            if (U % 20 == 0) {
-                a(((Entity) (null)), 1);
+        if (Y > 0) {
+            if (ad) {
+                Y -= 4;
+                if (Y < 0) {
+                    Y = 0;
+                }
+            } else {
+                if (Y % 20 == 0) {
+                    a(((Entity) (null)), 1);
+                }
+                Y--;
             }
-            U--;
         }
-        if (q()) {
-            a(((Entity) (null)), 10);
-            U = 600;
+        if (t()) {
+            n();
         }
-        if (m < -64D) {
-            l();
+        if (q < -64D) {
+            o();
         }
-        ad = false;
+        c = false;
     }
 
-    protected void l() {
-        j();
+    protected void n() {
+        if (ad) {
+            Y = 600;
+        } else {
+            a(((Entity) (null)), 4);
+            Y = 600;
+        }
+    }
+
+    protected void o() {
+        l();
     }
 
     public boolean b(double d1, double d2, double d3) {
-        AxisAlignedBB axisalignedbb = v.c(d1, d2, d3);
-        List list = h.a(this, axisalignedbb);
+        AxisAlignedBB axisalignedbb = z.c(d1, d2, d3);
+        List list = l.a(this, axisalignedbb);
 
         if (list.size() > 0) {
             return false;
         }
-        return !h.b(axisalignedbb);
+        return !l.b(axisalignedbb);
     }
 
     public void c(double d1, double d2, double d3) {
-        if (O) {
-            v.d(d1, d2, d3);
-            l = (v.a + v.d) / 2D;
-            m = (v.b + (double) C) - (double) M;
-            n = (v.c + v.f) / 2D;
+        if (S) {
+            z.d(d1, d2, d3);
+            p = (z.a + z.d) / 2D;
+            q = (z.b + (double) G) - (double) Q;
+            r = (z.c + z.f) / 2D;
             return;
         }
-        double d4 = l;
-        double d5 = n;
+        double d4 = p;
+        double d5 = r;
         double d6 = d1;
         double d7 = d2;
         double d8 = d3;
-        AxisAlignedBB axisalignedbb = v.b();
-        boolean flag = w && m();
+        AxisAlignedBB axisalignedbb = z.b();
+        boolean flag = A && p();
 
         if (flag) {
             double d9 = 0.050000000000000003D;
 
-            for (; d1 != 0.0D && h.a(this, v.c(d1, -1D, 0.0D)).size() == 0; d6 = d1) {
+            for (; d1 != 0.0D && l.a(this, z.c(d1, -1D, 0.0D)).size() == 0; d6 = d1) {
                 if (d1 < d9 && d1 >= -d9) {
                     d1 = 0.0D;
                     continue;
@@ -241,7 +258,7 @@ public abstract class Entity {
                 }
             }
 
-            for (; d3 != 0.0D && h.a(this, v.c(0.0D, -1D, d3)).size() == 0; d8 = d3) {
+            for (; d3 != 0.0D && l.a(this, z.c(0.0D, -1D, d3)).size() == 0; d8 = d3) {
                 if (d3 < d9 && d3 >= -d9) {
                     d3 = 0.0D;
                     continue;
@@ -253,171 +270,171 @@ public abstract class Entity {
                 }
             }
         }
-        List list = h.a(this, v.a(d1, d2, d3));
+        List list = l.a(this, z.a(d1, d2, d3));
 
         for (int i1 = 0; i1 < list.size(); i1++) {
-            d2 = ((AxisAlignedBB) list.get(i1)).b(v, d2);
+            d2 = ((AxisAlignedBB) list.get(i1)).b(z, d2);
         }
 
-        v.d(0.0D, d2, 0.0D);
-        if (!A && d7 != d2) {
+        z.d(0.0D, d2, 0.0D);
+        if (!E && d7 != d2) {
             d1 = d2 = d3 = 0.0D;
         }
-        boolean flag1 = w || d7 != d2 && d7 < 0.0D;
+        boolean flag1 = A || d7 != d2 && d7 < 0.0D;
 
         for (int j1 = 0; j1 < list.size(); j1++) {
-            d1 = ((AxisAlignedBB) list.get(j1)).a(v, d1);
+            d1 = ((AxisAlignedBB) list.get(j1)).a(z, d1);
         }
 
-        v.d(d1, 0.0D, 0.0D);
-        if (!A && d6 != d1) {
+        z.d(d1, 0.0D, 0.0D);
+        if (!E && d6 != d1) {
             d1 = d2 = d3 = 0.0D;
         }
         for (int k1 = 0; k1 < list.size(); k1++) {
-            d3 = ((AxisAlignedBB) list.get(k1)).c(v, d3);
+            d3 = ((AxisAlignedBB) list.get(k1)).c(z, d3);
         }
 
-        v.d(0.0D, 0.0D, d3);
-        if (!A && d8 != d3) {
+        z.d(0.0D, 0.0D, d3);
+        if (!E && d8 != d3) {
             d1 = d2 = d3 = 0.0D;
         }
-        if (N > 0.0F && flag1 && M < 0.05F && (d6 != d1 || d8 != d3)) {
+        if (R > 0.0F && flag1 && Q < 0.05F && (d6 != d1 || d8 != d3)) {
             double d10 = d1;
             double d12 = d2;
             double d14 = d3;
 
             d1 = d6;
-            d2 = N;
+            d2 = R;
             d3 = d8;
-            AxisAlignedBB axisalignedbb1 = v.b();
+            AxisAlignedBB axisalignedbb1 = z.b();
 
-            v.b(axisalignedbb);
-            List list1 = h.a(this, v.a(d1, d2, d3));
+            z.b(axisalignedbb);
+            List list1 = l.a(this, z.a(d1, d2, d3));
 
             for (int j2 = 0; j2 < list1.size(); j2++) {
-                d2 = ((AxisAlignedBB) list1.get(j2)).b(v, d2);
+                d2 = ((AxisAlignedBB) list1.get(j2)).b(z, d2);
             }
 
-            v.d(0.0D, d2, 0.0D);
-            if (!A && d7 != d2) {
+            z.d(0.0D, d2, 0.0D);
+            if (!E && d7 != d2) {
                 d1 = d2 = d3 = 0.0D;
             }
             for (int k2 = 0; k2 < list1.size(); k2++) {
-                d1 = ((AxisAlignedBB) list1.get(k2)).a(v, d1);
+                d1 = ((AxisAlignedBB) list1.get(k2)).a(z, d1);
             }
 
-            v.d(d1, 0.0D, 0.0D);
-            if (!A && d6 != d1) {
+            z.d(d1, 0.0D, 0.0D);
+            if (!E && d6 != d1) {
                 d1 = d2 = d3 = 0.0D;
             }
             for (int l2 = 0; l2 < list1.size(); l2++) {
-                d3 = ((AxisAlignedBB) list1.get(l2)).c(v, d3);
+                d3 = ((AxisAlignedBB) list1.get(l2)).c(z, d3);
             }
 
-            v.d(0.0D, 0.0D, d3);
-            if (!A && d8 != d3) {
+            z.d(0.0D, 0.0D, d3);
+            if (!E && d8 != d3) {
                 d1 = d2 = d3 = 0.0D;
             }
             if (d10 * d10 + d14 * d14 >= d1 * d1 + d3 * d3) {
                 d1 = d10;
                 d2 = d12;
                 d3 = d14;
-                v.b(axisalignedbb1);
+                z.b(axisalignedbb1);
             } else {
-                M += 0.5D;
+                Q += 0.5D;
             }
         }
-        l = (v.a + v.d) / 2D;
-        m = (v.b + (double) C) - (double) M;
-        n = (v.c + v.f) / 2D;
-        x = d6 != d1 || d8 != d3;
-        y = d7 != d2;
-        w = d7 != d2 && d7 < 0.0D;
-        z = x || y;
-        if (w) {
-            if (I > 0.0F) {
-                a(I);
-                I = 0.0F;
+        p = (z.a + z.d) / 2D;
+        q = (z.b + (double) G) - (double) Q;
+        r = (z.c + z.f) / 2D;
+        B = d6 != d1 || d8 != d3;
+        C = d7 != d2;
+        A = d7 != d2 && d7 < 0.0D;
+        D = B || C;
+        if (A) {
+            if (M > 0.0F) {
+                a(M);
+                M = 0.0F;
             }
         } else if (d2 < 0.0D) {
-            I -= ((float) (d2));
+            M -= ((float) (d2));
         }
         if (d6 != d1) {
-            o = 0.0D;
+            s = 0.0D;
         }
         if (d7 != d2) {
-            p = 0.0D;
+            t = 0.0D;
         }
         if (d8 != d3) {
-            q = 0.0D;
+            u = 0.0D;
         }
-        double d11 = l - d4;
-        double d13 = n - d5;
+        double d11 = p - d4;
+        double d13 = r - d5;
 
-        G += ((float) ((double) MathHelper.a(d11 * d11 + d13 * d13) * 0.59999999999999998D));
-        if (H && !flag) {
-            int k3 = MathHelper.b(l);
-            int i4 = MathHelper.b(m - 0.20000000298023224D - (double) C);
-            int l1 = MathHelper.b(n);
-            int i3 = h.a(k3, i4, l1);
+        K += ((float) ((double) MathHelper.a(d11 * d11 + d13 * d13) * 0.59999999999999998D));
+        if (L && !flag) {
+            int k3 = MathHelper.b(p);
+            int i4 = MathHelper.b(q - 0.20000000298023224D - (double) G);
+            int l1 = MathHelper.b(r);
+            int i3 = l.a(k3, i4, l1);
 
-            if (G > (float) b && i3 > 0) {
+            if (K > (float) b && i3 > 0) {
                 b++;
-                StepSound stepsound = Block.n[i3].bl;
+                StepSound stepsound = Block.n[i3].br;
 
-                if (h.a(k3, i4 + 1, l1) == Block.aT.bc) {
-                    stepsound = Block.aT.bl;
-                    h.a(this, stepsound.c(), stepsound.a() * 0.15F, stepsound.b());
-                } else if (!Block.n[i3].bn.d()) {
-                    h.a(this, stepsound.c(), stepsound.a() * 0.15F, stepsound.b());
+                if (l.a(k3, i4 + 1, l1) == Block.aT.bi) {
+                    stepsound = Block.aT.br;
+                    l.a(this, stepsound.c(), stepsound.a() * 0.15F, stepsound.b());
+                } else if (!Block.n[i3].bt.d()) {
+                    l.a(this, stepsound.c(), stepsound.a() * 0.15F, stepsound.b());
                 }
-                Block.n[i3].b(h, k3, i4, l1, this);
+                Block.n[i3].b(l, k3, i4, l1, this);
             }
         }
-        int l3 = MathHelper.b(v.a);
-        int j4 = MathHelper.b(v.b);
-        int i2 = MathHelper.b(v.c);
-        int j3 = MathHelper.b(v.d);
-        int k4 = MathHelper.b(v.e);
-        int l4 = MathHelper.b(v.f);
+        int l3 = MathHelper.b(z.a);
+        int j4 = MathHelper.b(z.b);
+        int i2 = MathHelper.b(z.c);
+        int j3 = MathHelper.b(z.d);
+        int k4 = MathHelper.b(z.e);
+        int l4 = MathHelper.b(z.f);
 
         for (int i5 = l3; i5 <= j3; i5++) {
             for (int j5 = j4; j5 <= k4; j5++) {
                 for (int k5 = i2; k5 <= l4; k5++) {
-                    int l5 = h.a(i5, j5, k5);
+                    int l5 = l.a(i5, j5, k5);
 
                     if (l5 > 0) {
-                        Block.n[l5].a(h, i5, j5, k5, this);
+                        Block.n[l5].a(l, i5, j5, k5, this);
                     }
                 }
             }
         }
 
-        M *= 0.4F;
-        boolean flag2 = o();
+        Q *= 0.4F;
+        boolean flag2 = r();
 
-        if (h.c(v)) {
+        if (l.c(z)) {
             b(1);
             if (!flag2) {
-                U++;
-                if (U == 0) {
-                    U = 300;
+                Y++;
+                if (Y == 0) {
+                    Y = 300;
                 }
             }
-        } else if (U <= 0) {
-            U = -T;
+        } else if (Y <= 0) {
+            Y = -X;
         }
-        if (flag2 && U > 0) {
-            h.a(this, "random.fizz", 0.7F, 1.6F + (R.nextFloat() - R.nextFloat()) * 0.4F);
-            U = -T;
+        if (flag2 && Y > 0) {
+            l.a(this, "random.fizz", 0.7F, 1.6F + (V.nextFloat() - V.nextFloat()) * 0.4F);
+            Y = -X;
         }
     }
 
-    public boolean m() {
+    public boolean p() {
         return false;
     }
 
-    public AxisAlignedBB n() {
+    public AxisAlignedBB q() {
         return null;
     }
 
@@ -427,19 +444,19 @@ public abstract class Entity {
 
     protected void a(float f1) {}
 
-    public boolean o() {
-        return h.a(v.b(0.0D, -0.40000000596046448D, 0.0D), Material.f, this);
+    public boolean r() {
+        return l.a(z.b(0.0D, -0.40000000596046448D, 0.0D), Material.f, this);
     }
 
     public boolean a(Material material) {
-        double d1 = m + (double) p();
-        int i1 = MathHelper.b(l);
+        double d1 = q + (double) s();
+        int i1 = MathHelper.b(p);
         int j1 = MathHelper.d(MathHelper.b(d1));
-        int k1 = MathHelper.b(n);
-        int l1 = h.a(i1, j1, k1);
+        int k1 = MathHelper.b(r);
+        int l1 = l.a(i1, j1, k1);
 
-        if (l1 != 0 && Block.n[l1].bn == material) {
-            float f1 = BlockFluids.b(h.b(i1, j1, k1)) - 0.1111111F;
+        if (l1 != 0 && Block.n[l1].bt == material) {
+            float f1 = BlockFluids.b(l.b(i1, j1, k1)) - 0.1111111F;
             float f2 = (float) (j1 + 1) - f1;
 
             return d1 < (double) f2;
@@ -448,12 +465,12 @@ public abstract class Entity {
         }
     }
 
-    protected float p() {
+    protected float s() {
         return 0.0F;
     }
 
-    public boolean q() {
-        return h.a(v.b(0.0D, -0.40000000596046448D, 0.0D), Material.g);
+    public boolean t() {
+        return l.a(z.b(0.0D, -0.40000000596046448D, 0.0D), Material.g);
     }
 
     public void a(float f1, float f2, float f3) {
@@ -468,77 +485,77 @@ public abstract class Entity {
         f4 = f3 / f4;
         f1 *= f4;
         f2 *= f4;
-        float f5 = MathHelper.a((r * 3.141593F) / 180F);
-        float f6 = MathHelper.b((r * 3.141593F) / 180F);
+        float f5 = MathHelper.a((v * 3.141593F) / 180F);
+        float f6 = MathHelper.b((v * 3.141593F) / 180F);
 
-        o += f1 * f6 - f2 * f5;
-        q += f2 * f6 + f1 * f5;
+        s += f1 * f6 - f2 * f5;
+        u += f2 * f6 + f1 * f5;
     }
 
     public float b(float f1) {
-        int i1 = MathHelper.b(l);
-        double d1 = (v.e - v.b) * 0.66000000000000003D;
-        int j1 = MathHelper.b((m - (double) C) + d1);
-        int k1 = MathHelper.b(n);
+        int i1 = MathHelper.b(p);
+        double d1 = (z.e - z.b) * 0.66000000000000003D;
+        int j1 = MathHelper.b((q - (double) G) + d1);
+        int k1 = MathHelper.b(r);
 
-        return h.j(i1, j1, k1);
+        return l.j(i1, j1, k1);
     }
 
     public void b(double d1, double d2, double d3, float f1, float f2) {
-        i = l = d1;
-        j = m = d2;
-        k = n = d3;
-        r = f1;
-        s = f2;
-        M = 0.0F;
-        double d4 = t - f1;
+        m = p = d1;
+        n = q = d2;
+        o = r = d3;
+        v = f1;
+        w = f2;
+        Q = 0.0F;
+        double d4 = x - f1;
 
         if (d4 < -180D) {
-            t += 360F;
+            x += 360F;
         }
         if (d4 >= 180D) {
-            t -= 360F;
+            x -= 360F;
         }
-        a(l, m, n);
+        a(p, q, r);
     }
 
     public void c(double d1, double d2, double d3, float f1, float f2) {
-        i = l = d1;
-        j = m = d2 + (double) C;
-        k = n = d3;
-        r = f1;
-        s = f2;
-        a(l, m, n);
+        m = p = d1;
+        n = q = d2 + (double) G;
+        o = r = d3;
+        v = f1;
+        w = f2;
+        a(p, q, r);
     }
 
     public float a(Entity entity) {
-        float f1 = (float) (l - entity.l);
-        float f2 = (float) (m - entity.m);
-        float f3 = (float) (n - entity.n);
+        float f1 = (float) (p - entity.p);
+        float f2 = (float) (q - entity.q);
+        float f3 = (float) (r - entity.r);
 
         return MathHelper.c(f1 * f1 + f2 * f2 + f3 * f3);
     }
 
     public double d(double d1, double d2, double d3) {
-        double d4 = l - d1;
-        double d5 = m - d2;
-        double d6 = n - d3;
+        double d4 = p - d1;
+        double d5 = q - d2;
+        double d6 = r - d3;
 
         return d4 * d4 + d5 * d5 + d6 * d6;
     }
 
     public double e(double d1, double d2, double d3) {
-        double d4 = l - d1;
-        double d5 = m - d2;
-        double d6 = n - d3;
+        double d4 = p - d1;
+        double d5 = q - d2;
+        double d6 = r - d3;
 
         return (double) MathHelper.a(d4 * d4 + d5 * d5 + d6 * d6);
     }
 
     public double b(Entity entity) {
-        double d1 = l - entity.l;
-        double d2 = m - entity.m;
-        double d3 = n - entity.n;
+        double d1 = p - entity.p;
+        double d2 = q - entity.q;
+        double d3 = r - entity.r;
 
         return d1 * d1 + d2 * d2 + d3 * d3;
     }
@@ -546,11 +563,11 @@ public abstract class Entity {
     public void a(EntityPlayer entityplayer) {}
 
     public void c(Entity entity) {
-        if (entity.f == this || entity.g == this) {
+        if (entity.j == this || entity.k == this) {
             return;
         }
-        double d1 = entity.l - l;
-        double d2 = entity.n - n;
+        double d1 = entity.p - p;
+        double d2 = entity.r - r;
         double d3 = MathHelper.a(d1, d2);
 
         if (d3 >= 0.0099999997764825821D) {
@@ -566,17 +583,17 @@ public abstract class Entity {
             d2 *= d4;
             d1 *= 0.05000000074505806D;
             d2 *= 0.05000000074505806D;
-            d1 *= 1.0F - P;
-            d2 *= 1.0F - P;
+            d1 *= 1.0F - T;
+            d2 *= 1.0F - T;
             f(-d1, 0.0D, -d2);
             entity.f(d1, 0.0D, d2);
         }
     }
 
     public void f(double d1, double d2, double d3) {
-        o += d1;
-        p += d2;
-        q += d3;
+        s += d1;
+        t += d2;
+        u += d3;
     }
 
     public boolean a(Entity entity, int i1) {
@@ -587,16 +604,16 @@ public abstract class Entity {
         return false;
     }
 
-    public boolean r() {
+    public boolean u() {
         return false;
     }
 
     public void b(Entity entity, int i1) {}
 
     public boolean c(NBTTagCompound nbttagcompound) {
-        String s1 = s();
+        String s1 = v();
 
-        if (B || s1 == null) {
+        if (F || s1 == null) {
             return false;
         } else {
             nbttagcompound.a("id", s1);
@@ -607,18 +624,18 @@ public abstract class Entity {
 
     public void d(NBTTagCompound nbttagcompound) {
         nbttagcompound.a("Pos", ((NBTBase) (a(new double[] {
-            l, m, n
+            p, q, r
         }))));
         nbttagcompound.a("Motion", ((NBTBase) (a(new double[] {
-            o, p, q
+            s, t, u
         }))));
         nbttagcompound.a("Rotation", ((NBTBase) (a(new float[] {
-            r, s
+            v, w
         }))));
-        nbttagcompound.a("FallDistance", I);
-        nbttagcompound.a("Fire", (short) U);
-        nbttagcompound.a("Air", (short) Y);
-        nbttagcompound.a("OnGround", w);
+        nbttagcompound.a("FallDistance", M);
+        nbttagcompound.a("Fire", (short) Y);
+        nbttagcompound.a("Air", (short) ac);
+        nbttagcompound.a("OnGround", A);
         a(nbttagcompound);
     }
 
@@ -628,23 +645,23 @@ public abstract class Entity {
         NBTTagList nbttaglist2 = nbttagcompound.k("Rotation");
 
         a(0.0D, 0.0D, 0.0D);
-        o = ((NBTTagDouble) nbttaglist1.a(0)).a;
-        p = ((NBTTagDouble) nbttaglist1.a(1)).a;
-        q = ((NBTTagDouble) nbttaglist1.a(2)).a;
-        i = J = l = ((NBTTagDouble) nbttaglist.a(0)).a;
-        j = K = m = ((NBTTagDouble) nbttaglist.a(1)).a;
-        k = L = n = ((NBTTagDouble) nbttaglist.a(2)).a;
-        t = r = ((NBTTagFloat) nbttaglist2.a(0)).a;
-        u = s = ((NBTTagFloat) nbttaglist2.a(1)).a;
-        I = nbttagcompound.f("FallDistance");
-        U = ((int) (nbttagcompound.c("Fire")));
-        Y = ((int) (nbttagcompound.c("Air")));
-        w = nbttagcompound.l("OnGround");
-        a(l, m, n);
+        s = ((NBTTagDouble) nbttaglist1.a(0)).a;
+        t = ((NBTTagDouble) nbttaglist1.a(1)).a;
+        u = ((NBTTagDouble) nbttaglist1.a(2)).a;
+        m = N = p = ((NBTTagDouble) nbttaglist.a(0)).a;
+        n = O = q = ((NBTTagDouble) nbttaglist.a(1)).a;
+        o = P = r = ((NBTTagDouble) nbttaglist.a(2)).a;
+        x = v = ((NBTTagFloat) nbttaglist2.a(0)).a;
+        y = w = ((NBTTagFloat) nbttaglist2.a(1)).a;
+        M = nbttagcompound.f("FallDistance");
+        Y = ((int) (nbttagcompound.c("Fire")));
+        ac = ((int) (nbttagcompound.c("Air")));
+        A = nbttagcompound.l("OnGround");
+        a(p, q, r);
         b(nbttagcompound);
     }
 
-    protected final String s() {
+    protected final String v() {
         return EntityList.b(this);
     }
 
@@ -685,55 +702,55 @@ public abstract class Entity {
     }
 
     public EntityItem a(int i1, int j1, float f1) {
-        EntityItem entityitem = new EntityItem(h, l, m + (double) f1, n, new ItemStack(i1, j1));
+        EntityItem entityitem = new EntityItem(l, p, q + (double) f1, r, new ItemStack(i1, j1));
 
-        entityitem.ad = 10;
-        h.a(((Entity) (entityitem)));
+        entityitem.c = 10;
+        l.a(((Entity) (entityitem)));
         return entityitem;
     }
 
-    public boolean t() {
-        return !B;
+    public boolean w() {
+        return !F;
     }
 
-    public boolean u() {
-        int i1 = MathHelper.b(l);
-        int j1 = MathHelper.b(m + (double) p());
-        int k1 = MathHelper.b(n);
+    public boolean x() {
+        int i1 = MathHelper.b(p);
+        int j1 = MathHelper.b(q + (double) s());
+        int k1 = MathHelper.b(r);
 
-        return h.d(i1, j1, k1);
+        return l.d(i1, j1, k1);
     }
 
     public AxisAlignedBB d(Entity entity) {
         return null;
     }
 
-    public void v() {
-        if (g.B) {
-            g = null;
+    public void y() {
+        if (k.F) {
+            k = null;
             return;
         }
-        o = 0.0D;
-        p = 0.0D;
-        q = 0.0D;
+        s = 0.0D;
+        t = 0.0D;
+        u = 0.0D;
         b_();
-        g.w();
-        af += g.r - g.t;
-        ae += g.s - g.u;
-        for (; af >= 180D; af -= 360D) {
+        k.z();
+        e += k.v - k.x;
+        d += k.w - k.y;
+        for (; e >= 180D; e -= 360D) {
             ;
         }
-        for (; af < -180D; af += 360D) {
+        for (; e < -180D; e += 360D) {
             ;
         }
-        for (; ae >= 180D; ae -= 360D) {
+        for (; d >= 180D; d -= 360D) {
             ;
         }
-        for (; ae < -180D; ae += 360D) {
+        for (; d < -180D; d += 360D) {
             ;
         }
-        double d1 = af * 0.5D;
-        double d2 = ae * 0.5D;
+        double d1 = e * 0.5D;
+        double d2 = d * 0.5D;
         float f1 = 10F;
 
         if (d1 > (double) f1) {
@@ -748,40 +765,46 @@ public abstract class Entity {
         if (d2 < (double) (-f1)) {
             d2 = -f1;
         }
-        af -= d1;
-        ae -= d2;
-        r += ((float) (d1));
-        s += ((float) (d2));
+        e -= d1;
+        d -= d2;
+        v += ((float) (d1));
+        w += ((float) (d2));
     }
 
-    protected void w() {
-        f.a(l, m + h() + f.x(), n);
+    protected void z() {
+        j.a(p, q + j() + j.A(), r);
     }
 
-    public double x() {
-        return (double) C;
+    public double A() {
+        return (double) G;
     }
 
-    public double h() {
-        return (double) E * 0.75D;
+    public double j() {
+        return (double) I * 0.75D;
     }
 
     public void e(Entity entity) {
-        ae = 0.0D;
-        af = 0.0D;
-        if (g == entity) {
-            g.f = null;
-            g = null;
-            c(entity.l, entity.v.b + (double) entity.E, entity.n, r, s);
+        d = 0.0D;
+        e = 0.0D;
+        if (k == entity) {
+            k.j = null;
+            k = null;
+            c(entity.p, entity.z.b + (double) entity.I, entity.r, v, w);
             return;
         }
-        if (g != null) {
-            g.f = null;
+        if (k != null) {
+            k.j = null;
         }
-        if (entity.f != null) {
-            entity.f.g = null;
+        if (entity.j != null) {
+            entity.j.k = null;
         }
-        g = entity;
-        entity.f = this;
+        k = entity;
+        entity.j = this;
     }
+
+    public Vec3D B() {
+        return null;
+    }
+
+    public void C() {}
 }

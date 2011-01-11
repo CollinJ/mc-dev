@@ -106,35 +106,41 @@ public class Block {
     public static final Block aY;
     public static final Block aZ;
     public static final Block ba;
-    public int bb;
-    public final int bc;
-    protected float bd;
-    protected float be;
-    public double bf;
-    public double bg;
-    public double bh;
-    public double bi;
-    public double bj;
-    public double bk;
-    public StepSound bl;
-    public float bm;
-    public final Material bn;
-    public float bo;
+    public static final Block bb;
+    public static final Block bc;
+    public static final Block bd;
+    public static final Block be;
+    public static final BlockPortal bf;
+    public static final Block bg;
+    public int bh;
+    public final int bi;
+    protected float bj;
+    protected float bk;
+    public double bl;
+    public double bm;
+    public double bn;
+    public double bo;
+    public double bp;
+    public double bq;
+    public StepSound br;
+    public float bs;
+    public final Material bt;
+    public float bu;
 
     protected Block(int i1, Material material) {
-        bl = e;
-        bm = 1.0F;
-        bo = 0.6F;
+        br = e;
+        bs = 1.0F;
+        bu = 0.6F;
         if (n[i1] != null) {
             throw new IllegalArgumentException((new StringBuilder()).append("Slot ").append(i1).append(" is already occupied by ").append(((n[i1]))).append(" when adding ").append(((this))).toString());
         } else {
-            bn = material;
+            bt = material;
             n[i1] = this;
-            bc = i1;
+            bi = i1;
             a(0.0F, 0.0F, 0.0F, 1.0F, 1.0F, 1.0F);
-            p[i1] = b();
-            r[i1] = b() ? 255 : 0;
-            s[i1] = f();
+            p[i1] = a();
+            r[i1] = a() ? 255 : 0;
+            s[i1] = e();
             q[i1] = false;
             return;
         }
@@ -142,75 +148,71 @@ public class Block {
 
     protected Block(int i1, int j1, Material material) {
         this(i1, material);
-        bb = j1;
+        bh = j1;
     }
 
     protected Block a(StepSound stepsound) {
-        bl = stepsound;
+        br = stepsound;
         return this;
     }
 
     protected Block c(int i1) {
-        r[bc] = i1;
+        r[bi] = i1;
         return this;
     }
 
     protected Block a(float f1) {
-        t[bc] = (int) (15F * f1);
+        t[bi] = (int) (15F * f1);
         return this;
     }
 
     protected Block b(float f1) {
-        be = f1 * 3F;
+        bk = f1 * 3F;
         return this;
     }
 
-    private boolean f() {
+    private boolean e() {
         return false;
     }
 
-    public int a() {
-        return 0;
-    }
-
     protected Block c(float f1) {
-        bd = f1;
-        if (be < f1 * 5F) {
-            be = f1 * 5F;
+        bj = f1;
+        if (bk < f1 * 5F) {
+            bk = f1 * 5F;
         }
         return this;
     }
 
     protected void a(boolean flag) {
-        o[bc] = flag;
+        o[bi] = flag;
     }
 
     public void a(float f1, float f2, float f3, float f4, float f5, float f6) {
-        bf = f1;
-        bg = f2;
-        bh = f3;
-        bi = f4;
-        bj = f5;
-        bk = f6;
+        bl = f1;
+        bm = f2;
+        bn = f3;
+        bo = f4;
+        bp = f5;
+        bq = f6;
     }
 
     public boolean a(IBlockAccess iblockaccess, int i1, int j1, int k1, int l1) {
-        if (l1 == 0 && bg > 0.0D) {
+        if (l1 == 0 && bm > 0.0D) {
             return true;
         }
-        if (l1 == 1 && bj < 1.0D) {
+        if (l1 == 1 && bp < 1.0D) {
             return true;
         }
-        if (l1 == 2 && bh > 0.0D) {
+        if (l1 == 2 && bn > 0.0D) {
             return true;
         }
-        if (l1 == 3 && bk < 1.0D) {
+        if (l1 == 3 && bq < 1.0D) {
             return true;
         }
-        if (l1 == 4 && bf > 0.0D) {
+        if (l1 == 4 && bl > 0.0D) {
             return true;
         }
-        if (l1 == 5 && bi < 1.0D) {
+        if (l1 == 5 && bo < 1.0D) {
             return true;
         } else {
             return !iblockaccess.d(i1, j1, k1);
@@ -218,7 +220,7 @@ public class Block {
     }
 
     public int a(int i1) {
-        return bb;
+        return bh;
     }
 
     public void a(World world, int i1, int j1, int k1, AxisAlignedBB axisalignedbb, ArrayList arraylist) {
@@ -230,18 +232,18 @@ public class Block {
     }
 
     public AxisAlignedBB d(World world, int i1, int j1, int k1) {
-        return AxisAlignedBB.b((double) i1 + bf, (double) j1 + bg, (double) k1 + bh, (double) i1 + bi, (double) j1 + bj, (double) k1 + bk);
+        return AxisAlignedBB.b((double) i1 + bl, (double) j1 + bm, (double) k1 + bn, (double) i1 + bo, (double) j1 + bp, (double) k1 + bq);
     }
 
-    public boolean b() {
+    public boolean a() {
         return true;
     }
 
     public boolean a(int i1, boolean flag) {
-        return e();
+        return d();
     }
 
-    public boolean e() {
+    public boolean d() {
         return true;
     }
 
@@ -251,7 +253,7 @@ public class Block {
 
     public void b(World world, int i1, int j1, int k1, int l1) {}
 
-    public int c() {
+    public int b() {
         return 10;
     }
 
@@ -264,17 +266,17 @@ public class Block {
     }
 
     public int a(int i1, Random random) {
-        return bc;
+        return bi;
     }
 
     public float a(EntityPlayer entityplayer) {
-        if (bd < 0.0F) {
+        if (bj < 0.0F) {
             return 0.0F;
         }
         if (!entityplayer.b(this)) {
-            return 1.0F / bd / 100F;
+            return 1.0F / bj / 100F;
         } else {
-            return entityplayer.a(this) / bd / 30F;
+            return entityplayer.a(this) / bj / 30F;
         }
     }
 
@@ -283,44 +285,44 @@ public class Block {
     }
 
     public void a(World world, int i1, int j1, int k1, int l1, float f1) {
-        if (world.x) {
+        if (world.z) {
             return;
         }
-        int i2 = a(world.m);
+        int i2 = a(world.l);
 
         for (int j2 = 0; j2 < i2; j2++) {
-            if (world.m.nextFloat() > f1) {
+            if (world.l.nextFloat() > f1) {
                 continue;
             }
-            int k2 = a(l1, world.m);
+            int k2 = a(l1, world.l);
 
             if (k2 > 0) {
                 float f2 = 0.7F;
-                double d1 = (double) (world.m.nextFloat() * f2) + (double) (1.0F - f2) * 0.5D;
-                double d2 = (double) (world.m.nextFloat() * f2) + (double) (1.0F - f2) * 0.5D;
-                double d3 = (double) (world.m.nextFloat() * f2) + (double) (1.0F - f2) * 0.5D;
+                double d1 = (double) (world.l.nextFloat() * f2) + (double) (1.0F - f2) * 0.5D;
+                double d2 = (double) (world.l.nextFloat() * f2) + (double) (1.0F - f2) * 0.5D;
+                double d3 = (double) (world.l.nextFloat() * f2) + (double) (1.0F - f2) * 0.5D;
                 EntityItem entityitem = new EntityItem(world, (double) i1 + d1, (double) j1 + d2, (double) k1 + d3, new ItemStack(k2));
 
-                entityitem.ad = 10;
+                entityitem.c = 10;
                 world.a(((Entity) (entityitem)));
             }
         }
     }
 
     public float a(Entity entity) {
-        return be / 5F;
+        return bk / 5F;
     }
 
     public MovingObjectPosition a(World world, int i1, int j1, int k1, Vec3D vec3d, Vec3D vec3d1) {
         a(((IBlockAccess) (world)), i1, j1, k1);
         vec3d = vec3d.c(-i1, -j1, -k1);
         vec3d1 = vec3d1.c(-i1, -j1, -k1);
-        Vec3D vec3d2 = vec3d.a(vec3d1, bf);
-        Vec3D vec3d3 = vec3d.a(vec3d1, bi);
-        Vec3D vec3d4 = vec3d.b(vec3d1, bg);
-        Vec3D vec3d5 = vec3d.b(vec3d1, bj);
-        Vec3D vec3d6 = vec3d.c(vec3d1, bh);
-        Vec3D vec3d7 = vec3d.c(vec3d1, bk);
+        Vec3D vec3d2 = vec3d.a(vec3d1, bl);
+        Vec3D vec3d3 = vec3d.a(vec3d1, bo);
+        Vec3D vec3d4 = vec3d.b(vec3d1, bm);
+        Vec3D vec3d5 = vec3d.b(vec3d1, bp);
+        Vec3D vec3d6 = vec3d.c(vec3d1, bn);
+        Vec3D vec3d7 = vec3d.c(vec3d1, bq);
 
         if (!a(vec3d2)) {
             vec3d2 = null;
@@ -390,7 +392,7 @@ public class Block {
         if (vec3d == null) {
             return false;
         } else {
-            return vec3d.b >= bg && vec3d.b <= bj && vec3d.c >= bh && vec3d.c <= bk;
+            return vec3d.b >= bm && vec3d.b <= bp && vec3d.c >= bn && vec3d.c <= bq;
         }
     }
 
@@ -398,7 +400,7 @@ public class Block {
         if (vec3d == null) {
             return false;
         } else {
-            return vec3d.a >= bf && vec3d.a <= bi && vec3d.c >= bh && vec3d.c <= bk;
+            return vec3d.a >= bl && vec3d.a <= bo && vec3d.c >= bn && vec3d.c <= bq;
         }
     }
 
@@ -406,7 +408,7 @@ public class Block {
         if (vec3d == null) {
             return false;
         } else {
-            return vec3d.a >= bf && vec3d.a <= bi && vec3d.b >= bg && vec3d.b <= bj;
+            return vec3d.a >= bl && vec3d.a <= bo && vec3d.b >= bm && vec3d.b <= bp;
         }
     }
 
@@ -415,7 +417,7 @@ public class Block {
     public boolean a(World world, int i1, int j1, int k1) {
         int l1 = world.a(i1, j1, k1);
 
-        return l1 == 0 || n[l1].bn.d();
+        return l1 == 0 || n[l1].bt.d();
     }
 
     public boolean a(World world, int i1, int j1, int k1, EntityPlayer entityplayer) {
@@ -436,7 +438,7 @@ public class Block {
         return false;
     }
 
-    public boolean d() {
+    public boolean c() {
         return false;
     }
 
@@ -449,6 +451,8 @@ public class Block {
     public boolean f(World world, int i1, int j1, int k1) {
         return true;
     }
+
+    public void a(World world, int i1, int j1, int k1, EntityLiving entityliving) {}
 
     static Class _mthclass$(String s1) {
         try {
@@ -523,14 +527,14 @@ public class Block {
         aI = ((Block) (new BlockStairs(67, x)));
         aJ = (new BlockSign(68, net.minecraft.server.TileEntitySign.class, false)).c(1.0F).a(f);
         aK = (new BlockLever(69, 96)).c(0.5F).a(f);
-        aL = (new BlockPressurePlate(70, u.bb, EnumMobType.b)).c(0.5F).a(i);
+        aL = (new BlockPressurePlate(70, u.bh, EnumMobType.b)).c(0.5F).a(i);
         aM = (new BlockDoor(71, Material.e)).c(5F).a(j);
-        aN = (new BlockPressurePlate(72, y.bb, EnumMobType.a)).c(0.5F).a(f);
+        aN = (new BlockPressurePlate(72, y.bh, EnumMobType.a)).c(0.5F).a(f);
         aO = (new BlockRedstoneOre(73, 51, false)).c(3F).b(5F).a(i);
         aP = (new BlockRedstoneOre(74, 51, true)).a(0.625F).c(3F).b(5F).a(i);
         aQ = (new BlockRedstoneTorch(75, 115, false)).c(0.0F).a(f);
         aR = (new BlockRedstoneTorch(76, 99, true)).c(0.0F).a(0.5F).a(f);
-        aS = (new BlockButton(77, u.bb)).c(0.5F).a(i);
+        aS = (new BlockButton(77, u.bh)).c(0.5F).a(i);
         aT = (new BlockSnow(78, 66)).c(0.1F).a(l);
         aU = (new BlockIce(79, 67)).c(0.5F).c(3).a(k);
         aV = (new BlockSnowBlock(80, 66)).c(0.2F).a(l);
@@ -539,6 +543,12 @@ public class Block {
         aY = (new BlockReed(83, 73)).c(0.0F).a(h);
         aZ = (new BlockJukeBox(84, 74)).c(2.0F).b(10F).a(i);
         ba = (new BlockFence(85, 4)).c(2.0F).b(5F).a(f);
+        bb = (new BlockPumpkin(86, 102, false)).c(1.0F).a(f);
+        bc = (new BlockBloodStone(87, 103)).c(0.4F).a(i);
+        bd = (new BlockSlowSand(88, 104)).c(0.5F).a(m);
+        be = (new BlockLightStone(89, 105, Material.o)).c(0.3F).a(k).a(1.0F);
+        bf = (BlockPortal) (new BlockPortal(90, 14)).c(-1F).a(k).a(0.75F);
+        bg = (new BlockPumpkin(91, 102, true)).c(1.0F).a(f).a(1.0F);
         for (int i1 = 0; i1 < 256; i1++) {
             if (n[i1] != null) {
                 Item.c[i1] = ((Item) (new ItemBlock(i1 - 256)));

@@ -18,15 +18,15 @@ public class Packet21PickupSpawn extends Packet {
     public Packet21PickupSpawn() {}
 
     public Packet21PickupSpawn(EntityItem entityitem) {
-        a = entityitem.c;
+        a = entityitem.g;
         h = entityitem.a.c;
         i = entityitem.a.a;
-        b = MathHelper.b(entityitem.l * 32D);
-        c = MathHelper.b(entityitem.m * 32D);
-        d = MathHelper.b(entityitem.n * 32D);
-        e = (byte) (int) (entityitem.o * 128D);
-        f = (byte) (int) (entityitem.p * 128D);
-        g = (byte) (int) (entityitem.q * 128D);
+        b = MathHelper.b(entityitem.p * 32D);
+        c = MathHelper.b(entityitem.q * 32D);
+        d = MathHelper.b(entityitem.r * 32D);
+        e = (byte) (int) (entityitem.s * 128D);
+        f = (byte) (int) (entityitem.t * 128D);
+        g = (byte) (int) (entityitem.u * 128D);
     }
 
     public void a(DataInputStream datainputstream) {

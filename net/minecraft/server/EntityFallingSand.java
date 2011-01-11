@@ -14,55 +14,55 @@ public class EntityFallingSand extends Entity {
         super(world);
         b = 0;
         a = i;
-        e = true;
+        this.i = true;
         a(0.98F, 0.98F);
-        C = E / 2.0F;
+        G = I / 2.0F;
         a(f, f1, f2);
-        o = 0.0D;
-        p = 0.0D;
-        q = 0.0D;
-        H = false;
-        this.i = f;
-        j = f1;
-        k = f2;
+        s = 0.0D;
+        t = 0.0D;
+        u = 0.0D;
+        L = false;
+        m = f;
+        n = f1;
+        o = f2;
     }
 
     public boolean c_() {
-        return !B;
+        return !F;
     }
 
     public void b_() {
         if (a == 0) {
-            j();
+            l();
             return;
         }
-        this.i = l;
-        this.j = m;
-        this.k = n;
+        m = p;
+        n = q;
+        o = r;
         b++;
-        p -= 0.039999999105930328D;
-        c(o, p, q);
-        o *= 0.98000001907348633D;
-        p *= 0.98000001907348633D;
-        q *= 0.98000001907348633D;
-        int i = MathHelper.b(l);
-        int j = MathHelper.b(m);
-        int k = MathHelper.b(n);
+        t -= 0.039999999105930328D;
+        c(s, t, u);
+        s *= 0.98000001907348633D;
+        t *= 0.98000001907348633D;
+        u *= 0.98000001907348633D;
+        int i = MathHelper.b(p);
+        int j = MathHelper.b(q);
+        int k = MathHelper.b(r);
 
-        if (h.a(i, j, k) == a) {
-            h.d(i, j, k, 0);
+        if (l.a(i, j, k) == a) {
+            l.d(i, j, k, 0);
         }
-        if (w) {
-            o *= 0.69999998807907104D;
-            q *= 0.69999998807907104D;
-            p *= -0.5D;
-            j();
-            if (!h.a(a, i, j, k, true) || !h.d(i, j, k, a)) {
+        if (A) {
+            s *= 0.69999998807907104D;
+            u *= 0.69999998807907104D;
+            t *= -0.5D;
+            l();
+            if (!l.a(a, i, j, k, true) || !l.d(i, j, k, a)) {
                 a(a, 1);
             }
         } else if (b > 100) {
             a(a, 1);
-            j();
+            l();
         }
     }
 

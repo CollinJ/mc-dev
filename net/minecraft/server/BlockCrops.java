@@ -1,13 +1,12 @@
 package net.minecraft.server;
 
-import java.io.PrintStream;
 import java.util.Random;
 
 public class BlockCrops extends BlockFlower {
 
     protected BlockCrops(int i, int j) {
         super(i, j);
-        bb = j;
+        bh = j;
         a(true);
         float f = 0.5F;
 
@@ -15,7 +14,7 @@ public class BlockCrops extends BlockFlower {
     }
 
     protected boolean b(int i) {
-        return i == Block.aB.bc;
+        return i == Block.aB.bi;
     }
 
     public void a(World world, int i, int j, int k, Random random) {
@@ -44,16 +43,16 @@ public class BlockCrops extends BlockFlower {
         int i2 = world.a(i + 1, j, k - 1);
         int j2 = world.a(i + 1, j, k + 1);
         int k2 = world.a(i - 1, j, k + 1);
-        boolean flag = j1 == bc || k1 == bc;
-        boolean flag1 = l == bc || i1 == bc;
-        boolean flag2 = l1 == bc || i2 == bc || j2 == bc || k2 == bc;
+        boolean flag = j1 == bi || k1 == bi;
+        boolean flag1 = l == bi || i1 == bi;
+        boolean flag2 = l1 == bi || i2 == bi || j2 == bi || k2 == bi;
 
         for (int l2 = i - 1; l2 <= i + 1; l2++) {
             for (int i3 = k - 1; i3 <= k + 1; i3++) {
                 int j3 = world.a(l2, j - 1, i3);
                 float f1 = 0.0F;
 
-                if (j3 == Block.aB.bc) {
+                if (j3 == Block.aB.bi) {
                     f1 = 1.0F;
                     if (world.b(l2, j - 1, i3) > 0) {
                         f1 = 3F;
@@ -72,30 +71,25 @@ public class BlockCrops extends BlockFlower {
         return f;
     }
 
-    public int a() {
-        return 6;
-    }
-
     public void a(World world, int i, int j, int k, int l) {
         super.a(world, i, j, k, l);
         for (int i1 = 0; i1 < 3; i1++) {
-            if (world.m.nextInt(15) <= l) {
+            if (world.l.nextInt(15) <= l) {
                 float f = 0.7F;
-                float f1 = world.m.nextFloat() * f + (1.0F - f) * 0.5F;
-                float f2 = world.m.nextFloat() * f + (1.0F - f) * 0.5F;
-                float f3 = world.m.nextFloat() * f + (1.0F - f) * 0.5F;
+                float f1 = world.l.nextFloat() * f + (1.0F - f) * 0.5F;
+                float f2 = world.l.nextFloat() * f + (1.0F - f) * 0.5F;
+                float f3 = world.l.nextFloat() * f + (1.0F - f) * 0.5F;
                 EntityItem entityitem = new EntityItem(world, (float) i + f1, (float) j + f2, (float) k + f3, new ItemStack(Item.Q));
 
-                entityitem.ad = 10;
+                entityitem.c = 10;
                 world.a(((Entity) (entityitem)));
             }
         }
     }
 
     public int a(int i, Random random) {
-        System.out.println((new StringBuilder()).append("Get resource: ").append(i).toString());
         if (i == 7) {
-            return Item.R.aS;
+            return Item.R.aW;
         } else {
             return -1;
         }

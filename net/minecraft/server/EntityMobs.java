@@ -4,32 +4,32 @@ import java.util.Random;
 
 public class EntityMobs extends EntityCreature implements IMobs {
 
-    protected int af;
+    protected int e;
 
     public EntityMobs(World world) {
         super(world);
-        af = 2;
-        aM = 20;
+        e = 2;
+        aP = 20;
     }
 
-    public void y() {
+    public void D() {
         float f = b(1.0F);
 
         if (f > 0.5F) {
-            bc += 2;
+            bf += 2;
         }
-        super.y();
+        super.D();
     }
 
     public void b_() {
         super.b_();
-        if (h.l == 0) {
-            j();
+        if (l.k == 0) {
+            l();
         }
     }
 
-    protected Entity i() {
-        EntityPlayer entityplayer = h.a(((Entity) (this)), 16D);
+    protected Entity k() {
+        EntityPlayer entityplayer = l.a(((Entity) (this)), 16D);
 
         if (entityplayer != null && g(((Entity) (entityplayer)))) {
             return ((Entity) (entityplayer));
@@ -38,13 +38,13 @@ public class EntityMobs extends EntityCreature implements IMobs {
         }
     }
 
-    public boolean a(Entity entity, int j) {
-        if (super.a(entity, j)) {
-            if (f == entity || g == entity) {
+    public boolean a(Entity entity, int i) {
+        if (super.a(entity, i)) {
+            if (j == entity || k == entity) {
                 return true;
             }
             if (entity != this) {
-                ag = entity;
+                f = entity;
             }
             return true;
         } else {
@@ -53,14 +53,14 @@ public class EntityMobs extends EntityCreature implements IMobs {
     }
 
     protected void a(Entity entity, float f) {
-        if ((double) f < 2.5D && entity.v.e > v.b && entity.v.b < v.e) {
-            aS = 20;
-            entity.a(((Entity) (this)), af);
+        if ((double) f < 2.5D && entity.z.e > z.b && entity.z.b < z.e) {
+            aV = 20;
+            entity.a(((Entity) (this)), e);
         }
     }
 
-    protected float a(int j, int k, int l) {
-        return 0.5F - h.j(j, k, l);
+    protected float a(int i, int j, int l) {
+        return 0.5F - this.l.j(i, j, l);
     }
 
     public void a(NBTTagCompound nbttagcompound) {
@@ -72,16 +72,19 @@ public class EntityMobs extends EntityCreature implements IMobs {
     }
 
     public boolean a() {
-        int j = MathHelper.b(this.l);
-        int k = MathHelper.b(v.b);
-        int l = MathHelper.b(n);
+        int i = MathHelper.b(p);
+        int j = MathHelper.b(z.b);
+        int l = MathHelper.b(r);
 
-        if (h.a(EnumSkyBlock.a, j, k, l) > R.nextInt(32)) {
+        if (this.l.a(EnumSkyBlock.a, i, j, l) > V.nextInt(32)) {
             return false;
-        } else {
-            int i1 = h.h(j, k, l);
-
-            return i1 <= R.nextInt(8) && super.a();
         }
+        int i1 = this.l.h(i, j, l);
+        int j1 = 16 - (j * 16) / 128;
+
+        if (j1 < 1) {
+            j1 = 1;
+        }
+        return i1 <= V.nextInt(j1) && super.a();
     }
 }

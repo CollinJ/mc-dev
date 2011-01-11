@@ -10,7 +10,7 @@ public class BlockSign extends BlockContainer {
     protected BlockSign(int i, Class class1, boolean flag) {
         super(i, Material.c);
         b = flag;
-        bb = 4;
+        bh = 4;
         a = class1;
         float f = 0.25F;
         float f1 = 1.0F;
@@ -48,11 +48,7 @@ public class BlockSign extends BlockContainer {
         }
     }
 
-    public int a() {
-        return -1;
-    }
-
-    public boolean b() {
+    public boolean a() {
         return false;
     }
 
@@ -65,7 +61,7 @@ public class BlockSign extends BlockContainer {
     }
 
     public int a(int i, Random random) {
-        return Item.as.aS;
+        return Item.as.aW;
     }
 
     public void b(World world, int i, int j, int k, int l) {

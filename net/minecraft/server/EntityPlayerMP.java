@@ -6,71 +6,76 @@ public class EntityPlayerMP extends EntityPlayer {
 
     public NetServerHandler a;
     public MinecraftServer b;
-    public ItemInWorldManager ad;
-    public double ae;
-    public double af;
-    public List ag;
-    public Set ah;
-    public double ai;
+    public ItemInWorldManager c;
+    public double d;
+    public double e;
+    public List f;
+    public Set ai;
+    public double aj;
 
-    public EntityPlayerMP(MinecraftServer minecraftserver, World world, String s, ItemInWorldManager iteminworldmanager) {
+    public EntityPlayerMP(MinecraftServer minecraftserver, World world, String s1, ItemInWorldManager iteminworldmanager) {
         super(world);
-        ag = ((List) (new LinkedList()));
-        ah = ((Set) (new HashSet()));
-        int j = (world.n + R.nextInt(20)) - 10;
-        int k = (world.p + R.nextInt(20)) - 10;
-        int l = world.d(j, k);
+        f = ((List) (new LinkedList()));
+        ai = ((Set) (new HashSet()));
+        int i = world.m;
+        int j = world.o;
+        int l = world.n;
 
-        c((double) j + 0.5D, l, (double) k + 0.5D, 0.0F, 0.0F);
+        if (!world.q.c) {
+            i += V.nextInt(20) - 10;
+            l = world.e(i, j);
+            j += V.nextInt(20) - 10;
+        }
+        c((double) i + 0.5D, l, (double) j + 0.5D, 0.0F, 0.0F);
         b = minecraftserver;
-        N = 0.0F;
+        R = 0.0F;
         iteminworldmanager.a = ((EntityPlayer) (this));
-        aq = s;
-        ad = iteminworldmanager;
-        C = 0.0F;
+        ar = s1;
+        c = iteminworldmanager;
+        G = 0.0F;
     }
 
     public void b_() {}
 
     public void f(Entity entity) {}
 
-    public boolean a(Entity entity, int j) {
+    public boolean a(Entity entity, int i) {
         return false;
     }
 
-    public void a(int j) {}
+    public void a(int i) {}
 
-    public void i() {
+    public void k() {
         super.b_();
         ChunkCoordIntPair chunkcoordintpair = null;
-        double d = 0.0D;
+        double d1 = 0.0D;
 
-        for (int j = 0; j < ag.size(); j++) {
-            ChunkCoordIntPair chunkcoordintpair1 = (ChunkCoordIntPair) ag.get(j);
-            double d1 = chunkcoordintpair1.a(((Entity) (this)));
+        for (int i = 0; i < f.size(); i++) {
+            ChunkCoordIntPair chunkcoordintpair1 = (ChunkCoordIntPair) f.get(i);
+            double d2 = chunkcoordintpair1.a(((Entity) (this)));
 
-            if (j == 0 || d1 < d) {
+            if (i == 0 || d2 < d1) {
                 chunkcoordintpair = chunkcoordintpair1;
-                d = chunkcoordintpair1.a(((Entity) (this)));
+                d1 = chunkcoordintpair1.a(((Entity) (this)));
             }
         }
 
         if (chunkcoordintpair != null) {
             boolean flag = false;
 
-            if (d < 1024D) {
+            if (d1 < 1024D) {
                 flag = true;
             }
             if (a.b() < 2) {
                 flag = true;
             }
             if (flag) {
-                ag.remove(((chunkcoordintpair)));
+                f.remove(((chunkcoordintpair)));
                 a.b(((Packet) (new Packet51MapChunk(chunkcoordintpair.a * 16, 0, chunkcoordintpair.b * 16, 16, 128, 16, ((World) (b.e))))));
                 List list = b.e.d(chunkcoordintpair.a * 16, 0, chunkcoordintpair.b * 16, chunkcoordintpair.a * 16 + 16, 128, chunkcoordintpair.b * 16 + 16);
 
-                for (int k = 0; k < list.size(); k++) {
-                    TileEntity tileentity = (TileEntity) list.get(k);
+                for (int j = 0; j < list.size(); j++) {
+                    TileEntity tileentity = (TileEntity) list.get(j);
 
                     a.b(((Packet) (new Packet59ComplexEntity(tileentity.b, tileentity.c, tileentity.d, tileentity))));
                 }
@@ -78,29 +83,29 @@ public class EntityPlayerMP extends EntityPlayer {
         }
     }
 
-    public void y() {
-        o = p = q = 0.0D;
-        bg = false;
-        super.y();
+    public void D() {
+        s = t = u = 0.0D;
+        bj = false;
+        super.D();
     }
 
-    public void c(Entity entity, int j) {
-        if (!entity.B && (entity instanceof EntityItem)) {
-            a.b(((Packet) (new Packet17AddToInventory(((EntityItem) entity).a, j))));
-            b.k.a(entity, ((Packet) (new Packet22Collect(entity.c, c))));
+    public void c(Entity entity, int i) {
+        if (!entity.F && (entity instanceof EntityItem)) {
+            a.b(((Packet) (new Packet17AddToInventory(((EntityItem) entity).a, i))));
+            b.k.a(entity, ((Packet) (new Packet22Collect(entity.g, g))));
         }
-        super.c(entity, j);
+        super.c(entity, i);
     }
 
-    public void z() {
-        if (!ao) {
-            ap = -1;
-            ao = true;
+    public void E() {
+        if (!ap) {
+            aq = -1;
+            ap = true;
             b.k.a(((Entity) (this)), ((Packet) (new Packet18ArmAnimation(((Entity) (this)), 1))));
         }
     }
 
-    protected float p() {
+    protected float s() {
         return 1.62F;
     }
 }

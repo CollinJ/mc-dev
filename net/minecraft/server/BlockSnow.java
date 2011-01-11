@@ -14,14 +14,14 @@ public class BlockSnow extends Block {
         return null;
     }
 
-    public boolean b() {
+    public boolean a() {
         return false;
     }
 
     public boolean a(World world, int i, int j, int k) {
         int l = world.a(i, j - 1, k);
 
-        if (l == 0 || !Block.n[l].b()) {
+        if (l == 0 || !Block.n[l].a()) {
             return false;
         } else {
             return world.c(i, j - 1, k).c();
@@ -43,7 +43,7 @@ public class BlockSnow extends Block {
     }
 
     public int a(int i, Random random) {
-        return Item.aB.aS;
+        return Item.aB.aW;
     }
 
     public int a(Random random) {
@@ -63,7 +63,7 @@ public class BlockSnow extends Block {
         if (l == 1) {
             return true;
         }
-        if (material == bn) {
+        if (material == bt) {
             return false;
         } else {
             return super.a(iblockaccess, i, j, k, l);

@@ -17,7 +17,7 @@ public class ChunkCache implements IBlockAccess {
         c = new Chunk[(k1 - a) + 1][(l1 - b) + 1];
         for (int i2 = a; i2 <= k1; i2++) {
             for (int j2 = b; j2 <= l1; j2++) {
-                c[i2 - a][j2 - b] = world.b(i2, j2);
+                c[i2 - a][j2 - b] = world.c(i2, j2);
             }
         }
     }
@@ -56,7 +56,7 @@ public class ChunkCache implements IBlockAccess {
         if (l == 0) {
             return Material.a;
         } else {
-            return Block.n[l].bn;
+            return Block.n[l].bt;
         }
     }
 
@@ -66,7 +66,7 @@ public class ChunkCache implements IBlockAccess {
         if (block == null) {
             return false;
         } else {
-            return block.b();
+            return block.a();
         }
     }
 }

@@ -13,7 +13,7 @@ public class BlockMinecartTrack extends Block {
         return null;
     }
 
-    public boolean b() {
+    public boolean a() {
         return false;
     }
 
@@ -32,10 +32,6 @@ public class BlockMinecartTrack extends Block {
         }
     }
 
-    public int a() {
-        return 9;
-    }
-
     public int a(Random random) {
         return 1;
     }
@@ -45,11 +41,16 @@ public class BlockMinecartTrack extends Block {
     }
 
     public void e(World world, int i, int j, int k) {
-        world.b(i, j, k, 15);
-        g(world, i, j, k);
+        if (!world.z) {
+            world.b(i, j, k, 15);
+            g(world, i, j, k);
+        }
     }
 
     public void b(World world, int i, int j, int k, int l) {
+        if (world.z) {
+            return;
+        }
         int i1 = world.b(i, j, k);
         boolean flag = false;
 
@@ -71,12 +72,17 @@ public class BlockMinecartTrack extends Block {
         if (flag) {
             a_(world, i, j, k, world.b(i, j, k));
             world.d(i, j, k, 0);
-        } else if (l > 0 && Block.n[l].d() && MinecartTrackLogic.a(new MinecartTrackLogic(this, world, i, j, k)) == 3) {
+        } else if (l > 0 && Block.n[l].c() && MinecartTrackLogic.a(new MinecartTrackLogic(this, world, i, j, k)) == 3) {
             g(world, i, j, k);
         }
     }
 
     private void g(World world, int i, int j, int k) {
-        (new MinecartTrackLogic(this, world, i, j, k)).a(world.n(i, j, k));
+        if (world.z) {
+            return;
+        } else {
+            (new MinecartTrackLogic(this, world, i, j, k)).a(world.n(i, j, k));
+            return;
+        }
     }
 }

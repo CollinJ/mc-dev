@@ -15,7 +15,7 @@ public class Pathfinder {
     }
 
     public PathEntity a(Entity entity, Entity entity1, float f) {
-        return a(entity, entity1.l, entity1.v.b, entity1.n, f);
+        return a(entity, entity1.p, entity1.z.b, entity1.r, f);
     }
 
     public PathEntity a(Entity entity, int i, int j, int k, float f) {
@@ -25,9 +25,9 @@ public class Pathfinder {
     private PathEntity a(Entity entity, double d1, double d2, double d3, float f) {
         b.a();
         c.a();
-        PathPoint pathpoint = a(MathHelper.b(entity.v.a), MathHelper.b(entity.v.b), MathHelper.b(entity.v.c));
-        PathPoint pathpoint1 = a(MathHelper.b(d1 - (double) (entity.D / 2.0F)), MathHelper.b(d2), MathHelper.b(d3 - (double) (entity.D / 2.0F)));
-        PathPoint pathpoint2 = new PathPoint(MathHelper.d(entity.D + 1.0F), MathHelper.d(entity.E + 1.0F), MathHelper.d(entity.D + 1.0F));
+        PathPoint pathpoint = a(MathHelper.b(entity.z.a), MathHelper.b(entity.z.b), MathHelper.b(entity.z.c));
+        PathPoint pathpoint1 = a(MathHelper.b(d1 - (double) (entity.H / 2.0F)), MathHelper.b(d2), MathHelper.b(d3 - (double) (entity.H / 2.0F)));
+        PathPoint pathpoint2 = new PathPoint(MathHelper.d(entity.H + 1.0F), MathHelper.d(entity.I + 1.0F), MathHelper.d(entity.H + 1.0F));
         PathEntity pathentity = a(entity, pathpoint, pathpoint1, pathpoint2, f);
 
         return pathentity;

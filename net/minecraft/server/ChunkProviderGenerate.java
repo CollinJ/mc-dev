@@ -19,12 +19,14 @@ public class ChunkProviderGenerate implements IChunkProvider {
     private double s[];
     private double t[];
     private MapGenBase u;
+    private MobSpawnerBase v[];
     double d[];
     double e[];
     double f[];
     double g[];
     double h[];
     int i[][];
+    private double w[];
 
     public ChunkProviderGenerate(World world, long l1) {
         r = new double[256];
@@ -44,7 +46,7 @@ public class ChunkProviderGenerate implements IChunkProvider {
         c = new NoiseGeneratorOctaves(j, 8);
     }
 
-    public void a(int i1, int j1, byte abyte0[]) {
+    public void a(int i1, int j1, byte abyte0[], MobSpawnerBase amobspawnerbase[], double ad[]) {
         byte byte0 = 4;
         byte byte1 = 64;
         int k1 = byte0 + 1;
@@ -80,17 +82,18 @@ public class ChunkProviderGenerate implements IChunkProvider {
                             double d17 = (d12 - d11) * d15;
 
                             for (int k3 = 0; k3 < 4; k3++) {
+                                double d18 = ad[(i2 * 4 + i3) * 16 + (j2 * 4 + k3)];
                                 int l3 = 0;
 
                                 if (k2 * 8 + l2 < byte1) {
-                                    if (p.d && k2 * 8 + l2 >= byte1 - 1) {
-                                        l3 = Block.aU.bc;
+                                    if (d18 < 0.5D && k2 * 8 + l2 >= byte1 - 1) {
+                                        l3 = Block.aU.bi;
                                     } else {
-                                        l3 = Block.C.bc;
+                                        l3 = Block.C.bi;
                                     }
                                 }
                                 if (d16 > 0.0D) {
-                                    l3 = Block.u.bc;
+                                    l3 = Block.u.bi;
                                 }
                                 abyte0[j3] = (byte) l3;
                                 j3 += ((int) (c1));
@@ -111,7 +114,7 @@ public class ChunkProviderGenerate implements IChunkProvider {
         }
     }
 
-    public void b(int i1, int j1, byte abyte0[]) {
+    public void a(int i1, int j1, byte abyte0[], MobSpawnerBase amobspawnerbase[]) {
         byte byte0 = 64;
         double d1 = 0.03125D;
 
@@ -120,18 +123,19 @@ public class ChunkProviderGenerate implements IChunkProvider {
         t = o.a(t, i1 * 16, j1 * 16, 0.0D, 16, 16, 1, d1 * 2D, d1 * 2D, d1 * 2D);
         for (int k1 = 0; k1 < 16; k1++) {
             for (int l1 = 0; l1 < 16; l1++) {
+                MobSpawnerBase mobspawnerbase = amobspawnerbase[k1 * 16 + l1];
                 boolean flag = r[k1 + l1 * 16] + j.nextDouble() * 0.20000000000000001D > 0.0D;
                 boolean flag1 = s[k1 + l1 * 16] + j.nextDouble() * 0.20000000000000001D > 3D;
                 int i2 = (int) (t[k1 + l1 * 16] / 3D + 3D + j.nextDouble() * 0.25D);
                 int j2 = -1;
-                byte byte1 = (byte) Block.v.bc;
-                byte byte2 = (byte) Block.w.bc;
+                byte byte1 = mobspawnerbase.o;
+                byte byte2 = mobspawnerbase.p;
 
                 for (int k2 = 127; k2 >= 0; k2--) {
                     int l2 = (k1 * 16 + l1) * 128 + k2;
 
-                    if (k2 <= (0 + j.nextInt(6)) - 1) {
-                        abyte0[l2] = (byte) Block.A.bc;
+                    if (k2 <= 0 + j.nextInt(5)) {
+                        abyte0[l2] = (byte) Block.A.bi;
                         continue;
                     }
                     byte byte3 = abyte0[l2];
@@ -140,31 +144,31 @@ public class ChunkProviderGenerate implements IChunkProvider {
                         j2 = -1;
                         continue;
                     }
-                    if (byte3 != Block.u.bc) {
+                    if (byte3 != Block.u.bi) {
                         continue;
                     }
                     if (j2 == -1) {
                         if (i2 <= 0) {
                             byte1 = 0;
-                            byte2 = (byte) Block.u.bc;
+                            byte2 = (byte) Block.u.bi;
                         } else if (k2 >= byte0 - 4 && k2 <= byte0 + 1) {
-                            byte1 = (byte) Block.v.bc;
-                            byte2 = (byte) Block.w.bc;
+                            byte1 = mobspawnerbase.o;
+                            byte2 = mobspawnerbase.p;
                             if (flag1) {
                                 byte1 = 0;
                             }
                             if (flag1) {
-                                byte2 = (byte) Block.G.bc;
+                                byte2 = (byte) Block.G.bi;
                             }
                             if (flag) {
-                                byte1 = (byte) Block.F.bc;
+                                byte1 = (byte) Block.F.bi;
                             }
                             if (flag) {
-                                byte2 = (byte) Block.F.bc;
+                                byte2 = (byte) Block.F.bi;
                             }
                         }
                         if (k2 < byte0 && byte1 == 0) {
-                            byte1 = (byte) Block.C.bc;
+                            byte1 = (byte) Block.C.bi;
                         }
                         j2 = i2;
                         if (k2 >= byte0 - 1) {
@@ -188,9 +192,12 @@ public class ChunkProviderGenerate implements IChunkProvider {
         byte abyte0[] = new byte[32768];
         Chunk chunk = new Chunk(p, abyte0, i1, j1);
 
-        a(i1, j1, abyte0);
-        b(i1, j1, abyte0);
-        u.a(this, p, i1, j1, abyte0);
+        v = p.a().a(v, i1 * 16, j1 * 16, 16, 16);
+        double ad[] = p.a().a;
+
+        a(i1, j1, abyte0, v, ad);
+        a(i1, j1, abyte0, v);
+        u.a(((IChunkProvider) (this)), p, i1, j1, abyte0);
         chunk.b();
         return chunk;
     }
@@ -201,84 +208,89 @@ public class ChunkProviderGenerate implements IChunkProvider {
         }
         double d1 = 684.41200000000003D;
         double d2 = 684.41200000000003D;
+        double ad1[] = p.a().a;
+        double ad2[] = p.a().b;
 
-        g = a.a(g, i1, j1, k1, l1, 1, j2, 1.0D, 0.0D, 1.0D);
-        h = b.a(h, i1, j1, k1, l1, 1, j2, 100D, 0.0D, 100D);
+        g = a.a(g, i1, k1, l1, j2, 1.121D, 1.121D, 0.5D);
+        h = b.a(h, i1, k1, l1, j2, 200D, 200D, 0.5D);
         d = m.a(d, i1, j1, k1, l1, i2, j2, d1 / 80D, d2 / 160D, d1 / 80D);
         e = k.a(e, i1, j1, k1, l1, i2, j2, d1, d2, d1);
         f = l.a(f, i1, j1, k1, l1, i2, j2, d1, d2, d1);
         int k2 = 0;
         int l2 = 0;
+        int i3 = 16 / l1;
 
-        for (int i3 = 0; i3 < l1; i3++) {
-            for (int j3 = 0; j3 < j2; j3++) {
-                double d3 = (g[l2] + 256D) / 512D;
+        for (int j3 = 0; j3 < l1; j3++) {
+            int k3 = j3 * i3 + i3 / 2;
 
-                if (d3 > 1.0D) {
-                    d3 = 1.0D;
+            for (int l3 = 0; l3 < j2; l3++) {
+                int i4 = l3 * i3 + i3 / 2;
+                double d3 = ad1[k3 * 16 + i4];
+                double d4 = ad2[k3 * 16 + i4] * d3;
+                double d5 = 1.0D - d4;
+
+                d5 *= d5;
+                d5 *= d5;
+                d5 = 1.0D - d5;
+                double d6 = (g[l2] + 256D) / 512D;
+
+                d6 *= d5;
+                if (d6 > 1.0D) {
+                    d6 = 1.0D;
                 }
-                double d4 = 0.0D;
-                double d5 = h[l2] / 8000D;
+                double d7 = h[l2] / 8000D;
 
-                if (d5 < 0.0D) {
-                    d5 = -d5;
+                if (d7 < 0.0D) {
+                    d7 = -d7 * 0.29999999999999999D;
                 }
-                d5 = d5 * 3D - 3D;
-                if (d5 < 0.0D) {
-                    d5 /= 2D;
-                    if (d5 < -1D) {
-                        d5 = -1D;
+                d7 = d7 * 3D - 2D;
+                if (d7 < 0.0D) {
+                    d7 /= 2D;
+                    if (d7 < -1D) {
+                        d7 = -1D;
                     }
-                    d5 /= 1.3999999999999999D;
-                    d5 /= 2D;
-                    d3 = 0.0D;
+                    d7 /= 1.3999999999999999D;
+                    d7 /= 2D;
+                    d6 = 0.0D;
                 } else {
-                    if (d5 > 1.0D) {
-                        d5 = 1.0D;
+                    if (d7 > 1.0D) {
+                        d7 = 1.0D;
                     }
-                    d5 /= 6D;
+                    d7 /= 8D;
                 }
-                d3 += 0.5D;
-                d5 = (d5 * (double) i2) / 16D;
-                double d6 = (double) i2 / 2D + d5 * 4D;
+                if (d6 < 0.0D) {
+                    d6 = 0.0D;
+                }
+                d6 += 0.5D;
+                d7 = (d7 * (double) i2) / 16D;
+                double d8 = (double) i2 / 2D + d7 * 4D;
 
                 l2++;
-                for (int k3 = 0; k3 < i2; k3++) {
-                    double d7 = 0.0D;
-                    double d8 = (((double) k3 - d6) * 12D) / d3;
+                for (int j4 = 0; j4 < i2; j4++) {
+                    double d9 = 0.0D;
+                    double d10 = (((double) j4 - d8) * 12D) / d6;
 
-                    if (d8 < 0.0D) {
-                        d8 *= 4D;
+                    if (d10 < 0.0D) {
+                        d10 *= 4D;
                     }
-                    double d9 = e[k2] / 512D;
-                    double d10 = f[k2] / 512D;
-                    double d11 = (d[k2] / 10D + 1.0D) / 2D;
+                    double d11 = e[k2] / 512D;
+                    double d12 = f[k2] / 512D;
+                    double d13 = (d[k2] / 10D + 1.0D) / 2D;
 
-                    if (d11 < 0.0D) {
-                        d7 = d9;
-                    } else if (d11 > 1.0D) {
-                        d7 = d10;
+                    if (d13 < 0.0D) {
+                        d9 = d11;
+                    } else if (d13 > 1.0D) {
+                        d9 = d12;
                     } else {
-                        d7 = d9 + (d10 - d9) * d11;
+                        d9 = d11 + (d12 - d11) * d13;
                     }
-                    d7 -= d8;
-                    if (k3 > i2 - 4) {
-                        double d12 = (float) (k3 - (i2 - 4)) / 3F;
+                    d9 -= d10;
+                    if (j4 > i2 - 4) {
+                        double d14 = (float) (j4 - (i2 - 4)) / 3F;
 
-                        d7 = d7 * (1.0D - d12) + -10D * d12;
+                        d9 = d9 * (1.0D - d14) + -10D * d14;
                     }
-                    if ((double) k3 < d4) {
-                        double d13 = (d4 - (double) k3) / 4D;
-
-                        if (d13 < 0.0D) {
-                            d13 = 0.0D;
-                        }
-                        if (d13 > 1.0D) {
-                            d13 = 1.0D;
-                        }
-                        d7 = d7 * (1.0D - d13) + -10D * d13;
-                    }
-                    ad[k2] = d7;
+                    ad[k2] = d9;
                     k2++;
                 }
             }
@@ -295,175 +307,214 @@ public class ChunkProviderGenerate implements IChunkProvider {
         BlockSand.a = true;
         int k1 = i1 * 16;
         int l1 = j1 * 16;
+        MobSpawnerBase mobspawnerbase = p.a().a(k1 + 16, l1 + 16);
 
-        j.setSeed(p.t);
+        j.setSeed(p.u);
         long l2 = (j.nextLong() / 2L) * 2L + 1L;
         long l3 = (j.nextLong() / 2L) * 2L + 1L;
 
-        j.setSeed((long) i1 * l2 + (long) j1 * l3 ^ p.t);
+        j.setSeed((long) i1 * l2 + (long) j1 * l3 ^ p.u);
         double d1 = 0.25D;
 
         for (int i2 = 0; i2 < 8; i2++) {
             int i5 = k1 + j.nextInt(16) + 8;
-            int j7 = j.nextInt(128);
-            int i12 = l1 + j.nextInt(16) + 8;
+            int k7 = j.nextInt(128);
+            int l9 = l1 + j.nextInt(16) + 8;
 
-            (new WorldGenDungeons()).a(p, j, i5, j7, i12);
+            (new WorldGenDungeons()).a(p, j, i5, k7, l9);
         }
 
         for (int j2 = 0; j2 < 10; j2++) {
             int j5 = k1 + j.nextInt(16);
-            int k7 = j.nextInt(128);
-            int j12 = l1 + j.nextInt(16);
+            int l7 = j.nextInt(128);
+            int i10 = l1 + j.nextInt(16);
 
-            (new WorldGenClay(32)).a(p, j, j5, k7, j12);
+            (new WorldGenClay(32)).a(p, j, j5, l7, i10);
         }
 
         for (int k2 = 0; k2 < 20; k2++) {
             int k5 = k1 + j.nextInt(16);
-            int l7 = j.nextInt(128);
-            int k12 = l1 + j.nextInt(16);
+            int i8 = j.nextInt(128);
+            int j10 = l1 + j.nextInt(16);
 
-            (new WorldGenMinable(Block.w.bc, 32)).a(p, j, k5, l7, k12);
+            (new WorldGenMinable(Block.w.bi, 32)).a(p, j, k5, i8, j10);
         }
 
         for (int i3 = 0; i3 < 10; i3++) {
             int l5 = k1 + j.nextInt(16);
-            int i8 = j.nextInt(128);
-            int l12 = l1 + j.nextInt(16);
+            int j8 = j.nextInt(128);
+            int k10 = l1 + j.nextInt(16);
 
-            (new WorldGenMinable(Block.G.bc, 32)).a(p, j, l5, i8, l12);
+            (new WorldGenMinable(Block.G.bi, 32)).a(p, j, l5, j8, k10);
         }
 
         for (int j3 = 0; j3 < 20; j3++) {
             int i6 = k1 + j.nextInt(16);
-            int j8 = j.nextInt(128);
-            int i13 = l1 + j.nextInt(16);
+            int k8 = j.nextInt(128);
+            int l10 = l1 + j.nextInt(16);
 
-            (new WorldGenMinable(Block.J.bc, 16)).a(p, j, i6, j8, i13);
+            (new WorldGenMinable(Block.J.bi, 16)).a(p, j, i6, k8, l10);
         }
 
         for (int k3 = 0; k3 < 20; k3++) {
             int j6 = k1 + j.nextInt(16);
-            int k8 = j.nextInt(64);
-            int j13 = l1 + j.nextInt(16);
+            int l8 = j.nextInt(64);
+            int i11 = l1 + j.nextInt(16);
 
-            (new WorldGenMinable(Block.I.bc, 8)).a(p, j, j6, k8, j13);
+            (new WorldGenMinable(Block.I.bi, 8)).a(p, j, j6, l8, i11);
         }
 
         for (int i4 = 0; i4 < 2; i4++) {
             int k6 = k1 + j.nextInt(16);
-            int l8 = j.nextInt(32);
-            int k13 = l1 + j.nextInt(16);
+            int i9 = j.nextInt(32);
+            int j11 = l1 + j.nextInt(16);
 
-            (new WorldGenMinable(Block.H.bc, 8)).a(p, j, k6, l8, k13);
+            (new WorldGenMinable(Block.H.bi, 8)).a(p, j, k6, i9, j11);
         }
 
         for (int j4 = 0; j4 < 8; j4++) {
             int l6 = k1 + j.nextInt(16);
-            int i9 = j.nextInt(16);
-            int l13 = l1 + j.nextInt(16);
+            int j9 = j.nextInt(16);
+            int k11 = l1 + j.nextInt(16);
 
-            (new WorldGenMinable(Block.aO.bc, 7)).a(p, j, l6, i9, l13);
+            (new WorldGenMinable(Block.aO.bi, 7)).a(p, j, l6, j9, k11);
         }
 
         for (int k4 = 0; k4 < 1; k4++) {
             int i7 = k1 + j.nextInt(16);
-            int j9 = j.nextInt(16);
-            int i14 = l1 + j.nextInt(16);
+            int k9 = j.nextInt(16);
+            int l11 = l1 + j.nextInt(16);
 
-            (new WorldGenMinable(Block.ax.bc, 7)).a(p, j, i7, j9, i14);
+            (new WorldGenMinable(Block.ax.bi, 7)).a(p, j, i7, k9, l11);
         }
 
         d1 = 0.5D;
         int l4 = (int) ((c.a((double) k1 * d1, (double) l1 * d1) / 8D + j.nextDouble() * 4D + 4D) / 3D);
+        int j7 = 0;
 
-        if (l4 < 0) {
-            l4 = 0;
-        }
         if (j.nextInt(10) == 0) {
-            l4++;
+            j7++;
+        }
+        if (mobspawnerbase == MobSpawnerBase.d) {
+            j7 += l4 + 5;
+        }
+        if (mobspawnerbase == MobSpawnerBase.a) {
+            j7 += l4 + 5;
+        }
+        if (mobspawnerbase == MobSpawnerBase.c) {
+            j7 += l4 + 2;
+        }
+        if (mobspawnerbase == MobSpawnerBase.g) {
+            j7 += l4 + 5;
+        }
+        if (mobspawnerbase == MobSpawnerBase.h) {
+            j7 -= 20;
+        }
+        if (mobspawnerbase == MobSpawnerBase.k) {
+            j7 -= 20;
+        }
+        if (mobspawnerbase == MobSpawnerBase.i) {
+            j7 -= 20;
         }
         Object obj = ((new WorldGenTrees()));
 
         if (j.nextInt(10) == 0) {
             obj = ((new WorldGenBigTree()));
         }
-        for (int k9 = 0; k9 < l4; k9++) {
-            int j14 = k1 + j.nextInt(16) + 8;
+        if (mobspawnerbase == MobSpawnerBase.a && j.nextInt(3) == 0) {
+            obj = ((new WorldGenBigTree()));
+        }
+        for (int i12 = 0; i12 < j7; i12++) {
+            int i14 = k1 + j.nextInt(16) + 8;
             int l16 = l1 + j.nextInt(16) + 8;
 
             ((WorldGenerator) (obj)).a(1.0D, 1.0D, 1.0D);
-            ((WorldGenerator) (obj)).a(p, j, j14, p.c(j14, l16), l16);
+            ((WorldGenerator) (obj)).a(p, j, i14, p.d(i14, l16), l16);
         }
 
-        for (int l9 = 0; l9 < 2; l9++) {
-            int k14 = k1 + j.nextInt(16) + 8;
+        for (int j12 = 0; j12 < 2; j12++) {
+            int j14 = k1 + j.nextInt(16) + 8;
             int i17 = j.nextInt(128);
-            int j19 = l1 + j.nextInt(16) + 8;
+            int k19 = l1 + j.nextInt(16) + 8;
 
-            (new WorldGenFlowers(Block.ae.bc)).a(p, j, k14, i17, j19);
+            (new WorldGenFlowers(Block.ae.bi)).a(p, j, j14, i17, k19);
         }
 
         if (j.nextInt(2) == 0) {
-            int i10 = k1 + j.nextInt(16) + 8;
-            int l14 = j.nextInt(128);
+            int k12 = k1 + j.nextInt(16) + 8;
+            int k14 = j.nextInt(128);
             int j17 = l1 + j.nextInt(16) + 8;
 
-            (new WorldGenFlowers(Block.af.bc)).a(p, j, i10, l14, j17);
+            (new WorldGenFlowers(Block.af.bi)).a(p, j, k12, k14, j17);
         }
         if (j.nextInt(4) == 0) {
-            int j10 = k1 + j.nextInt(16) + 8;
-            int i15 = j.nextInt(128);
+            int l12 = k1 + j.nextInt(16) + 8;
+            int l14 = j.nextInt(128);
             int k17 = l1 + j.nextInt(16) + 8;
 
-            (new WorldGenFlowers(Block.ag.bc)).a(p, j, j10, i15, k17);
+            (new WorldGenFlowers(Block.ag.bi)).a(p, j, l12, l14, k17);
         }
         if (j.nextInt(8) == 0) {
-            int k10 = k1 + j.nextInt(16) + 8;
-            int j15 = j.nextInt(128);
+            int i13 = k1 + j.nextInt(16) + 8;
+            int i15 = j.nextInt(128);
             int l17 = l1 + j.nextInt(16) + 8;
 
-            (new WorldGenFlowers(Block.ah.bc)).a(p, j, k10, j15, l17);
+            (new WorldGenFlowers(Block.ah.bi)).a(p, j, i13, i15, l17);
         }
-        for (int l10 = 0; l10 < 10; l10++) {
-            int k15 = k1 + j.nextInt(16) + 8;
+        for (int j13 = 0; j13 < 10; j13++) {
+            int j15 = k1 + j.nextInt(16) + 8;
             int i18 = j.nextInt(128);
-            int k19 = l1 + j.nextInt(16) + 8;
-
-            (new WorldGenReed()).a(p, j, k15, i18, k19);
-        }
-
-        for (int i11 = 0; i11 < 1; i11++) {
-            int l15 = k1 + j.nextInt(16) + 8;
-            int j18 = j.nextInt(128);
             int l19 = l1 + j.nextInt(16) + 8;
 
-            (new WorldGenCactus()).a(p, j, l15, j18, l19);
+            (new WorldGenReed()).a(p, j, j15, i18, l19);
         }
 
-        for (int j11 = 0; j11 < 50; j11++) {
-            int i16 = k1 + j.nextInt(16) + 8;
-            int k18 = j.nextInt(j.nextInt(120) + 8);
-            int i20 = l1 + j.nextInt(16) + 8;
+        if (j.nextInt(32) == 0) {
+            int k13 = k1 + j.nextInt(16) + 8;
+            int k15 = j.nextInt(128);
+            int j18 = l1 + j.nextInt(16) + 8;
 
-            (new WorldGenLiquids(Block.B.bc)).a(p, j, i16, k18, i20);
+            (new WorldGenPumpkin()).a(p, j, k13, k15, j18);
+        }
+        int l13 = 0;
+
+        if (mobspawnerbase == MobSpawnerBase.h) {
+            l13 += 10;
+        }
+        for (int l15 = 0; l15 < l13; l15++) {
+            int k18 = k1 + j.nextInt(16) + 8;
+            int i20 = j.nextInt(128);
+            int i21 = l1 + j.nextInt(16) + 8;
+
+            (new WorldGenCactus()).a(p, j, k18, i20, i21);
         }
 
-        for (int k11 = 0; k11 < 20; k11++) {
-            int j16 = k1 + j.nextInt(16) + 8;
-            int l18 = j.nextInt(j.nextInt(j.nextInt(112) + 8) + 8);
-            int j20 = l1 + j.nextInt(16) + 8;
+        for (int i16 = 0; i16 < 50; i16++) {
+            int l18 = k1 + j.nextInt(16) + 8;
+            int j20 = j.nextInt(j.nextInt(120) + 8);
+            int j21 = l1 + j.nextInt(16) + 8;
 
-            (new WorldGenLiquids(Block.D.bc)).a(p, j, j16, l18, j20);
+            (new WorldGenLiquids(Block.B.bi)).a(p, j, l18, j20, j21);
         }
 
-        for (int l11 = k1 + 8 + 0; l11 < k1 + 8 + 16; l11++) {
-            for (int k16 = l1 + 8 + 0; k16 < l1 + 8 + 16; k16++) {
-                int i19 = p.d(l11, k16);
+        for (int j16 = 0; j16 < 20; j16++) {
+            int i19 = k1 + j.nextInt(16) + 8;
+            int k20 = j.nextInt(j.nextInt(j.nextInt(112) + 8) + 8);
+            int k21 = l1 + j.nextInt(16) + 8;
 
-                if (p.d && i19 > 0 && i19 < 128 && p.a(l11, i19, k16) == 0 && p.c(l11, i19 - 1, k16).c() && p.c(l11, i19 - 1, k16) != Material.r) {
-                    p.d(l11, i19, k16, Block.aT.bc);
+            (new WorldGenLiquids(Block.D.bi)).a(p, j, i19, k20, k21);
+        }
+
+        w = p.a().a(w, k1 + 8, l1 + 8, 16, 16);
+        for (int k16 = k1 + 8; k16 < k1 + 8 + 16; k16++) {
+            for (int j19 = l1 + 8; j19 < l1 + 8 + 16; j19++) {
+                int l20 = k16 - (k1 + 8);
+                int l21 = j19 - (l1 + 8);
+                int i22 = p.e(k16, j19);
+                double d2 = w[l20 * 16 + l21] - ((double) (i22 - 64) / 64D) * 0.29999999999999999D;
+
+                if (d2 < 0.5D && i22 > 0 && i22 < 128 && p.a(k16, i22, j19) == 0 && p.c(k16, i22 - 1, j19).c() && p.c(k16, i22 - 1, j19) != Material.r) {
+                    p.d(k16, i22, j19, Block.aT.bi);
                 }
             }
         }

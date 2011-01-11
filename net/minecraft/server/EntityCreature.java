@@ -5,50 +5,50 @@ import java.util.Random;
 public class EntityCreature extends EntityLiving {
 
     private PathEntity a;
-    protected Entity ag;
-    protected boolean ah;
+    protected Entity f;
+    protected boolean ai;
 
     public EntityCreature(World world) {
         super(world);
-        ah = false;
+        ai = false;
     }
 
-    protected void d_() {
-        ah = false;
-        float f = 16F;
+    protected void c() {
+        ai = false;
+        float f1 = 16F;
 
-        if (ag == null) {
-            ag = i();
-            if (ag != null) {
-                a = h.a(((Entity) (this)), ag, f);
+        if (f == null) {
+            f = k();
+            if (f != null) {
+                a = this.l.a(((Entity) (this)), f, f1);
             }
-        } else if (!ag.t()) {
-            ag = null;
+        } else if (!f.w()) {
+            f = null;
         } else {
-            float f1 = ag.a(((Entity) (this)));
+            float f2 = f.a(((Entity) (this)));
 
-            if (g(ag)) {
-                a(ag, f1);
+            if (g(f)) {
+                a(f, f2);
             }
         }
-        if (!ah && ag != null && (a == null || R.nextInt(20) == 0)) {
-            a = h.a(((Entity) (this)), ag, f);
-        } else if (a == null && R.nextInt(80) == 0 || R.nextInt(80) == 0) {
+        if (!ai && f != null && (a == null || V.nextInt(20) == 0)) {
+            a = this.l.a(((Entity) (this)), f, f1);
+        } else if (a == null && V.nextInt(80) == 0 || V.nextInt(80) == 0) {
             boolean flag = false;
-            int k = -1;
+            int j = -1;
             int l = -1;
             int i1 = -1;
-            float f2 = -99999F;
+            float f3 = -99999F;
 
             for (int j1 = 0; j1 < 10; j1++) {
-                int k1 = MathHelper.b((this.l + (double) R.nextInt(13)) - 6D);
-                int l1 = MathHelper.b((m + (double) R.nextInt(7)) - 3D);
-                int i2 = MathHelper.b((n + (double) R.nextInt(13)) - 6D);
-                float f3 = a(k1, l1, i2);
+                int k1 = MathHelper.b((p + (double) V.nextInt(13)) - 6D);
+                int l1 = MathHelper.b((q + (double) V.nextInt(7)) - 3D);
+                int i2 = MathHelper.b((r + (double) V.nextInt(13)) - 6D);
+                float f4 = a(k1, l1, i2);
 
-                if (f3 > f2) {
-                    f2 = f3;
-                    k = k1;
+                if (f4 > f3) {
+                    f3 = f4;
+                    j = k1;
                     l = l1;
                     i1 = i2;
                     flag = true;
@@ -56,22 +56,22 @@ public class EntityCreature extends EntityLiving {
             }
 
             if (flag) {
-                a = h.a(((Entity) (this)), k, l, i1, 10F);
+                a = this.l.a(((Entity) (this)), j, l, i1, 10F);
             }
         }
-        int j = MathHelper.b(v.b);
-        boolean flag1 = o();
-        boolean flag2 = q();
+        int i = MathHelper.b(z.b);
+        boolean flag1 = r();
+        boolean flag2 = t();
 
-        s = 0.0F;
-        if (a == null || R.nextInt(100) == 0) {
-            super.d_();
+        w = 0.0F;
+        if (a == null || V.nextInt(100) == 0) {
+            super.c();
             a = null;
             return;
         }
         Vec3D vec3d = a.a(((Entity) (this)));
 
-        for (double d = D * 2.0F; vec3d != null && vec3d.d(this.l, vec3d.b, n) < d * d;) {
+        for (double d = H * 2.0F; vec3d != null && vec3d.d(p, vec3d.b, r) < d * d;) {
             a.a();
             if (a.b()) {
                 vec3d = null;
@@ -81,69 +81,69 @@ public class EntityCreature extends EntityLiving {
             }
         }
 
-        bg = false;
+        bj = false;
         if (vec3d != null) {
-            double d1 = vec3d.a - this.l;
-            double d2 = vec3d.c - n;
-            double d3 = vec3d.b - (double) j;
-            float f4 = (float) ((Math.atan2(d2, d1) * 180D) / 3.1415927410125732D) - 90F;
-            float f5 = f4 - r;
+            double d1 = vec3d.a - p;
+            double d2 = vec3d.c - r;
+            double d3 = vec3d.b - (double) i;
+            float f5 = (float) ((Math.atan2(d2, d1) * 180D) / 3.1415927410125732D) - 90F;
+            float f6 = f5 - v;
 
-            be = bi;
-            for (; f5 < -180F; f5 += 360F) {
+            bh = bl;
+            for (; f6 < -180F; f6 += 360F) {
                 ;
             }
-            for (; f5 >= 180F; f5 -= 360F) {
+            for (; f6 >= 180F; f6 -= 360F) {
                 ;
             }
-            if (f5 > 30F) {
-                f5 = 30F;
+            if (f6 > 30F) {
+                f6 = 30F;
             }
-            if (f5 < -30F) {
-                f5 = -30F;
+            if (f6 < -30F) {
+                f6 = -30F;
             }
-            r += f5;
-            if (ah && ag != null) {
-                double d4 = ag.l - this.l;
-                double d5 = ag.n - n;
-                float f7 = r;
+            v += f6;
+            if (ai && f != null) {
+                double d4 = f.p - p;
+                double d5 = f.r - r;
+                float f8 = v;
 
-                r = (float) ((Math.atan2(d5, d4) * 180D) / 3.1415927410125732D) - 90F;
-                float f6 = (((f7 - r) + 90F) * 3.141593F) / 180F;
+                v = (float) ((Math.atan2(d5, d4) * 180D) / 3.1415927410125732D) - 90F;
+                float f7 = (((f8 - v) + 90F) * 3.141593F) / 180F;
 
-                bd = -MathHelper.a(f6) * be * 1.0F;
-                be = MathHelper.b(f6) * be * 1.0F;
+                bg = -MathHelper.a(f7) * bh * 1.0F;
+                bh = MathHelper.b(f7) * bh * 1.0F;
             }
             if (d3 > 0.0D) {
-                bg = true;
+                bj = true;
             }
         }
-        if (ag != null) {
-            b(ag, 30F);
+        if (f != null) {
+            b(f, 30F);
         }
-        if (x) {
-            bg = true;
+        if (B) {
+            bj = true;
         }
-        if (R.nextFloat() < 0.8F && (flag1 || flag2)) {
-            bg = true;
+        if (V.nextFloat() < 0.8F && (flag1 || flag2)) {
+            bj = true;
         }
     }
 
-    protected void a(Entity entity, float f) {}
+    protected void a(Entity entity, float f1) {}
 
-    protected float a(int j, int k, int l) {
+    protected float a(int i, int j, int l) {
         return 0.0F;
     }
 
-    protected Entity i() {
+    protected Entity k() {
         return null;
     }
 
     public boolean a() {
-        int j = MathHelper.b(this.l);
-        int k = MathHelper.b(v.b);
-        int l = MathHelper.b(n);
+        int i = MathHelper.b(p);
+        int j = MathHelper.b(z.b);
+        int l = MathHelper.b(r);
 
-        return super.a() && a(j, k, l) >= 0.0F;
+        return super.a() && a(i, j, l) >= 0.0F;
     }
 }

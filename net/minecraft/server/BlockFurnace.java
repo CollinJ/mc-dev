@@ -9,11 +9,11 @@ public class BlockFurnace extends BlockContainer {
     protected BlockFurnace(int i, boolean flag) {
         super(i, Material.d);
         a = flag;
-        bb = 45;
+        bh = 45;
     }
 
     public int a(int i, Random random) {
-        return Block.aC.bc;
+        return Block.aC.bi;
     }
 
     public void e(World world, int i, int j, int k) {
@@ -45,15 +45,15 @@ public class BlockFurnace extends BlockContainer {
 
     public int a(int i) {
         if (i == 1) {
-            return Block.u.bc;
+            return Block.u.bi;
         }
         if (i == 0) {
-            return Block.u.bc;
+            return Block.u.bi;
         }
         if (i == 3) {
-            return bb - 1;
+            return bh - 1;
         } else {
-            return bb;
+            return bh;
         }
     }
 
@@ -69,9 +69,9 @@ public class BlockFurnace extends BlockContainer {
         TileEntity tileentity = world.k(i, j, k);
 
         if (flag) {
-            world.d(i, j, k, Block.aD.bc);
+            world.d(i, j, k, Block.aD.bi);
         } else {
-            world.d(i, j, k, Block.aC.bc);
+            world.d(i, j, k, Block.aC.bi);
         }
         world.b(i, j, k, l);
         world.a(i, j, k, tileentity);
@@ -79,5 +79,22 @@ public class BlockFurnace extends BlockContainer {
 
     protected TileEntity a_() {
         return ((TileEntity) (new TileEntityFurnace()));
+    }
+
+    public void a(World world, int i, int j, int k, EntityLiving entityliving) {
+        int l = MathHelper.b((double) ((entityliving.v * 4F) / 360F) + 0.5D) & 3;
+
+        if (l == 0) {
+            world.b(i, j, k, 2);
+        }
+        if (l == 1) {
+            world.b(i, j, k, 5);
+        }
+        if (l == 2) {
+            world.b(i, j, k, 3);
+        }
+        if (l == 3) {
+            world.b(i, j, k, 4);
+        }
     }
 }

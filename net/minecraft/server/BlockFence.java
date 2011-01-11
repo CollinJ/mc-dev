@@ -13,7 +13,7 @@ public class BlockFence extends Block {
     }
 
     public boolean a(World world, int i, int j, int k) {
-        if (world.a(i, j - 1, k) == bc) {
+        if (world.a(i, j - 1, k) == bi) {
             return false;
         }
         if (!world.c(i, j - 1, k).a()) {
@@ -23,11 +23,7 @@ public class BlockFence extends Block {
         }
     }
 
-    public boolean b() {
+    public boolean a() {
         return false;
-    }
-
-    public int a() {
-        return 11;
     }
 }

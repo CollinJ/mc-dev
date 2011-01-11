@@ -26,7 +26,7 @@ public class BlockSapling extends BlockFlower {
                     obj = ((new WorldGenBigTree()));
                 }
                 if (!((WorldGenerator) (obj)).a(world, random, i, j, k)) {
-                    world.a(i, j, k, bc);
+                    world.a(i, j, k, bi);
                 }
             }
         }

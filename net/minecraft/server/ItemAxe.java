@@ -2,14 +2,14 @@ package net.minecraft.server;
 
 public class ItemAxe extends ItemTool {
 
-    private static Block aX[];
+    private static Block bb[];
 
     public ItemAxe(int i, int j) {
-        super(i, 3, j, aX);
+        super(i, 3, j, bb);
     }
 
     static {
-        aX = (new Block[] {
+        bb = (new Block[] {
             Block.y, Block.ao, Block.K, Block.av
         });
     }

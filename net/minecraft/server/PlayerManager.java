@@ -57,12 +57,12 @@ public class PlayerManager {
     }
 
     public void a(EntityPlayerMP entityplayermp) {
-        d.f.a(((Packet) (new Packet3Chat((new StringBuilder()).append("\247e").append(entityplayermp.aq).append(" joined the game.").toString()))));
-        int i = (int) entityplayermp.l >> 4;
-        int j = (int) entityplayermp.n >> 4;
+        d.f.a(((Packet) (new Packet3Chat((new StringBuilder()).append("\247e").append(entityplayermp.ar).append(" joined the game.").toString()))));
+        int i = (int) entityplayermp.p >> 4;
+        int j = (int) entityplayermp.r >> 4;
 
-        entityplayermp.ae = entityplayermp.l;
-        entityplayermp.af = entityplayermp.n;
+        entityplayermp.d = entityplayermp.p;
+        entityplayermp.e = entityplayermp.r;
         for (int k = i - 10; k <= i + 10; k++) {
             for (int l = j - 10; l <= j + 10; l++) {
                 a(k, l, true).a(entityplayermp);
@@ -73,9 +73,9 @@ public class PlayerManager {
     }
 
     public void b(EntityPlayerMP entityplayermp) {
-        d.f.a(((Packet) (new Packet3Chat((new StringBuilder()).append("\247e").append(entityplayermp.aq).append(" left the game.").toString()))));
-        int i = (int) entityplayermp.l >> 4;
-        int j = (int) entityplayermp.n >> 4;
+        d.f.a(((Packet) (new Packet3Chat((new StringBuilder()).append("\247e").append(entityplayermp.ar).append(" left the game.").toString()))));
+        int i = (int) entityplayermp.p >> 4;
+        int j = (int) entityplayermp.r >> 4;
 
         for (int k = i - 10; k <= i + 10; k++) {
             for (int l = j - 10; l <= j + 10; l++) {
@@ -101,17 +101,17 @@ public class PlayerManager {
     }
 
     public void c(EntityPlayerMP entityplayermp) {
-        int i = (int) entityplayermp.l >> 4;
-        int j = (int) entityplayermp.n >> 4;
-        double d1 = entityplayermp.ae - entityplayermp.l;
-        double d2 = entityplayermp.af - entityplayermp.n;
+        int i = (int) entityplayermp.p >> 4;
+        int j = (int) entityplayermp.r >> 4;
+        double d1 = entityplayermp.d - entityplayermp.p;
+        double d2 = entityplayermp.e - entityplayermp.r;
         double d3 = d1 * d1 + d2 * d2;
 
         if (d3 < 64D) {
             return;
         }
-        int k = (int) entityplayermp.ae >> 4;
-        int l = (int) entityplayermp.af >> 4;
+        int k = (int) entityplayermp.d >> 4;
+        int l = (int) entityplayermp.e >> 4;
         int i1 = i - k;
         int j1 = j - l;
 
@@ -134,8 +134,8 @@ public class PlayerManager {
             }
         }
 
-        entityplayermp.ae = entityplayermp.l;
-        entityplayermp.af = entityplayermp.n;
+        entityplayermp.d = entityplayermp.p;
+        entityplayermp.e = entityplayermp.r;
     }
 
     public int b() {

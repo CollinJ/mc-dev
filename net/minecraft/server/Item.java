@@ -97,20 +97,24 @@ public class Item {
     public static Item aM = (new ItemMinecart(87, 2)).a(167);
     public static Item aN = (new Item(88)).a(12);
     public static Item aO = (new Item(89)).a(54);
-    public static Item aP = (new Item(90)).a(69);
-    public static Item aQ = (new ItemRecord(2000, "13")).a(240);
-    public static Item aR = (new ItemRecord(2001, "cat")).a(241);
-    public final int aS;
-    protected int aT;
-    protected int aU;
-    protected int aV;
-    protected boolean aW;
+    public static Item aP = (new ItemFishingRod(90)).a(69);
+    public static Item aQ = (new Item(91)).a(70);
+    public static Item aR = (new Item(92)).a(73);
+    public static Item aS = (new ItemFood(93, 2)).a(89);
+    public static Item aT = (new ItemFood(94, 5)).a(90);
+    public static Item aU = (new ItemRecord(2000, "13")).a(240);
+    public static Item aV = (new ItemRecord(2001, "cat")).a(241);
+    public final int aW;
+    protected int aX;
+    protected int aY;
+    protected int aZ;
+    protected boolean ba;
 
     protected Item(int i1) {
-        aT = 64;
-        aU = 32;
-        aW = false;
-        aS = 256 + i1;
+        aX = 64;
+        aY = 32;
+        ba = false;
+        aW = 256 + i1;
         if (c[256 + i1] != null) {
             System.out.println((new StringBuilder()).append("CONFLICT @ ").append(i1).toString());
         }
@@ -118,7 +122,7 @@ public class Item {
     }
 
     public Item a(int i1) {
-        aV = i1;
+        aZ = i1;
         return this;
     }
 
@@ -131,11 +135,11 @@ public class Item {
     }
 
     public int a() {
-        return aT;
+        return aX;
     }
 
     public int b() {
-        return aU;
+        return aY;
     }
 
     public void a(ItemStack itemstack, int i1, int j1, int k1, int l1) {}
@@ -145,15 +149,15 @@ public class Item {
     }
 
     public Item c() {
-        aW = true;
+        ba = true;
         return this;
     }
 
     static {
-        Q = (new ItemSeeds(39, Block.aA.bc)).a(9);
+        Q = (new ItemSeeds(39, Block.aA.bi)).a(9);
         at = (new ItemDoor(68, Material.c)).a(43);
-        av = (new ItemBucket(70, Block.B.bc)).a(75);
-        aw = (new ItemBucket(71, Block.D.bc)).a(76);
+        av = (new ItemBucket(70, Block.B.bi)).a(75);
+        aw = (new ItemBucket(71, Block.D.bi)).a(76);
         az = (new ItemDoor(74, Material.e)).a(44);
         aH = (new ItemReed(82, Block.aY)).a(27);
     }

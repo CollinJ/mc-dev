@@ -6,35 +6,35 @@ public class EntityZombie extends EntityMobs {
 
     public EntityZombie(World world) {
         super(world);
-        aC = "/mob/zombie.png";
-        bi = 0.5F;
-        af = 5;
+        aF = "/mob/zombie.png";
+        bl = 0.5F;
+        e = 5;
     }
 
-    public void y() {
-        if (h.a()) {
-            float f = b(1.0F);
+    public void D() {
+        if (l.b()) {
+            float f1 = b(1.0F);
 
-            if (f > 0.5F && h.g(MathHelper.b(l), MathHelper.b(m), MathHelper.b(n)) && R.nextFloat() * 30F < (f - 0.4F) * 2.0F) {
-                U = 300;
+            if (f1 > 0.5F && l.g(MathHelper.b(p), MathHelper.b(q), MathHelper.b(r)) && V.nextFloat() * 30F < (f1 - 0.4F) * 2.0F) {
+                Y = 300;
             }
         }
-        super.y();
-    }
-
-    protected String c() {
-        return "mob.zombie";
+        super.D();
     }
 
     protected String d() {
-        return "mob.zombiehurt";
+        return "mob.zombie";
     }
 
     protected String e() {
+        return "mob.zombiehurt";
+    }
+
+    protected String f() {
         return "mob.zombiedeath";
     }
 
     protected int g() {
-        return Item.J.aS;
+        return Item.J.aW;
     }
 }

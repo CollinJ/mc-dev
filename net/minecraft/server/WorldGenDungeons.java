@@ -45,9 +45,9 @@ public class WorldGenDungeons extends WorldGenerator {
                             continue;
                         }
                         if (k2 == j - 1 && random.nextInt(4) != 0) {
-                            world.d(l1, k2, j3, Block.ap.bc);
+                            world.d(l1, k2, j3, Block.ap.bi);
                         } else {
-                            world.d(l1, k2, j3, Block.x.bc);
+                            world.d(l1, k2, j3, Block.x.bi);
                         }
                     } else {
                         world.d(l1, k2, j3, 0);
@@ -83,7 +83,7 @@ public class WorldGenDungeons extends WorldGenerator {
                 if (j4 != 1) {
                     continue;
                 }
-                world.d(k3, l3, i4, Block.av.bc);
+                world.d(k3, l3, i4, Block.av.bi);
                 TileEntityChest tileentitychest = (TileEntityChest) world.k(k3, l3, i4);
                 int k4 = 0;
 
@@ -101,7 +101,7 @@ public class WorldGenDungeons extends WorldGenerator {
             }
         }
 
-        world.d(i, j, k, Block.at.bc);
+        world.d(i, j, k, Block.at.bi);
         TileEntityMobSpawner tileentitymobspawner = (TileEntityMobSpawner) world.k(i, j, k);
 
         tileentitymobspawner.f = b(random);
@@ -139,7 +139,7 @@ public class WorldGenDungeons extends WorldGenerator {
             return new ItemStack(Item.aA, random.nextInt(4) + 1);
         }
         if (i == 9 && random.nextInt(10) == 0) {
-            return new ItemStack(Item.c[Item.aQ.aS + random.nextInt(2)]);
+            return new ItemStack(Item.c[Item.aU.aW + random.nextInt(2)]);
         } else {
             return null;
         }

@@ -5,144 +5,144 @@ import java.util.Random;
 public class EntityItem extends Entity {
 
     public ItemStack a;
-    private int af;
+    private int e;
     public int b;
-    public int ad;
-    private int ag;
-    public float ae;
+    public int c;
+    private int f;
+    public float d;
 
-    public EntityItem(World world, double d, double d1, double d2, ItemStack itemstack) {
+    public EntityItem(World world, double d1, double d2, double d3, ItemStack itemstack) {
         super(world);
         b = 0;
-        ag = 5;
-        ae = (float) (Math.random() * 3.1415926535897931D * 2D);
+        f = 5;
+        d = (float) (Math.random() * 3.1415926535897931D * 2D);
         a(0.25F, 0.25F);
-        C = E / 2.0F;
-        a(d, d1, d2);
+        G = I / 2.0F;
+        a(d1, d2, d3);
         a = itemstack;
-        r = (float) (Math.random() * 360D);
-        o = (float) (Math.random() * 0.20000000298023224D - 0.10000000149011612D);
-        p = 0.20000000298023224D;
-        q = (float) (Math.random() * 0.20000000298023224D - 0.10000000149011612D);
-        H = false;
+        v = (float) (Math.random() * 360D);
+        s = (float) (Math.random() * 0.20000000298023224D - 0.10000000149011612D);
+        t = 0.20000000298023224D;
+        u = (float) (Math.random() * 0.20000000298023224D - 0.10000000149011612D);
+        L = false;
     }
 
     public EntityItem(World world) {
         super(world);
         b = 0;
-        ag = 5;
-        ae = (float) (Math.random() * 3.1415926535897931D * 2D);
+        f = 5;
+        d = (float) (Math.random() * 3.1415926535897931D * 2D);
         a(0.25F, 0.25F);
-        C = E / 2.0F;
+        G = I / 2.0F;
     }
 
     public void b_() {
         super.b_();
-        if (ad > 0) {
-            ad--;
+        if (c > 0) {
+            c--;
         }
-        this.i = l;
-        j = m;
-        k = n;
-        p -= 0.039999999105930328D;
-        if (h.c(MathHelper.b(l), MathHelper.b(m), MathHelper.b(n)) == Material.g) {
-            p = 0.20000000298023224D;
-            o = (R.nextFloat() - R.nextFloat()) * 0.2F;
-            q = (R.nextFloat() - R.nextFloat()) * 0.2F;
-            h.a(((Entity) (this)), "random.fizz", 0.4F, 2.0F + R.nextFloat() * 0.4F);
+        m = p;
+        n = q;
+        o = r;
+        t -= 0.039999999105930328D;
+        if (l.c(MathHelper.b(p), MathHelper.b(q), MathHelper.b(r)) == Material.g) {
+            t = 0.20000000298023224D;
+            s = (V.nextFloat() - V.nextFloat()) * 0.2F;
+            u = (V.nextFloat() - V.nextFloat()) * 0.2F;
+            l.a(((Entity) (this)), "random.fizz", 0.4F, 2.0F + V.nextFloat() * 0.4F);
         }
-        g(l, m, n);
-        o();
-        c(o, p, q);
-        float f = 0.98F;
+        g(p, q, r);
+        r();
+        c(s, t, u);
+        float f1 = 0.98F;
 
-        if (w) {
-            f = 0.5880001F;
-            int i = h.a(MathHelper.b(l), MathHelper.b(v.b) - 1, MathHelper.b(n));
+        if (A) {
+            f1 = 0.5880001F;
+            int i = l.a(MathHelper.b(p), MathHelper.b(z.b) - 1, MathHelper.b(r));
 
             if (i > 0) {
-                f = Block.n[i].bo * 0.98F;
+                f1 = Block.n[i].bu * 0.98F;
             }
         }
-        o *= f;
-        p *= 0.98000001907348633D;
-        q *= f;
-        if (w) {
-            p *= -0.5D;
+        s *= f1;
+        t *= 0.98000001907348633D;
+        u *= f1;
+        if (A) {
+            t *= -0.5D;
         }
-        af++;
+        e++;
         b++;
         if (b >= 6000) {
-            j();
+            l();
         }
     }
 
-    public boolean o() {
-        return h.a(v, Material.f, ((Entity) (this)));
+    public boolean r() {
+        return l.a(z, Material.f, ((Entity) (this)));
     }
 
-    private boolean g(double d, double d1, double d2) {
-        int i = MathHelper.b(d);
-        int j = MathHelper.b(d1);
-        int k = MathHelper.b(d2);
-        double d3 = d - (double) i;
-        double d4 = d1 - (double) j;
-        double d5 = d2 - (double) k;
+    private boolean g(double d1, double d2, double d3) {
+        int i = MathHelper.b(d1);
+        int j = MathHelper.b(d2);
+        int k = MathHelper.b(d3);
+        double d4 = d1 - (double) i;
+        double d5 = d2 - (double) j;
+        double d6 = d3 - (double) k;
 
-        if (Block.p[h.a(i, j, k)]) {
-            boolean flag = !Block.p[h.a(i - 1, j, k)];
-            boolean flag1 = !Block.p[h.a(i + 1, j, k)];
-            boolean flag2 = !Block.p[h.a(i, j - 1, k)];
-            boolean flag3 = !Block.p[h.a(i, j + 1, k)];
-            boolean flag4 = !Block.p[h.a(i, j, k - 1)];
-            boolean flag5 = !Block.p[h.a(i, j, k + 1)];
+        if (Block.p[l.a(i, j, k)]) {
+            boolean flag = !Block.p[l.a(i - 1, j, k)];
+            boolean flag1 = !Block.p[l.a(i + 1, j, k)];
+            boolean flag2 = !Block.p[l.a(i, j - 1, k)];
+            boolean flag3 = !Block.p[l.a(i, j + 1, k)];
+            boolean flag4 = !Block.p[l.a(i, j, k - 1)];
+            boolean flag5 = !Block.p[l.a(i, j, k + 1)];
             byte byte0 = -1;
-            double d6 = 9999D;
+            double d7 = 9999D;
 
-            if (flag && d3 < d6) {
-                d6 = d3;
+            if (flag && d4 < d7) {
+                d7 = d4;
                 byte0 = 0;
             }
-            if (flag1 && 1.0D - d3 < d6) {
-                d6 = 1.0D - d3;
+            if (flag1 && 1.0D - d4 < d7) {
+                d7 = 1.0D - d4;
                 byte0 = 1;
             }
-            if (flag2 && d4 < d6) {
-                d6 = d4;
+            if (flag2 && d5 < d7) {
+                d7 = d5;
                 byte0 = 2;
             }
-            if (flag3 && 1.0D - d4 < d6) {
-                d6 = 1.0D - d4;
+            if (flag3 && 1.0D - d5 < d7) {
+                d7 = 1.0D - d5;
                 byte0 = 3;
             }
-            if (flag4 && d5 < d6) {
-                d6 = d5;
+            if (flag4 && d6 < d7) {
+                d7 = d6;
                 byte0 = 4;
             }
-            if (flag5 && 1.0D - d5 < d6) {
-                double d7 = 1.0D - d5;
+            if (flag5 && 1.0D - d6 < d7) {
+                double d8 = 1.0D - d6;
 
                 byte0 = 5;
             }
-            float f = R.nextFloat() * 0.2F + 0.1F;
+            float f1 = V.nextFloat() * 0.2F + 0.1F;
 
             if (byte0 == 0) {
-                o = -f;
+                s = -f1;
             }
             if (byte0 == 1) {
-                o = f;
+                s = f1;
             }
             if (byte0 == 2) {
-                p = -f;
+                t = -f1;
             }
             if (byte0 == 3) {
-                p = f;
+                t = f1;
             }
             if (byte0 == 4) {
-                q = -f;
+                u = -f1;
             }
             if (byte0 == 5) {
-                q = f;
+                u = f1;
             }
         }
         return false;
@@ -153,21 +153,21 @@ public class EntityItem extends Entity {
     }
 
     public boolean a(Entity entity, int i) {
-        ag -= i;
-        if (ag <= 0) {
-            j();
+        f -= i;
+        if (f <= 0) {
+            l();
         }
         return false;
     }
 
     public void a(NBTTagCompound nbttagcompound) {
-        nbttagcompound.a("Health", (byte) ag);
+        nbttagcompound.a("Health", (byte) f);
         nbttagcompound.a("Age", (short) b);
         nbttagcompound.a("Item", a.a(new NBTTagCompound()));
     }
 
     public void b(NBTTagCompound nbttagcompound) {
-        ag = nbttagcompound.c("Health") & 0xff;
+        f = nbttagcompound.c("Health") & 0xff;
         b = ((int) (nbttagcompound.c("Age")));
         NBTTagCompound nbttagcompound1 = nbttagcompound.j("Item");
 
@@ -175,15 +175,15 @@ public class EntityItem extends Entity {
     }
 
     public void a(EntityPlayer entityplayer) {
-        if (h.x) {
+        if (l.z) {
             return;
         }
         int i = a.a;
 
-        if (ad == 0 && entityplayer.aj.a(a)) {
-            h.a(((Entity) (this)), "random.pop", 0.2F, ((R.nextFloat() - R.nextFloat()) * 0.7F + 1.0F) * 2.0F);
+        if (c == 0 && entityplayer.ak.a(a)) {
+            l.a(((Entity) (this)), "random.pop", 0.2F, ((V.nextFloat() - V.nextFloat()) * 0.7F + 1.0F) * 2.0F);
             entityplayer.c(((Entity) (this)), i);
-            j();
+            l();
         }
     }
 }

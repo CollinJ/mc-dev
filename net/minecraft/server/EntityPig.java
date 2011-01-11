@@ -7,7 +7,7 @@ public class EntityPig extends EntityAnimals {
     public EntityPig(World world) {
         super(world);
         a = false;
-        aC = "/mob/pig.png";
+        aF = "/mob/pig.png";
         a(0.9F, 0.9F);
         a = false;
     }
@@ -22,19 +22,19 @@ public class EntityPig extends EntityAnimals {
         a = nbttagcompound.l("Saddle");
     }
 
-    protected String c() {
-        return "mob.pig";
-    }
-
     protected String d() {
         return "mob.pig";
     }
 
     protected String e() {
+        return "mob.pig";
+    }
+
+    protected String f() {
         return "mob.pigdeath";
     }
 
     protected int g() {
-        return Item.ao.aS;
+        return Item.ao.aW;
     }
 }

@@ -6,29 +6,25 @@ public class EntitySpider extends EntityMobs {
 
     public EntitySpider(World world) {
         super(world);
-        aC = "/mob/spider.png";
+        aF = "/mob/spider.png";
         a(1.4F, 0.9F);
-        bi = 0.8F;
+        bl = 0.8F;
     }
 
-    public double h() {
-        return (double) E * 0.75D - 0.5D;
+    public double j() {
+        return (double) I * 0.75D - 0.5D;
     }
 
-    protected Entity i() {
-        float f = b(1.0F);
+    protected Entity k() {
+        float f1 = b(1.0F);
 
-        if (f < 0.5F) {
+        if (f1 < 0.5F) {
             double d1 = 16D;
 
-            return ((Entity) (h.a(((Entity) (this)), d1)));
+            return ((Entity) (l.a(((Entity) (this)), d1)));
         } else {
             return null;
         }
-    }
-
-    protected String c() {
-        return "mob.spider";
     }
 
     protected String d() {
@@ -36,28 +32,32 @@ public class EntitySpider extends EntityMobs {
     }
 
     protected String e() {
+        return "mob.spider";
+    }
+
+    protected String f() {
         return "mob.spiderdeath";
     }
 
-    protected void a(Entity entity, float f) {
-        float f1 = b(1.0F);
+    protected void a(Entity entity, float f1) {
+        float f2 = b(1.0F);
 
-        if (f1 > 0.5F && R.nextInt(100) == 0) {
-            ag = null;
+        if (f2 > 0.5F && V.nextInt(100) == 0) {
+            f = null;
             return;
         }
-        if (f > 2.0F && f < 6F && R.nextInt(10) == 0) {
-            if (w) {
-                double d1 = entity.l - l;
-                double d2 = entity.n - n;
-                float f2 = MathHelper.a(d1 * d1 + d2 * d2);
+        if (f1 > 2.0F && f1 < 6F && V.nextInt(10) == 0) {
+            if (A) {
+                double d1 = entity.p - p;
+                double d2 = entity.r - r;
+                float f3 = MathHelper.a(d1 * d1 + d2 * d2);
 
-                o = (d1 / (double) f2) * 0.5D * 0.80000001192092896D + o * 0.20000000298023224D;
-                q = (d2 / (double) f2) * 0.5D * 0.80000001192092896D + q * 0.20000000298023224D;
-                p = 0.40000000596046448D;
+                s = (d1 / (double) f3) * 0.5D * 0.80000001192092896D + s * 0.20000000298023224D;
+                u = (d2 / (double) f3) * 0.5D * 0.80000001192092896D + u * 0.20000000298023224D;
+                t = 0.40000000596046448D;
             }
         } else {
-            super.a(entity, f);
+            super.a(entity, f1);
         }
     }
 
@@ -70,6 +70,6 @@ public class EntitySpider extends EntityMobs {
     }
 
     protected int g() {
-        return Item.I.aS;
+        return Item.I.aW;
     }
 }

@@ -56,7 +56,7 @@ public class NetLoginHandler extends NetHandler {
 
     public void a(Packet1Login packet1login) {
         g = packet1login.b;
-        if (packet1login.a != 2) {
+        if (packet1login.a != 3) {
             b("Outdated client!");
             return;
         }
@@ -74,13 +74,13 @@ public class NetLoginHandler extends NetHandler {
             a.info((new StringBuilder()).append(b()).append(" logged in").toString());
             NetServerHandler netserverhandler = new NetServerHandler(e, b, entityplayermp);
 
-            netserverhandler.b(((Packet) (new Packet1Login("", "", 0))));
-            netserverhandler.b(((Packet) (new Packet6SpawnPosition(e.e.n, e.e.o, e.e.p))));
+            netserverhandler.b(((Packet) (new Packet1Login("", "", 0, e.e.u, (byte) e.e.q.e))));
+            netserverhandler.b(((Packet) (new Packet6SpawnPosition(e.e.m, e.e.n, e.e.o))));
             e.f.a(entityplayermp);
-            netserverhandler.a(entityplayermp.l, entityplayermp.m, entityplayermp.n, entityplayermp.r, entityplayermp.s);
+            netserverhandler.a(entityplayermp.p, entityplayermp.q, entityplayermp.r, entityplayermp.v, entityplayermp.w);
             netserverhandler.d();
             e.c.a(netserverhandler);
-            netserverhandler.b(((Packet) (new Packet4UpdateTime(e.e.c))));
+            netserverhandler.b(((Packet) (new Packet4UpdateTime(e.e.e))));
         }
         c = true;
     }

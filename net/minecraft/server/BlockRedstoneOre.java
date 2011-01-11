@@ -14,7 +14,7 @@ public class BlockRedstoneOre extends Block {
         a = flag;
     }
 
-    public int c() {
+    public int b() {
         return 30;
     }
 
@@ -35,19 +35,19 @@ public class BlockRedstoneOre extends Block {
 
     private void g(World world, int i, int j, int k) {
         h(world, i, j, k);
-        if (bc == Block.aO.bc) {
-            world.d(i, j, k, Block.aP.bc);
+        if (bi == Block.aO.bi) {
+            world.d(i, j, k, Block.aP.bi);
         }
     }
 
     public void a(World world, int i, int j, int k, Random random) {
-        if (bc == Block.aP.bc) {
-            world.d(i, j, k, Block.aO.bc);
+        if (bi == Block.aP.bi) {
+            world.d(i, j, k, Block.aO.bi);
         }
     }
 
     public int a(int i, Random random) {
-        return Item.aA.aS;
+        return Item.aA.aW;
     }
 
     public int a(Random random) {
@@ -55,7 +55,7 @@ public class BlockRedstoneOre extends Block {
     }
 
     private void h(World world, int i, int j, int k) {
-        Random random = world.m;
+        Random random = world.l;
         double d = 0.0625D;
 
         for (int l = 0; l < 6; l++) {

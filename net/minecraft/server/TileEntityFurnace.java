@@ -75,7 +75,7 @@ public class TileEntityFurnace extends TileEntity implements IInventory {
         if (f > 0) {
             f--;
         }
-        if (!a.x) {
+        if (!a.z) {
             if (f == 0 && g()) {
                 g = f = a(e[1]);
                 if (f > 0) {
@@ -112,7 +112,7 @@ public class TileEntityFurnace extends TileEntity implements IInventory {
         if (e[0] == null) {
             return false;
         }
-        int i = b(e[0].a().aS);
+        int i = b(e[0].a().aW);
 
         if (i < 0) {
             return false;
@@ -133,7 +133,7 @@ public class TileEntityFurnace extends TileEntity implements IInventory {
         if (!g()) {
             return;
         }
-        int i = b(e[0].a().aS);
+        int i = b(e[0].a().aW);
 
         if (e[2] == null) {
             e[2] = new ItemStack(i, 1);
@@ -147,26 +147,29 @@ public class TileEntityFurnace extends TileEntity implements IInventory {
     }
 
     private int b(int i) {
-        if (i == Block.I.bc) {
-            return Item.m.aS;
+        if (i == Block.I.bi) {
+            return Item.m.aW;
         }
-        if (i == Block.H.bc) {
-            return Item.n.aS;
+        if (i == Block.H.bi) {
+            return Item.n.aW;
         }
-        if (i == Block.ax.bc) {
-            return Item.l.aS;
+        if (i == Block.ax.bi) {
+            return Item.l.aW;
         }
-        if (i == Block.F.bc) {
-            return Block.N.bc;
+        if (i == Block.F.bi) {
+            return Block.N.bi;
         }
-        if (i == Item.ao.aS) {
-            return Item.ap.aS;
+        if (i == Item.ao.aW) {
+            return Item.ap.aW;
         }
-        if (i == Block.x.bc) {
-            return Block.u.bc;
+        if (i == Item.aS.aW) {
+            return Item.aT.aW;
         }
-        if (i == Item.aG.aS) {
-            return Item.aF.aS;
+        if (i == Block.x.bi) {
+            return Block.u.bi;
+        }
+        if (i == Item.aG.aW) {
+            return Item.aF.aW;
         } else {
             return -1;
         }
@@ -176,17 +179,17 @@ public class TileEntityFurnace extends TileEntity implements IInventory {
         if (itemstack == null) {
             return 0;
         }
-        int i = itemstack.a().aS;
+        int i = itemstack.a().aW;
 
-        if (i < 256 && Block.n[i].bn == Material.c) {
+        if (i < 256 && Block.n[i].bt == Material.c) {
             return 300;
         }
-        if (i == Item.B.aS) {
+        if (i == Item.B.aW) {
             return 100;
         }
-        if (i == Item.k.aS) {
+        if (i == Item.k.aW) {
             return 1600;
         }
-        return i != Item.aw.aS ? 0 : 20000;
+        return i != Item.aw.aW ? 0 : 20000;
     }
 }

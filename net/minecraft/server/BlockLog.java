@@ -6,7 +6,7 @@ public class BlockLog extends Block {
 
     protected BlockLog(int i) {
         super(i, Material.c);
-        bb = 20;
+        bh = 20;
     }
 
     public int a(Random random) {
@@ -14,7 +14,7 @@ public class BlockLog extends Block {
     }
 
     public int a(int i, Random random) {
-        return Block.K.bc;
+        return Block.K.bi;
     }
 
     public int a(int i) {

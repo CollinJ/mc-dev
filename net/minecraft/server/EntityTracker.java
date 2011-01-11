@@ -32,9 +32,13 @@ public class EntityTracker {
                     entitytrackerentry.a(entityplayermp);
                 }
             } while (true);
+        } else if (entity instanceof EntityFish) {
+            a(entity, 64, 20);
         } else if (entity instanceof EntityItem) {
             a(entity, 64, 20);
         } else if (entity instanceof EntityMinecart) {
+            a(entity, 160, 4);
+        } else if (entity instanceof EntityBoat) {
             a(entity, 160, 4);
         } else if (entity instanceof IAnimals) {
             a(entity, 160, 2);
@@ -45,20 +49,20 @@ public class EntityTracker {
         if (i > d) {
             i = d;
         }
-        if (b.b(entity.c)) {
+        if (b.b(entity.g)) {
             throw new IllegalStateException("Entity is already tracked!");
         } else {
             EntityTrackerEntry entitytrackerentry = new EntityTrackerEntry(entity, i, j);
 
             a.add(((entitytrackerentry)));
-            b.a(entity.c, ((entitytrackerentry)));
-            entitytrackerentry.b(c.e.k);
+            b.a(entity.g, ((entitytrackerentry)));
+            entitytrackerentry.b(c.e.d);
             return;
         }
     }
 
     public void b(Entity entity) {
-        EntityTrackerEntry entitytrackerentry = (EntityTrackerEntry) b.d(entity.c);
+        EntityTrackerEntry entitytrackerentry = (EntityTrackerEntry) b.d(entity.g);
 
         if (entitytrackerentry != null) {
             a.remove(((entitytrackerentry)));
@@ -76,7 +80,7 @@ public class EntityTracker {
             }
             EntityTrackerEntry entitytrackerentry = (EntityTrackerEntry) iterator.next();
 
-            entitytrackerentry.a(c.e.k);
+            entitytrackerentry.a(c.e.d);
             if (entitytrackerentry.j && (entitytrackerentry.a instanceof EntityPlayerMP)) {
                 ((List) (arraylist)).add((((EntityPlayerMP) entitytrackerentry.a)));
             }
@@ -100,7 +104,7 @@ public class EntityTracker {
     }
 
     public void a(Entity entity, Packet packet) {
-        EntityTrackerEntry entitytrackerentry = (EntityTrackerEntry) b.a(entity.c);
+        EntityTrackerEntry entitytrackerentry = (EntityTrackerEntry) b.a(entity.g);
 
         if (entitytrackerentry != null) {
             entitytrackerentry.a(packet);

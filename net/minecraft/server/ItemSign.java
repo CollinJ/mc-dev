@@ -4,8 +4,8 @@ public class ItemSign extends Item {
 
     public ItemSign(int i) {
         super(i);
-        aU = 64;
-        aT = 1;
+        aY = 64;
+        aX = 1;
     }
 
     public boolean a(ItemStack itemstack, EntityPlayer entityplayer, World world, int i, int j, int k, int l) {
@@ -34,9 +34,9 @@ public class ItemSign extends Item {
             return false;
         }
         if (l == 1) {
-            world.b(i, j, k, Block.aE.bc, MathHelper.b((double) (((entityplayer.r + 180F) * 16F) / 360F) + 0.5D) & 0xf);
+            world.b(i, j, k, Block.aE.bi, MathHelper.b((double) (((entityplayer.v + 180F) * 16F) / 360F) + 0.5D) & 0xf);
         } else {
-            world.b(i, j, k, Block.aJ.bc, l);
+            world.b(i, j, k, Block.aJ.bi, l);
         }
         itemstack.a--;
         entityplayer.a((TileEntitySign) world.k(i, j, k));

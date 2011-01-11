@@ -6,7 +6,7 @@ public class BlockSoil extends Block {
 
     protected BlockSoil(int i) {
         super(i, Material.b);
-        bb = 87;
+        bh = 87;
         a(true);
         a(0.0F, 0.0F, 0.0F, 1.0F, 0.9375F, 1.0F);
         c(255);
@@ -16,7 +16,7 @@ public class BlockSoil extends Block {
         return AxisAlignedBB.b(i + 0, j + 0, k + 0, i + 1, j + 1, k + 1);
     }
 
-    public boolean b() {
+    public boolean a() {
         return false;
     }
 
@@ -30,15 +30,15 @@ public class BlockSoil extends Block {
                 if (l > 0) {
                     world.b(i, j, k, l - 1);
                 } else if (!g(world, i, j, k)) {
-                    world.d(i, j, k, Block.w.bc);
+                    world.d(i, j, k, Block.w.bi);
                 }
             }
         }
     }
 
     public void b(World world, int i, int j, int k, Entity entity) {
-        if (world.m.nextInt(4) == 0) {
-            world.d(i, j, k, Block.w.bc);
+        if (world.l.nextInt(4) == 0) {
+            world.d(i, j, k, Block.w.bi);
         }
     }
 
@@ -47,7 +47,7 @@ public class BlockSoil extends Block {
 
         for (int i1 = i - l; i1 <= i + l; i1++) {
             for (int j1 = k - l; j1 <= k + l; j1++) {
-                if (world.a(i1, j + 1, j1) == Block.aA.bc) {
+                if (world.a(i1, j + 1, j1) == Block.aA.bi) {
                     return true;
                 }
             }
@@ -75,7 +75,7 @@ public class BlockSoil extends Block {
         Material material = world.c(i, j + 1, k);
 
         if (material.a()) {
-            world.d(i, j, k, Block.w.bc);
+            world.d(i, j, k, Block.w.bi);
         }
     }
 

@@ -26,9 +26,9 @@ public class TileEntityMobSpawner extends TileEntity {
         if (!a()) {
             return;
         }
-        double d1 = (float) b + a.m.nextFloat();
-        double d3 = (float) c + a.m.nextFloat();
-        double d5 = (float) d + a.m.nextFloat();
+        double d1 = (float) b + a.l.nextFloat();
+        double d3 = (float) c + a.l.nextFloat();
+        double d5 = (float) d + a.l.nextFloat();
 
         a.a("smoke", d1, d3, d5, 0.0D, 0.0D, 0.0D);
         a.a("flame", d1, d3, d5, 0.0D, 0.0D, 0.0D);
@@ -61,25 +61,25 @@ public class TileEntityMobSpawner extends TileEntity {
             if (entityliving == null) {
                 continue;
             }
-            double d7 = (double) b + (a.m.nextDouble() - a.m.nextDouble()) * 4D;
-            double d8 = (c + a.m.nextInt(3)) - 1;
-            double d9 = (double) d + (a.m.nextDouble() - a.m.nextDouble()) * 4D;
+            double d7 = (double) b + (a.l.nextDouble() - a.l.nextDouble()) * 4D;
+            double d8 = (c + a.l.nextInt(3)) - 1;
+            double d9 = (double) d + (a.l.nextDouble() - a.l.nextDouble()) * 4D;
 
-            entityliving.c(d7, d8, d9, a.m.nextFloat() * 360F, 0.0F);
+            entityliving.c(d7, d8, d9, a.l.nextFloat() * 360F, 0.0F);
             if (!entityliving.a()) {
                 continue;
             }
             a.a(((Entity) (entityliving)));
             for (int k = 0; k < 20; k++) {
-                double d2 = (double) b + 0.5D + ((double) a.m.nextFloat() - 0.5D) * 2D;
-                double d4 = (double) c + 0.5D + ((double) a.m.nextFloat() - 0.5D) * 2D;
-                double d6 = (double) d + 0.5D + ((double) a.m.nextFloat() - 0.5D) * 2D;
+                double d2 = (double) b + 0.5D + ((double) a.l.nextFloat() - 0.5D) * 2D;
+                double d4 = (double) c + 0.5D + ((double) a.l.nextFloat() - 0.5D) * 2D;
+                double d6 = (double) d + 0.5D + ((double) a.l.nextFloat() - 0.5D) * 2D;
 
                 a.a("smoke", d2, d4, d6, 0.0D, 0.0D, 0.0D);
                 a.a("flame", d2, d4, d6, 0.0D, 0.0D, 0.0D);
             }
 
-            entityliving.D();
+            entityliving.I();
             d();
         }
 
@@ -87,7 +87,7 @@ public class TileEntityMobSpawner extends TileEntity {
     }
 
     private void d() {
-        e = 200 + a.m.nextInt(600);
+        e = 200 + a.l.nextInt(600);
     }
 
     public void a(NBTTagCompound nbttagcompound) {

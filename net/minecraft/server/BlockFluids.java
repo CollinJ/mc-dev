@@ -30,14 +30,14 @@ public abstract class BlockFluids extends Block {
 
     public int a(int j) {
         if (j == 0 || j == 1) {
-            return bb;
+            return bh;
         } else {
-            return bb + 1;
+            return bh + 1;
         }
     }
 
     protected int g(World world, int j, int k, int l) {
-        if (world.c(j, k, l) != bn) {
+        if (world.c(j, k, l) != bt) {
             return -1;
         } else {
             return world.b(j, k, l);
@@ -45,7 +45,7 @@ public abstract class BlockFluids extends Block {
     }
 
     protected int b(IBlockAccess iblockaccess, int j, int k, int l) {
-        if (iblockaccess.c(j, k, l) != bn) {
+        if (iblockaccess.c(j, k, l) != bt) {
             return -1;
         }
         int i1 = iblockaccess.b(j, k, l);
@@ -56,7 +56,7 @@ public abstract class BlockFluids extends Block {
         return i1;
     }
 
-    public boolean b() {
+    public boolean a() {
         return false;
     }
 
@@ -67,7 +67,7 @@ public abstract class BlockFluids extends Block {
     public boolean a(IBlockAccess iblockaccess, int j, int k, int l, int i1) {
         Material material = iblockaccess.c(j, k, l);
 
-        if (material == bn) {
+        if (material == bt) {
             return false;
         }
         if (material == Material.r) {
@@ -82,10 +82,6 @@ public abstract class BlockFluids extends Block {
 
     public AxisAlignedBB d(World world, int j, int k, int l) {
         return null;
-    }
-
-    public int a() {
-        return 4;
     }
 
     public int a(int j, Random random) {
@@ -181,11 +177,11 @@ public abstract class BlockFluids extends Block {
         vec3d.c += vec3d1.c;
     }
 
-    public int c() {
-        if (bn == Material.f) {
+    public int b() {
+        if (bt == Material.f) {
             return 5;
         }
-        return bn != Material.g ? 0 : 30;
+        return bt != Material.g ? 0 : 30;
     }
 
     public void a(World world, int j, int k, int l, Random random) {
@@ -201,10 +197,10 @@ public abstract class BlockFluids extends Block {
     }
 
     private void i(World world, int j, int k, int l) {
-        if (world.a(j, k, l) != bc) {
+        if (world.a(j, k, l) != bi) {
             return;
         }
-        if (bn == Material.g) {
+        if (bt == Material.g) {
             boolean flag = false;
 
             if (flag || world.c(j, k, l - 1) == Material.f) {
@@ -226,9 +222,9 @@ public abstract class BlockFluids extends Block {
                 int i1 = world.b(j, k, l);
 
                 if (i1 == 0) {
-                    world.d(j, k, l, Block.aq.bc);
+                    world.d(j, k, l, Block.aq.bi);
                 } else if (i1 <= 4) {
-                    world.d(j, k, l, Block.x.bc);
+                    world.d(j, k, l, Block.x.bi);
                 }
                 h(world, j, k, l);
             }
@@ -236,7 +232,7 @@ public abstract class BlockFluids extends Block {
     }
 
     protected void h(World world, int j, int k, int l) {
-        world.a((float) j + 0.5F, (float) k + 0.5F, (float) l + 0.5F, "random.fizz", 0.5F, 2.6F + (world.m.nextFloat() - world.m.nextFloat()) * 0.8F);
+        world.a((float) j + 0.5F, (float) k + 0.5F, (float) l + 0.5F, "random.fizz", 0.5F, 2.6F + (world.l.nextFloat() - world.l.nextFloat()) * 0.8F);
         for (int i1 = 0; i1 < 8; i1++) {
             world.a("largesmoke", (double) j + Math.random(), (double) k + 1.2D, (double) l + Math.random(), 0.0D, 0.0D, 0.0D);
         }

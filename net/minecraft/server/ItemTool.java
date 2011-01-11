@@ -2,29 +2,29 @@ package net.minecraft.server;
 
 public class ItemTool extends Item {
 
-    private Block aX[];
-    private float aY;
-    private int aZ;
+    private Block bb[];
+    private float bc;
+    private int bd;
     protected int a;
 
     public ItemTool(int i, int j, int k, Block ablock[]) {
         super(i);
-        aY = 4F;
+        bc = 4F;
         a = k;
-        aX = ablock;
-        aT = 1;
-        aU = 32 << k;
+        bb = ablock;
+        aX = 1;
+        aY = 32 << k;
         if (k == 3) {
-            aU *= 4;
+            aY *= 4;
         }
-        aY = (k + 1) * 2;
-        aZ = j + k;
+        bc = (k + 1) * 2;
+        bd = j + k;
     }
 
     public float a(ItemStack itemstack, Block block) {
-        for (int i = 0; i < aX.length; i++) {
-            if (aX[i] == block) {
-                return aY;
+        for (int i = 0; i < bb.length; i++) {
+            if (bb[i] == block) {
+                return bc;
             }
         }
 

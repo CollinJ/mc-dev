@@ -24,7 +24,7 @@ public class Packet52MultiBlockChange extends Packet {
         c = new short[k];
         d = new byte[k];
         e = new byte[k];
-        Chunk chunk = world.b(i, j);
+        Chunk chunk = world.c(i, j);
 
         for (int l = 0; l < k; l++) {
             int i1 = aword0[l] >> 12 & 0xf;

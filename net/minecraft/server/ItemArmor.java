@@ -2,24 +2,24 @@ package net.minecraft.server;
 
 public class ItemArmor extends Item {
 
-    private static final int ba[] = {
+    private static final int be[] = {
         3, 8, 6, 3
     };
-    private static final int bb[] = {
+    private static final int bf[] = {
         11, 16, 15, 13
     };
     public final int a;
-    public final int aX;
-    public final int aY;
-    public final int aZ;
+    public final int bb;
+    public final int bc;
+    public final int bd;
 
     public ItemArmor(int i, int j, int k, int l) {
         super(i);
         a = j;
-        aX = l;
-        aZ = k;
-        aY = ba[l];
-        aU = bb[l] * 3 << j;
-        aT = 1;
+        bb = l;
+        bd = k;
+        bc = be[l];
+        aY = bf[l] * 3 << j;
+        aX = 1;
     }
 }

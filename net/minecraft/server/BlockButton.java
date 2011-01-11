@@ -13,11 +13,11 @@ public class BlockButton extends Block {
         return null;
     }
 
-    public int c() {
+    public int b() {
         return 20;
     }
 
-    public boolean b() {
+    public boolean a() {
         return false;
     }
 
@@ -139,19 +139,19 @@ public class BlockButton extends Block {
         world.b(i, j, k, i1 + j1);
         world.b(i, j, k, i, j, k);
         world.a((double) i + 0.5D, (double) j + 0.5D, (double) k + 0.5D, "random.click", 0.3F, 0.6F);
-        world.g(i, j, k, bc);
+        world.g(i, j, k, bi);
         if (i1 == 1) {
-            world.g(i - 1, j, k, bc);
+            world.g(i - 1, j, k, bi);
         } else if (i1 == 2) {
-            world.g(i + 1, j, k, bc);
+            world.g(i + 1, j, k, bi);
         } else if (i1 == 3) {
-            world.g(i, j, k - 1, bc);
+            world.g(i, j, k - 1, bi);
         } else if (i1 == 4) {
-            world.g(i, j, k + 1, bc);
+            world.g(i, j, k + 1, bi);
         } else {
-            world.g(i, j - 1, k, bc);
+            world.g(i, j - 1, k, bi);
         }
-        world.h(i, j, k, bc);
+        world.h(i, j, k, bi);
         return true;
     }
 
@@ -159,19 +159,19 @@ public class BlockButton extends Block {
         int l = world.b(i, j, k);
 
         if ((l & 8) > 0) {
-            world.g(i, j, k, bc);
+            world.g(i, j, k, bi);
             int i1 = l & 7;
 
             if (i1 == 1) {
-                world.g(i - 1, j, k, bc);
+                world.g(i - 1, j, k, bi);
             } else if (i1 == 2) {
-                world.g(i + 1, j, k, bc);
+                world.g(i + 1, j, k, bi);
             } else if (i1 == 3) {
-                world.g(i, j, k - 1, bc);
+                world.g(i, j, k - 1, bi);
             } else if (i1 == 4) {
-                world.g(i, j, k + 1, bc);
+                world.g(i, j, k + 1, bi);
             } else {
-                world.g(i, j - 1, k, bc);
+                world.g(i, j - 1, k, bi);
             }
         }
         super.b(world, i, j, k);
@@ -204,7 +204,7 @@ public class BlockButton extends Block {
         return j1 == 1 && l == 5;
     }
 
-    public boolean d() {
+    public boolean c() {
         return true;
     }
 
@@ -215,19 +215,19 @@ public class BlockButton extends Block {
             return;
         }
         world.b(i, j, k, l & 7);
-        world.g(i, j, k, bc);
+        world.g(i, j, k, bi);
         int i1 = l & 7;
 
         if (i1 == 1) {
-            world.g(i - 1, j, k, bc);
+            world.g(i - 1, j, k, bi);
         } else if (i1 == 2) {
-            world.g(i + 1, j, k, bc);
+            world.g(i + 1, j, k, bi);
         } else if (i1 == 3) {
-            world.g(i, j, k - 1, bc);
+            world.g(i, j, k - 1, bi);
         } else if (i1 == 4) {
-            world.g(i, j, k + 1, bc);
+            world.g(i, j, k + 1, bi);
         } else {
-            world.g(i, j - 1, k, bc);
+            world.g(i, j - 1, k, bi);
         }
         world.a((double) i + 0.5D, (double) j + 0.5D, (double) k + 0.5D, "random.click", 0.3F, 0.5F);
         world.b(i, j, k, i, j, k);

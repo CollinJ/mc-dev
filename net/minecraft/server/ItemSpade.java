@@ -2,10 +2,10 @@ package net.minecraft.server;
 
 public class ItemSpade extends ItemTool {
 
-    private static Block aX[];
+    private static Block bb[];
 
     public ItemSpade(int i, int j) {
-        super(i, 1, j, aX);
+        super(i, 1, j, bb);
     }
 
     public boolean a(Block block) {
@@ -16,7 +16,7 @@ public class ItemSpade extends ItemTool {
     }
 
     static {
-        aX = (new Block[] {
+        bb = (new Block[] {
             Block.v, Block.w, Block.F, Block.G, Block.aT, Block.aV, Block.aX
         });
     }

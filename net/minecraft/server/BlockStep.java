@@ -19,7 +19,7 @@ public class BlockStep extends Block {
         return i > 1 ? 5 : 6;
     }
 
-    public boolean b() {
+    public boolean a() {
         return a;
     }
 
@@ -37,14 +37,14 @@ public class BlockStep extends Block {
         }
         int l = world.a(i, j - 1, k);
 
-        if (l == al.bc) {
+        if (l == al.bi) {
             world.d(i, j, k, 0);
-            world.d(i, j - 1, k, Block.ak.bc);
+            world.d(i, j - 1, k, Block.ak.bi);
         }
     }
 
     public int a(int i, Random random) {
-        return Block.al.bc;
+        return Block.al.bi;
     }
 
     public boolean a(IBlockAccess iblockaccess, int i, int j, int k, int l) {
@@ -60,7 +60,7 @@ public class BlockStep extends Block {
         if (l == 0) {
             return true;
         } else {
-            return iblockaccess.a(i, j, k) != bc;
+            return iblockaccess.a(i, j, k) != bi;
         }
     }
 }

@@ -105,7 +105,7 @@ public class MapGenCaves extends MapGenBase {
                         if (l3 < 0 || l3 >= 128) {
                             continue;
                         }
-                        if (abyte0[i4] == Block.B.bc || abyte0[i4] == Block.C.bc) {
+                        if (abyte0[i4] == Block.B.bi || abyte0[i4] == Block.C.bi) {
                             flag2 = true;
                         }
                         if (l3 != i2 - 1 && i3 != k1 && i3 != l1 - 1 && k3 != k2 && k3 != l2 - 1) {
@@ -132,16 +132,16 @@ public class MapGenCaves extends MapGenBase {
                         if (d14 > -0.69999999999999996D && d12 * d12 + d14 * d14 + d13 * d13 < 1.0D) {
                             byte byte0 = abyte0[k4];
 
-                            if (byte0 == Block.v.bc) {
+                            if (byte0 == Block.v.bi) {
                                 flag3 = true;
                             }
-                            if (byte0 == Block.u.bc || byte0 == Block.w.bc || byte0 == Block.v.bc) {
+                            if (byte0 == Block.u.bi || byte0 == Block.w.bi || byte0 == Block.v.bi) {
                                 if (l4 < 10) {
-                                    abyte0[k4] = (byte) Block.D.bc;
+                                    abyte0[k4] = (byte) Block.D.bi;
                                 } else {
                                     abyte0[k4] = 0;
-                                    if (flag3 && abyte0[k4 - 1] == Block.w.bc) {
-                                        abyte0[k4 - 1] = (byte) Block.v.bc;
+                                    if (flag3 && abyte0[k4 - 1] == Block.w.bi) {
+                                        abyte0[k4 - 1] = (byte) Block.v.bi;
                                     }
                                 }
                             }

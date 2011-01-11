@@ -39,7 +39,7 @@ public class ServerConfigurationManager {
     }
 
     public void a(WorldServer worldserver) {
-        l = new PlayerNBTManager(new File(worldserver.s, "players"));
+        l = new PlayerNBTManager(new File(worldserver.t, "players"));
     }
 
     public int a() {
@@ -49,8 +49,8 @@ public class ServerConfigurationManager {
     public void a(EntityPlayerMP entityplayermp) {
         b.add(((entityplayermp)));
         l.b(entityplayermp);
-        c.e.y.d((int) entityplayermp.l >> 4, (int) entityplayermp.n >> 4);
-        for (; c.e.a(((Entity) (entityplayermp)), entityplayermp.v).size() != 0; entityplayermp.a(entityplayermp.l, entityplayermp.m + 1.0D, entityplayermp.n)) {
+        c.e.A.d((int) entityplayermp.p >> 4, (int) entityplayermp.r >> 4);
+        for (; c.e.a(((Entity) (entityplayermp)), entityplayermp.z).size() != 0; entityplayermp.a(entityplayermp.p, entityplayermp.q + 1.0D, entityplayermp.r)) {
             ;
         }
         c.e.a(((Entity) (entityplayermp)));
@@ -88,7 +88,7 @@ public class ServerConfigurationManager {
         for (int i1 = 0; i1 < b.size(); i1++) {
             EntityPlayerMP entityplayermp = (EntityPlayerMP) b.get(i1);
 
-            if (entityplayermp.aq.equalsIgnoreCase(s)) {
+            if (entityplayermp.ar.equalsIgnoreCase(s)) {
                 entityplayermp.a.c("You logged in from another location");
             }
         }
@@ -119,7 +119,7 @@ public class ServerConfigurationManager {
             if (i1 > 0) {
                 s = (new StringBuilder()).append(s).append(", ").toString();
             }
-            s = (new StringBuilder()).append(s).append(((EntityPlayerMP) b.get(i1)).aq).toString();
+            s = (new StringBuilder()).append(s).append(((EntityPlayerMP) b.get(i1)).ar).toString();
         }
 
         return s;
@@ -253,7 +253,7 @@ public class ServerConfigurationManager {
         for (int i1 = 0; i1 < b.size(); i1++) {
             EntityPlayerMP entityplayermp = (EntityPlayerMP) b.get(i1);
 
-            if (entityplayermp.aq.equalsIgnoreCase(s)) {
+            if (entityplayermp.ar.equalsIgnoreCase(s)) {
                 return entityplayermp;
             }
         }
@@ -275,7 +275,7 @@ public class ServerConfigurationManager {
         for (int i1 = 0; i1 < b.size(); i1++) {
             EntityPlayerMP entityplayermp = (EntityPlayerMP) b.get(i1);
 
-            if (g(entityplayermp.aq)) {
+            if (g(entityplayermp.ar)) {
                 entityplayermp.a.b(((Packet) (packet3chat)));
             }
         }

@@ -12,12 +12,8 @@ public class BlockLever extends Block {
         return null;
     }
 
-    public boolean b() {
+    public boolean a() {
         return false;
-    }
-
-    public int a() {
-        return 12;
     }
 
     public boolean a(World world, int i, int j, int k) {
@@ -42,7 +38,7 @@ public class BlockLever extends Block {
 
         i1 &= 7;
         if (l == 1 && world.d(i, j - 1, k)) {
-            i1 = 5 + world.m.nextInt(2);
+            i1 = 5 + world.l.nextInt(2);
         }
         if (l == 2 && world.d(i, j, k + 1)) {
             i1 = 4;
@@ -69,7 +65,7 @@ public class BlockLever extends Block {
         } else if (world.d(i, j, k + 1)) {
             world.b(i, j, k, 4);
         } else if (world.d(i, j - 1, k)) {
-            world.b(i, j, k, 5 + world.m.nextInt(2));
+            world.b(i, j, k, 5 + world.l.nextInt(2));
         }
         g(world, i, j, k);
     }
@@ -142,17 +138,17 @@ public class BlockLever extends Block {
         world.b(i, j, k, i1 + j1);
         world.b(i, j, k, i, j, k);
         world.a((double) i + 0.5D, (double) j + 0.5D, (double) k + 0.5D, "random.click", 0.3F, j1 <= 0 ? 0.5F : 0.6F);
-        world.g(i, j, k, bc);
+        world.g(i, j, k, bi);
         if (i1 == 1) {
-            world.g(i - 1, j, k, bc);
+            world.g(i - 1, j, k, bi);
         } else if (i1 == 2) {
-            world.g(i + 1, j, k, bc);
+            world.g(i + 1, j, k, bi);
         } else if (i1 == 3) {
-            world.g(i, j, k - 1, bc);
+            world.g(i, j, k - 1, bi);
         } else if (i1 == 4) {
-            world.g(i, j, k + 1, bc);
+            world.g(i, j, k + 1, bi);
         } else {
-            world.g(i, j - 1, k, bc);
+            world.g(i, j - 1, k, bi);
         }
         return true;
     }
@@ -161,19 +157,19 @@ public class BlockLever extends Block {
         int l = world.b(i, j, k);
 
         if ((l & 8) > 0) {
-            world.g(i, j, k, bc);
+            world.g(i, j, k, bi);
             int i1 = l & 7;
 
             if (i1 == 1) {
-                world.g(i - 1, j, k, bc);
+                world.g(i - 1, j, k, bi);
             } else if (i1 == 2) {
-                world.g(i + 1, j, k, bc);
+                world.g(i + 1, j, k, bi);
             } else if (i1 == 3) {
-                world.g(i, j, k - 1, bc);
+                world.g(i, j, k - 1, bi);
             } else if (i1 == 4) {
-                world.g(i, j, k + 1, bc);
+                world.g(i, j, k + 1, bi);
             } else {
-                world.g(i, j - 1, k, bc);
+                world.g(i, j - 1, k, bi);
             }
         }
         super.b(world, i, j, k);
@@ -206,7 +202,7 @@ public class BlockLever extends Block {
         return j1 == 1 && l == 5;
     }
 
-    public boolean d() {
+    public boolean c() {
         return true;
     }
 }

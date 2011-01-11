@@ -9,21 +9,21 @@ public class EntitySheep extends EntityAnimals {
     public EntitySheep(World world) {
         super(world);
         a = false;
-        aC = "/mob/sheep.png";
+        aF = "/mob/sheep.png";
         a(0.9F, 1.3F);
     }
 
     public boolean a(Entity entity, int i) {
         if (!a && (entity instanceof EntityLiving)) {
             a = true;
-            int j = 1 + R.nextInt(3);
+            int j = 1 + V.nextInt(3);
 
             for (int k = 0; k < j; k++) {
-                EntityItem entityitem = a(Block.ac.bc, 1, 1.0F);
+                EntityItem entityitem = a(Block.ac.bi, 1, 1.0F);
 
-                entityitem.p += R.nextFloat() * 0.05F;
-                entityitem.o += (R.nextFloat() - R.nextFloat()) * 0.1F;
-                entityitem.q += (R.nextFloat() - R.nextFloat()) * 0.1F;
+                entityitem.t += V.nextFloat() * 0.05F;
+                entityitem.s += (V.nextFloat() - V.nextFloat()) * 0.1F;
+                entityitem.u += (V.nextFloat() - V.nextFloat()) * 0.1F;
             }
         }
         return super.a(entity, i);
@@ -39,15 +39,15 @@ public class EntitySheep extends EntityAnimals {
         a = nbttagcompound.l("Sheared");
     }
 
-    protected String c() {
-        return "mob.sheep";
-    }
-
     protected String d() {
         return "mob.sheep";
     }
 
     protected String e() {
+        return "mob.sheep";
+    }
+
+    protected String f() {
         return "mob.sheep";
     }
 }

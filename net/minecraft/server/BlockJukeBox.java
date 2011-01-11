@@ -9,7 +9,7 @@ public class BlockJukeBox extends Block {
     }
 
     public int a(int i) {
-        return bb + (i != 1 ? 0 : 1);
+        return bh + (i != 1 ? 0 : 1);
     }
 
     public boolean a(World world, int i, int j, int k, EntityPlayer entityplayer) {
@@ -26,19 +26,19 @@ public class BlockJukeBox extends Block {
     public void f(World world, int i, int j, int k, int l) {
         world.a(((String) (null)), i, j, k);
         world.b(i, j, k, 0);
-        int i1 = (Item.aQ.aS + l) - 1;
+        int i1 = (Item.aU.aW + l) - 1;
         float f1 = 0.7F;
-        double d = (double) (world.m.nextFloat() * f1) + (double) (1.0F - f1) * 0.5D;
-        double d1 = (double) (world.m.nextFloat() * f1) + (double) (1.0F - f1) * 0.20000000000000001D + 0.59999999999999998D;
-        double d2 = (double) (world.m.nextFloat() * f1) + (double) (1.0F - f1) * 0.5D;
+        double d = (double) (world.l.nextFloat() * f1) + (double) (1.0F - f1) * 0.5D;
+        double d1 = (double) (world.l.nextFloat() * f1) + (double) (1.0F - f1) * 0.20000000000000001D + 0.59999999999999998D;
+        double d2 = (double) (world.l.nextFloat() * f1) + (double) (1.0F - f1) * 0.5D;
         EntityItem entityitem = new EntityItem(world, (double) i + d, (double) j + d1, (double) k + d2, new ItemStack(i1));
 
-        entityitem.ad = 10;
+        entityitem.c = 10;
         world.a(((Entity) (entityitem)));
     }
 
     public void a(World world, int i, int j, int k, int l, float f1) {
-        if (world.x) {
+        if (world.z) {
             return;
         }
         if (l > 0) {

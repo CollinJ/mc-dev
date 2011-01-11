@@ -6,8 +6,8 @@ public class ItemBucket extends Item {
 
     public ItemBucket(int i, int j) {
         super(i);
-        aT = 1;
-        aU = 64;
+        aX = 1;
+        aY = 64;
         a = j;
     }
 }

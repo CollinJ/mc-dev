@@ -7,6 +7,6 @@ public class ItemFood extends Item {
     public ItemFood(int i, int j) {
         super(i);
         a = j;
-        aT = 1;
+        aX = 1;
     }
 }

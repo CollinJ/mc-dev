@@ -21,9 +21,9 @@ public class MetadataChunkBlock {
     }
 
     public void a(World world) {
-        int i = e - b;
-        int j = f - c;
-        int k = g - d;
+        int i = (e - b) + 1;
+        int j = (f - c) + 1;
+        int k = (g - d) + 1;
         int l = i * j * k;
 
         if (l > 32768) {

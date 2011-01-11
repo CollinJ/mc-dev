@@ -15,12 +15,12 @@ public class Packet34EntityTeleport extends Packet {
     public Packet34EntityTeleport() {}
 
     public Packet34EntityTeleport(Entity entity) {
-        a = entity.c;
-        b = MathHelper.b(entity.l * 32D);
-        c = MathHelper.b(entity.m * 32D);
-        d = MathHelper.b(entity.n * 32D);
-        e = (byte) (int) ((entity.r * 256F) / 360F);
-        f = (byte) (int) ((entity.s * 256F) / 360F);
+        a = entity.g;
+        b = MathHelper.b(entity.p * 32D);
+        c = MathHelper.b(entity.q * 32D);
+        d = MathHelper.b(entity.r * 32D);
+        e = (byte) (int) ((entity.v * 256F) / 360F);
+        f = (byte) (int) ((entity.w * 256F) / 360F);
     }
 
     public Packet34EntityTeleport(int i, int j, int k, int l, byte byte0, byte byte1) {

@@ -9,14 +9,14 @@ public class BlockBreakable extends Block {
         a = flag;
     }
 
-    public boolean b() {
+    public boolean a() {
         return false;
     }
 
     public boolean a(IBlockAccess iblockaccess, int i, int j, int k, int l) {
         int i1 = iblockaccess.a(i, j, k);
 
-        if (!a && i1 == bc) {
+        if (!a && i1 == bi) {
             return false;
         } else {
             return super.a(iblockaccess, i, j, k, l);

@@ -83,6 +83,48 @@ public class Chunk {
         o = true;
     }
 
+    public void c() {
+        byte byte0 = 32;
+
+        for (int i1 = 0; i1 < 16; i1++) {
+            for (int j1 = 0; j1 < 16; j1++) {
+                int k1 = i1 << 11 | j1 << 7;
+
+                for (int l1 = 0; l1 < 128; l1++) {
+                    int j2 = Block.t[b[k1 + l1]];
+
+                    if (j2 > 0) {
+                        g.a(i1, l1, j1, j2);
+                    }
+                }
+
+                int i2 = 15;
+
+                for (int k2 = byte0 - 2; k2 < 128 && i2 > 0;) {
+                    k2++;
+                    byte byte1 = b[k1 + k2];
+                    int l2 = Block.r[byte1];
+                    int i3 = Block.t[byte1];
+
+                    if (l2 == 0) {
+                        l2 = 1;
+                    }
+                    i2 -= l2;
+                    if (i3 > i2) {
+                        i2 = i3;
+                    }
+                    if (i2 < 0) {
+                        i2 = 0;
+                    }
+                    g.a(i1, k2, j1, i2);
+                }
+            }
+        }
+
+        d.a(EnumSkyBlock.b, j * 16, byte0 - 1, k * 16, j * 16 + 16, byte0 + 1, k * 16 + 16);
+        o = true;
+    }
+
     private void c(int i1, int j1) {
         int k1 = b(i1, j1);
         int l1 = j * 16 + i1;
@@ -95,7 +137,7 @@ public class Chunk {
     }
 
     private void f(int i1, int j1, int k1) {
-        int l1 = d.c(i1, j1);
+        int l1 = d.d(i1, j1);
 
         if (l1 > k1) {
             d.a(EnumSkyBlock.a, i1, k1, j1, i1, l1, j1);
@@ -189,18 +231,20 @@ public class Chunk {
         int i3 = k * 16 + k1;
 
         b[i1 << 11 | k1 << 7 | j1] = byte0;
-        if (k2 != 0 && !d.x) {
+        if (k2 != 0 && !d.z) {
             Block.n[k2].b(d, l2, j1, i3);
         }
         e.a(i1, j1, k1, i2);
-        if (Block.r[byte0] != 0) {
-            if (j1 >= j2) {
-                g(i1, j1 + 1, k1);
+        if (!d.q.c) {
+            if (Block.r[byte0] != 0) {
+                if (j1 >= j2) {
+                    g(i1, j1 + 1, k1);
+                }
+            } else if (j1 == j2 - 1) {
+                g(i1, j1, k1);
             }
-        } else if (j1 == j2 - 1) {
-            g(i1, j1, k1);
+            d.a(EnumSkyBlock.a, l2, j1, i3, l2, j1, i3);
         }
-        d.a(EnumSkyBlock.a, l2, j1, i3, l2, j1, i3);
         d.a(EnumSkyBlock.b, l2, j1, i3, l2, j1, i3);
         c(i1, k1);
         if (l1 != 0) {
@@ -236,7 +280,7 @@ public class Chunk {
         d.a(EnumSkyBlock.a, k2, j1, l2, k2, j1, l2);
         d.a(EnumSkyBlock.b, k2, j1, l2, k2, j1, l2);
         c(i1, k1);
-        if (l1 != 0 && !d.x) {
+        if (l1 != 0 && !d.z) {
             Block.n[l1].e(d, k2, j1, l2);
         }
         o = true;
@@ -294,13 +338,13 @@ public class Chunk {
             return;
         }
         r = true;
-        int i1 = MathHelper.b(entity.l / 16D);
-        int j1 = MathHelper.b(entity.n / 16D);
+        int i1 = MathHelper.b(entity.p / 16D);
+        int j1 = MathHelper.b(entity.r / 16D);
 
         if (i1 != j || j1 != k) {
             System.out.println((new StringBuilder()).append("Wrong location! ").append(((entity))).toString());
         }
-        int k1 = MathHelper.b(entity.m / 16D);
+        int k1 = MathHelper.b(entity.q / 16D);
 
         if (k1 < 0) {
             k1 = 0;
@@ -308,15 +352,15 @@ public class Chunk {
         if (k1 >= m.length) {
             k1 = m.length - 1;
         }
-        entity.Z = true;
-        entity.aa = j;
-        entity.ab = k1;
-        entity.ac = k;
+        entity.ae = true;
+        entity.af = j;
+        entity.ag = k1;
+        entity.ah = k;
         m[k1].add(((entity)));
     }
 
     public void b(Entity entity) {
-        a(entity, entity.ab);
+        a(entity, entity.ag);
     }
 
     public void a(Entity entity, int i1) {
@@ -372,9 +416,9 @@ public class Chunk {
         }
         if (c) {
             if (l.get(((chunkposition))) != null) {
-                d.b.remove(l.get(((chunkposition))));
+                d.c.remove(l.get(((chunkposition))));
             }
-            d.b.add(((tileentity)));
+            d.c.add(((tileentity)));
         }
         l.put(((chunkposition)), ((tileentity)));
     }
@@ -383,27 +427,27 @@ public class Chunk {
         ChunkPosition chunkposition = new ChunkPosition(i1, j1, k1);
 
         if (c) {
-            d.b.remove(l.remove(((chunkposition))));
+            d.c.remove(l.remove(((chunkposition))));
         }
     }
 
-    public void c() {
+    public void d() {
         c = true;
-        d.b.addAll(l.values());
+        d.c.addAll(l.values());
         for (int i1 = 0; i1 < m.length; i1++) {
             d.a(m[i1]);
         }
     }
 
-    public void d() {
+    public void e() {
         c = false;
-        d.b.removeAll(l.values());
+        d.c.removeAll(l.values());
         for (int i1 = 0; i1 < m.length; i1++) {
             d.b(m[i1]);
         }
     }
 
-    public void e() {
+    public void f() {
         o = true;
     }
 
@@ -423,7 +467,7 @@ public class Chunk {
             for (int l1 = 0; l1 < list1.size(); l1++) {
                 Entity entity1 = (Entity) list1.get(l1);
 
-                if (entity1 != entity && entity1.v.a(axisalignedbb)) {
+                if (entity1 != entity && entity1.z.a(axisalignedbb)) {
                     list.add(((entity1)));
                 }
             }
@@ -446,7 +490,7 @@ public class Chunk {
             for (int l1 = 0; l1 < list1.size(); l1++) {
                 Entity entity = (Entity) list1.get(l1);
 
-                if (class1.isAssignableFrom(((entity)).getClass()) && entity.v.a(axisalignedbb)) {
+                if (class1.isAssignableFrom(((entity)).getClass()) && entity.z.a(axisalignedbb)) {
                     list.add(((entity)));
                 }
             }
@@ -457,7 +501,7 @@ public class Chunk {
         if (p) {
             return false;
         }
-        if (r && d.c != s) {
+        if (r && d.e != s) {
             return true;
         } else {
             return o;
@@ -509,6 +553,6 @@ public class Chunk {
     }
 
     public Random a(long l1) {
-        return new Random(d.t + (long) (j * j * 0x4c1906) + (long) (j * 0x5ac0db) + (long) (k * k) * 0x4307a7L + (long) (k * 0x5f24f) ^ l1);
+        return new Random(d.u + (long) (j * j * 0x4c1906) + (long) (j * 0x5ac0db) + (long) (k * k) * 0x4307a7L + (long) (k * 0x5f24f) ^ l1);
     }
 }

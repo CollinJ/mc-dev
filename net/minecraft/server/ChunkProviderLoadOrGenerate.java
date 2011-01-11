@@ -47,7 +47,7 @@ public class ChunkProviderLoadOrGenerate implements IChunkProvider {
 
         if (!a(i, j)) {
             if (f[i1] != null) {
-                f[i1].d();
+                f[i1].e();
                 b(f[i1]);
                 a(f[i1]);
             }
@@ -61,8 +61,9 @@ public class ChunkProviderLoadOrGenerate implements IChunkProvider {
                 }
             }
             f[i1] = chunk;
+            chunk.c();
             if (f[i1] != null) {
-                f[i1].c();
+                f[i1].d();
             }
             if (!f[i1].n && a(i + 1, j + 1) && a(i, j + 1) && a(i + 1, j)) {
                 a(((IChunkProvider) (this)), i, j);
@@ -91,7 +92,7 @@ public class ChunkProviderLoadOrGenerate implements IChunkProvider {
             Chunk chunk = e.a(g, i, j);
 
             if (chunk != null) {
-                chunk.s = g.c;
+                chunk.s = g.e;
             }
             return chunk;
         } catch (Exception exception) {
@@ -116,7 +117,7 @@ public class ChunkProviderLoadOrGenerate implements IChunkProvider {
             return;
         }
         try {
-            chunk.s = g.c;
+            chunk.s = g.e;
             e.a(g, chunk);
         } catch (IOException ioexception) {
             ioexception.printStackTrace();
@@ -130,7 +131,7 @@ public class ChunkProviderLoadOrGenerate implements IChunkProvider {
             chunk.n = true;
             if (d != null) {
                 d.a(ichunkprovider, i, j);
-                chunk.e();
+                chunk.f();
             }
         }
     }
