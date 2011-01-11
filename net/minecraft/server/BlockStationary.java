@@ -4,58 +4,56 @@ import java.util.Random;
 
 public class BlockStationary extends BlockFluids {
 
-    protected BlockStationary(int paramInt, Material paramiq) {
-        super(paramInt, paramiq);
+    protected BlockStationary(int k, Material material) {
+        super(k, material);
         a(false);
-        if (paramiq != Material.g) {
-            return;
-        } else {
+        if (material == Material.g) {
             a(true);
-            return;
         }
     }
 
-    public void b(World paramdy, int paramInt1, int paramInt2, int paramInt3, int paramInt4) {
-        super.b(paramdy, paramInt1, paramInt2, paramInt3, paramInt4);
-        if (paramdy.a(paramInt1, paramInt2, paramInt3) == bc) {
-            i(paramdy, paramInt1, paramInt2, paramInt3);
+    public void b(World world, int k, int l, int i1, int j1) {
+        super.b(world, k, l, i1, j1);
+        if (world.a(k, l, i1) == bc) {
+            i(world, k, l, i1);
         }
     }
 
-    private void i(World paramdy, int paramInt1, int paramInt2, int paramInt3) {
-        int i = paramdy.b(paramInt1, paramInt2, paramInt3);
+    private void i(World world, int k, int l, int i1) {
+        int j1 = world.b(k, l, i1);
 
-        paramdy.h = true;
-        paramdy.a(paramInt1, paramInt2, paramInt3, bc - 1, i);
-        paramdy.b(paramInt1, paramInt2, paramInt3, paramInt1, paramInt2, paramInt3);
-        paramdy.h(paramInt1, paramInt2, paramInt3, bc - 1);
-        paramdy.h = false;
+        world.h = true;
+        world.a(k, l, i1, bc - 1, j1);
+        world.b(k, l, i1, k, l, i1);
+        world.h(k, l, i1, bc - 1);
+        world.h = false;
     }
 
-    public void a(World paramdy, int paramInt1, int paramInt2, int paramInt3, Random paramRandom) {
+    public void a(World world, int k, int l, int i1, Random random) {
         if (bn == Material.g) {
-            int i = paramRandom.nextInt(3);
+            int j1 = random.nextInt(3);
 
-            for (int j = 0; j < i; j++) {
-                paramInt1 += paramRandom.nextInt(3) - 1;
-                paramInt2++;
-                paramInt3 += paramRandom.nextInt(3) - 1;
-                int k = paramdy.a(paramInt1, paramInt2, paramInt3);
+            for (int k1 = 0; k1 < j1; k1++) {
+                k += random.nextInt(3) - 1;
+                l++;
+                i1 += random.nextInt(3) - 1;
+                int l1 = world.a(k, l, i1);
 
-                if (k == 0) {
-                    if (j(paramdy, paramInt1 - 1, paramInt2, paramInt3) || j(paramdy, paramInt1 + 1, paramInt2, paramInt3) || j(paramdy, paramInt1, paramInt2, paramInt3 - 1) || j(paramdy, paramInt1, paramInt2, paramInt3 + 1) || j(paramdy, paramInt1, paramInt2 - 1, paramInt3) || j(paramdy, paramInt1, paramInt2 + 1, paramInt3)) {
+                if (l1 == 0) {
+                    if (j(world, k - 1, l, i1) || j(world, k + 1, l, i1) || j(world, k, l, i1 - 1) || j(world, k, l, i1 + 1) || j(world, k, l - 1, i1) || j(world, k, l + 1, i1)) {
+                        world.d(k, l, i1, Block.as.bc);
                         return;
                     }
                     continue;
                 }
-                if (Block.n[k].bn.c()) {
+                if (Block.n[l1].bn.c()) {
                     return;
                 }
             }
         }
     }
 
-    private boolean j(World paramdy, int paramInt1, int paramInt2, int paramInt3) {
-        return paramdy.c(paramInt1, paramInt2, paramInt3).e();
+    private boolean j(World world, int k, int l, int i1) {
+        return world.c(k, l, i1).e();
     }
 }

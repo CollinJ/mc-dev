@@ -4,27 +4,27 @@ public class EntityTNTPrimed extends Entity {
 
     public int a;
 
-    public EntityTNTPrimed(World paramdy) {
-        super(paramdy);
+    public EntityTNTPrimed(World world) {
+        super(world);
         a = 0;
         e = true;
         a(0.98F, 0.98F);
         C = E / 2.0F;
     }
 
-    public EntityTNTPrimed(World paramdy, float paramFloat1, float paramFloat2, float paramFloat3) {
-        this(paramdy);
-        a(paramFloat1, paramFloat2, paramFloat3);
-        float f = (float) (Math.random() * 3.1415927410125728D * 2D);
+    public EntityTNTPrimed(World world, float f, float f1, float f2) {
+        this(world);
+        a(f, f1, f2);
+        float f3 = (float) (Math.random() * 3.1415927410125732D * 2D);
 
-        o = -MathHelper.a((f * 3.141593F) / 180F) * 0.02F;
-        p = 0.20000000298023221D;
-        q = -MathHelper.b((f * 3.141593F) / 180F) * 0.02F;
+        o = -MathHelper.a((f3 * 3.141593F) / 180F) * 0.02F;
+        p = 0.20000000298023224D;
+        q = -MathHelper.b((f3 * 3.141593F) / 180F) * 0.02F;
         H = false;
         a = 80;
-        i = paramFloat1;
-        j = paramFloat2;
-        k = paramFloat3;
+        i = f;
+        j = f1;
+        k = f2;
     }
 
     public boolean c_() {
@@ -47,6 +47,7 @@ public class EntityTNTPrimed extends Entity {
         }
         if (a-- <= 0) {
             j();
+            b();
         } else {
             h.a("smoke", l, m + 0.5D, n, 0.0D, 0.0D, 0.0D);
         }
@@ -58,11 +59,11 @@ public class EntityTNTPrimed extends Entity {
         h.a(((Entity) (null)), l, m, n, f);
     }
 
-    protected void a(NBTTagCompound params) {
-        params.a("Fuse", (byte) a);
+    protected void a(NBTTagCompound nbttagcompound) {
+        nbttagcompound.a("Fuse", (byte) a);
     }
 
-    protected void b(NBTTagCompound params) {
-        a = ((int) (params.b("Fuse")));
+    protected void b(NBTTagCompound nbttagcompound) {
+        a = ((int) (nbttagcompound.b("Fuse")));
     }
 }

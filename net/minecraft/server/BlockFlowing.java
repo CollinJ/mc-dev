@@ -8,257 +8,251 @@ public class BlockFlowing extends BlockFluids {
     boolean b[];
     int c[];
 
-    protected BlockFlowing(int paramInt, Material paramiq) {
-        super(paramInt, paramiq);
+    protected BlockFlowing(int i1, Material material) {
+        super(i1, material);
         a = 0;
         b = new boolean[4];
         c = new int[4];
     }
 
-    private void i(World paramdy, int paramInt1, int paramInt2, int paramInt3) {
-        int i = paramdy.b(paramInt1, paramInt2, paramInt3);
+    private void i(World world, int i1, int j1, int k1) {
+        int l1 = world.b(i1, j1, k1);
 
-        paramdy.a(paramInt1, paramInt2, paramInt3, bc + 1, i);
-        paramdy.b(paramInt1, paramInt2, paramInt3, paramInt1, paramInt2, paramInt3);
-        paramdy.f(paramInt1, paramInt2, paramInt3);
+        world.a(i1, j1, k1, bc + 1, l1);
+        world.b(i1, j1, k1, i1, j1, k1);
+        world.f(i1, j1, k1);
     }
 
-    public void a(World paramdy, int paramInt1, int paramInt2, int paramInt3, Random paramRandom) {
-        if ((bc == 10 || bc == 11) && paramdy.a(paramInt1, paramInt2 - 1, paramInt3) > 1) {
-            return;
-        }
-        int i = g(paramdy, paramInt1, paramInt2, paramInt3);
-        int j = 1;
+    public void a(World world, int i1, int j1, int k1, Random random) {
+        int l1 = g(world, i1, j1, k1);
+        boolean flag = true;
 
-        if (i > 0) {
-            int k = -100;
+        if (l1 > 0) {
+            int i2 = -100;
 
             a = 0;
-            k = e(paramdy, paramInt1 - 1, paramInt2, paramInt3, k);
-            k = e(paramdy, paramInt1 + 1, paramInt2, paramInt3, k);
-            k = e(paramdy, paramInt1, paramInt2, paramInt3 - 1, k);
-            k = e(paramdy, paramInt1, paramInt2, paramInt3 + 1, k);
-            int l = k + d;
+            i2 = e(world, i1 - 1, j1, k1, i2);
+            i2 = e(world, i1 + 1, j1, k1, i2);
+            i2 = e(world, i1, j1, k1 - 1, i2);
+            i2 = e(world, i1, j1, k1 + 1, i2);
+            int j2 = i2 + d;
 
-            if (l >= 8 || k < 0) {
-                l = -1;
+            if (j2 >= 8 || i2 < 0) {
+                j2 = -1;
             }
-            if (g(paramdy, paramInt1, paramInt2 + 1, paramInt3) >= 0) {
-                int i1 = g(paramdy, paramInt1, paramInt2 + 1, paramInt3);
+            if (g(world, i1, j1 + 1, k1) >= 0) {
+                int l2 = g(world, i1, j1 + 1, k1);
 
-                if (i1 >= 8) {
-                    l = i1;
+                if (l2 >= 8) {
+                    j2 = l2;
                 } else {
-                    l = i1 + 8;
+                    j2 = l2 + 8;
                 }
             }
             if (a >= 2 && bn == Material.f) {
-                if (paramdy.d(paramInt1, paramInt2 - 1, paramInt3)) {
-                    l = 0;
-                } else if (paramdy.c(paramInt1, paramInt2 - 1, paramInt3) == bn && paramdy.b(paramInt1, paramInt2, paramInt3) == 0) {
-                    l = 0;
+                if (world.d(i1, j1 - 1, k1)) {
+                    j2 = 0;
+                } else if (world.c(i1, j1 - 1, k1) == bn && world.b(i1, j1, k1) == 0) {
+                    j2 = 0;
                 }
             }
-            if (bn == Material.g && i < 8 && l < 8 && l > i && paramRandom.nextInt(4) != 0) {
-                l = i;
-                j = 0;
+            if (bn == Material.g && l1 < 8 && j2 < 8 && j2 > l1 && random.nextInt(4) != 0) {
+                j2 = l1;
+                flag = false;
             }
-            if (l != i) {
-                i = l;
-                if (i < 0) {
-                    paramdy.d(paramInt1, paramInt2, paramInt3, 0);
+            if (j2 != l1) {
+                l1 = j2;
+                if (l1 < 0) {
+                    world.d(i1, j1, k1, 0);
                 } else {
-                    paramdy.b(paramInt1, paramInt2, paramInt3, i);
-                    paramdy.h(paramInt1, paramInt2, paramInt3, bc);
-                    paramdy.g(paramInt1, paramInt2, paramInt3, bc);
+                    world.b(i1, j1, k1, l1);
+                    world.h(i1, j1, k1, bc);
+                    world.g(i1, j1, k1, bc);
                 }
-            } else if (j != 0) {
-                i(paramdy, paramInt1, paramInt2, paramInt3);
+            } else if (flag) {
+                i(world, i1, j1, k1);
             }
         } else {
-            i(paramdy, paramInt1, paramInt2, paramInt3);
+            i(world, i1, j1, k1);
         }
-        if (l(paramdy, paramInt1, paramInt2 - 1, paramInt3)) {
-            if (i >= 8) {
-                paramdy.b(paramInt1, paramInt2 - 1, paramInt3, bc, i);
+        if (l(world, i1, j1 - 1, k1)) {
+            if (l1 >= 8) {
+                world.b(i1, j1 - 1, k1, bc, l1);
             } else {
-                paramdy.b(paramInt1, paramInt2 - 1, paramInt3, bc, i + 8);
+                world.b(i1, j1 - 1, k1, bc, l1 + 8);
             }
-        } else if (i >= 0 && (i == 0 || k(paramdy, paramInt1, paramInt2 - 1, paramInt3))) {
-            boolean arrayOfBoolean[] = j(paramdy, paramInt1, paramInt2, paramInt3);
-            int l = i + d;
+        } else if (l1 >= 0 && (l1 == 0 || k(world, i1, j1 - 1, k1))) {
+            boolean aflag[] = j(world, i1, j1, k1);
+            int k2 = l1 + d;
 
-            if (i >= 8) {
-                l = 1;
+            if (l1 >= 8) {
+                k2 = 1;
             }
-            if (l >= 8) {
+            if (k2 >= 8) {
                 return;
             }
-            if (arrayOfBoolean[0]) {
-                f(paramdy, paramInt1 - 1, paramInt2, paramInt3, l);
+            if (aflag[0]) {
+                f(world, i1 - 1, j1, k1, k2);
             }
-            if (arrayOfBoolean[1]) {
-                f(paramdy, paramInt1 + 1, paramInt2, paramInt3, l);
+            if (aflag[1]) {
+                f(world, i1 + 1, j1, k1, k2);
             }
-            if (arrayOfBoolean[2]) {
-                f(paramdy, paramInt1, paramInt2, paramInt3 - 1, l);
+            if (aflag[2]) {
+                f(world, i1, j1, k1 - 1, k2);
             }
-            if (!arrayOfBoolean[3]) {
-                return;
+            if (aflag[3]) {
+                f(world, i1, j1, k1 + 1, k2);
             }
-            f(paramdy, paramInt1, paramInt2, paramInt3 + 1, l);
         }
     }
 
-    private void f(World paramdy, int paramInt1, int paramInt2, int paramInt3, int paramInt4) {
-        if (l(paramdy, paramInt1, paramInt2, paramInt3)) {
-            int i = paramdy.a(paramInt1, paramInt2, paramInt3);
+    private void f(World world, int i1, int j1, int k1, int l1) {
+        if (l(world, i1, j1, k1)) {
+            int i2 = world.a(i1, j1, k1);
 
-            if (i > 0) {
+            if (i2 > 0) {
                 if (bn == Material.g) {
-                    h(paramdy, paramInt1, paramInt2, paramInt3);
+                    h(world, i1, j1, k1);
                 } else {
-                    Block.n[i].a_(paramdy, paramInt1, paramInt2, paramInt3, paramdy.b(paramInt1, paramInt2, paramInt3));
+                    Block.n[i2].a_(world, i1, j1, k1, world.b(i1, j1, k1));
                 }
             }
-            paramdy.b(paramInt1, paramInt2, paramInt3, bc, paramInt4);
+            world.b(i1, j1, k1, bc, l1);
         }
     }
 
-    private int a(World paramdy, int paramInt1, int paramInt2, int paramInt3, int paramInt4, int paramInt5) {
-        int i = 1000;
+    private int a(World world, int i1, int j1, int k1, int l1, int i2) {
+        int j2 = 1000;
 
-        for (int j = 0; j < 4; j++) {
-            if (j == 0 && paramInt5 == 1 || j == 1 && paramInt5 == 0 || j == 2 && paramInt5 == 3 || j == 3 && paramInt5 == 2) {
+        for (int k2 = 0; k2 < 4; k2++) {
+            if (k2 == 0 && i2 == 1 || k2 == 1 && i2 == 0 || k2 == 2 && i2 == 3 || k2 == 3 && i2 == 2) {
                 continue;
             }
-            int k = paramInt1;
-            int l = paramInt2;
-            int i1 = paramInt3;
+            int l2 = i1;
+            int i3 = j1;
+            int j3 = k1;
 
-            if (j == 0) {
-                k--;
+            if (k2 == 0) {
+                l2--;
             }
-            if (j == 1) {
-                k++;
+            if (k2 == 1) {
+                l2++;
             }
-            if (j == 2) {
-                i1--;
+            if (k2 == 2) {
+                j3--;
             }
-            if (j == 3) {
-                i1++;
+            if (k2 == 3) {
+                j3++;
             }
-            if (k(paramdy, k, l, i1) || paramdy.c(k, l, i1) == bn && paramdy.b(k, l, i1) == 0) {
+            if (k(world, l2, i3, j3) || world.c(l2, i3, j3) == bn && world.b(l2, i3, j3) == 0) {
                 continue;
             }
-            if (!k(paramdy, k, l - 1, i1)) {
-                return paramInt4;
+            if (!k(world, l2, i3 - 1, j3)) {
+                return l1;
             }
-            if (paramInt4 >= 4) {
+            if (l1 >= 4) {
                 continue;
             }
-            int i2 = a(paramdy, k, l, i1, paramInt4 + 1, j);
+            int k3 = a(world, l2, i3, j3, l1 + 1, k2);
 
-            if (i2 < i) {
-                i = i2;
+            if (k3 < j2) {
+                j2 = k3;
             }
         }
 
-        return i;
+        return j2;
     }
 
-    private boolean[] j(World paramdy, int paramInt1, int paramInt2, int paramInt3) {
-        int i;
+    private boolean[] j(World world, int i1, int j1, int k1) {
+        for (int l1 = 0; l1 < 4; l1++) {
+            c[l1] = 1000;
+            int j2 = i1;
+            int i3 = j1;
+            int j3 = k1;
 
-        for (i = 0; i < 4; i++) {
-            c[i] = 1000;
-            int j = paramInt1;
-            int k = paramInt2;
-            int l = paramInt3;
-
-            if (i == 0) {
-                j--;
+            if (l1 == 0) {
+                j2--;
             }
-            if (i == 1) {
-                j++;
+            if (l1 == 1) {
+                j2++;
             }
-            if (i == 2) {
-                l--;
+            if (l1 == 2) {
+                j3--;
             }
-            if (i == 3) {
-                l++;
+            if (l1 == 3) {
+                j3++;
             }
-            if (k(paramdy, j, k, l) || paramdy.c(j, k, l) == bn && paramdy.b(j, k, l) == 0) {
+            if (k(world, j2, i3, j3) || world.c(j2, i3, j3) == bn && world.b(j2, i3, j3) == 0) {
                 continue;
             }
-            if (!k(paramdy, j, k - 1, l)) {
-                c[i] = 0;
+            if (!k(world, j2, i3 - 1, j3)) {
+                c[l1] = 0;
             } else {
-                c[i] = a(paramdy, j, k, l, 1, i);
+                c[l1] = a(world, j2, i3, j3, 1, l1);
             }
         }
 
-        i = c[0];
-        for (int j = 1; j < 4; j++) {
-            if (c[j] < i) {
-                i = c[j];
+        int i2 = c[0];
+
+        for (int k2 = 1; k2 < 4; k2++) {
+            if (c[k2] < i2) {
+                i2 = c[k2];
             }
         }
 
-        for (int j = 0; j < 4; j++) {
-            b[j] = c[j] == i;
+        for (int l2 = 0; l2 < 4; l2++) {
+            b[l2] = c[l2] == i2;
         }
 
         return b;
     }
 
-    private boolean k(World paramdy, int paramInt1, int paramInt2, int paramInt3) {
-        int i = paramdy.a(paramInt1, paramInt2, paramInt3);
+    private boolean k(World world, int i1, int j1, int k1) {
+        int l1 = world.a(i1, j1, k1);
 
-        if (i == Block.aF.bc || i == Block.aM.bc || i == Block.aE.bc || i == Block.aG.bc || i == Block.aY.bc) {
+        if (l1 == Block.aF.bc || l1 == Block.aM.bc || l1 == Block.aE.bc || l1 == Block.aG.bc || l1 == Block.aY.bc) {
             return true;
         }
-        if (i == 0) {
+        if (l1 == 0) {
             return false;
-        } else {
-            Material localiq = Block.n[i].bn;
-
-            return localiq.a();
         }
+        Material material = Block.n[l1].bn;
+
+        return material.a();
     }
 
-    protected int e(World paramdy, int paramInt1, int paramInt2, int paramInt3, int paramInt4) {
-        int i = g(paramdy, paramInt1, paramInt2, paramInt3);
+    protected int e(World world, int i1, int j1, int k1, int l1) {
+        int i2 = g(world, i1, j1, k1);
 
-        if (i < 0) {
-            return paramInt4;
+        if (i2 < 0) {
+            return l1;
         }
-        if (i == 0) {
+        if (i2 == 0) {
             a++;
         }
-        if (i >= 8) {
-            i = 0;
+        if (i2 >= 8) {
+            i2 = 0;
         }
-        return paramInt4 >= 0 && i >= paramInt4 ? paramInt4 : i;
+        return l1 >= 0 && i2 >= l1 ? l1 : i2;
     }
 
-    private boolean l(World paramdy, int paramInt1, int paramInt2, int paramInt3) {
-        Material localiq = paramdy.c(paramInt1, paramInt2, paramInt3);
+    private boolean l(World world, int i1, int j1, int k1) {
+        Material material = world.c(i1, j1, k1);
 
-        if (localiq == bn) {
+        if (material == bn) {
             return false;
         }
-        if (localiq == Material.g) {
+        if (material == Material.g) {
             return false;
         } else {
-            return !k(paramdy, paramInt1, paramInt2, paramInt3);
+            return !k(world, i1, j1, k1);
         }
     }
 
-    public void e(World paramdy, int paramInt1, int paramInt2, int paramInt3) {
-        super.e(paramdy, paramInt1, paramInt2, paramInt3);
-        if (paramdy.a(paramInt1, paramInt2, paramInt3) == bc) {
-            paramdy.h(paramInt1, paramInt2, paramInt3, bc);
+    public void e(World world, int i1, int j1, int k1) {
+        super.e(world, i1, j1, k1);
+        if (world.a(i1, j1, k1) == bc) {
+            world.h(i1, j1, k1, bc);
         }
     }
 }
