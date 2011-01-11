@@ -54,7 +54,7 @@ public class EntityBoat extends Entity {
     }
 
     public boolean a(Entity entity, int i) {
-        if (this.l.z) {
+        if (this.l.z || G) {
             return true;
         }
         c = -c;

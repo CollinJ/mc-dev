@@ -126,7 +126,7 @@ public class EntityMinecart extends Entity implements IInventory {
     }
 
     public boolean a(Entity entity, int i) {
-        if (l.z) {
+        if (l.z || G) {
             return true;
         }
         c = -c;
