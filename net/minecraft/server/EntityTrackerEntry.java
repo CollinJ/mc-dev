@@ -61,12 +61,12 @@ public class EntityTrackerEntry {
     public void a(List list) {
         p = false;
         if (!u || a.d(r, s, t) > 16D) {
-            b(list);
             r = a.p;
             s = a.q;
             t = a.r;
             u = true;
             p = true;
+            b(list);
         }
         if (o++ % f == 0) {
             int i1 = MathHelper.b(a.p * 32D);
@@ -164,6 +164,12 @@ public class EntityTrackerEntry {
     }
 
     public void a(EntityPlayerMP entityplayermp) {
+        if (q.contains(((entityplayermp)))) {
+            q.remove(((entityplayermp)));
+        }
+    }
+
+    public void b(EntityPlayerMP entityplayermp) {
         if (entityplayermp == a) {
             return;
         }
@@ -195,7 +201,7 @@ public class EntityTrackerEntry {
 
     public void b(List list) {
         for (int i1 = 0; i1 < list.size(); i1++) {
-            a((EntityPlayerMP) list.get(i1));
+            b((EntityPlayerMP) list.get(i1));
         }
     }
 
@@ -247,7 +253,7 @@ public class EntityTrackerEntry {
         }
     }
 
-    public void b(EntityPlayerMP entityplayermp) {
+    public void c(EntityPlayerMP entityplayermp) {
         if (q.contains(((entityplayermp)))) {
             q.remove(((entityplayermp)));
             entityplayermp.a.b(((Packet) (new Packet29DestroyEntity(a.g))));

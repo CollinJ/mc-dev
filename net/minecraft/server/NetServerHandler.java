@@ -75,11 +75,17 @@ public class NetServerHandler extends NetHandler implements ICommandListener {
                 }
                 e.A = packet10flying.g;
                 e.k();
+                e.c(d9, 0.0D, d10);
                 e.b(d3, d5, d7, f1, f2);
                 e.s = d9;
                 e.u = d10;
-                e.k.b_();
+                d.e.b(e.k, true);
+                e.k.A();
                 d.f.b(e);
+                g = e.p;
+                h = e.q;
+                i = e.r;
+                d.e.f(((Entity) (e)));
                 return;
             }
             double d2 = e.q;
@@ -348,11 +354,6 @@ public class NetServerHandler extends NetHandler implements ICommandListener {
                     b(((Packet) (new Packet3Chat("\247cThere's no player by that name online."))));
                 }
             }
-        } else if (s.toLowerCase().equalsIgnoreCase("/home")) {
-            a.info((new StringBuilder()).append(e.at).append(" returned home").toString());
-            int l = d.e.e(d.e.m, d.e.o);
-
-            a((double) d.e.m + 0.5D, (double) l + 1.5D, (double) d.e.o + 0.5D, 0.0F, 0.0F);
         } else if (d.f.g(e.at)) {
             String s1 = s.substring(1);
 
