@@ -5,39 +5,37 @@ public final class ItemStack {
     public int a;
     public int b;
     public int c;
-    public int d;
+    private int d;
 
     public ItemStack(Block block) {
         this(block, 1);
     }
 
-    public ItemStack(Block block, int i) {
-        this(block.bh, i);
+    public ItemStack(Block block, int k) {
+        this(block.bi, k, 0);
+    }
+
+    public ItemStack(Block block, int k, int l) {
+        this(block.bi, k, l);
     }
 
     public ItemStack(Item item) {
-        this(item, 1);
+        this(item.ba, 1, 0);
     }
 
-    public ItemStack(Item item, int i) {
-        this(item.aW, i);
+    public ItemStack(Item item, int k) {
+        this(item.ba, k, 0);
     }
 
-    public ItemStack(int i) {
-        this(i, 1);
+    public ItemStack(Item item, int k, int l) {
+        this(item.ba, k, l);
     }
 
-    public ItemStack(int i, int j) {
+    public ItemStack(int k, int l, int i1) {
         a = 0;
-        c = i;
-        a = j;
-    }
-
-    public ItemStack(int i, int j, int k) {
-        a = 0;
-        c = i;
-        a = j;
-        d = k;
+        c = k;
+        a = l;
+        d = i1;
     }
 
     public ItemStack(NBTTagCompound nbttagcompound) {
@@ -45,17 +43,17 @@ public final class ItemStack {
         b(nbttagcompound);
     }
 
-    public ItemStack a(int i) {
-        a -= i;
-        return new ItemStack(c, i, d);
+    public ItemStack a(int k) {
+        a -= k;
+        return new ItemStack(c, k, d);
     }
 
     public Item a() {
         return Item.c[c];
     }
 
-    public boolean a(EntityPlayer entityplayer, World world, int i, int j, int k, int l) {
-        return a().a(this, entityplayer, world, i, j, k, l);
+    public boolean a(EntityPlayer entityplayer, World world, int k, int l, int i1, int j1) {
+        return a().a(this, entityplayer, world, k, l, i1, j1);
     }
 
     public float a(Block block) {
@@ -83,13 +81,40 @@ public final class ItemStack {
         return a().b();
     }
 
-    public int c() {
+    public boolean c() {
+        return b() > 1 && (!d() || !f());
+    }
+
+    public boolean d() {
+        return Item.c[c].d() > 0;
+    }
+
+    public boolean e() {
         return Item.c[c].c();
     }
 
-    public void b(int i) {
-        d += i;
-        if (d > c()) {
+    public boolean f() {
+        return d() && d > 0;
+    }
+
+    public int g() {
+        return d;
+    }
+
+    public int h() {
+        return d;
+    }
+
+    public int i() {
+        return Item.c[c].d();
+    }
+
+    public void b(int k) {
+        if (!d()) {
+            return;
+        }
+        d += k;
+        if (d > i()) {
             a--;
             if (a < 0) {
                 a = 0;
@@ -102,8 +127,8 @@ public final class ItemStack {
         Item.c[c].a(this, entityliving);
     }
 
-    public void a(int i, int j, int k, int l) {
-        Item.c[c].a(this, i, j, k, l);
+    public void a(int k, int l, int i1, int j1) {
+        Item.c[c].a(this, k, l, i1, j1);
     }
 
     public int a(Entity entity) {
@@ -116,7 +141,11 @@ public final class ItemStack {
 
     public void a(EntityPlayer entityplayer) {}
 
-    public ItemStack d() {
+    public void b(EntityLiving entityliving) {
+        Item.c[c].b(this, entityliving);
+    }
+
+    public ItemStack j() {
         return new ItemStack(c, a, d);
     }
 
@@ -127,11 +156,11 @@ public final class ItemStack {
         if (itemstack == null || itemstack1 == null) {
             return false;
         } else {
-            return itemstack.b(itemstack1);
+            return itemstack.c(itemstack1);
         }
     }
 
-    private boolean b(ItemStack itemstack) {
+    private boolean c(ItemStack itemstack) {
         if (a != itemstack.a) {
             return false;
         }
@@ -141,8 +170,12 @@ public final class ItemStack {
         return d == itemstack.d;
     }
 
-    public static ItemStack a(ItemStack itemstack) {
-        return itemstack != null ? itemstack.d() : null;
+    public boolean a(ItemStack itemstack) {
+        return c == itemstack.c && d == itemstack.d;
+    }
+
+    public static ItemStack b(ItemStack itemstack) {
+        return itemstack != null ? itemstack.j() : null;
     }
 
     public String toString() {

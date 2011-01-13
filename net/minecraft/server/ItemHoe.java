@@ -4,26 +4,26 @@ import java.util.Random;
 
 public class ItemHoe extends Item {
 
-    public ItemHoe(int i, int j) {
+    public ItemHoe(int i, bv bv1) {
         super(i);
-        aX = 1;
-        aY = 32 << j;
+        bb = 1;
+        bc = bv1.a();
     }
 
     public boolean a(ItemStack itemstack, EntityPlayer entityplayer, World world, int i, int j, int k, int l) {
         int i1 = world.a(i, j, k);
         Material material = world.c(i, j + 1, k);
 
-        if (!material.a() && i1 == Block.u.bh || i1 == Block.v.bh) {
+        if (!material.a() && i1 == Block.u.bi || i1 == Block.v.bi) {
             Block block = Block.aA;
 
-            world.a((float) i + 0.5F, (float) j + 0.5F, (float) k + 0.5F, block.bq.c(), (block.bq.a() + 1.0F) / 2.0F, block.bq.b() * 0.8F);
+            world.a((float) i + 0.5F, (float) j + 0.5F, (float) k + 0.5F, block.br.c(), (block.br.a() + 1.0F) / 2.0F, block.br.b() * 0.8F);
             if (world.z) {
                 return true;
             }
-            world.d(i, j, k, block.bh);
+            world.e(i, j, k, block.bi);
             itemstack.b(1);
-            if (world.l.nextInt(8) == 0 && i1 == Block.u.bh) {
+            if (world.l.nextInt(8) == 0 && i1 == Block.u.bi) {
                 int j1 = 1;
 
                 for (int k1 = 0; k1 < j1; k1++) {

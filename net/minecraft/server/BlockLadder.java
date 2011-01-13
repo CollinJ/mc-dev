@@ -59,7 +59,7 @@ public class BlockLadder extends Block {
         if ((i1 == 0 || l == 5) && world.d(i - 1, j, k)) {
             i1 = 5;
         }
-        world.b(i, j, k, i1);
+        world.c(i, j, k, i1);
     }
 
     public void b(World world, int i, int j, int k, int l) {
@@ -80,7 +80,7 @@ public class BlockLadder extends Block {
         }
         if (!flag) {
             a_(world, i, j, k, i1);
-            world.d(i, j, k, 0);
+            world.e(i, j, k, 0);
         }
         super.b(world, i, j, k, l);
     }

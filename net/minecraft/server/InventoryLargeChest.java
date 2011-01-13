@@ -12,8 +12,8 @@ public class InventoryLargeChest implements IInventory {
         c = iinventory1;
     }
 
-    public int a() {
-        return b.a() + c.a();
+    public int h_() {
+        return b.h_() + c.h_();
     }
 
     public String b() {
@@ -21,24 +21,24 @@ public class InventoryLargeChest implements IInventory {
     }
 
     public ItemStack a(int i) {
-        if (i >= b.a()) {
-            return c.a(i - b.a());
+        if (i >= b.h_()) {
+            return c.a(i - b.h_());
         } else {
             return b.a(i);
         }
     }
 
-    public ItemStack a(int i, int j) {
-        if (i >= b.a()) {
-            return c.a(i - b.a(), j);
+    public ItemStack b(int i, int j) {
+        if (i >= b.h_()) {
+            return c.b(i - b.h_(), j);
         } else {
-            return b.a(i, j);
+            return b.b(i, j);
         }
     }
 
     public void a(int i, ItemStack itemstack) {
-        if (i >= b.a()) {
-            c.a(i - b.a(), itemstack);
+        if (i >= b.h_()) {
+            c.a(i - b.h_(), itemstack);
         } else {
             b.a(i, itemstack);
         }

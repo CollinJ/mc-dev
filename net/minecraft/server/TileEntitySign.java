@@ -29,7 +29,7 @@ public class TileEntitySign extends TileEntity {
         }
     }
 
-    public Packet f() {
+    public Packet g() {
         String as[] = new String[4];
 
         for (int i = 0; i < 4; i++) {

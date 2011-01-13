@@ -35,19 +35,19 @@ public class BlockRedstoneOre extends Block {
 
     private void g(World world, int i, int j, int k) {
         h(world, i, j, k);
-        if (bh == Block.aN.bh) {
-            world.d(i, j, k, Block.aO.bh);
+        if (bi == Block.aN.bi) {
+            world.e(i, j, k, Block.aO.bi);
         }
     }
 
     public void a(World world, int i, int j, int k, Random random) {
-        if (bh == Block.aO.bh) {
-            world.d(i, j, k, Block.aN.bh);
+        if (bi == Block.aO.bi) {
+            world.e(i, j, k, Block.aN.bi);
         }
     }
 
     public int a(int i, Random random) {
-        return Item.aA.aW;
+        return Item.aA.ba;
     }
 
     public int a(Random random) {

@@ -8,8 +8,8 @@ public class ItemBucket extends Item {
 
     public ItemBucket(int i, int j) {
         super(i);
-        aX = 1;
-        aY = 64;
+        bb = 1;
+        bc = 64;
         a = j;
     }
 
@@ -35,7 +35,7 @@ public class ItemBucket extends Item {
         if (movingobjectposition == null) {
             return itemstack;
         }
-        if (movingobjectposition.a == 0) {
+        if (movingobjectposition.a == jr.a) {
             int i = movingobjectposition.b;
             int j = movingobjectposition.c;
             int k = movingobjectposition.d;
@@ -45,11 +45,11 @@ public class ItemBucket extends Item {
             }
             if (a == 0) {
                 if (world.c(i, j, k) == Material.f && world.b(i, j, k) == 0) {
-                    world.d(i, j, k, 0);
+                    world.e(i, j, k, 0);
                     return new ItemStack(Item.av);
                 }
                 if (world.c(i, j, k) == Material.g && world.b(i, j, k) == 0) {
-                    world.d(i, j, k, 0);
+                    world.e(i, j, k, 0);
                     return new ItemStack(Item.aw);
                 }
             } else {
@@ -75,7 +75,7 @@ public class ItemBucket extends Item {
                     i++;
                 }
                 if (world.e(i, j, k) || !world.c(i, j, k).a()) {
-                    if (world.q.d && a == Block.A.bh) {
+                    if (world.q.d && a == Block.A.bi) {
                         world.a(d + 0.5D, d1 + 0.5D, d2 + 0.5D, "random.fizz", 0.5F, 2.6F + (world.l.nextFloat() - world.l.nextFloat()) * 0.8F);
                         for (int l = 0; l < 8; l++) {
                             world.a("largesmoke", (double) i + Math.random(), (double) j + Math.random(), (double) k + Math.random(), 0.0D, 0.0D, 0.0D);

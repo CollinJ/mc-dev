@@ -53,7 +53,7 @@ public class WorldProvider {
     public boolean a(int i, int j) {
         int k = a.a(i, j);
 
-        return k == Block.E.bh;
+        return k == Block.E.bi;
     }
 
     public float a(long l, float f1) {

@@ -45,7 +45,7 @@ public class TileEntity {
         }
     }
 
-    public void e() {}
+    public void f() {}
 
     public static TileEntity c(NBTTagCompound nbttagcompound) {
         TileEntity tileentity = null;
@@ -73,7 +73,7 @@ public class TileEntity {
         }
     }
 
-    public Packet f() {
+    public Packet g() {
         return null;
     }
 
@@ -88,7 +88,9 @@ public class TileEntity {
     static {
         a(net.minecraft.server.TileEntityFurnace.class, "Furnace");
         a(net.minecraft.server.TileEntityChest.class, "Chest");
+        a(net.minecraft.server.bf.class, "Trap");
         a(net.minecraft.server.TileEntitySign.class, "Sign");
         a(net.minecraft.server.TileEntityMobSpawner.class, "MobSpawner");
+        a(net.minecraft.server.gl.class, "Music");
     }
 }

@@ -14,5 +14,8 @@ public class RecipesCrafting {
         craftingmanager.a(new ItemStack(Block.ay), new Object[] {
             "##", "##", Character.valueOf('#'), Block.x
         });
+        craftingmanager.a(new ItemStack(Block.Q), new Object[] {
+            "##", "##", Character.valueOf('#'), Block.E
+        });
     }
 }

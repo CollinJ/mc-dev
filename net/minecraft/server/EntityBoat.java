@@ -11,9 +11,9 @@ public class EntityBoat extends Entity {
     private int d;
     private double e;
     private double f;
-    private double aj;
     private double ak;
     private double al;
+    private double am;
 
     public EntityBoat(World world) {
         super(world);
@@ -26,15 +26,17 @@ public class EntityBoat extends Entity {
         M = false;
     }
 
+    protected void a() {}
+
     public AxisAlignedBB d(Entity entity) {
         return entity.z;
     }
 
-    public AxisAlignedBB q() {
+    public AxisAlignedBB u() {
         return z;
     }
 
-    public boolean v() {
+    public boolean z() {
         return true;
     }
 
@@ -49,7 +51,7 @@ public class EntityBoat extends Entity {
         o = d3;
     }
 
-    public double j() {
+    public double k() {
         return (double) J * 0.0D - 0.30000001192092896D;
     }
 
@@ -60,17 +62,17 @@ public class EntityBoat extends Entity {
         c = -c;
         b = 10;
         a += i * 10;
-        u();
+        y();
         if (a > 40) {
-            for (int k = 0; k < 3; k++) {
-                a(Block.x.bh, 1, 0.0F);
+            for (int j = 0; j < 3; j++) {
+                a(Block.x.bi, 1, 0.0F);
             }
 
             for (int l = 0; l < 2; l++) {
-                a(Item.B.aW, 1, 0.0F);
+                a(Item.B.ba, 1, 0.0F);
             }
 
-            l();
+            q();
         }
         return true;
     }
@@ -93,9 +95,9 @@ public class EntityBoat extends Entity {
         int i = 5;
         double d1 = 0.0D;
 
-        for (int k = 0; k < i; k++) {
-            double d2 = (z.b + ((z.e - z.b) * (double) (k + 0)) / (double) i) - 0.125D;
-            double d3 = (z.b + ((z.e - z.b) * (double) (k + 1)) / (double) i) - 0.125D;
+        for (int j = 0; j < i; j++) {
+            double d2 = (z.b + ((z.e - z.b) * (double) (j + 0)) / (double) i) - 0.125D;
+            double d3 = (z.b + ((z.e - z.b) * (double) (j + 1)) / (double) i) - 0.125D;
             AxisAlignedBB axisalignedbb = AxisAlignedBB.b(z.a, d2, z.c, z.d, d3, z.f);
 
             if (this.l.b(axisalignedbb, Material.f)) {
@@ -107,17 +109,17 @@ public class EntityBoat extends Entity {
             if (d > 0) {
                 double d4 = p + (e - p) / (double) d;
                 double d7 = q + (f - q) / (double) d;
-                double d10 = r + (aj - r) / (double) d;
+                double d10 = r + (ak - r) / (double) d;
                 double d13;
 
-                for (d13 = ak - (double) v; d13 < -180D; d13 += 360D) {
+                for (d13 = al - (double) v; d13 < -180D; d13 += 360D) {
                     ;
                 }
                 for (; d13 >= 180D; d13 -= 360D) {
                     ;
                 }
                 v += ((float) (d13 / (double) d));
-                w += ((float) ((al - (double) w) / (double) d));
+                w += ((float) ((am - (double) w) / (double) d));
                 d--;
                 a(d4, d7, d10);
                 b(v, w);
@@ -141,9 +143,9 @@ public class EntityBoat extends Entity {
         double d6 = d1 * 2D - 1.0D;
 
         t += 0.039999999105930328D * d6;
-        if (j != null) {
-            s += j.s * 0.20000000000000001D;
-            u += j.u * 0.20000000000000001D;
+        if (this.j != null) {
+            s += this.j.s * 0.20000000000000001D;
+            u += this.j.u * 0.20000000000000001D;
         }
         double d9 = 0.40000000000000002D;
 
@@ -190,13 +192,13 @@ public class EntityBoat extends Entity {
         }
         if (B && d12 > 0.14999999999999999D) {
             if (!this.l.z) {
-                l();
+                q();
                 for (int i1 = 0; i1 < 3; i1++) {
-                    a(Block.x.bh, 1, 0.0F);
+                    a(Block.x.bi, 1, 0.0F);
                 }
 
                 for (int j1 = 0; j1 < 2; j1++) {
-                    a(Item.B.aW, 1, 0.0F);
+                    a(Item.B.ba, 1, 0.0F);
                 }
             }
         } else {
@@ -234,24 +236,24 @@ public class EntityBoat extends Entity {
             for (int k1 = 0; k1 < list.size(); k1++) {
                 Entity entity = (Entity) list.get(k1);
 
-                if (entity != j && entity.v() && (entity instanceof EntityBoat)) {
+                if (entity != this.j && entity.z() && (entity instanceof EntityBoat)) {
                     entity.c(((Entity) (this)));
                 }
             }
         }
-        if (j != null && j.G) {
-            j = null;
+        if (this.j != null && this.j.G) {
+            this.j = null;
         }
     }
 
-    public void A() {
+    public void E() {
         if (j == null) {
             return;
         } else {
             double d1 = Math.cos(((double) v * 3.1415926535897931D) / 180D) * 0.40000000000000002D;
             double d2 = Math.sin(((double) v * 3.1415926535897931D) / 180D) * 0.40000000000000002D;
 
-            j.a(p + d1, q + j() + j.B(), r + d2);
+            j.a(p + d1, q + k() + j.F(), r + d2);
             return;
         }
     }

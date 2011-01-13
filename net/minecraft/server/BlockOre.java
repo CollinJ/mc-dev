@@ -9,17 +9,24 @@ public class BlockOre extends Block {
     }
 
     public int a(int i, Random random) {
-        if (bh == Block.I.bh) {
-            return Item.k.aW;
+        if (bi == Block.I.bi) {
+            return Item.k.ba;
         }
-        if (bh == Block.aw.bh) {
-            return Item.l.aW;
+        if (bi == Block.aw.bi) {
+            return Item.l.ba;
+        }
+        if (bi == Block.N.bi) {
+            return Item.aU.ba;
         } else {
-            return bh;
+            return bi;
         }
     }
 
     public int a(Random random) {
         return 1;
+    }
+
+    protected int b(int i) {
+        return bi != Block.N.bi ? 0 : 4;
     }
 }

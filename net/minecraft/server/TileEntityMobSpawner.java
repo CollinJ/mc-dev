@@ -6,23 +6,27 @@ import java.util.Random;
 public class TileEntityMobSpawner extends TileEntity {
 
     public int e;
-    public String f;
+    private String h;
+    public double f;
     public double g;
-    public double h;
 
     public TileEntityMobSpawner() {
         e = -1;
-        h = 0.0D;
-        f = "Pig";
+        g = 0.0D;
+        h = "Pig";
         e = 20;
+    }
+
+    public void a(String s) {
+        h = s;
     }
 
     public boolean a() {
         return a.a((double) b + 0.5D, (double) c + 0.5D, (double) d + 0.5D, 16D) != null;
     }
 
-    public void e() {
-        h = g;
+    public void f() {
+        g = f;
         if (!a()) {
             return;
         }
@@ -32,9 +36,9 @@ public class TileEntityMobSpawner extends TileEntity {
 
         a.a("smoke", d, d2, d4, 0.0D, 0.0D, 0.0D);
         a.a("flame", d, d2, d4, 0.0D, 0.0D, 0.0D);
-        for (g += 1000F / ((float) e + 200F); g > 360D;) {
+        for (f += 1000F / ((float) e + 200F); f > 360D;) {
+            f -= 360D;
             g -= 360D;
-            h -= 360D;
         }
 
         if (e == -1) {
@@ -47,7 +51,7 @@ public class TileEntityMobSpawner extends TileEntity {
         byte byte0 = 4;
 
         for (int i = 0; i < byte0; i++) {
-            EntityLiving entityliving = (EntityLiving) EntityList.a(f, a);
+            EntityLiving entityliving = (EntityLiving) EntityList.a(h, a);
 
             if (entityliving == null) {
                 return;
@@ -66,7 +70,7 @@ public class TileEntityMobSpawner extends TileEntity {
             double d8 = (double) this.d + (a.l.nextDouble() - a.l.nextDouble()) * 4D;
 
             entityliving.c(d6, d7, d8, a.l.nextFloat() * 360F, 0.0F);
-            if (!entityliving.a()) {
+            if (!entityliving.b()) {
                 continue;
             }
             a.a(((Entity) (entityliving)));
@@ -79,11 +83,11 @@ public class TileEntityMobSpawner extends TileEntity {
                 a.a("flame", d1, d3, d5, 0.0D, 0.0D, 0.0D);
             }
 
-            entityliving.O();
+            entityliving.R();
             b();
         }
 
-        super.e();
+        super.f();
     }
 
     private void b() {
@@ -92,13 +96,13 @@ public class TileEntityMobSpawner extends TileEntity {
 
     public void a(NBTTagCompound nbttagcompound) {
         super.a(nbttagcompound);
-        f = nbttagcompound.h("EntityId");
+        h = nbttagcompound.h("EntityId");
         e = ((int) (nbttagcompound.c("Delay")));
     }
 
     public void b(NBTTagCompound nbttagcompound) {
         super.b(nbttagcompound);
-        nbttagcompound.a("EntityId", f);
+        nbttagcompound.a("EntityId", h);
         nbttagcompound.a("Delay", (short) e);
     }
 }

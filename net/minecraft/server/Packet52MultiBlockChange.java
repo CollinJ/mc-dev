@@ -13,11 +13,11 @@ public class Packet52MultiBlockChange extends Packet {
     public int f;
 
     public Packet52MultiBlockChange() {
-        k = true;
+        l = true;
     }
 
     public Packet52MultiBlockChange(int i, int j, short aword0[], int k, World world) {
-        this.k = true;
+        this.l = true;
         a = i;
         b = j;
         f = k;

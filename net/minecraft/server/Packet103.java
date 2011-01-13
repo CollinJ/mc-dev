@@ -14,7 +14,7 @@ public class Packet103 extends Packet {
     public Packet103(int i, int j, ItemStack itemstack) {
         a = i;
         b = j;
-        c = itemstack != null ? itemstack.d() : itemstack;
+        c = itemstack != null ? itemstack.j() : itemstack;
     }
 
     public void a(NetHandler nethandler) {
@@ -28,9 +28,9 @@ public class Packet103 extends Packet {
 
         if (word0 >= 0) {
             byte byte0 = datainputstream.readByte();
-            byte byte1 = datainputstream.readByte();
+            short word1 = datainputstream.readShort();
 
-            c = new ItemStack(((int) (word0)), ((int) (byte0)), ((int) (byte1)));
+            c = new ItemStack(((int) (word0)), ((int) (byte0)), ((int) (word1)));
         } else {
             c = null;
         }
@@ -44,11 +44,11 @@ public class Packet103 extends Packet {
         } else {
             dataoutputstream.writeShort(c.c);
             dataoutputstream.writeByte(c.a);
-            dataoutputstream.writeByte(c.d);
+            dataoutputstream.writeShort(c.h());
         }
     }
 
     public int a() {
-        return 7;
+        return 8;
     }
 }

@@ -9,11 +9,11 @@ public class EntityArrow extends Entity {
     private int d;
     private int e;
     private int f;
-    private boolean aj;
+    private boolean ak;
     public int a;
     public EntityLiving b;
-    private int ak;
     private int al;
+    private int am;
 
     public EntityArrow(World world) {
         super(world);
@@ -21,10 +21,24 @@ public class EntityArrow extends Entity {
         d = -1;
         e = -1;
         f = 0;
-        aj = false;
+        ak = false;
         a = 0;
-        al = 0;
+        am = 0;
         a(0.5F, 0.5F);
+    }
+
+    public EntityArrow(World world, double d1, double d2, double d3) {
+        super(world);
+        c = -1;
+        d = -1;
+        e = -1;
+        f = 0;
+        ak = false;
+        a = 0;
+        am = 0;
+        a(0.5F, 0.5F);
+        a(d1, d2, d3);
+        H = 0.0F;
     }
 
     public EntityArrow(World world, EntityLiving entityliving) {
@@ -33,12 +47,12 @@ public class EntityArrow extends Entity {
         d = -1;
         e = -1;
         f = 0;
-        aj = false;
+        ak = false;
         a = 0;
-        al = 0;
+        am = 0;
         b = entityliving;
         a(0.5F, 0.5F);
-        c(entityliving.p, entityliving.q + (double) entityliving.s(), entityliving.r, entityliving.v, entityliving.w);
+        c(entityliving.p, entityliving.q + (double) entityliving.w(), entityliving.r, entityliving.v, entityliving.w);
         p -= MathHelper.b((v / 180F) * 3.141593F) * 0.16F;
         q -= 0.10000000149011612D;
         r -= MathHelper.a((v / 180F) * 3.141593F) * 0.16F;
@@ -49,6 +63,8 @@ public class EntityArrow extends Entity {
         t = -MathHelper.a((w / 180F) * 3.141593F);
         a(s, t, u, 1.5F, 1.0F);
     }
+
+    protected void a() {}
 
     public void a(double d1, double d2, double d3, float f1, float f2) {
         float f3 = MathHelper.a(d1 * d1 + d2 * d2 + d3 * d3);
@@ -69,7 +85,7 @@ public class EntityArrow extends Entity {
 
         x = v = (float) ((Math.atan2(d1, d3) * 180D) / 3.1415927410125732D);
         y = w = (float) ((Math.atan2(d2, f4) * 180D) / 3.1415927410125732D);
-        ak = 0;
+        al = 0;
     }
 
     public void b_() {
@@ -83,25 +99,25 @@ public class EntityArrow extends Entity {
         if (a > 0) {
             a--;
         }
-        if (aj) {
+        if (ak) {
             int i = l.a(c, d, e);
 
             if (i != f) {
-                aj = false;
+                ak = false;
                 s *= W.nextFloat() * 0.2F;
                 t *= W.nextFloat() * 0.2F;
                 u *= W.nextFloat() * 0.2F;
-                ak = 0;
                 al = 0;
+                am = 0;
             } else {
-                ak++;
-                if (ak == 1200) {
-                    l();
+                al++;
+                if (al == 1200) {
+                    q();
                 }
                 return;
             }
         } else {
-            al++;
+            am++;
         }
         Vec3D vec3d = Vec3D.b(p, q, r);
         Vec3D vec3d1 = Vec3D.b(p + s, q + t, r + u);
@@ -119,7 +135,7 @@ public class EntityArrow extends Entity {
         for (int j = 0; j < list.size(); j++) {
             Entity entity1 = (Entity) list.get(j);
 
-            if (!entity1.c_() || entity1 == b && al < 5) {
+            if (!entity1.c_() || entity1 == b && am < 5) {
                 continue;
             }
             float f5 = 0.3F;
@@ -144,14 +160,14 @@ public class EntityArrow extends Entity {
             if (movingobjectposition.g != null) {
                 if (movingobjectposition.g.a(((Entity) (b)), 4)) {
                     l.a(((Entity) (this)), "random.drr", 1.0F, 1.2F / (W.nextFloat() * 0.2F + 0.9F));
-                    l();
+                    q();
                 } else {
                     s *= -0.10000000149011612D;
                     t *= -0.10000000149011612D;
                     u *= -0.10000000149011612D;
                     v += 180F;
                     x += 180F;
-                    al = 0;
+                    am = 0;
                 }
             } else {
                 c = movingobjectposition.b;
@@ -167,7 +183,7 @@ public class EntityArrow extends Entity {
                 q -= (t / (double) f2) * 0.05000000074505806D;
                 r -= (u / (double) f2) * 0.05000000074505806D;
                 l.a(((Entity) (this)), "random.drr", 1.0F, 1.2F / (W.nextFloat() * 0.2F + 0.9F));
-                aj = true;
+                ak = true;
                 a = 7;
             }
         }
@@ -194,7 +210,7 @@ public class EntityArrow extends Entity {
         float f4 = 0.99F;
         float f6 = 0.03F;
 
-        if (r()) {
+        if (v()) {
             for (int k = 0; k < 4; k++) {
                 float f7 = 0.25F;
 
@@ -216,7 +232,7 @@ public class EntityArrow extends Entity {
         nbttagcompound.a("zTile", (short) e);
         nbttagcompound.a("inTile", (byte) f);
         nbttagcompound.a("shake", (byte) a);
-        nbttagcompound.a("inGround", (byte) (aj ? 1 : 0));
+        nbttagcompound.a("inGround", (byte) (ak ? 1 : 0));
     }
 
     public void b(NBTTagCompound nbttagcompound) {
@@ -225,17 +241,17 @@ public class EntityArrow extends Entity {
         e = ((int) (nbttagcompound.c("zTile")));
         f = nbttagcompound.b("inTile") & 0xff;
         a = nbttagcompound.b("shake") & 0xff;
-        aj = nbttagcompound.b("inGround") == 1;
+        ak = nbttagcompound.b("inGround") == 1;
     }
 
     public void b(EntityPlayer entityplayer) {
         if (l.z) {
             return;
         }
-        if (aj && b == entityplayer && a <= 0 && entityplayer.an.a(new ItemStack(Item.j.aW, 1))) {
+        if (ak && b == entityplayer && a <= 0 && entityplayer.an.a(new ItemStack(Item.j, 1))) {
             l.a(((Entity) (this)), "random.pop", 0.2F, ((W.nextFloat() - W.nextFloat()) * 0.7F + 1.0F) * 2.0F);
             entityplayer.c(((Entity) (this)), 1);
-            l();
+            q();
         }
     }
 }

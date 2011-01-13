@@ -6,7 +6,7 @@ public class BlockLog extends Block {
 
     protected BlockLog(int i) {
         super(i, Material.c);
-        bg = 20;
+        bh = 20;
     }
 
     public int a(Random random) {
@@ -14,7 +14,7 @@ public class BlockLog extends Block {
     }
 
     public int a(int i, Random random) {
-        return Block.J.bh;
+        return Block.J.bi;
     }
 
     public void b(World world, int i, int j, int k) {
@@ -27,8 +27,13 @@ public class BlockLog extends Block {
                     for (int k1 = -byte0; k1 <= byte0; k1++) {
                         int l1 = world.a(i + i1, j + j1, k + k1);
 
-                        if (l1 == Block.K.bh && world.b(i + i1, j + j1, k + k1) != 7) {
-                            world.c(i + i1, j + j1, k + k1, 7);
+                        if (l1 != Block.K.bi) {
+                            continue;
+                        }
+                        int i2 = world.b(i + i1, j + j1, k + k1);
+
+                        if ((i2 & 4) == 0) {
+                            world.d(i + i1, j + j1, k + k1, i2 | 4);
                         }
                     }
                 }
@@ -36,10 +41,7 @@ public class BlockLog extends Block {
         }
     }
 
-    public int a(int i) {
-        if (i == 1) {
-            return 21;
-        }
-        return i != 0 ? 20 : 21;
+    protected int b(int i) {
+        return i;
     }
 }

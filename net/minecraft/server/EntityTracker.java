@@ -46,12 +46,16 @@ public class EntityTracker {
             a(entity, 160, 5, true);
         } else if (entity instanceof EntityBoat) {
             a(entity, 160, 5, true);
+        } else if (entity instanceof EntitySquid) {
+            a(entity, 160, 3, true);
         } else if (entity instanceof IAnimals) {
             a(entity, 160, 3);
         } else if (entity instanceof EntityTNTPrimed) {
             a(entity, 160, 10, true);
         } else if (entity instanceof EntityFallingSand) {
             a(entity, 160, 20, true);
+        } else if (entity instanceof EntityPainting) {
+            a(entity, 160, 0x7fffffff, false);
         }
     }
 
@@ -103,7 +107,7 @@ public class EntityTracker {
             EntityTrackerEntry entitytrackerentry = (EntityTrackerEntry) iterator.next();
 
             entitytrackerentry.a(c.e.d);
-            if (entitytrackerentry.p && (entitytrackerentry.a instanceof EntityPlayerMP)) {
+            if (entitytrackerentry.m && (entitytrackerentry.a instanceof EntityPlayerMP)) {
                 ((List) (arraylist)).add((((EntityPlayerMP) entitytrackerentry.a)));
             }
         } while (true);

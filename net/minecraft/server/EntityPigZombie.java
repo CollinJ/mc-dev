@@ -7,27 +7,27 @@ public class EntityPigZombie extends EntityZombie {
 
     private int a;
     private int b;
-    private static final ItemStack c;
+    private static final ItemStack f;
 
     public EntityPigZombie(World world) {
         super(world);
         a = 0;
         b = 0;
-        aQ = "/mob/pigzombie.png";
-        bD = 0.5F;
-        f = 5;
+        aP = "/mob/pigzombie.png";
+        bC = 0.5F;
+        c = 5;
         ae = true;
     }
 
     public void b_() {
-        bD = aj == null ? 0.5F : 0.95F;
+        bC = d == null ? 0.5F : 0.95F;
         if (b > 0 && --b == 0) {
-            l.a(((Entity) (this)), "mob.zombiepig.zpigangry", h() * 2.0F, ((W.nextFloat() - W.nextFloat()) * 0.2F + 1.0F) * 1.8F);
+            l.a(((Entity) (this)), "mob.zombiepig.zpigangry", i() * 2.0F, ((W.nextFloat() - W.nextFloat()) * 0.2F + 1.0F) * 1.8F);
         }
         super.b_();
     }
 
-    public boolean a() {
+    public boolean b() {
         return l.k > 0 && l.a(z) && l.a(((Entity) (this)), z).size() == 0 && !l.b(z);
     }
 
@@ -41,16 +41,16 @@ public class EntityPigZombie extends EntityZombie {
         a = ((int) (nbttagcompound.c("Anger")));
     }
 
-    protected Entity k() {
+    protected Entity l() {
         if (a == 0) {
             return null;
         } else {
-            return super.k();
+            return super.l();
         }
     }
 
-    public void G() {
-        super.G();
+    public void o() {
+        super.o();
     }
 
     public boolean a(Entity entity, int i) {
@@ -73,28 +73,28 @@ public class EntityPigZombie extends EntityZombie {
     }
 
     private void g(Entity entity) {
-        aj = entity;
+        d = entity;
         a = 400 + W.nextInt(400);
         b = W.nextInt(40);
     }
 
-    protected String d() {
+    protected String e() {
         return "mob.zombiepig.zpig";
     }
 
-    protected String e() {
+    protected String f() {
         return "mob.zombiepig.zpighurt";
     }
 
-    protected String f() {
+    protected String g() {
         return "mob.zombiepig.zpigdeath";
     }
 
-    protected int g() {
-        return Item.ap.aW;
+    protected int h() {
+        return Item.ap.ba;
     }
 
     static {
-        c = new ItemStack(Item.E, 1);
+        f = new ItemStack(Item.E, 1);
     }
 }

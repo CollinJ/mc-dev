@@ -2,6 +2,8 @@ package net.minecraft.server;
 
 import java.io.IOException;
 import java.net.ServerSocket;
+import java.net.Socket;
+import java.util.HashMap;
 
 class NetworkAcceptThread extends Thread {
 
@@ -15,17 +17,27 @@ class NetworkAcceptThread extends Thread {
     }
 
     public void run() {
+        HashMap hashmap = new HashMap();
+
         do {
             if (!b.b) {
                 break;
             }
             try {
-                java.net.Socket socket = NetworkListenThread.a(b).accept();
+                Socket socket = NetworkListenThread.a(b).accept();
 
                 if (socket != null) {
-                    NetLoginHandler netloginhandler = new NetLoginHandler(a, socket, (new StringBuilder()).append("Connection #").append(NetworkListenThread.b(b)).toString());
+                    java.net.InetAddress inetaddress = socket.getInetAddress();
 
-                    NetworkListenThread.a(b, netloginhandler);
+                    if (hashmap.containsKey(((inetaddress))) && System.currentTimeMillis() - ((Long) hashmap.get(((inetaddress)))).longValue() < 5000L) {
+                        hashmap.put(((inetaddress)), ((Long.valueOf(System.currentTimeMillis()))));
+                        socket.close();
+                    } else {
+                        hashmap.put(((inetaddress)), ((Long.valueOf(System.currentTimeMillis()))));
+                        NetLoginHandler netloginhandler = new NetLoginHandler(a, socket, (new StringBuilder()).append("Connection #").append(NetworkListenThread.b(b)).toString());
+
+                        NetworkListenThread.a(b, netloginhandler);
+                    }
                 }
             } catch (IOException ioexception) {
                 ioexception.printStackTrace();

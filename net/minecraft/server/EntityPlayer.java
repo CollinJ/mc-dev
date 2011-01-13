@@ -38,17 +38,17 @@ public abstract class EntityPlayer extends EntityLiving {
         ap = ao;
         H = 1.62F;
         c((double) world.m + 0.5D, world.n + 1, (double) world.o + 0.5D, 0.0F, 0.0F);
-        ba = 20;
-        aT = "humanoid";
-        aS = 180F;
+        aZ = 20;
+        aS = "humanoid";
+        aR = 180F;
         Y = 20;
-        aQ = "/mob/char.png";
+        aP = "/mob/char.png";
     }
 
     public void b_() {
         super.b_();
         if (!l.z && ap != null && !ap.b(this)) {
-            I();
+            L();
             ap = ao;
         }
         ay = aB;
@@ -82,17 +82,17 @@ public abstract class EntityPlayer extends EntityLiving {
         aC += d2 * 0.25D;
     }
 
-    protected void I() {
+    protected void L() {
         ap = ao;
     }
 
-    public void z() {
-        super.z();
+    public void D() {
+        super.D();
         as = at;
         at = 0.0F;
     }
 
-    protected void c() {
+    protected void d() {
         if (au) {
             av++;
             if (av == 8) {
@@ -102,31 +102,31 @@ public abstract class EntityPlayer extends EntityLiving {
         } else {
             av = 0;
         }
-        aZ = (float) av / 8F;
+        aY = (float) av / 8F;
     }
 
-    public void G() {
-        if (l.k == 0 && ba < 20 && (X % 20) * 12 == 0) {
-            c(1);
+    public void o() {
+        if (l.k == 0 && aZ < 20 && (X % 20) * 12 == 0) {
+            d(1);
         }
         an.f();
         as = at;
-        super.G();
+        super.o();
         float f1 = MathHelper.a(s * s + u * u);
         float f2 = (float) Math.atan(-t * 0.20000000298023224D) * 15F;
 
         if (f1 > 0.1F) {
             f1 = 0.1F;
         }
-        if (!A || ba <= 0) {
+        if (!A || aZ <= 0) {
             f1 = 0.0F;
         }
-        if (A || ba <= 0) {
+        if (A || aZ <= 0) {
             f2 = 0.0F;
         }
         at += (f1 - at) * 0.4F;
-        bi += (f2 - bi) * 0.8F;
-        if (ba > 0) {
+        bh += (f2 - bh) * 0.8F;
+        if (aZ > 0) {
             List list = l.b(((Entity) (this)), z.b(1.0D, 0.0D, 1.0D));
 
             if (list != null) {
@@ -155,8 +155,8 @@ public abstract class EntityPlayer extends EntityLiving {
         }
         an.h();
         if (entity != null) {
-            s = -MathHelper.b(((be + v) * 3.141593F) / 180F) * 0.1F;
-            u = -MathHelper.a(((be + v) * 3.141593F) / 180F) * 0.1F;
+            s = -MathHelper.b(((bd + v) * 3.141593F) / 180F) * 0.1F;
+            u = -MathHelper.a(((bd + v) * 3.141593F) / 180F) * 0.1F;
         } else {
             s = u = 0.0D;
         }
@@ -167,8 +167,8 @@ public abstract class EntityPlayer extends EntityLiving {
         ar += i;
     }
 
-    public void L() {
-        a(an.a(an.c, 1), false);
+    public void O() {
+        a(an.b(an.c, 1), false);
     }
 
     public void b(ItemStack itemstack) {
@@ -179,7 +179,7 @@ public abstract class EntityPlayer extends EntityLiving {
         if (itemstack == null) {
             return;
         }
-        EntityItem entityitem = new EntityItem(l, p, (q - 0.30000001192092896D) + (double) s(), r, itemstack);
+        EntityItem entityitem = new EntityItem(l, p, (q - 0.30000001192092896D) + (double) w(), r, itemstack);
 
         entityitem.c = 40;
         float f1 = 0.1F;
@@ -244,17 +244,17 @@ public abstract class EntityPlayer extends EntityLiving {
 
     public void a(IInventory iinventory) {}
 
-    public void a(int i, int k, int i1) {}
+    public void a(int i, int k, int l) {}
 
     public void c(Entity entity, int i) {}
 
-    public float s() {
+    public float w() {
         return 0.12F;
     }
 
     public boolean a(Entity entity, int i) {
-        bx = 0;
-        if (ba <= 0) {
+        bw = 0;
+        if (aZ <= 0) {
             return false;
         }
         if ((entity instanceof EntityMobs) || (entity instanceof EntityArrow)) {
@@ -275,37 +275,50 @@ public abstract class EntityPlayer extends EntityLiving {
         }
     }
 
-    protected void d(int i) {
+    protected void e(int i) {
         int k = 25 - an.g();
-        int i1 = i * k + a;
+        int l = i * k + a;
 
         an.c(i);
-        i = i1 / 25;
-        a = i1 % 25;
-        super.d(i);
+        i = l / 25;
+        a = l % 25;
+        super.e(i);
     }
 
     public void a(TileEntityFurnace tileentityfurnace) {}
 
+    public void a(bf bf) {}
+
     public void a(TileEntitySign tileentitysign) {}
 
     public void g(Entity entity) {
-        entity.a(this);
+        if (entity.a(this)) {
+            return;
+        }
+        ItemStack itemstack = P();
+
+        if (itemstack != null && (entity instanceof EntityLiving)) {
+            itemstack.b((EntityLiving) entity);
+            if (itemstack.a <= 0) {
+                itemstack.a(this);
+                Q();
+            }
+        }
     }
 
-    public ItemStack M() {
+    public ItemStack P() {
         return an.e();
     }
 
-    public void N() {
+    public void Q() {
         an.a(an.c, ((ItemStack) (null)));
     }
 
-    public double B() {
+    public double F() {
         return (double) (H - 0.5F);
     }
 
-    public void H() {
+    public void K() {
         av = -1;
         au = true;
     }
@@ -315,13 +328,13 @@ public abstract class EntityPlayer extends EntityLiving {
 
         if (i > 0) {
             entity.a(((Entity) (this)), i);
-            ItemStack itemstack = M();
+            ItemStack itemstack = P();
 
             if (itemstack != null && (entity instanceof EntityLiving)) {
                 itemstack.a((EntityLiving) entity);
                 if (itemstack.a <= 0) {
                     itemstack.a(this);
-                    N();
+                    Q();
                 }
             }
         }
@@ -329,8 +342,8 @@ public abstract class EntityPlayer extends EntityLiving {
 
     public void a(ItemStack itemstack) {}
 
-    public void l() {
-        super.l();
+    public void q() {
+        super.q();
         ao.a(this);
         if (ap != null) {
             ap.a(this);

@@ -321,4 +321,8 @@ public class AxisAlignedBB {
         e = axisalignedbb.e;
         f = axisalignedbb.f;
     }
+
+    public String toString() {
+        return (new StringBuilder()).append("box[").append(a).append(", ").append(b).append(", ").append(c).append(" -> ").append(d).append(", ").append(e).append(", ").append(f).append("]").toString();
+    }
 }

@@ -82,6 +82,10 @@ public class NetHandler {
         a(((Packet) (packet18armanimation)));
     }
 
+    public void a(gv gv) {
+        a(((Packet) (gv)));
+    }
+
     public void a(Packet2Handshake packet2handshake) {
         a(((Packet) (packet2handshake)));
     }
@@ -100,6 +104,10 @@ public class NetHandler {
 
     public void a(Packet28 packet28) {
         a(((Packet) (packet28)));
+    }
+
+    public void a(Packet40 packet40) {
+        a(((Packet) (packet40)));
     }
 
     public void a(Packet39 packet39) {
@@ -160,5 +168,13 @@ public class NetHandler {
 
     public void a(Packet106 packet106) {
         a(((Packet) (packet106)));
+    }
+
+    public void a(Packet25 packet25) {
+        a(((Packet) (packet25)));
+    }
+
+    public void a(Packet54 packet54) {
+        a(((Packet) (packet54)));
     }
 }

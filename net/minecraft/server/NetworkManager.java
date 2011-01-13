@@ -67,7 +67,7 @@ public class NetworkManager {
         }
         synchronized (e) {
             v += packet.a() + 1;
-            if (packet.k) {
+            if (packet.l) {
                 m.add(((packet)));
             } else {
                 l.add(((packet)));
@@ -79,7 +79,7 @@ public class NetworkManager {
         try {
             boolean flag = true;
 
-            if (!l.isEmpty() && (d == 0 || System.currentTimeMillis() - ((Packet) l.get(0)).j >= (long) d)) {
+            if (!l.isEmpty() && (d == 0 || System.currentTimeMillis() - ((Packet) l.get(0)).k >= (long) d)) {
                 flag = false;
                 Packet packet;
 
@@ -89,7 +89,7 @@ public class NetworkManager {
                 }
                 Packet.a(packet, i);
             }
-            if ((flag || w-- <= 0) && !m.isEmpty() && (d == 0 || System.currentTimeMillis() - ((Packet) m.get(0)).j >= (long) d)) {
+            if ((flag || w-- <= 0) && !m.isEmpty() && (d == 0 || System.currentTimeMillis() - ((Packet) m.get(0)).k >= (long) d)) {
                 flag = false;
                 Packet packet1;
 

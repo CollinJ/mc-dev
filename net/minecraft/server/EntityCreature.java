@@ -5,38 +5,38 @@ import java.util.Random;
 public class EntityCreature extends EntityLiving {
 
     private PathEntity a;
-    protected Entity aj;
-    protected boolean ak;
+    protected Entity d;
+    protected boolean e;
 
     public EntityCreature(World world) {
         super(world);
-        ak = false;
+        e = false;
     }
 
-    protected void c() {
-        ak = false;
+    protected void d() {
+        e = false;
         float f = 16F;
 
-        if (aj == null) {
-            aj = k();
-            if (aj != null) {
-                a = this.l.a(((Entity) (this)), aj, f);
+        if (d == null) {
+            d = l();
+            if (d != null) {
+                a = l.a(((Entity) (this)), d, f);
             }
-        } else if (!aj.x()) {
-            aj = null;
+        } else if (!d.B()) {
+            d = null;
         } else {
-            float f1 = aj.a(((Entity) (this)));
+            float f1 = d.a(((Entity) (this)));
 
-            if (i(aj)) {
-                a(aj, f1);
+            if (i(d)) {
+                a(d, f1);
             }
         }
-        if (!ak && aj != null && (a == null || W.nextInt(20) == 0)) {
-            a = this.l.a(((Entity) (this)), aj, f);
+        if (!e && d != null && (a == null || W.nextInt(20) == 0)) {
+            a = l.a(((Entity) (this)), d, f);
         } else if (a == null && W.nextInt(80) == 0 || W.nextInt(80) == 0) {
             boolean flag = false;
             int j = -1;
-            int l = -1;
+            int k = -1;
             int i1 = -1;
             float f2 = -99999F;
 
@@ -49,29 +49,29 @@ public class EntityCreature extends EntityLiving {
                 if (f3 > f2) {
                     f2 = f3;
                     j = k1;
-                    l = l1;
+                    k = l1;
                     i1 = i2;
                     flag = true;
                 }
             }
 
             if (flag) {
-                a = this.l.a(((Entity) (this)), j, l, i1, 10F);
+                a = l.a(((Entity) (this)), j, k, i1, 10F);
             }
         }
         int i = MathHelper.b(z.b);
-        boolean flag1 = r();
-        boolean flag2 = t();
+        boolean flag1 = v();
+        boolean flag2 = x();
 
         w = 0.0F;
         if (a == null || W.nextInt(100) == 0) {
-            super.c();
+            super.d();
             a = null;
             return;
         }
         Vec3D vec3d = a.a(((Entity) (this)));
 
-        for (double d = I * 2.0F; vec3d != null && vec3d.d(p, vec3d.b, r) < d * d;) {
+        for (double d1 = I * 2.0F; vec3d != null && vec3d.d(p, vec3d.b, r) < d1 * d1;) {
             a.a();
             if (a.b()) {
                 vec3d = null;
@@ -81,15 +81,15 @@ public class EntityCreature extends EntityLiving {
             }
         }
 
-        bB = false;
+        bA = false;
         if (vec3d != null) {
-            double d1 = vec3d.a - p;
-            double d2 = vec3d.c - r;
-            double d3 = vec3d.b - (double) i;
-            float f4 = (float) ((Math.atan2(d2, d1) * 180D) / 3.1415927410125732D) - 90F;
+            double d2 = vec3d.a - p;
+            double d3 = vec3d.c - r;
+            double d4 = vec3d.b - (double) i;
+            float f4 = (float) ((Math.atan2(d3, d2) * 180D) / 3.1415927410125732D) - 90F;
             float f5 = f4 - v;
 
-            bz = bD;
+            by = bC;
             for (; f5 < -180F; f5 += 360F) {
                 ;
             }
@@ -103,47 +103,47 @@ public class EntityCreature extends EntityLiving {
                 f5 = -30F;
             }
             v += f5;
-            if (ak && aj != null) {
-                double d4 = aj.p - p;
-                double d5 = aj.r - r;
+            if (e && d != null) {
+                double d5 = d.p - p;
+                double d6 = d.r - r;
                 float f7 = v;
 
-                v = (float) ((Math.atan2(d5, d4) * 180D) / 3.1415927410125732D) - 90F;
+                v = (float) ((Math.atan2(d6, d5) * 180D) / 3.1415927410125732D) - 90F;
                 float f6 = (((f7 - v) + 90F) * 3.141593F) / 180F;
 
-                by = -MathHelper.a(f6) * bz * 1.0F;
-                bz = MathHelper.b(f6) * bz * 1.0F;
+                bx = -MathHelper.a(f6) * by * 1.0F;
+                by = MathHelper.b(f6) * by * 1.0F;
             }
-            if (d3 > 0.0D) {
-                bB = true;
+            if (d4 > 0.0D) {
+                bA = true;
             }
         }
-        if (aj != null) {
-            b(aj, 30F);
+        if (d != null) {
+            b(d, 30F);
         }
         if (B) {
-            bB = true;
+            bA = true;
         }
         if (W.nextFloat() < 0.8F && (flag1 || flag2)) {
-            bB = true;
+            bA = true;
         }
     }
 
     protected void a(Entity entity, float f) {}
 
-    protected float a(int i, int j, int l) {
+    protected float a(int i, int j, int k) {
         return 0.0F;
     }
 
-    protected Entity k() {
+    protected Entity l() {
         return null;
     }
 
-    public boolean a() {
+    public boolean b() {
         int i = MathHelper.b(p);
         int j = MathHelper.b(z.b);
-        int l = MathHelper.b(r);
+        int k = MathHelper.b(r);
 
-        return super.a() && a(i, j, l) >= 0.0F;
+        return super.b() && a(i, j, k) >= 0.0F;
     }
 }

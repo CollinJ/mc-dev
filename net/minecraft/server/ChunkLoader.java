@@ -112,7 +112,7 @@ public class ChunkLoader implements IChunkLoader {
         nbttagcompound.a("BlockLight", chunk.g.a);
         nbttagcompound.a("HeightMap", chunk.h);
         nbttagcompound.a("TerrainPopulated", chunk.n);
-        chunk.r = false;
+        chunk.q = false;
         NBTTagList nbttaglist = new NBTTagList();
 
         label0:
@@ -125,7 +125,7 @@ public class ChunkLoader implements IChunkLoader {
                 }
                 Entity entity = (Entity) iterator.next();
 
-                chunk.r = true;
+                chunk.q = true;
                 NBTTagCompound nbttagcompound1 = new NBTTagCompound();
 
                 if (entity.c(nbttagcompound1)) {
@@ -178,7 +178,7 @@ public class ChunkLoader implements IChunkLoader {
                 NBTTagCompound nbttagcompound1 = (NBTTagCompound) nbttaglist.a(k);
                 Entity entity = EntityList.a(nbttagcompound1, world);
 
-                chunk.r = true;
+                chunk.q = true;
                 if (entity != null) {
                     chunk.a(entity);
                 }

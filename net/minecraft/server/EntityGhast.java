@@ -9,26 +9,26 @@ public class EntityGhast extends EntityFlying implements IMobs {
     public double b;
     public double c;
     public double d;
-    private Entity aj;
-    private int ak;
+    private Entity ak;
+    private int al;
     public int e;
     public int f;
 
     public EntityGhast(World world) {
         super(world);
         a = 0;
-        aj = null;
-        ak = 0;
+        ak = null;
+        al = 0;
         e = 0;
         f = 0;
-        aQ = "/mob/ghast.png";
+        aP = "/mob/ghast.png";
         a(4F, 4F);
         ae = true;
     }
 
-    protected void c() {
+    protected void d() {
         if (l.k == 0) {
-            l();
+            q();
         }
         e = f;
         double d1 = b - p;
@@ -53,30 +53,30 @@ public class EntityGhast extends EntityFlying implements IMobs {
                 d = r;
             }
         }
-        if (aj != null && aj.G) {
-            aj = null;
+        if (ak != null && ak.G) {
+            ak = null;
         }
-        if (aj == null || ak-- <= 0) {
-            aj = ((Entity) (l.a(((Entity) (this)), 100D)));
-            if (aj != null) {
-                ak = 20;
+        if (ak == null || al-- <= 0) {
+            ak = ((Entity) (l.a(((Entity) (this)), 100D)));
+            if (ak != null) {
+                al = 20;
             }
         }
         double d5 = 64D;
 
-        if (aj != null && aj.b(((Entity) (this))) < d5 * d5) {
-            double d6 = aj.p - p;
-            double d7 = (aj.z.b + (double) (aj.J / 2.0F)) - (q + (double) (J / 2.0F));
-            double d8 = aj.r - r;
+        if (ak != null && ak.b(((Entity) (this))) < d5 * d5) {
+            double d6 = ak.p - p;
+            double d7 = (ak.z.b + (double) (ak.J / 2.0F)) - (q + (double) (J / 2.0F));
+            double d8 = ak.r - r;
 
-            aJ = v = (-(float) Math.atan2(d6, d8) * 180F) / 3.141593F;
-            if (i(aj)) {
+            aI = v = (-(float) Math.atan2(d6, d8) * 180F) / 3.141593F;
+            if (i(ak)) {
                 if (f == 10) {
-                    l.a(((Entity) (this)), "mob.ghast.charge", h(), (W.nextFloat() - W.nextFloat()) * 0.2F + 1.0F);
+                    l.a(((Entity) (this)), "mob.ghast.charge", i(), (W.nextFloat() - W.nextFloat()) * 0.2F + 1.0F);
                 }
                 f++;
                 if (f == 20) {
-                    l.a(((Entity) (this)), "mob.ghast.fireball", h(), (W.nextFloat() - W.nextFloat()) * 0.2F + 1.0F);
+                    l.a(((Entity) (this)), "mob.ghast.fireball", i(), (W.nextFloat() - W.nextFloat()) * 0.2F + 1.0F);
                     EntityFireball entityfireball = new EntityFireball(l, ((EntityLiving) (this)), d6, d7, d8);
                     double d9 = 4D;
                     Vec3D vec3d = c(1.0F);
@@ -91,12 +91,12 @@ public class EntityGhast extends EntityFlying implements IMobs {
                 f--;
             }
         } else {
-            aJ = v = (-(float) Math.atan2(s, u) * 180F) / 3.141593F;
+            aI = v = (-(float) Math.atan2(s, u) * 180F) / 3.141593F;
             if (f > 0) {
                 f--;
             }
         }
-        aQ = f <= 10 ? "/mob/ghast.png" : "/mob/ghast_fire.png";
+        aP = f <= 10 ? "/mob/ghast.png" : "/mob/ghast_fire.png";
     }
 
     private boolean a(double d1, double d2, double d3, double d4) {
@@ -105,7 +105,7 @@ public class EntityGhast extends EntityFlying implements IMobs {
         double d7 = (d - r) / d4;
         AxisAlignedBB axisalignedbb = z.b();
 
-        for (int j = 1; (double) j < d4; j++) {
+        for (int k = 1; (double) k < d4; k++) {
             axisalignedbb.d(d5, d6, d7);
             if (l.a(((Entity) (this)), axisalignedbb).size() > 0) {
                 return false;
@@ -115,31 +115,31 @@ public class EntityGhast extends EntityFlying implements IMobs {
         return true;
     }
 
-    protected String d() {
+    protected String e() {
         return "mob.ghast.moan";
     }
 
-    protected String e() {
+    protected String f() {
         return "mob.ghast.scream";
     }
 
-    protected String f() {
+    protected String g() {
         return "mob.ghast.death";
     }
 
-    protected int g() {
-        return Item.K.aW;
+    protected int h() {
+        return Item.K.ba;
     }
 
-    protected float h() {
+    protected float i() {
         return 10F;
     }
 
-    public boolean a() {
-        return W.nextInt(20) == 0 && super.a() && l.k > 0;
+    public boolean b() {
+        return W.nextInt(20) == 0 && super.b() && l.k > 0;
     }
 
-    public int i() {
+    public int j() {
         return 1;
     }
 }

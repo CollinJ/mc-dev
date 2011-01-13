@@ -4,31 +4,31 @@ import java.util.Random;
 
 public class EntityMobs extends EntityCreature implements IMobs {
 
-    protected int f;
+    protected int c;
 
     public EntityMobs(World world) {
         super(world);
-        f = 2;
-        ba = 20;
+        c = 2;
+        aZ = 20;
     }
 
-    public void G() {
-        float f1 = b(1.0F);
+    public void o() {
+        float f = b(1.0F);
 
-        if (f1 > 0.5F) {
-            bx += 2;
+        if (f > 0.5F) {
+            bw += 2;
         }
-        super.G();
+        super.o();
     }
 
     public void b_() {
         super.b_();
         if (l.k == 0) {
-            l();
+            q();
         }
     }
 
-    protected Entity k() {
+    protected Entity l() {
         EntityPlayer entityplayer = l.a(((Entity) (this)), 16D);
 
         if (entityplayer != null && i(((Entity) (entityplayer)))) {
@@ -44,7 +44,7 @@ public class EntityMobs extends EntityCreature implements IMobs {
                 return true;
             }
             if (entity != this) {
-                aj = entity;
+                d = entity;
             }
             return true;
         } else {
@@ -52,15 +52,15 @@ public class EntityMobs extends EntityCreature implements IMobs {
         }
     }
 
-    protected void a(Entity entity, float f1) {
-        if ((double) f1 < 2.5D && entity.z.e > z.b && entity.z.b < z.e) {
-            bg = 20;
-            entity.a(((Entity) (this)), f);
+    protected void a(Entity entity, float f) {
+        if ((double) f < 2.5D && entity.z.e > z.b && entity.z.b < z.e) {
+            bf = 20;
+            entity.a(((Entity) (this)), c);
         }
     }
 
-    protected float a(int i, int j, int l) {
-        return 0.5F - this.l.k(i, j, l);
+    protected float a(int i, int j, int k) {
+        return 0.5F - l.l(i, j, k);
     }
 
     public void a(NBTTagCompound nbttagcompound) {
@@ -71,17 +71,17 @@ public class EntityMobs extends EntityCreature implements IMobs {
         super.b(nbttagcompound);
     }
 
-    public boolean a() {
+    public boolean b() {
         int i = MathHelper.b(p);
         int j = MathHelper.b(z.b);
-        int l = MathHelper.b(r);
+        int k = MathHelper.b(r);
 
-        if (this.l.a(EnumSkyBlock.a, i, j, l) > W.nextInt(32)) {
+        if (l.a(EnumSkyBlock.a, i, j, k) > W.nextInt(32)) {
             return false;
         } else {
-            int i1 = this.l.i(i, j, l);
+            int i1 = l.j(i, j, k);
 
-            return i1 <= W.nextInt(8) && super.a();
+            return i1 <= W.nextInt(8) && super.b();
         }
     }
 }

@@ -37,22 +37,7 @@ public class CraftingInventoryWorkbenchCB extends CraftingInventoryCB {
     }
 
     public void a(IInventory iinventory) {
-        int ai[] = new int[9];
-
-        for (int k = 0; k < 3; k++) {
-            for (int l = 0; l < 3; l++) {
-                int i1 = k + l * 3;
-                ItemStack itemstack = a.a(i1);
-
-                if (itemstack == null) {
-                    ai[i1] = -1;
-                } else {
-                    ai[i1] = itemstack.c;
-                }
-            }
-        }
-
-        b.a(0, CraftingManager.a().a(ai));
+        b.a(0, CraftingManager.a().a(a));
     }
 
     public void a(EntityPlayer entityplayer) {
@@ -67,7 +52,7 @@ public class CraftingInventoryWorkbenchCB extends CraftingInventoryCB {
     }
 
     public boolean b(EntityPlayer entityplayer) {
-        if (c.a(h, i, j) != Block.ay.bh) {
+        if (c.a(h, i, j) != Block.ay.bi) {
             return false;
         }
         return entityplayer.d((double) h + 0.5D, (double) i + 0.5D, (double) j + 0.5D) <= 64D;

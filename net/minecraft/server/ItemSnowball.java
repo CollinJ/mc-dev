@@ -6,7 +6,7 @@ public class ItemSnowball extends Item {
 
     public ItemSnowball(int i) {
         super(i);
-        aX = 16;
+        bb = 16;
     }
 
     public ItemStack a(ItemStack itemstack, World world, EntityPlayer entityplayer) {

@@ -28,11 +28,15 @@ public class ChunkCache implements IBlockAccess {
         }
         if (j >= 128) {
             return 0;
-        } else {
-            int l = (i >> 4) - a;
-            int i1 = (k >> 4) - b;
+        }
+        int l = (i >> 4) - a;
+        int i1 = (k >> 4) - b;
+        Chunk chunk = c[l][i1];
 
-            return c[l][i1].a(i & 0xf, j, k & 0xf);
+        if (chunk == null) {
+            return 0;
+        } else {
+            return chunk.a(i & 0xf, j, k & 0xf);
         }
     }
 
@@ -56,7 +60,7 @@ public class ChunkCache implements IBlockAccess {
         if (l == 0) {
             return Material.a;
         } else {
-            return Block.m[l].bs;
+            return Block.m[l].bt;
         }
     }
 

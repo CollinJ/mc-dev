@@ -46,7 +46,7 @@ public abstract class CraftingInventoryCB {
             if (ItemStack.a(itemstack1, itemstack)) {
                 continue;
             }
-            itemstack1 = itemstack != null ? itemstack.d() : null;
+            itemstack1 = itemstack != null ? itemstack.j() : null;
             d.set(i, ((itemstack1)));
             for (int j = 0; j < g.size(); j++) {
                 ((ICrafting) g.get(j)).a(this, i, itemstack1);
@@ -97,7 +97,7 @@ public abstract class CraftingInventoryCB {
                     ItemStack itemstack1 = slot.c();
 
                     if (itemstack1 != null) {
-                        itemstack = itemstack1.d();
+                        itemstack = itemstack1.j();
                     }
                     if (itemstack1 != null || inventoryplayer.i() != null) {
                         if (itemstack1 != null && inventoryplayer.i() == null) {
@@ -120,7 +120,7 @@ public abstract class CraftingInventoryCB {
                             }
                         } else if (itemstack1 != null && inventoryplayer.i() != null) {
                             if (slot.a(inventoryplayer.i())) {
-                                if (itemstack1.c != inventoryplayer.i().c) {
+                                if (itemstack1.c != inventoryplayer.i().c || itemstack1.e() && itemstack1.h() != inventoryplayer.i().h()) {
                                     if (inventoryplayer.i().a <= slot.a()) {
                                         ItemStack itemstack2 = itemstack1;
 

@@ -25,7 +25,7 @@ public class CraftingInventoryPlayerCB extends CraftingInventoryCB {
         for (int j = 0; j < 4; j++) {
             int j1 = j;
 
-            a(((Slot) (new SlotArmor(this, ((IInventory) (inventoryplayer)), inventoryplayer.a() - 1 - j, 8, 8 + j * 18, j1))));
+            a(((Slot) (new SlotArmor(this, ((IInventory) (inventoryplayer)), inventoryplayer.h_() - 1 - j, 8, 8 + j * 18, j1))));
         }
 
         for (int k = 0; k < 3; k++) {
@@ -42,24 +42,7 @@ public class CraftingInventoryPlayerCB extends CraftingInventoryCB {
     }
 
     public void a(IInventory iinventory) {
-        int ai[] = new int[9];
-
-        for (int i = 0; i < 3; i++) {
-            for (int j = 0; j < 3; j++) {
-                int k = -1;
-
-                if (i < 2 && j < 2) {
-                    ItemStack itemstack = a.a(i + j * 2);
-
-                    if (itemstack != null) {
-                        k = itemstack.c;
-                    }
-                }
-                ai[i + j * 3] = k;
-            }
-        }
-
-        b.a(0, CraftingManager.a().a(ai));
+        b.a(0, CraftingManager.a().a(a));
     }
 
     public void a(EntityPlayer entityplayer) {

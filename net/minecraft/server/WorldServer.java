@@ -23,8 +23,8 @@ public class WorldServer extends World {
     }
 
     public void a(Entity entity, boolean flag) {
-        if (!D.m && (entity instanceof EntityAnimals)) {
-            entity.l();
+        if (!D.m && ((entity instanceof EntityAnimals) || (entity instanceof ax))) {
+            entity.q();
         }
         if (entity.j == null || !(entity.j instanceof EntityPlayer)) {
             super.a(entity, flag);
@@ -89,5 +89,10 @@ public class WorldServer extends World {
 
         D.f.a(d1, d2, d3, 64D, ((Packet) (new Packet60(d1, d2, d3, f1, explosion.g))));
         return explosion;
+    }
+
+    public void c(int i, int j, int k, int l, int i1) {
+        super.c(i, j, k, l, i1);
+        D.f.a(i, j, k, 64D, ((Packet) (new Packet54(i, j, k, l, i1))));
     }
 }

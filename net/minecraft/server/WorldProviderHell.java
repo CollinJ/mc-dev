@@ -38,7 +38,7 @@ public class WorldProviderHell extends WorldProvider {
     public boolean a(int i, int j) {
         int k = a.a(i, j);
 
-        if (k == Block.z.bh) {
+        if (k == Block.z.bi) {
             return false;
         }
         if (k == 0) {

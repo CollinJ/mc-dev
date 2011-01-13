@@ -105,7 +105,7 @@ public class MapGenCaves extends MapGenBase {
                         if (l3 < 0 || l3 >= 128) {
                             continue;
                         }
-                        if (abyte0[i4] == Block.A.bh || abyte0[i4] == Block.B.bh) {
+                        if (abyte0[i4] == Block.A.bi || abyte0[i4] == Block.B.bi) {
                             flag2 = true;
                         }
                         if (l3 != i2 - 1 && i3 != k1 && i3 != l1 - 1 && k3 != k2 && k3 != l2 - 1) {
@@ -121,33 +121,43 @@ public class MapGenCaves extends MapGenBase {
             for (int j3 = k1; j3 < l1; j3++) {
                 double d12 = (((double) (j3 + i * 16) + 0.5D) - d) / d6;
 
+                label0:
                 for (int j4 = k2; j4 < l2; j4++) {
                     double d13 = (((double) (j4 + j * 16) + 0.5D) - d2) / d6;
                     int k4 = (j3 * 16 + j4) * 128 + j2;
                     boolean flag3 = false;
 
-                    for (int l4 = j2 - 1; l4 >= i2; l4--) {
+                    if (d12 * d12 + d13 * d13 >= 1.0D) {
+                        continue;
+                    }
+                    int l4 = j2 - 1;
+
+                    do {
+                        if (l4 < i2) {
+                            continue label0;
+                        }
                         double d14 = (((double) l4 + 0.5D) - d1) / d7;
 
                         if (d14 > -0.69999999999999996D && d12 * d12 + d14 * d14 + d13 * d13 < 1.0D) {
                             byte byte0 = abyte0[k4];
 
-                            if (byte0 == Block.u.bh) {
+                            if (byte0 == Block.u.bi) {
                                 flag3 = true;
                             }
-                            if (byte0 == Block.t.bh || byte0 == Block.v.bh || byte0 == Block.u.bh) {
+                            if (byte0 == Block.t.bi || byte0 == Block.v.bi || byte0 == Block.u.bi) {
                                 if (l4 < 10) {
-                                    abyte0[k4] = (byte) Block.C.bh;
+                                    abyte0[k4] = (byte) Block.C.bi;
                                 } else {
                                     abyte0[k4] = 0;
-                                    if (flag3 && abyte0[k4 - 1] == Block.v.bh) {
-                                        abyte0[k4 - 1] = (byte) Block.u.bh;
+                                    if (flag3 && abyte0[k4 - 1] == Block.v.bi) {
+                                        abyte0[k4 - 1] = (byte) Block.u.bi;
                                     }
                                 }
                             }
                         }
                         k4--;
-                    }
+                        l4--;
+                    } while (true);
                 }
             }
 

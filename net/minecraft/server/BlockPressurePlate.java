@@ -42,7 +42,7 @@ public class BlockPressurePlate extends Block {
         }
         if (flag) {
             a_(world, i, j, k, world.b(i, j, k));
-            world.d(i, j, k, 0);
+            world.e(i, j, k, 0);
         }
     }
 
@@ -89,21 +89,21 @@ public class BlockPressurePlate extends Block {
             flag1 = true;
         }
         if (flag1 && !flag) {
-            world.b(i, j, k, 1);
-            world.g(i, j, k, bh);
-            world.g(i, j - 1, k, bh);
+            world.c(i, j, k, 1);
+            world.h(i, j, k, bi);
+            world.h(i, j - 1, k, bi);
             world.b(i, j, k, i, j, k);
             world.a((double) i + 0.5D, (double) j + 0.10000000000000001D, (double) k + 0.5D, "random.click", 0.3F, 0.6F);
         }
         if (!flag1 && flag) {
-            world.b(i, j, k, 0);
-            world.g(i, j, k, bh);
-            world.g(i, j - 1, k, bh);
+            world.c(i, j, k, 0);
+            world.h(i, j, k, bi);
+            world.h(i, j - 1, k, bi);
             world.b(i, j, k, i, j, k);
             world.a((double) i + 0.5D, (double) j + 0.10000000000000001D, (double) k + 0.5D, "random.click", 0.3F, 0.5F);
         }
         if (flag1) {
-            world.h(i, j, k, bh);
+            world.i(i, j, k, bi);
         }
     }
 
@@ -111,8 +111,8 @@ public class BlockPressurePlate extends Block {
         int l = world.b(i, j, k);
 
         if (l > 0) {
-            world.g(i, j, k, bh);
-            world.g(i, j - 1, k, bh);
+            world.h(i, j, k, bi);
+            world.h(i, j - 1, k, bi);
         }
         super.b(world, i, j, k);
     }

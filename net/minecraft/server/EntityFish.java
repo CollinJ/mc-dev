@@ -8,45 +8,47 @@ public class EntityFish extends Entity {
     private int d;
     private int e;
     private int f;
-    private int aj;
-    private boolean ak;
+    private int ak;
+    private boolean al;
     public int a;
     public EntityPlayer b;
-    private int al;
     private int am;
     private int an;
-    public Entity c;
     private int ao;
-    private double ap;
+    public Entity c;
+    private int ap;
     private double aq;
     private double ar;
     private double as;
     private double at;
+    private double au;
 
     public EntityFish(World world) {
         super(world);
         d = -1;
         e = -1;
         f = -1;
-        aj = 0;
-        ak = false;
+        ak = 0;
+        al = false;
         a = 0;
-        am = 0;
         an = 0;
+        ao = 0;
         c = null;
         a(0.25F, 0.25F);
     }
+
+    protected void a() {}
 
     public EntityFish(World world, EntityPlayer entityplayer) {
         super(world);
         d = -1;
         e = -1;
         f = -1;
-        aj = 0;
-        ak = false;
+        ak = 0;
+        al = false;
         a = 0;
-        am = 0;
         an = 0;
+        ao = 0;
         c = null;
         b = entityplayer;
         b.aE = this;
@@ -84,35 +86,35 @@ public class EntityFish extends Entity {
 
         x = v = (float) ((Math.atan2(d1, d3) * 180D) / 3.1415927410125732D);
         y = w = (float) ((Math.atan2(d2, f4) * 180D) / 3.1415927410125732D);
-        al = 0;
+        am = 0;
     }
 
     public void b_() {
         super.b_();
-        if (ao > 0) {
-            double d1 = p + (ap - p) / (double) ao;
-            double d2 = q + (aq - q) / (double) ao;
-            double d3 = r + (ar - r) / (double) ao;
+        if (ap > 0) {
+            double d1 = p + (aq - p) / (double) ap;
+            double d2 = q + (ar - q) / (double) ap;
+            double d3 = r + (as - r) / (double) ap;
             double d4;
 
-            for (d4 = as - (double) v; d4 < -180D; d4 += 360D) {
+            for (d4 = at - (double) v; d4 < -180D; d4 += 360D) {
                 ;
             }
             for (; d4 >= 180D; d4 -= 360D) {
                 ;
             }
-            v += ((float) (d4 / (double) ao));
-            w += ((float) ((at - (double) w) / (double) ao));
-            ao--;
+            v += ((float) (d4 / (double) ap));
+            w += ((float) ((au - (double) w) / (double) ap));
+            ap--;
             a(d1, d2, d3);
             b(v, w);
             return;
         }
         if (!this.l.z) {
-            ItemStack itemstack = b.M();
+            ItemStack itemstack = b.P();
 
-            if (b.G || !b.x() || itemstack == null || itemstack.a() != Item.aP || b(((Entity) (b))) > 1024D) {
-                l();
+            if (b.G || !b.B() || itemstack == null || itemstack.a() != Item.aP || b(((Entity) (b))) > 1024D) {
+                q();
                 b.aE = null;
                 return;
             }
@@ -130,25 +132,25 @@ public class EntityFish extends Entity {
         if (a > 0) {
             a--;
         }
-        if (ak) {
+        if (al) {
             int i = this.l.a(d, e, f);
 
-            if (i != aj) {
-                ak = false;
+            if (i != ak) {
+                al = false;
                 s *= W.nextFloat() * 0.2F;
                 t *= W.nextFloat() * 0.2F;
                 u *= W.nextFloat() * 0.2F;
-                al = 0;
                 am = 0;
+                an = 0;
             } else {
-                al++;
-                if (al == 1200) {
-                    l();
+                am++;
+                if (am == 1200) {
+                    q();
                 }
                 return;
             }
         } else {
-            am++;
+            an++;
         }
         Vec3D vec3d = Vec3D.b(p, q, r);
         Vec3D vec3d1 = Vec3D.b(p + s, q + t, r + u);
@@ -166,7 +168,7 @@ public class EntityFish extends Entity {
         for (int j = 0; j < list.size(); j++) {
             Entity entity1 = (Entity) list.get(j);
 
-            if (!entity1.c_() || entity1 == b && am < 5) {
+            if (!entity1.c_() || entity1 == b && an < 5) {
                 continue;
             }
             float f3 = 0.3F;
@@ -193,10 +195,10 @@ public class EntityFish extends Entity {
                     c = movingobjectposition.g;
                 }
             } else {
-                ak = true;
+                al = true;
             }
         }
-        if (ak) {
+        if (al) {
             return;
         }
         c(s, t, u);
@@ -236,10 +238,10 @@ public class EntityFish extends Entity {
         }
 
         if (d8 > 0.0D) {
-            if (an > 0) {
-                an--;
+            if (ao > 0) {
+                ao--;
             } else if (W.nextInt(500) == 0) {
-                an = W.nextInt(30) + 10;
+                ao = W.nextInt(30) + 10;
                 t -= 0.20000000298023224D;
                 this.l.a(((Entity) (this)), "random.splash", 0.25F, 1.0F + (W.nextFloat() - W.nextFloat()) * 0.4F);
                 float f4 = MathHelper.b(z.b);
@@ -259,7 +261,7 @@ public class EntityFish extends Entity {
                 }
             }
         }
-        if (an > 0) {
+        if (ao > 0) {
             t -= (double) (W.nextFloat() * W.nextFloat() * W.nextFloat()) * 0.20000000000000001D;
         }
         double d7 = d8 * 2D - 1.0D;
@@ -279,21 +281,21 @@ public class EntityFish extends Entity {
         nbttagcompound.a("xTile", (short) d);
         nbttagcompound.a("yTile", (short) e);
         nbttagcompound.a("zTile", (short) f);
-        nbttagcompound.a("inTile", (byte) aj);
+        nbttagcompound.a("inTile", (byte) ak);
         nbttagcompound.a("shake", (byte) a);
-        nbttagcompound.a("inGround", (byte) (ak ? 1 : 0));
+        nbttagcompound.a("inGround", (byte) (al ? 1 : 0));
     }
 
     public void b(NBTTagCompound nbttagcompound) {
         d = ((int) (nbttagcompound.c("xTile")));
         e = ((int) (nbttagcompound.c("yTile")));
         f = ((int) (nbttagcompound.c("zTile")));
-        aj = nbttagcompound.b("inTile") & 0xff;
+        ak = nbttagcompound.b("inTile") & 0xff;
         a = nbttagcompound.b("shake") & 0xff;
-        ak = nbttagcompound.b("inGround") == 1;
+        al = nbttagcompound.b("inGround") == 1;
     }
 
-    public int c() {
+    public int d() {
         byte byte0 = 0;
 
         if (c != null) {
@@ -307,8 +309,8 @@ public class EntityFish extends Entity {
             c.t += d2 * d5 + (double) MathHelper.a(d4) * 0.080000000000000002D;
             c.u += d3 * d5;
             byte0 = 3;
-        } else if (an > 0) {
-            EntityItem entityitem = new EntityItem(l, p, q, r, new ItemStack(Item.aS.aW));
+        } else if (ao > 0) {
+            EntityItem entityitem = new EntityItem(l, p, q, r, new ItemStack(Item.aS));
             double d6 = b.p - p;
             double d7 = b.q - q;
             double d8 = b.r - r;
@@ -321,10 +323,10 @@ public class EntityFish extends Entity {
             l.a(((Entity) (entityitem)));
             byte0 = 1;
         }
-        if (ak) {
+        if (al) {
             byte0 = 2;
         }
-        l();
+        q();
         b.aE = null;
         return ((int) (byte0));
     }

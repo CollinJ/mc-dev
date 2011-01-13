@@ -17,7 +17,7 @@ public class Packet104 extends Packet {
         for (int j = 0; j < b.length; j++) {
             ItemStack itemstack = (ItemStack) list.get(j);
 
-            b[j] = itemstack != null ? itemstack.d() : null;
+            b[j] = itemstack != null ? itemstack.j() : null;
         }
     }
 
@@ -47,7 +47,7 @@ public class Packet104 extends Packet {
             } else {
                 dataoutputstream.writeShort(((int) ((short) b[i].c)));
                 dataoutputstream.writeByte(((int) ((byte) b[i].a)));
-                dataoutputstream.writeShort(((int) ((short) b[i].d)));
+                dataoutputstream.writeShort(((int) ((short) b[i].h())));
             }
         }
     }

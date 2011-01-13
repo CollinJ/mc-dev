@@ -39,10 +39,12 @@ public class World implements IBlockAccess {
     public boolean x;
     private ArrayList I;
     private int J;
+    private boolean K;
+    private boolean L;
     static int y = 0;
-    private Set K;
-    private int L;
-    private List M;
+    private Set M;
+    private int N;
+    private List O;
     public boolean z;
 
     public WorldChunkManager a() {
@@ -73,9 +75,11 @@ public class World implements IBlockAccess {
         v = 0L;
         I = new ArrayList();
         J = 0;
-        K = ((Set) (new HashSet()));
-        L = l.nextInt(12000);
-        M = ((List) (new ArrayList()));
+        K = true;
+        L = true;
+        M = ((Set) (new HashSet()));
+        N = l.nextInt(12000);
+        O = ((List) (new ArrayList()));
         z = false;
         s = file;
         w = s1;
@@ -247,6 +251,10 @@ public class World implements IBlockAccess {
         }
     }
 
+    public boolean a(int i1, int j1, int k1, int l1) {
+        return a(i1 - l1, j1 - l1, k1 - l1, i1 + l1, j1 + l1, k1 + l1);
+    }
+
     public boolean a(int i1, int j1, int k1, int l1, int i2, int j2) {
         if (i2 < 0 || j1 >= 128) {
             return false;
@@ -296,7 +304,7 @@ public class World implements IBlockAccess {
         }
     }
 
-    public boolean a(int i1, int j1, int k1, int l1) {
+    public boolean b(int i1, int j1, int k1, int l1) {
         if (i1 < 0xfe17b800 || k1 < 0xfe17b800 || i1 >= 0x1e84800 || k1 > 0x1e84800) {
             return false;
         }
@@ -318,7 +326,7 @@ public class World implements IBlockAccess {
         if (l1 == 0) {
             return Material.a;
         } else {
-            return Block.m[l1].bs;
+            return Block.m[l1].bt;
         }
     }
 
@@ -340,13 +348,13 @@ public class World implements IBlockAccess {
         }
     }
 
-    public void b(int i1, int j1, int k1, int l1) {
-        if (c(i1, j1, k1, l1)) {
-            e(i1, j1, k1, a(i1, j1, k1));
+    public void c(int i1, int j1, int k1, int l1) {
+        if (d(i1, j1, k1, l1)) {
+            f(i1, j1, k1, a(i1, j1, k1));
         }
     }
 
-    public boolean c(int i1, int j1, int k1, int l1) {
+    public boolean d(int i1, int j1, int k1, int l1) {
         if (i1 < 0xfe17b800 || k1 < 0xfe17b800 || i1 >= 0x1e84800 || k1 > 0x1e84800) {
             return false;
         }
@@ -365,9 +373,9 @@ public class World implements IBlockAccess {
         }
     }
 
-    public boolean d(int i1, int j1, int k1, int l1) {
-        if (a(i1, j1, k1, l1)) {
-            e(i1, j1, k1, l1);
+    public boolean e(int i1, int j1, int k1, int l1) {
+        if (b(i1, j1, k1, l1)) {
+            f(i1, j1, k1, l1);
             return true;
         } else {
             return false;
@@ -376,7 +384,7 @@ public class World implements IBlockAccess {
 
     public boolean b(int i1, int j1, int k1, int l1, int i2) {
         if (a(i1, j1, k1, l1, i2)) {
-            e(i1, j1, k1, l1);
+            f(i1, j1, k1, l1);
             return true;
         } else {
             return false;
@@ -389,12 +397,12 @@ public class World implements IBlockAccess {
         }
     }
 
-    protected void e(int i1, int j1, int k1, int l1) {
+    protected void f(int i1, int j1, int k1, int l1) {
         g(i1, j1, k1);
-        g(i1, j1, k1, l1);
+        h(i1, j1, k1, l1);
     }
 
-    public void f(int i1, int j1, int k1, int l1) {
+    public void g(int i1, int j1, int k1, int l1) {
         if (k1 > l1) {
             int i2 = l1;
 
@@ -404,22 +412,28 @@ public class World implements IBlockAccess {
         b(i1, k1, j1, i1, l1, j1);
     }
 
+    public void h(int i1, int j1, int k1) {
+        for (int l1 = 0; l1 < r.size(); l1++) {
+            ((IWorldAccess) r.get(l1)).a(i1, j1, k1, i1, j1, k1);
+        }
+    }
+
     public void b(int i1, int j1, int k1, int l1, int i2, int j2) {
         for (int k2 = 0; k2 < r.size(); k2++) {
             ((IWorldAccess) r.get(k2)).a(i1, j1, k1, l1, i2, j2);
         }
     }
 
-    public void g(int i1, int j1, int k1, int l1) {
-        k(i1 - 1, j1, k1, l1);
-        k(i1 + 1, j1, k1, l1);
-        k(i1, j1 - 1, k1, l1);
-        k(i1, j1 + 1, k1, l1);
-        k(i1, j1, k1 - 1, l1);
-        k(i1, j1, k1 + 1, l1);
+    public void h(int i1, int j1, int k1, int l1) {
+        l(i1 - 1, j1, k1, l1);
+        l(i1 + 1, j1, k1, l1);
+        l(i1, j1 - 1, k1, l1);
+        l(i1, j1 + 1, k1, l1);
+        l(i1, j1, k1 - 1, l1);
+        l(i1, j1, k1 + 1, l1);
     }
 
-    private void k(int i1, int j1, int k1, int l1) {
+    private void l(int i1, int j1, int k1, int l1) {
         if (i || z) {
             return;
         }
@@ -430,11 +444,11 @@ public class World implements IBlockAccess {
         }
     }
 
-    public boolean h(int i1, int j1, int k1) {
+    public boolean i(int i1, int j1, int k1) {
         return c(i1 >> 4, k1 >> 4).c(i1 & 0xf, j1, k1 & 0xf);
     }
 
-    public int i(int i1, int j1, int k1) {
+    public int j(int i1, int j1, int k1) {
         return a(i1, j1, k1, true);
     }
 
@@ -445,7 +459,7 @@ public class World implements IBlockAccess {
         if (flag) {
             int l1 = a(i1, j1, k1);
 
-            if (l1 == Block.ak.bh || l1 == Block.aA.bh) {
+            if (l1 == Block.ak.bi || l1 == Block.aA.bi) {
                 int j2 = a(i1, j1 + 1, k1, false);
                 int k2 = a(i1 + 1, j1, k1, false);
                 int l2 = a(i1 - 1, j1, k1, false);
@@ -486,7 +500,7 @@ public class World implements IBlockAccess {
         }
     }
 
-    public boolean j(int i1, int j1, int k1) {
+    public boolean k(int i1, int j1, int k1) {
         if (i1 < 0xfe17b800 || k1 < 0xfe17b800 || i1 >= 0x1e84800 || k1 > 0x1e84800) {
             return false;
         }
@@ -528,7 +542,7 @@ public class World implements IBlockAccess {
             return;
         }
         if (enumskyblock == EnumSkyBlock.a) {
-            if (j(i1, j1, k1)) {
+            if (k(i1, j1, k1)) {
                 l1 = 15;
             }
         } else if (enumskyblock == EnumSkyBlock.b) {
@@ -580,8 +594,8 @@ public class World implements IBlockAccess {
         }
     }
 
-    public float k(int i1, int j1, int k1) {
-        return q.f[i(i1, j1, k1)];
+    public float l(int i1, int j1, int k1) {
+        return q.f[j(i1, j1, k1)];
     }
 
     public boolean b() {
@@ -748,7 +762,9 @@ public class World implements IBlockAccess {
         }
         if (flag || f(i1, j1)) {
             if (entity instanceof EntityPlayer) {
-                d.add((((EntityPlayer) entity)));
+                EntityPlayer entityplayer = (EntityPlayer) entity;
+
+                d.add(((entityplayer)));
                 System.out.println((new StringBuilder()).append("Player count: ").append(d.size()).toString());
             }
             c(i1, j1).a(entity);
@@ -773,21 +789,27 @@ public class World implements IBlockAccess {
     }
 
     public void d(Entity entity) {
-        entity.l();
+        if (entity.j != null) {
+            entity.j.e(((Entity) (null)));
+        }
+        if (entity.k != null) {
+            entity.e(((Entity) (null)));
+        }
+        entity.q();
         if (entity instanceof EntityPlayer) {
             d.remove((((EntityPlayer) entity)));
         }
     }
 
     public void e(Entity entity) {
-        entity.l();
+        entity.q();
         if (entity instanceof EntityPlayer) {
             d.remove((((EntityPlayer) entity)));
         }
-        int i1 = entity.ag;
-        int j1 = entity.ai;
+        int i1 = entity.ah;
+        int j1 = entity.aj;
 
-        if (entity.af && f(i1, j1)) {
+        if (entity.ag && f(i1, j1)) {
             c(i1, j1).b(entity);
         }
         b.remove(((entity)));
@@ -826,7 +848,7 @@ public class World implements IBlockAccess {
         List list = b(entity, axisalignedbb.b(d1, d1, d1));
 
         for (int j3 = 0; j3 < list.size(); j3++) {
-            AxisAlignedBB axisalignedbb1 = ((Entity) list.get(j3)).q();
+            AxisAlignedBB axisalignedbb1 = ((Entity) list.get(j3)).u();
 
             if (axisalignedbb1 != null && axisalignedbb1.a(axisalignedbb)) {
                 I.add(((axisalignedbb1)));
@@ -869,7 +891,7 @@ public class World implements IBlockAccess {
         while (k1 > 0) {
             int l1 = chunk.a(i1, k1, j1);
 
-            if (l1 == 0 || !Block.m[l1].bs.c() && !Block.m[l1].bs.d()) {
+            if (l1 == 0 || !Block.m[l1].bt.c() && !Block.m[l1].bt.d()) {
                 k1--;
             } else {
                 return k1 + 1;
@@ -878,7 +900,7 @@ public class World implements IBlockAccess {
         return -1;
     }
 
-    public void h(int i1, int j1, int k1, int l1) {
+    public void i(int i1, int j1, int k1, int l1) {
         NextTickListEntry nextticklistentry = new NextTickListEntry(i1, j1, k1, l1);
         byte byte0 = 8;
 
@@ -907,10 +929,10 @@ public class World implements IBlockAccess {
         b.removeAll(((java.util.Collection) (B)));
         for (int i1 = 0; i1 < B.size(); i1++) {
             Entity entity = (Entity) B.get(i1);
-            int i2 = entity.ag;
-            int k2 = entity.ai;
+            int i2 = entity.ah;
+            int k2 = entity.aj;
 
-            if (entity.af && f(i2, k2)) {
+            if (entity.ag && f(i2, k2)) {
                 c(i2, k2).b(entity);
             }
         }
@@ -936,10 +958,10 @@ public class World implements IBlockAccess {
             if (!entity1.G) {
                 continue;
             }
-            int j2 = entity1.ag;
-            int l2 = entity1.ai;
+            int j2 = entity1.ah;
+            int l2 = entity1.aj;
 
-            if (entity1.af && f(j2, l2)) {
+            if (entity1.ag && f(j2, l2)) {
                 c(j2, l2).b(entity1);
             }
             b.remove(k1--);
@@ -949,7 +971,7 @@ public class World implements IBlockAccess {
         for (int l1 = 0; l1 < c.size(); l1++) {
             TileEntity tileentity = (TileEntity) c.get(l1);
 
-            tileentity.e();
+            tileentity.f();
         }
     }
 
@@ -960,9 +982,9 @@ public class World implements IBlockAccess {
     public void a(Entity entity, boolean flag) {
         int i1 = MathHelper.b(entity.p);
         int j1 = MathHelper.b(entity.r);
-        byte byte0 = 16;
+        byte byte0 = 32;
 
-        if (!flag && !a(i1 - byte0, 0, j1 - byte0, i1 + byte0, 128, j1 + byte0)) {
+        if (flag && !a(i1 - byte0, 0, j1 - byte0, i1 + byte0, 128, j1 + byte0)) {
             return;
         }
         entity.O = entity.p;
@@ -970,9 +992,9 @@ public class World implements IBlockAccess {
         entity.Q = entity.r;
         entity.x = entity.v;
         entity.y = entity.w;
-        if (flag && entity.af) {
+        if (flag && entity.ag) {
             if (entity.k != null) {
-                entity.z();
+                entity.D();
             } else {
                 entity.b_();
             }
@@ -996,18 +1018,18 @@ public class World implements IBlockAccess {
         int l1 = MathHelper.b(entity.q / 16D);
         int i2 = MathHelper.b(entity.r / 16D);
 
-        if (!entity.af || entity.ag != k1 || entity.ah != l1 || entity.ai != i2) {
-            if (entity.af && f(entity.ag, entity.ai)) {
-                c(entity.ag, entity.ai).a(entity, entity.ah);
+        if (!entity.ag || entity.ah != k1 || entity.ai != l1 || entity.aj != i2) {
+            if (entity.ag && f(entity.ah, entity.aj)) {
+                c(entity.ah, entity.aj).a(entity, entity.ai);
             }
             if (f(k1, i2)) {
-                entity.af = true;
+                entity.ag = true;
                 c(k1, i2).a(entity);
             } else {
-                entity.af = false;
+                entity.ag = false;
             }
         }
-        if (flag && entity.af && entity.j != null) {
+        if (flag && entity.ag && entity.j != null) {
             if (entity.j.G || entity.j.k != entity) {
                 entity.j.k = null;
                 entity.j = null;
@@ -1053,7 +1075,7 @@ public class World implements IBlockAccess {
                 for (int i3 = i2; i3 < j2; i3++) {
                     Block block = Block.m[a(k2, l2, i3)];
 
-                    if (block != null && block.bs.d()) {
+                    if (block != null && block.bt.d()) {
                         return true;
                     }
                 }
@@ -1071,18 +1093,19 @@ public class World implements IBlockAccess {
         int i2 = MathHelper.b(axisalignedbb.c);
         int j2 = MathHelper.b(axisalignedbb.f + 1.0D);
 
-        for (int k2 = i1; k2 < j1; k2++) {
-            for (int l2 = k1; l2 < l1; l2++) {
-                for (int i3 = i2; i3 < j2; i3++) {
-                    int j3 = a(k2, l2, i3);
+        if (a(i1, k1, i2, j1, l1, j2)) {
+            for (int k2 = i1; k2 < j1; k2++) {
+                for (int l2 = k1; l2 < l1; l2++) {
+                    for (int i3 = i2; i3 < j2; i3++) {
+                        int j3 = a(k2, l2, i3);
 
-                    if (j3 == Block.ar.bh || j3 == Block.C.bh || j3 == Block.D.bh) {
-                        return true;
+                        if (j3 == Block.ar.bi || j3 == Block.C.bi || j3 == Block.D.bi) {
+                            return true;
+                        }
                     }
                 }
             }
         }
-
         return false;
     }
 
@@ -1093,6 +1116,10 @@ public class World implements IBlockAccess {
         int l1 = MathHelper.b(axisalignedbb.e + 1.0D);
         int i2 = MathHelper.b(axisalignedbb.c);
         int j2 = MathHelper.b(axisalignedbb.f + 1.0D);
+
+        if (!a(i1, k1, i2, j1, l1, j2)) {
+            return false;
+        }
         boolean flag = false;
         Vec3D vec3d = Vec3D.b(0.0D, 0.0D, 0.0D);
 
@@ -1101,10 +1128,10 @@ public class World implements IBlockAccess {
                 for (int i3 = i2; i3 < j2; i3++) {
                     Block block = Block.m[a(k2, l2, i3)];
 
-                    if (block == null || block.bs != material) {
+                    if (block == null || block.bt != material) {
                         continue;
                     }
-                    double d1 = (float) (l2 + 1) - BlockFluids.b(b(k2, l2, i3));
+                    double d1 = (float) (l2 + 1) - BlockFluids.c(b(k2, l2, i3));
 
                     if ((double) l1 >= d1) {
                         flag = true;
@@ -1138,7 +1165,7 @@ public class World implements IBlockAccess {
                 for (int i3 = i2; i3 < j2; i3++) {
                     Block block = Block.m[a(k2, l2, i3)];
 
-                    if (block != null && block.bs == material) {
+                    if (block != null && block.bt == material) {
                         return true;
                     }
                 }
@@ -1161,7 +1188,7 @@ public class World implements IBlockAccess {
                 for (int i3 = i2; i3 < j2; i3++) {
                     Block block = Block.m[a(k2, l2, i3)];
 
-                    if (block == null || block.bs != material) {
+                    if (block == null || block.bt != material) {
                         continue;
                     }
                     int j3 = b(k2, l2, i3);
@@ -1218,7 +1245,7 @@ public class World implements IBlockAccess {
         return (float) i1 / (float) j1;
     }
 
-    public TileEntity l(int i1, int j1, int k1) {
+    public TileEntity m(int i1, int j1, int k1) {
         Chunk chunk = c(i1 >> 4, k1 >> 4);
 
         if (chunk != null) {
@@ -1236,7 +1263,7 @@ public class World implements IBlockAccess {
         }
     }
 
-    public void m(int i1, int j1, int k1) {
+    public void n(int i1, int j1, int k1) {
         Chunk chunk = c(i1 >> 4, k1 >> 4);
 
         if (chunk != null) {
@@ -1260,7 +1287,7 @@ public class World implements IBlockAccess {
         }
         J++;
         try {
-            int i1 = 5000;
+            int i1 = 500;
 
             for (; A.size() > 0; ((MetadataChunkBlock) A.remove(A.size() - 1)).a(this)) {
                 if (--i1 <= 0) {
@@ -1298,16 +1325,19 @@ public class World implements IBlockAccess {
             y--;
             return;
         }
+        if (b(k2, l2).g()) {
+            return;
+        }
         int i3 = A.size();
 
         if (flag) {
-            int j3 = 4;
+            int j3 = 10;
 
             if (j3 > i3) {
                 j3 = i3;
             }
-            for (int k3 = 0; k3 < j3; k3++) {
-                MetadataChunkBlock metadatachunkblock = (MetadataChunkBlock) A.get(A.size() - k3 - 1);
+            for (int l3 = 0; l3 < j3; l3++) {
+                MetadataChunkBlock metadatachunkblock = (MetadataChunkBlock) A.get(A.size() - l3 - 1);
 
                 if (metadatachunkblock.a == enumskyblock && metadatachunkblock.a(i1, j1, k1, l1, i2, j2)) {
                     y--;
@@ -1316,7 +1346,10 @@ public class World implements IBlockAccess {
             }
         }
         A.add(((new MetadataChunkBlock(enumskyblock, i1, j1, k1, l1, i2, j2))));
-        if (A.size() > 0x186a0) {
+        int k3 = 0xf4240;
+
+        if (A.size() > 0xf4240) {
+            System.out.println((new StringBuilder()).append("More than ").append(k3).append(" updates, aborting lighting updates").toString());
             A.clear();
         }
         y--;
@@ -1330,8 +1363,13 @@ public class World implements IBlockAccess {
         }
     }
 
+    public void a(boolean flag, boolean flag1) {
+        K = flag;
+        L = flag1;
+    }
+
     public void f() {
-        SpawnerAnimals.a(this);
+        SpawnerAnimals.a(this, K, L);
         G.a();
         int i1 = a(1.0F);
 
@@ -1350,7 +1388,7 @@ public class World implements IBlockAccess {
     }
 
     protected void g() {
-        K.clear();
+        M.clear();
         for (int i1 = 0; i1 < d.size(); i1++) {
             EntityPlayer entityplayer = (EntityPlayer) d.get(i1);
             int j1 = MathHelper.b(entityplayer.p / 16D);
@@ -1359,21 +1397,21 @@ public class World implements IBlockAccess {
 
             for (int j2 = -byte0; j2 <= byte0; j2++) {
                 for (int i3 = -byte0; i3 <= byte0; i3++) {
-                    K.add(((new ChunkCoordIntPair(j2 + j1, i3 + l1))));
+                    M.add(((new ChunkCoordIntPair(j2 + j1, i3 + l1))));
                 }
             }
         }
 
-        if (L > 0) {
-            L--;
+        if (N > 0) {
+            N--;
         }
-        for (Iterator iterator = K.iterator(); iterator.hasNext();) {
+        for (Iterator iterator = M.iterator(); iterator.hasNext();) {
             ChunkCoordIntPair chunkcoordintpair = (ChunkCoordIntPair) iterator.next();
             int k1 = chunkcoordintpair.a * 16;
             int i2 = chunkcoordintpair.b * 16;
             Chunk chunk = c(chunkcoordintpair.a, chunkcoordintpair.b);
 
-            if (L == 0) {
+            if (N == 0) {
                 g = g * 3 + h;
                 int k2 = g >> 2;
                 int j3 = k2 & 0xf;
@@ -1383,12 +1421,12 @@ public class World implements IBlockAccess {
 
                 j3 += k1;
                 l3 += i2;
-                if (l4 == 0 && i(j3, j4, l3) <= l.nextInt(8) && a(EnumSkyBlock.a, j3, j4, l3) <= 0) {
+                if (l4 == 0 && j(j3, j4, l3) <= l.nextInt(8) && a(EnumSkyBlock.a, j3, j4, l3) <= 0) {
                     EntityPlayer entityplayer1 = a((double) j3 + 0.5D, (double) j4 + 0.5D, (double) l3 + 0.5D, 8D);
 
                     if (entityplayer1 != null && entityplayer1.d((double) j3 + 0.5D, (double) j4 + 0.5D, (double) l3 + 0.5D) > 4D) {
                         a((double) j3 + 0.5D, (double) j4 + 0.5D, (double) l3 + 0.5D, "ambient.cave.cave", 0.7F, 0.8F + l.nextFloat() * 0.2F);
-                        L = l.nextInt(12000) + 6000;
+                        N = l.nextInt(12000) + 6000;
                     }
                 }
             }
@@ -1443,7 +1481,7 @@ public class World implements IBlockAccess {
     }
 
     public List b(Entity entity, AxisAlignedBB axisalignedbb) {
-        M.clear();
+        O.clear();
         int i1 = MathHelper.b((axisalignedbb.a - 2D) / 16D);
         int j1 = MathHelper.b((axisalignedbb.d + 2D) / 16D);
         int k1 = MathHelper.b((axisalignedbb.c - 2D) / 16D);
@@ -1452,12 +1490,12 @@ public class World implements IBlockAccess {
         for (int i2 = i1; i2 <= j1; i2++) {
             for (int j2 = k1; j2 <= l1; j2++) {
                 if (f(i2, j2)) {
-                    c(i2, j2).a(entity, axisalignedbb, M);
+                    c(i2, j2).a(entity, axisalignedbb, O);
                 }
             }
         }
 
-        return M;
+        return O;
     }
 
     public List a(Class class1, AxisAlignedBB axisalignedbb) {
@@ -1562,45 +1600,13 @@ public class World implements IBlockAccess {
         return (new Pathfinder(((IBlockAccess) (chunkcache)))).a(entity, i1, j1, k1, f1);
     }
 
-    public boolean i(int i1, int j1, int k1, int l1) {
+    public boolean j(int i1, int j1, int k1, int l1) {
         int i2 = a(i1, j1, k1);
 
         if (i2 == 0) {
             return false;
         } else {
             return Block.m[i2].d(this, i1, j1, k1, l1);
-        }
-    }
-
-    public boolean n(int i1, int j1, int k1) {
-        if (i(i1, j1 - 1, k1, 0)) {
-            return true;
-        }
-        if (i(i1, j1 + 1, k1, 1)) {
-            return true;
-        }
-        if (i(i1, j1, k1 - 1, 2)) {
-            return true;
-        }
-        if (i(i1, j1, k1 + 1, 3)) {
-            return true;
-        }
-        if (i(i1 - 1, j1, k1, 4)) {
-            return true;
-        }
-        return i(i1 + 1, j1, k1, 5);
-    }
-
-    public boolean j(int i1, int j1, int k1, int l1) {
-        if (d(i1, j1, k1)) {
-            return n(i1, j1, k1);
-        }
-        int i2 = a(i1, j1, k1);
-
-        if (i2 == 0) {
-            return false;
-        } else {
-            return Block.m[i2].b(((IBlockAccess) (this)), i1, j1, k1, l1);
         }
     }
 
@@ -1621,6 +1627,38 @@ public class World implements IBlockAccess {
             return true;
         }
         return j(i1 + 1, j1, k1, 5);
+    }
+
+    public boolean k(int i1, int j1, int k1, int l1) {
+        if (d(i1, j1, k1)) {
+            return o(i1, j1, k1);
+        }
+        int i2 = a(i1, j1, k1);
+
+        if (i2 == 0) {
+            return false;
+        } else {
+            return Block.m[i2].b(((IBlockAccess) (this)), i1, j1, k1, l1);
+        }
+    }
+
+    public boolean p(int i1, int j1, int k1) {
+        if (k(i1, j1 - 1, k1, 0)) {
+            return true;
+        }
+        if (k(i1, j1 + 1, k1, 1)) {
+            return true;
+        }
+        if (k(i1, j1, k1 - 1, 2)) {
+            return true;
+        }
+        if (k(i1, j1, k1 + 1, 3)) {
+            return true;
+        }
+        if (k(i1 - 1, j1, k1, 4)) {
+            return true;
+        }
+        return k(i1 + 1, j1, k1, 5);
     }
 
     public EntityPlayer a(Entity entity, double d1) {
@@ -1709,4 +1747,12 @@ public class World implements IBlockAccess {
     }
 
     public void a(Entity entity, byte byte0) {}
+
+    public void c(int i1, int j1, int k1, int l1, int i2) {
+        int j2 = a(i1, j1, k1);
+
+        if (j2 > 0) {
+            Block.m[j2].a(this, i1, j1, k1, l1, i2);
+        }
+    }
 }

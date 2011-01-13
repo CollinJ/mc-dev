@@ -35,7 +35,7 @@ class PlayerInstance {
         if (b.contains(((entityplayermp)))) {
             throw new IllegalStateException((new StringBuilder()).append("Failed to add player. ").append(((entityplayermp))).append(" already is in chunk ").append(c).append(", ").append(d).toString());
         } else {
-            entityplayermp.aj.add(((e)));
+            entityplayermp.ak.add(((e)));
             entityplayermp.a.b(((Packet) (new Packet50PreChunk(e.a, e.b, true))));
             b.add(((entityplayermp)));
             entityplayermp.f.add(((e)));
@@ -59,7 +59,7 @@ class PlayerInstance {
             PlayerManager.a(a).e.A.c(c, d);
         }
         entityplayermp.f.remove(((e)));
-        if (entityplayermp.aj.contains(((e)))) {
+        if (entityplayermp.ak.contains(((e)))) {
             entityplayermp.a.b(((Packet) (new Packet50PreChunk(c, d, false))));
         }
     }
@@ -106,7 +106,7 @@ class PlayerInstance {
         for (int i1 = 0; i1 < b.size(); i1++) {
             EntityPlayerMP entityplayermp = (EntityPlayerMP) b.get(i1);
 
-            if (entityplayermp.aj.contains(((e)))) {
+            if (entityplayermp.ak.contains(((e)))) {
                 entityplayermp.a.b(packet);
             }
         }
@@ -123,7 +123,7 @@ class PlayerInstance {
 
             a(((Packet) (new Packet53BlockChange(i1, l1, k2, ((World) (PlayerManager.a(a).e))))));
             if (Block.p[PlayerManager.a(a).e.a(i1, l1, k2)]) {
-                a(PlayerManager.a(a).e.l(i1, l1, k2));
+                a(PlayerManager.a(a).e.m(i1, l1, k2));
             }
         } else if (g == 10) {
             j = (j / 2) * 2;
@@ -150,7 +150,7 @@ class PlayerInstance {
 
                 if (Block.p[PlayerManager.a(a).e.a(j2, i3, k3)]) {
                     System.out.println("Sending!");
-                    a(PlayerManager.a(a).e.l(j2, i3, k3));
+                    a(PlayerManager.a(a).e.m(j2, i3, k3));
                 }
             }
         }
@@ -159,7 +159,7 @@ class PlayerInstance {
 
     private void a(TileEntity tileentity) {
         if (tileentity != null) {
-            Packet packet = tileentity.f();
+            Packet packet = tileentity.g();
 
             if (packet != null) {
                 a(packet);

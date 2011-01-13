@@ -14,9 +14,15 @@ public class SlotCrafting extends Slot {
     }
 
     public void b() {
-        for (int i = 0; i < a.a(); i++) {
-            if (a.a(i) != null) {
-                a.a(i, 1);
+        for (int i = 0; i < a.h_(); i++) {
+            ItemStack itemstack = a.a(i);
+
+            if (itemstack == null) {
+                continue;
+            }
+            a.b(i, 1);
+            if (itemstack.a().g()) {
+                a.a(i, new ItemStack(itemstack.a().f()));
             }
         }
     }

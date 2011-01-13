@@ -12,93 +12,105 @@ public class ChunkProviderLoadOrGenerate implements IChunkProvider {
     int a;
     int b;
     private Chunk h;
+    private int i;
+    private int j;
 
     public ChunkProviderLoadOrGenerate(World world, IChunkLoader ichunkloader, IChunkProvider ichunkprovider) {
         f = new Chunk[1024];
         a = 0xc4653601;
         b = 0xc4653601;
-        c = new Chunk(world, new byte[32768], 0, 0);
-        c.q = true;
-        c.p = true;
+        c = ((Chunk) (new lz(world, new byte[32768], 0, 0)));
         g = world;
         e = ichunkloader;
         d = ichunkprovider;
     }
 
-    public boolean a(int i, int j) {
-        if (i == a && j == b && h != null) {
+    public boolean c(int k, int l) {
+        byte byte0 = 15;
+
+        return k >= i - byte0 && l >= j - byte0 && k <= i + byte0 && l <= j + byte0;
+    }
+
+    public boolean a(int k, int l) {
+        if (!c(k, l)) {
+            return false;
+        }
+        if (k == a && l == b && h != null) {
             return true;
         } else {
-            int k = i & 0x1f;
-            int l = j & 0x1f;
-            int i1 = k + l * 32;
+            int i1 = k & 0x1f;
+            int j1 = l & 0x1f;
+            int k1 = i1 + j1 * 32;
 
-            return f[i1] != null && (f[i1] == c || f[i1].a(i, j));
+            return f[k1] != null && (f[k1] == c || f[k1].a(k, l));
         }
     }
 
-    public Chunk b(int i, int j) {
-        if (i == a && j == b && h != null) {
+    public Chunk b(int k, int l) {
+        if (k == a && l == b && h != null) {
             return h;
         }
-        int k = i & 0x1f;
-        int l = j & 0x1f;
-        int i1 = k + l * 32;
+        if (!g.x && !c(k, l)) {
+            return c;
+        }
+        int i1 = k & 0x1f;
+        int j1 = l & 0x1f;
+        int k1 = i1 + j1 * 32;
 
-        if (!a(i, j)) {
-            if (f[i1] != null) {
-                f[i1].e();
-                b(f[i1]);
-                a(f[i1]);
+        if (!a(k, l)) {
+            if (f[k1] != null) {
+                f[k1].e();
+                b(f[k1]);
+                a(f[k1]);
             }
-            Chunk chunk = c(i, j);
+            Chunk chunk = d(k, l);
 
             if (chunk == null) {
                 if (d == null) {
                     chunk = c;
                 } else {
-                    chunk = d.b(i, j);
+                    chunk = d.b(k, l);
                 }
             }
-            f[i1] = chunk;
+            f[k1] = chunk;
             chunk.c();
-            if (f[i1] != null) {
-                f[i1].d();
+            if (f[k1] != null) {
+                f[k1].d();
             }
-            if (!f[i1].n && a(i + 1, j + 1) && a(i, j + 1) && a(i + 1, j)) {
-                a(((IChunkProvider) (this)), i, j);
+            if (!f[k1].n && a(k + 1, l + 1) && a(k, l + 1) && a(k + 1, l)) {
+                a(((IChunkProvider) (this)), k, l);
             }
-            if (a(i - 1, j) && !b(i - 1, j).n && a(i - 1, j + 1) && a(i, j + 1) && a(i - 1, j)) {
-                a(((IChunkProvider) (this)), i - 1, j);
+            if (a(k - 1, l) && !b(k - 1, l).n && a(k - 1, l + 1) && a(k, l + 1) && a(k - 1, l)) {
+                a(((IChunkProvider) (this)), k - 1, l);
             }
-            if (a(i, j - 1) && !b(i, j - 1).n && a(i + 1, j - 1) && a(i, j - 1) && a(i + 1, j)) {
-                a(((IChunkProvider) (this)), i, j - 1);
+            if (a(k, l - 1) && !b(k, l - 1).n && a(k + 1, l - 1) && a(k, l - 1) && a(k + 1, l)) {
+                a(((IChunkProvider) (this)), k, l - 1);
             }
-            if (a(i - 1, j - 1) && !b(i - 1, j - 1).n && a(i - 1, j - 1) && a(i, j - 1) && a(i - 1, j)) {
-                a(((IChunkProvider) (this)), i - 1, j - 1);
+            if (a(k - 1, l - 1) && !b(k - 1, l - 1).n && a(k - 1, l - 1) && a(k, l - 1) && a(k - 1, l)) {
+                a(((IChunkProvider) (this)), k - 1, l - 1);
             }
         }
-        a = i;
-        b = j;
-        h = f[i1];
-        return f[i1];
+        a = k;
+        b = l;
+        h = f[k1];
+        return f[k1];
     }
 
-    private Chunk c(int i, int j) {
+    private Chunk d(int k, int l) {
         if (e == null) {
-            return null;
+            return c;
         }
         try {
-            Chunk chunk = e.a(g, i, j);
+            Chunk chunk = e.a(g, k, l);
 
             if (chunk != null) {
-                chunk.s = g.e;
+                chunk.r = g.e;
             }
             return chunk;
         } catch (Exception exception) {
             exception.printStackTrace();
         }
-        return null;
+        return c;
     }
 
     private void a(Chunk chunk) {
@@ -117,55 +129,55 @@ public class ChunkProviderLoadOrGenerate implements IChunkProvider {
             return;
         }
         try {
-            chunk.s = g.e;
+            chunk.r = g.e;
             e.a(g, chunk);
         } catch (IOException ioexception) {
             ioexception.printStackTrace();
         }
     }
 
-    public void a(IChunkProvider ichunkprovider, int i, int j) {
-        Chunk chunk = b(i, j);
+    public void a(IChunkProvider ichunkprovider, int k, int l) {
+        Chunk chunk = b(k, l);
 
         if (!chunk.n) {
             chunk.n = true;
             if (d != null) {
-                d.a(ichunkprovider, i, j);
+                d.a(ichunkprovider, k, l);
                 chunk.f();
             }
         }
     }
 
     public boolean a(boolean flag, IProgressUpdate iprogressupdate) {
-        int i = 0;
-        int j = 0;
+        int k = 0;
+        int l = 0;
 
         if (iprogressupdate != null) {
-            for (int k = 0; k < f.length; k++) {
-                if (f[k] != null && f[k].a(flag)) {
-                    j++;
+            for (int i1 = 0; i1 < f.length; i1++) {
+                if (f[i1] != null && f[i1].a(flag)) {
+                    l++;
                 }
             }
         }
-        int l = 0;
+        int j1 = 0;
 
-        for (int i1 = 0; i1 < f.length; i1++) {
-            if (f[i1] == null) {
+        for (int k1 = 0; k1 < f.length; k1++) {
+            if (f[k1] == null) {
                 continue;
             }
-            if (flag && !f[i1].p) {
-                a(f[i1]);
+            if (flag && !f[k1].p) {
+                a(f[k1]);
             }
-            if (!f[i1].a(flag)) {
+            if (!f[k1].a(flag)) {
                 continue;
             }
-            b(f[i1]);
-            f[i1].o = false;
-            if (++i == 2 && !flag) {
+            b(f[k1]);
+            f[k1].o = false;
+            if (++k == 2 && !flag) {
                 return false;
             }
-            if (iprogressupdate != null && ++l % 10 == 0) {
-                iprogressupdate.a((l * 100) / j);
+            if (iprogressupdate != null && ++j1 % 10 == 0) {
+                iprogressupdate.a((j1 * 100) / l);
             }
         }
 

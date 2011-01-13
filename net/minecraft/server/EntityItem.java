@@ -36,6 +36,8 @@ public class EntityItem extends Entity {
         H = J / 2.0F;
     }
 
+    protected void a() {}
+
     public void b_() {
         super.b_();
         if (c > 0) {
@@ -52,7 +54,6 @@ public class EntityItem extends Entity {
             l.a(((Entity) (this)), "random.fizz", 0.4F, 2.0F + W.nextFloat() * 0.4F);
         }
         g(p, q, r);
-        r();
         c(s, t, u);
         float f1 = 0.98F;
 
@@ -61,7 +62,7 @@ public class EntityItem extends Entity {
             int i = l.a(MathHelper.b(p), MathHelper.b(z.b) - 1, MathHelper.b(r));
 
             if (i > 0) {
-                f1 = Block.m[i].bt * 0.98F;
+                f1 = Block.m[i].bu * 0.98F;
             }
         }
         s *= f1;
@@ -73,11 +74,11 @@ public class EntityItem extends Entity {
         e++;
         b++;
         if (b >= 6000) {
-            l();
+            q();
         }
     }
 
-    public boolean r() {
+    public boolean v() {
         return l.a(z, Material.f, ((Entity) (this)));
     }
 
@@ -153,10 +154,10 @@ public class EntityItem extends Entity {
     }
 
     public boolean a(Entity entity, int i) {
-        u();
+        y();
         f -= i;
         if (f <= 0) {
-            l();
+            q();
         }
         return false;
     }
@@ -184,7 +185,7 @@ public class EntityItem extends Entity {
         if (c == 0 && entityplayer.an.a(a)) {
             l.a(((Entity) (this)), "random.pop", 0.2F, ((W.nextFloat() - W.nextFloat()) * 0.7F + 1.0F) * 2.0F);
             entityplayer.c(((Entity) (this)), i);
-            l();
+            q();
         }
     }
 }

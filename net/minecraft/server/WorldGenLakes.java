@@ -67,7 +67,7 @@ public class WorldGenLakes extends WorldGenerator {
             for (int j3 = 0; j3 < 16; j3++) {
                 for (int j4 = 0; j4 < 8; j4++) {
                     if (aflag[(k1 * 16 + j3) * 8 + j4]) {
-                        world.d(i + k1, j + j4, k + j3, j4 < 4 ? a : 0);
+                        world.b(i + k1, j + j4, k + j3, j4 < 4 ? a : 0);
                     }
                 }
             }
@@ -76,21 +76,21 @@ public class WorldGenLakes extends WorldGenerator {
         for (int l1 = 0; l1 < 16; l1++) {
             for (int k3 = 0; k3 < 16; k3++) {
                 for (int k4 = 4; k4 < 8; k4++) {
-                    if (aflag[(l1 * 16 + k3) * 8 + k4] && world.a(i + l1, (j + k4) - 1, k + k3) == Block.v.bh && world.a(EnumSkyBlock.a, i + l1, j + k4, k + k3) > 0) {
-                        world.d(i + l1, (j + k4) - 1, k + k3, Block.u.bh);
+                    if (aflag[(l1 * 16 + k3) * 8 + k4] && world.a(i + l1, (j + k4) - 1, k + k3) == Block.v.bi && world.a(EnumSkyBlock.a, i + l1, j + k4, k + k3) > 0) {
+                        world.b(i + l1, (j + k4) - 1, k + k3, Block.u.bi);
                     }
                 }
             }
         }
 
-        if (Block.m[a].bs == Material.g) {
+        if (Block.m[a].bt == Material.g) {
             for (int i2 = 0; i2 < 16; i2++) {
                 for (int l3 = 0; l3 < 16; l3++) {
                     for (int l4 = 0; l4 < 8; l4++) {
                         boolean flag1 = !aflag[(i2 * 16 + l3) * 8 + l4] && (i2 < 15 && aflag[((i2 + 1) * 16 + l3) * 8 + l4] || i2 > 0 && aflag[((i2 - 1) * 16 + l3) * 8 + l4] || l3 < 15 && aflag[(i2 * 16 + (l3 + 1)) * 8 + l4] || l3 > 0 && aflag[(i2 * 16 + (l3 - 1)) * 8 + l4] || l4 < 7 && aflag[(i2 * 16 + l3) * 8 + (l4 + 1)] || l4 > 0 && aflag[(i2 * 16 + l3) * 8 + (l4 - 1)]);
 
                         if (flag1 && (l4 < 4 || random.nextInt(2) != 0) && world.c(i + i2, j + l4, k + l3).a()) {
-                            world.d(i + i2, j + l4, k + l3, Block.t.bh);
+                            world.b(i + i2, j + l4, k + l3, Block.t.bi);
                         }
                     }
                 }

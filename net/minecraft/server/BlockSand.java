@@ -11,11 +11,11 @@ public class BlockSand extends Block {
     }
 
     public void e(World world, int i, int j, int k) {
-        world.h(i, j, k, bh);
+        world.i(i, j, k, bi);
     }
 
     public void b(World world, int i, int j, int k, int l) {
-        world.h(i, j, k, bh);
+        world.i(i, j, k, bi);
     }
 
     public void a(World world, int i, int j, int k, Random random) {
@@ -28,13 +28,19 @@ public class BlockSand extends Block {
         int j1 = k;
 
         if (g(world, l, i1 - 1, j1) && i1 >= 0) {
-            EntityFallingSand entityfallingsand = new EntityFallingSand(world, (float) i + 0.5F, (float) j + 0.5F, (float) k + 0.5F, bh);
+            byte byte0 = 32;
 
-            if (a) {
-                while (!entityfallingsand.G) { 
-                    entityfallingsand.b_();
+            if (a || !world.a(i - byte0, j - byte0, k - byte0, i + byte0, j + byte0, k + byte0)) {
+                world.e(i, j, k, 0);
+                for (; g(world, i, j - 1, k) && j > 0; j--) {
+                    ;
+                }
+                if (j > 0) {
+                    world.e(i, j, k, bi);
                 }
             } else {
+                EntityFallingSand entityfallingsand = new EntityFallingSand(world, (float) i + 0.5F, (float) j + 0.5F, (float) k + 0.5F, bi);
+
                 world.a(((Entity) (entityfallingsand)));
             }
         }
@@ -50,10 +56,10 @@ public class BlockSand extends Block {
         if (l == 0) {
             return true;
         }
-        if (l == Block.ar.bh) {
+        if (l == Block.ar.bi) {
             return true;
         }
-        Material material = Block.m[l].bs;
+        Material material = Block.m[l].bt;
 
         if (material == Material.f) {
             return true;

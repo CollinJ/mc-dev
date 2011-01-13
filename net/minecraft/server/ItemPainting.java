@@ -4,7 +4,7 @@ public class ItemPainting extends Item {
 
     public ItemPainting(int i) {
         super(i);
-        aY = 64;
+        bc = 64;
     }
 
     public boolean a(ItemStack itemstack, EntityPlayer entityplayer, World world, int i, int j, int k, int l) {
@@ -27,8 +27,10 @@ public class ItemPainting extends Item {
         }
         EntityPainting entitypainting = new EntityPainting(world, i, j, k, ((int) (byte0)));
 
-        if (entitypainting.c()) {
-            world.a(((Entity) (entitypainting)));
+        if (entitypainting.d()) {
+            if (!world.z) {
+                world.a(((Entity) (entitypainting)));
+            }
             itemstack.a--;
         }
         return true;

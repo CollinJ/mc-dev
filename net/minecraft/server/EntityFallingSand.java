@@ -27,13 +27,15 @@ public class EntityFallingSand extends Entity {
         o = d2;
     }
 
+    protected void a() {}
+
     public boolean c_() {
         return !G;
     }
 
     public void b_() {
         if (a == 0) {
-            l();
+            q();
             return;
         }
         m = p;
@@ -50,19 +52,19 @@ public class EntityFallingSand extends Entity {
         int k = MathHelper.b(r);
 
         if (l.a(i, j, k) == a) {
-            l.d(i, j, k, 0);
+            l.e(i, j, k, 0);
         }
         if (A) {
             s *= 0.69999998807907104D;
             u *= 0.69999998807907104D;
             t *= -0.5D;
-            l();
-            if (!l.a(a, i, j, k, true) || !l.d(i, j, k, a)) {
-                b(a, 1);
+            q();
+            if ((!l.a(a, i, j, k, true) || !l.e(i, j, k, a)) && !l.z) {
+                a(a, 1);
             }
-        } else if (b > 100) {
-            b(a, 1);
-            l();
+        } else if (b > 100 && !l.z) {
+            a(a, 1);
+            q();
         }
     }
 

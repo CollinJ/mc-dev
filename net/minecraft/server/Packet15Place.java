@@ -22,9 +22,9 @@ public class Packet15Place extends Packet {
 
         if (word0 >= 0) {
             byte byte0 = datainputstream.readByte();
-            byte byte1 = datainputstream.readByte();
+            short word1 = datainputstream.readShort();
 
-            e = new ItemStack(((int) (word0)), ((int) (byte0)), ((int) (byte1)));
+            e = new ItemStack(((int) (word0)), ((int) (byte0)), ((int) (word1)));
         } else {
             e = null;
         }
@@ -40,7 +40,7 @@ public class Packet15Place extends Packet {
         } else {
             dataoutputstream.writeShort(e.c);
             dataoutputstream.writeByte(e.a);
-            dataoutputstream.writeByte(e.d);
+            dataoutputstream.writeShort(e.h());
         }
     }
 
@@ -49,6 +49,6 @@ public class Packet15Place extends Packet {
     }
 
     public int a() {
-        return 14;
+        return 15;
     }
 }

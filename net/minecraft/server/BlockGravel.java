@@ -10,9 +10,9 @@ public class BlockGravel extends BlockSand {
 
     public int a(int i, Random random) {
         if (random.nextInt(10) == 0) {
-            return Item.an.aW;
+            return Item.an.ba;
         } else {
-            return bh;
+            return bi;
         }
     }
 }

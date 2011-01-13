@@ -26,9 +26,9 @@ public class Packet102 extends Packet {
 
         if (word0 >= 0) {
             byte byte0 = datainputstream.readByte();
-            byte byte1 = datainputstream.readByte();
+            short word1 = datainputstream.readShort();
 
-            e = new ItemStack(((int) (word0)), ((int) (byte0)), ((int) (byte1)));
+            e = new ItemStack(((int) (word0)), ((int) (byte0)), ((int) (word1)));
         } else {
             e = null;
         }
@@ -44,11 +44,11 @@ public class Packet102 extends Packet {
         } else {
             dataoutputstream.writeShort(e.c);
             dataoutputstream.writeByte(e.a);
-            dataoutputstream.writeByte(e.d);
+            dataoutputstream.writeShort(e.h());
         }
     }
 
     public int a() {
-        return 10;
+        return 11;
     }
 }

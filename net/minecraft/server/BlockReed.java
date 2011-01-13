@@ -6,7 +6,7 @@ public class BlockReed extends Block {
 
     protected BlockReed(int i, int j) {
         super(i, Material.i);
-        bg = j;
+        bh = j;
         float f1 = 0.375F;
 
         a(0.5F - f1, 0.0F, 0.5F - f1, 0.5F + f1, 1.0F, 0.5F + f1);
@@ -17,17 +17,17 @@ public class BlockReed extends Block {
         if (world.e(i, j + 1, k)) {
             int l;
 
-            for (l = 1; world.a(i, j - l, k) == bh; l++) {
+            for (l = 1; world.a(i, j - l, k) == bi; l++) {
                 ;
             }
             if (l < 3) {
                 int i1 = world.b(i, j, k);
 
                 if (i1 == 15) {
-                    world.d(i, j + 1, k, bh);
-                    world.b(i, j, k, 0);
+                    world.e(i, j + 1, k, bi);
+                    world.c(i, j, k, 0);
                 } else {
-                    world.b(i, j, k, i1 + 1);
+                    world.c(i, j, k, i1 + 1);
                 }
             }
         }
@@ -36,10 +36,10 @@ public class BlockReed extends Block {
     public boolean a(World world, int i, int j, int k) {
         int l = world.a(i, j - 1, k);
 
-        if (l == bh) {
+        if (l == bi) {
             return true;
         }
-        if (l != Block.u.bh && l != Block.v.bh) {
+        if (l != Block.u.bi && l != Block.v.bi) {
             return false;
         }
         if (world.c(i - 1, j - 1, k) == Material.f) {
@@ -61,7 +61,7 @@ public class BlockReed extends Block {
     protected final void g(World world, int i, int j, int k) {
         if (!f(world, i, j, k)) {
             a_(world, i, j, k, world.b(i, j, k));
-            world.d(i, j, k, 0);
+            world.e(i, j, k, 0);
         }
     }
 
@@ -74,7 +74,7 @@ public class BlockReed extends Block {
     }
 
     public int a(int i, Random random) {
-        return Item.aH.aW;
+        return Item.aH.ba;
     }
 
     public boolean a() {

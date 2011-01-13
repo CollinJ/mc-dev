@@ -12,9 +12,9 @@ public class EntityTNTPrimed extends Entity {
         H = J / 2.0F;
     }
 
-    public EntityTNTPrimed(World world, double d, double d1, double d2) {
+    public EntityTNTPrimed(World world, double d1, double d2, double d3) {
         this(world);
-        a(d, d1, d2);
+        a(d1, d2, d3);
         float f = (float) (Math.random() * 3.1415927410125732D * 2D);
 
         s = -MathHelper.a((f * 3.141593F) / 180F) * 0.02F;
@@ -22,10 +22,12 @@ public class EntityTNTPrimed extends Entity {
         u = -MathHelper.b((f * 3.141593F) / 180F) * 0.02F;
         M = false;
         a = 80;
-        m = d;
-        n = d1;
-        o = d2;
+        m = d1;
+        n = d2;
+        o = d3;
     }
+
+    protected void a() {}
 
     public boolean c_() {
         return !G;
@@ -46,14 +48,14 @@ public class EntityTNTPrimed extends Entity {
             t *= -0.5D;
         }
         if (a-- <= 0) {
-            l();
-            c();
+            q();
+            d();
         } else {
             l.a("smoke", p, q + 0.5D, r, 0.0D, 0.0D, 0.0D);
         }
     }
 
-    private void c() {
+    private void d() {
         float f = 4F;
 
         l.a(((Entity) (null)), p, q, r, f);

@@ -2,29 +2,26 @@ package net.minecraft.server;
 
 public class ItemTool extends Item {
 
-    private Block bb[];
-    private float bc;
-    private int bd;
-    protected int a;
+    private Block bg[];
+    private float bh;
+    private int bi;
+    protected bv a;
 
-    public ItemTool(int i, int j, int k, Block ablock[]) {
+    protected ItemTool(int i, int j, bv bv1, Block ablock[]) {
         super(i);
-        bc = 4F;
-        a = k;
-        bb = ablock;
-        aX = 1;
-        aY = 32 << k;
-        if (k == 3) {
-            aY *= 4;
-        }
-        bc = (k + 1) * 2;
-        bd = j + k;
+        bh = 4F;
+        a = bv1;
+        bg = ablock;
+        bb = 1;
+        bc = bv1.a();
+        bh = bv1.b();
+        bi = j + bv1.c();
     }
 
     public float a(ItemStack itemstack, Block block) {
-        for (int i = 0; i < bb.length; i++) {
-            if (bb[i] == block) {
-                return bc;
+        for (int i = 0; i < bg.length; i++) {
+            if (bg[i] == block) {
+                return bh;
             }
         }
 
@@ -40,6 +37,6 @@ public class ItemTool extends Item {
     }
 
     public int a(Entity entity) {
-        return bd;
+        return bi;
     }
 }

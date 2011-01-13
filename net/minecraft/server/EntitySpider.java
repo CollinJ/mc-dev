@@ -6,29 +6,25 @@ public class EntitySpider extends EntityMobs {
 
     public EntitySpider(World world) {
         super(world);
-        aQ = "/mob/spider.png";
+        aP = "/mob/spider.png";
         a(1.4F, 0.9F);
-        bD = 0.8F;
+        bC = 0.8F;
     }
 
-    public double j() {
+    public double k() {
         return (double) J * 0.75D - 0.5D;
     }
 
-    protected Entity k() {
+    protected Entity l() {
         float f1 = b(1.0F);
 
         if (f1 < 0.5F) {
-            double d1 = 16D;
+            double d = 16D;
 
-            return ((Entity) (l.a(((Entity) (this)), d1)));
+            return ((Entity) (l.a(((Entity) (this)), d)));
         } else {
             return null;
         }
-    }
-
-    protected String d() {
-        return "mob.spider";
     }
 
     protected String e() {
@@ -36,6 +32,10 @@ public class EntitySpider extends EntityMobs {
     }
 
     protected String f() {
+        return "mob.spider";
+    }
+
+    protected String g() {
         return "mob.spiderdeath";
     }
 
@@ -43,17 +43,17 @@ public class EntitySpider extends EntityMobs {
         float f2 = b(1.0F);
 
         if (f2 > 0.5F && W.nextInt(100) == 0) {
-            aj = null;
+            this.d = null;
             return;
         }
         if (f1 > 2.0F && f1 < 6F && W.nextInt(10) == 0) {
             if (A) {
-                double d1 = entity.p - p;
-                double d2 = entity.r - r;
-                float f3 = MathHelper.a(d1 * d1 + d2 * d2);
+                double d = entity.p - p;
+                double d1 = entity.r - r;
+                float f3 = MathHelper.a(d * d + d1 * d1);
 
-                s = (d1 / (double) f3) * 0.5D * 0.80000001192092896D + s * 0.20000000298023224D;
-                u = (d2 / (double) f3) * 0.5D * 0.80000001192092896D + u * 0.20000000298023224D;
+                s = (d / (double) f3) * 0.5D * 0.80000001192092896D + s * 0.20000000298023224D;
+                u = (d1 / (double) f3) * 0.5D * 0.80000001192092896D + u * 0.20000000298023224D;
                 t = 0.40000000596046448D;
             }
         } else {
@@ -69,7 +69,11 @@ public class EntitySpider extends EntityMobs {
         super.b(nbttagcompound);
     }
 
-    protected int g() {
-        return Item.I.aW;
+    protected int h() {
+        return Item.I.ba;
+    }
+
+    public boolean m() {
+        return B;
     }
 }

@@ -22,8 +22,7 @@ public class Chunk {
     public boolean o;
     public boolean p;
     public boolean q;
-    public boolean r;
-    public long s;
+    public long r;
 
     public Chunk(World world, int i1, int j1) {
         l = ((Map) (new HashMap()));
@@ -31,8 +30,7 @@ public class Chunk {
         n = false;
         o = false;
         q = false;
-        r = false;
-        s = 0L;
+        r = 0L;
         d = world;
         j = i1;
         k = j1;
@@ -65,10 +63,14 @@ public class Chunk {
 
         for (int j1 = 0; j1 < 16; j1++) {
             for (int l1 = 0; l1 < 16; l1++) {
-                h[l1 << 4 | j1] = -128;
-                g(j1, 127, l1);
-                if ((h[l1 << 4 | j1] & 0xff) < i1) {
-                    i1 = h[l1 << 4 | j1] & 0xff;
+                int j2 = 127;
+
+                for (int k2 = j1 << 11 | l1 << 7; j2 > 0 && Block.q[b[(k2 + j2) - 1]] == 0; j2--) {
+                    ;
+                }
+                h[l1 << 4 | j1] = (byte) j2;
+                if (j2 < i1) {
+                    i1 = j2;
                 }
             }
         }
@@ -141,10 +143,11 @@ public class Chunk {
 
         if (l1 > k1) {
             d.a(EnumSkyBlock.a, i1, k1, j1, i1, l1, j1);
+            o = true;
         } else if (l1 < k1) {
             d.a(EnumSkyBlock.a, i1, l1, j1, i1, k1, j1);
+            o = true;
         }
-        o = true;
     }
 
     private void g(int i1, int j1, int k1) {
@@ -160,7 +163,7 @@ public class Chunk {
         if (i2 == l1) {
             return;
         }
-        d.f(i1, k1, i2, l1);
+        d.g(i1, k1, i2, l1);
         h[k1 << 4 | i1] = (byte) i2;
         if (i2 < i) {
             i = i2;
@@ -335,10 +338,7 @@ public class Chunk {
     }
 
     public void a(Entity entity) {
-        if (q) {
-            return;
-        }
-        r = true;
+        q = true;
         int i1 = MathHelper.b(entity.p / 16D);
         int j1 = MathHelper.b(entity.r / 16D);
 
@@ -354,15 +354,15 @@ public class Chunk {
         if (k1 >= m.length) {
             k1 = m.length - 1;
         }
-        entity.af = true;
-        entity.ag = j;
-        entity.ah = k1;
-        entity.ai = k;
+        entity.ag = true;
+        entity.ah = j;
+        entity.ai = k1;
+        entity.aj = k;
         m[k1].add(((entity)));
     }
 
     public void b(Entity entity) {
-        a(entity, entity.ah);
+        a(entity, entity.ai);
     }
 
     public void a(Entity entity, int i1) {
@@ -504,10 +504,10 @@ public class Chunk {
             return false;
         }
         if (flag) {
-            if (r && d.e != s) {
+            if (q && d.e != r) {
                 return true;
             }
-        } else if (r && d.e >= s + 600L) {
+        } else if (q && d.e >= r + 600L) {
             return true;
         }
         return o;
@@ -559,5 +559,9 @@ public class Chunk {
 
     public Random a(long l1) {
         return new Random(d.u + (long) (j * j * 0x4c1906) + (long) (j * 0x5ac0db) + (long) (k * k) * 0x4307a7L + (long) (k * 0x5f24f) ^ l1);
+    }
+
+    public boolean g() {
+        return false;
     }
 }

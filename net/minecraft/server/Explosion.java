@@ -124,7 +124,7 @@ public class Explosion {
                 int j5 = i.a(i2, k4 - 1, l4);
 
                 if (i5 == 0 && Block.o[j5] && h.nextInt(3) == 0) {
-                    i.d(i2, k4, l4, Block.ar.bh);
+                    i.e(i2, k4, l4, Block.ar.bi);
                 }
             }
         }
@@ -166,8 +166,8 @@ public class Explosion {
 
             if (j1 > 0) {
                 Block.m[j1].a(i, k, l, i1, i.b(k, l, i1), 0.3F);
-                i.d(k, l, i1, 0);
-                Block.m[j1].c(i, k, l, i1);
+                i.e(k, l, i1, 0);
+                Block.m[j1].a_(i, k, l, i1);
             }
         }
     }
