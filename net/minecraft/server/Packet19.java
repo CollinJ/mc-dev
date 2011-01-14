@@ -3,12 +3,12 @@ package net.minecraft.server;
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 
-public class gv extends Packet {
+public class Packet19 extends Packet {
 
     public int a;
     public int b;
 
-    public gv() {}
+    public Packet19() {}
 
     public void a(DataInputStream datainputstream) {
         a = datainputstream.readInt();

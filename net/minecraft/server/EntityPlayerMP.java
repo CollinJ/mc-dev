@@ -222,10 +222,10 @@ public class EntityPlayerMP extends EntityPlayer implements ICrafting {
         ap.a(((ICrafting) (this)));
     }
 
-    public void a(bf bf1) {
+    public void a(TileEntityDispenser tileentitydispenser) {
         U();
-        a.b(((Packet) (new Packet100(bG, 3, bf1.b(), bf1.h_()))));
-        ap = ((CraftingInventoryCB) (new ew(((IInventory) (an)), bf1)));
+        a.b(((Packet) (new Packet100(bG, 3, tileentitydispenser.b(), tileentitydispenser.h_()))));
+        ap = ((CraftingInventoryCB) (new CraftingInventoryDispenserCB(((IInventory) (an)), tileentitydispenser)));
         ap.f = bG;
         ap.a(((ICrafting) (this)));
     }

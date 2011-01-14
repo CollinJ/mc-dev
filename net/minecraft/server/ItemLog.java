@@ -1,8 +1,8 @@
 package net.minecraft.server;
 
-public class hk extends ItemBlock {
+public class ItemLog extends ItemBlock {
 
-    public hk(int i) {
+    public ItemLog(int i) {
         super(i);
         d(0);
         a(true);

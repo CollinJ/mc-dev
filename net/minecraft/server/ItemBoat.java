@@ -29,7 +29,7 @@ public class ItemBoat extends Item {
         if (movingobjectposition == null) {
             return itemstack;
         }
-        if (movingobjectposition.a == jr.a) {
+        if (movingobjectposition.a == EnumMovingObjectType.a) {
             int i = movingobjectposition.b;
             int j = movingobjectposition.c;
             int k = movingobjectposition.d;

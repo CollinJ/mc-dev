@@ -142,7 +142,7 @@ public class TileEntityFurnace extends TileEntity implements IInventory {
         if (h[0] == null) {
             return false;
         }
-        ItemStack itemstack = fp.a().a(h[0].a().ba);
+        ItemStack itemstack = FurnaceRecipes.a().a(h[0].a().ba);
 
         if (itemstack == null) {
             return false;
@@ -163,7 +163,7 @@ public class TileEntityFurnace extends TileEntity implements IInventory {
         if (!i()) {
             return;
         }
-        ItemStack itemstack = fp.a().a(h[0].a().ba);
+        ItemStack itemstack = FurnaceRecipes.a().a(h[0].a().ba);
 
         if (h[2] == null) {
             h[2] = itemstack.j();

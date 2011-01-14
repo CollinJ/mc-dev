@@ -5,17 +5,17 @@ public class ItemTool extends Item {
     private Block bg[];
     private float bh;
     private int bi;
-    protected bv a;
+    protected EnumToolMaterial a;
 
-    protected ItemTool(int i, int j, bv bv1, Block ablock[]) {
+    protected ItemTool(int i, int j, EnumToolMaterial enumtoolmaterial, Block ablock[]) {
         super(i);
         bh = 4F;
-        a = bv1;
+        a = enumtoolmaterial;
         bg = ablock;
         bb = 1;
-        bc = bv1.a();
-        bh = bv1.b();
-        bi = j + bv1.c();
+        bc = enumtoolmaterial.a();
+        bh = enumtoolmaterial.b();
+        bi = j + enumtoolmaterial.c();
     }
 
     public float a(ItemStack itemstack, Block block) {

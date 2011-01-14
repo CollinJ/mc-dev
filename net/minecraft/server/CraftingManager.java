@@ -20,7 +20,7 @@ public class CraftingManager {
         (new RecipesFood()).a(this);
         (new RecipesCrafting()).a(this);
         (new RecipesArmor()).a(this);
-        (new t()).a(this);
+        (new RecipesDyes()).a(this);
         a(new ItemStack(Item.aI, 3), new Object[] {
             "###", Character.valueOf('#'), Item.aH
         });
@@ -216,7 +216,7 @@ public class CraftingManager {
             }
         }
 
-        b.add(((new jf(j, k, aitemstack, itemstack))));
+        b.add(((new ShapedRecipes(j, k, aitemstack, itemstack))));
     }
 
     void b(ItemStack itemstack, Object aobj[]) {
@@ -242,7 +242,7 @@ public class CraftingManager {
             }
         }
 
-        b.add(((new gt(itemstack, ((List) (arraylist))))));
+        b.add(((new ShapelessRecipes(itemstack, ((List) (arraylist))))));
     }
 
     public ItemStack a(InventoryCrafting inventorycrafting) {

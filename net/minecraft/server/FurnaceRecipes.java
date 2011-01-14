@@ -3,16 +3,16 @@ package net.minecraft.server;
 import java.util.HashMap;
 import java.util.Map;
 
-public class fp {
+public class FurnaceRecipes {
 
-    private static final fp a = new fp();
+    private static final FurnaceRecipes a = new FurnaceRecipes();
     private Map b;
 
-    public static final fp a() {
+    public static final FurnaceRecipes a() {
         return a;
     }
 
-    private fp() {
+    private FurnaceRecipes() {
         b = ((Map) (new HashMap()));
         a(Block.H.bi, new ItemStack(Item.m));
         a(Block.G.bi, new ItemStack(Item.n));

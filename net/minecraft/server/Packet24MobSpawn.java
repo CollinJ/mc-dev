@@ -13,7 +13,7 @@ public class Packet24MobSpawn extends Packet {
     public int e;
     public byte f;
     public byte g;
-    private gx h;
+    private DataWatcher h;
     private List i;
 
     public Packet24MobSpawn() {}
@@ -37,7 +37,7 @@ public class Packet24MobSpawn extends Packet {
         e = datainputstream.readInt();
         f = datainputstream.readByte();
         g = datainputstream.readByte();
-        i = gx.a(datainputstream);
+        i = DataWatcher.a(datainputstream);
     }
 
     public void a(DataOutputStream dataoutputstream) {

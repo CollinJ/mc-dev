@@ -103,10 +103,10 @@ public class EntityTrackerEntry {
             if (obj != null) {
                 a(((Packet) (obj)));
             }
-            gx gx1 = a.p();
+            DataWatcher datawatcher = a.p();
 
-            if (gx1.a()) {
-                b(((Packet) (new Packet40(a.g, gx1))));
+            if (datawatcher.a()) {
+                b(((Packet) (new Packet40(a.g, datawatcher))));
             }
             d = i1;
             e = j1;

@@ -2,9 +2,9 @@ package net.minecraft.server;
 
 import java.util.Random;
 
-public class cl extends WorldGenerator {
+public class WorldGenTaiga1 extends WorldGenerator {
 
-    public cl() {}
+    public WorldGenTaiga1() {}
 
     public boolean a(World world, Random random, int i, int j, int k) {
         int l = random.nextInt(5) + 7;

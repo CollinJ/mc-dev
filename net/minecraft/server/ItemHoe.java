@@ -4,10 +4,10 @@ import java.util.Random;
 
 public class ItemHoe extends Item {
 
-    public ItemHoe(int i, bv bv1) {
+    public ItemHoe(int i, EnumToolMaterial enumtoolmaterial) {
         super(i);
         bb = 1;
-        bc = bv1.a();
+        bc = enumtoolmaterial.a();
     }
 
     public boolean a(ItemStack itemstack, EntityPlayer entityplayer, World world, int i, int j, int k, int l) {

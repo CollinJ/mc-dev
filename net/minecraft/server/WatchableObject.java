@@ -1,13 +1,13 @@
 package net.minecraft.server;
 
-public class b {
+public class WatchableObject {
 
     private final int a;
     private final int b;
     private Object c;
     private boolean d;
 
-    public b(int i, int j, Object obj) {
+    public WatchableObject(int i, int j, Object obj) {
         b = j;
         c = obj;
         a = i;

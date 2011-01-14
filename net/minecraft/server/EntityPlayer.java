@@ -287,7 +287,7 @@ public abstract class EntityPlayer extends EntityLiving {
 
     public void a(TileEntityFurnace tileentityfurnace) {}
 
-    public void a(bf bf) {}
+    public void a(TileEntityDispenser tileentitydispenser) {}
 
     public void a(TileEntitySign tileentitysign) {}
 

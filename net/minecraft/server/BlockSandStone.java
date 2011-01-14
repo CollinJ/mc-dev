@@ -1,8 +1,8 @@
 package net.minecraft.server;
 
-public class dl extends Block {
+public class BlockSandStone extends Block {
 
-    public dl(int i) {
+    public BlockSandStone(int i) {
         super(i, 192, Material.d);
     }
 

@@ -82,8 +82,8 @@ public class NetHandler {
         a(((Packet) (packet18armanimation)));
     }
 
-    public void a(gv gv) {
-        a(((Packet) (gv)));
+    public void a(Packet19 packet19) {
+        a(((Packet) (packet19)));
     }
 
     public void a(Packet2Handshake packet2handshake) {

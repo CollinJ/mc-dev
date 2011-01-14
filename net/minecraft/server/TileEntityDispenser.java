@@ -2,12 +2,12 @@ package net.minecraft.server;
 
 import java.util.Random;
 
-public class bf extends TileEntity implements IInventory {
+public class TileEntityDispenser extends TileEntity implements IInventory {
 
     private ItemStack e[];
     private Random f;
 
-    public bf() {
+    public TileEntityDispenser() {
         e = new ItemStack[9];
         f = new Random();
     }

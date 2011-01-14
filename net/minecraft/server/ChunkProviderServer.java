@@ -17,7 +17,7 @@ public class ChunkProviderServer implements IChunkProvider {
         a = ((Set) (new HashSet()));
         e = ((Map) (new HashMap()));
         f = ((List) (new ArrayList()));
-        b = ((Chunk) (new lz(((World) (worldserver)), new byte[32768], 0, 0)));
+        b = ((Chunk) (new EmptyChunk(((World) (worldserver)), new byte[32768], 0, 0)));
         g = worldserver;
         d = ichunkloader;
         c = ichunkprovider;

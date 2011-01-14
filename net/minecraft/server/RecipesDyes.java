@@ -1,8 +1,8 @@
 package net.minecraft.server;
 
-public class t {
+public class RecipesDyes {
 
-    public t() {}
+    public RecipesDyes() {}
 
     public void a(CraftingManager craftingmanager) {
         for (int i = 0; i < 16; i++) {

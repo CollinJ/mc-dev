@@ -2,14 +2,14 @@ package net.minecraft.server;
 
 import java.util.*;
 
-public class lz extends Chunk {
+public class EmptyChunk extends Chunk {
 
-    public lz(World world, int i, int j) {
+    public EmptyChunk(World world, int i, int j) {
         super(world, i, j);
         p = true;
     }
 
-    public lz(World world, byte abyte0[], int i, int j) {
+    public EmptyChunk(World world, byte abyte0[], int i, int j) {
         super(world, abyte0, i, j);
         p = true;
     }

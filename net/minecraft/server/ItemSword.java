@@ -4,11 +4,11 @@ public class ItemSword extends Item {
 
     private int a;
 
-    public ItemSword(int i, bv bv1) {
+    public ItemSword(int i, EnumToolMaterial enumtoolmaterial) {
         super(i);
         bb = 1;
-        bc = bv1.a();
-        a = 4 + bv1.c() * 2;
+        bc = enumtoolmaterial.a();
+        a = 4 + enumtoolmaterial.c() * 2;
     }
 
     public float a(ItemStack itemstack, Block block) {

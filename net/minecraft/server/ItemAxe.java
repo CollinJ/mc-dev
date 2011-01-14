@@ -4,8 +4,8 @@ public class ItemAxe extends ItemTool {
 
     private static Block bg[];
 
-    protected ItemAxe(int i, bv bv) {
-        super(i, 3, bv, bg);
+    protected ItemAxe(int i, EnumToolMaterial enumtoolmaterial) {
+        super(i, 3, enumtoolmaterial, bg);
     }
 
     static {

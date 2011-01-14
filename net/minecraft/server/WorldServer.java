@@ -23,7 +23,7 @@ public class WorldServer extends World {
     }
 
     public void a(Entity entity, boolean flag) {
-        if (!D.m && ((entity instanceof EntityAnimals) || (entity instanceof ax))) {
+        if (!D.m && ((entity instanceof EntityAnimals) || (entity instanceof EntityWaterMob))) {
             entity.q();
         }
         if (entity.j == null || !(entity.j instanceof EntityPlayer)) {

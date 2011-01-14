@@ -45,7 +45,7 @@ public class Block {
     public static final Block O;
     public static final Block P;
     public static final Block Q;
-    public static final Block R = (new cj(25)).c(0.8F).a("musicBlock");
+    public static final Block R = (new BlockNote(25)).c(0.8F).a("musicBlock");
     public static final Block S = null;
     public static final Block T = null;
     public static final Block U = null;
@@ -517,7 +517,7 @@ public class Block {
         N = (new BlockOre(21, 160)).c(3F).b(5F).a(h).a("oreLapis");
         O = (new Block(22, 144, Material.d)).c(3F).b(5F).a(h).a("blockLapis");
         P = (new BlockDispenser(23)).c(3.5F).a(h).a("dispenser");
-        Q = (new dl(24)).a(h).c(0.8F).a("sandStone");
+        Q = (new BlockSandStone(24)).a(h).c(0.8F).a("sandStone");
         ab = (new BlockCloth()).c(0.8F).a(k).a("cloth");
         ad = (BlockFlower) (new BlockFlower(37, 13)).c(0.0F).a(g).a("flower");
         ae = (BlockFlower) (new BlockFlower(38, 12)).c(0.0F).a(g).a("rose");
@@ -575,8 +575,8 @@ public class Block {
         be = (BlockPortal) (new BlockPortal(90, 14)).c(-1F).a(j).a(0.75F).a("portal");
         bf = (new BlockPumpkin(91, 102, true)).c(1.0F).a(e).a(1.0F).a("litpumpkin");
         bg = (new BlockCake(92, 121)).c(0.5F).a(k).a("cake");
-        Item.c[ab.bi] = (new bn(ab.bi - 256)).a("cloth");
-        Item.c[J.bi] = (new hk(J.bi - 256)).a("log");
+        Item.c[ab.bi] = (new ItemCloth(ab.bi - 256)).a("cloth");
+        Item.c[J.bi] = (new ItemLog(J.bi - 256)).a("log");
         for (int i1 = 0; i1 < 256; i1++) {
             if (m[i1] != null && Item.c[i1] == null) {
                 Item.c[i1] = ((Item) (new ItemBlock(i1 - 256)));

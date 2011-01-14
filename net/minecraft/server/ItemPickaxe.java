@@ -4,8 +4,8 @@ public class ItemPickaxe extends ItemTool {
 
     private static Block bg[];
 
-    protected ItemPickaxe(int i, bv bv1) {
-        super(i, 2, bv1, bg);
+    protected ItemPickaxe(int i, EnumToolMaterial enumtoolmaterial) {
+        super(i, 2, enumtoolmaterial, bg);
     }
 
     public boolean a(Block block) {

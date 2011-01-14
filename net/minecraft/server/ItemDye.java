@@ -1,12 +1,12 @@
 package net.minecraft.server;
 
-public class ky extends Item {
+public class ItemDye extends Item {
 
     public static final String a[] = {
         "black", "red", "green", "brown", "blue", "purple", "cyan", "silver", "gray", "pink", "lime", "yellow", "lightBlue", "magenta", "orange", "white"
     };
 
-    public ky(int i) {
+    public ItemDye(int i) {
         super(i);
         a(true);
         d(0);

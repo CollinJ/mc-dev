@@ -4,13 +4,13 @@ import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.util.*;
 
-public class gx {
+public class DataWatcher {
 
     private static final HashMap a;
     private final Map b = new HashMap();
     private boolean c;
 
-    public gx() {}
+    public DataWatcher() {}
 
     public void a(int i, Object obj) {
         Integer integer = (Integer) a.get(((obj.getClass())));
@@ -24,23 +24,23 @@ public class gx {
         if (b.containsKey(((Integer.valueOf(i))))) {
             throw new IllegalArgumentException((new StringBuilder()).append("Duplicate id value for ").append(i).append("!").toString());
         } else {
-            b b1 = new b(integer.intValue(), i, obj);
+            WatchableObject watchableobject = new WatchableObject(integer.intValue(), i, obj);
 
-            b.put(((Integer.valueOf(i))), ((b1)));
+            b.put(((Integer.valueOf(i))), ((watchableobject)));
             return;
         }
     }
 
     public byte a(int i) {
-        return ((Byte) ((b) b.get(((Integer.valueOf(i))))).b()).byteValue();
+        return ((Byte) ((WatchableObject) b.get(((Integer.valueOf(i))))).b()).byteValue();
     }
 
     public void b(int i, Object obj) {
-        b b1 = (b) b.get(((Integer.valueOf(i))));
+        WatchableObject watchableobject = (WatchableObject) b.get(((Integer.valueOf(i))));
 
-        if (!obj.equals(b1.b())) {
-            b1.a(obj);
-            b1.a(true);
+        if (!obj.equals(watchableobject.b())) {
+            watchableobject.a(obj);
+            watchableobject.a(true);
             c = true;
         }
     }
@@ -51,10 +51,10 @@ public class gx {
 
     public static void a(List list, DataOutputStream dataoutputstream) {
         if (list != null) {
-            b b1;
+            WatchableObject watchableobject;
 
-            for (Iterator iterator = list.iterator(); iterator.hasNext(); a(dataoutputstream, b1)) {
-                b1 = (b) iterator.next();
+            for (Iterator iterator = list.iterator(); iterator.hasNext(); a(dataoutputstream, watchableobject)) {
+                watchableobject = (WatchableObject) iterator.next();
             }
         }
         dataoutputstream.writeByte(127);
@@ -70,14 +70,14 @@ public class gx {
                 if (!iterator.hasNext()) {
                     break;
                 }
-                b b1 = (b) iterator.next();
+                WatchableObject watchableobject = (WatchableObject) iterator.next();
 
-                if (b1.d()) {
-                    b1.a(false);
+                if (watchableobject.d()) {
+                    watchableobject.a(false);
                     if (arraylist == null) {
                         arraylist = new ArrayList();
                     }
-                    arraylist.add(((b1)));
+                    arraylist.add(((watchableobject)));
                 }
             } while (true);
         }
@@ -86,42 +86,42 @@ public class gx {
     }
 
     public void a(DataOutputStream dataoutputstream) {
-        b b1;
+        WatchableObject watchableobject;
 
-        for (Iterator iterator = b.values().iterator(); iterator.hasNext(); a(dataoutputstream, b1)) {
-            b1 = (b) iterator.next();
+        for (Iterator iterator = b.values().iterator(); iterator.hasNext(); a(dataoutputstream, watchableobject)) {
+            watchableobject = (WatchableObject) iterator.next();
         }
 
         dataoutputstream.writeByte(127);
     }
 
-    private static void a(DataOutputStream dataoutputstream, b b1) {
-        int i = (b1.c() << 5 | b1.a() & 0x1f) & 0xff;
+    private static void a(DataOutputStream dataoutputstream, WatchableObject watchableobject) {
+        int i = (watchableobject.c() << 5 | watchableobject.a() & 0x1f) & 0xff;
 
         dataoutputstream.writeByte(i);
-        switch (b1.c()) {
+        switch (watchableobject.c()) {
         case 0: // '\0'
-            dataoutputstream.writeByte(((int) (((Byte) b1.b()).byteValue())));
+            dataoutputstream.writeByte(((int) (((Byte) watchableobject.b()).byteValue())));
             break;
 
         case 1: // '\001'
-            dataoutputstream.writeShort(((int) (((Short) b1.b()).shortValue())));
+            dataoutputstream.writeShort(((int) (((Short) watchableobject.b()).shortValue())));
             break;
 
         case 2: // '\002'
-            dataoutputstream.writeInt(((Integer) b1.b()).intValue());
+            dataoutputstream.writeInt(((Integer) watchableobject.b()).intValue());
             break;
 
         case 3: // '\003'
-            dataoutputstream.writeFloat(((Float) b1.b()).floatValue());
+            dataoutputstream.writeFloat(((Float) watchableobject.b()).floatValue());
             break;
 
         case 4: // '\004'
-            dataoutputstream.writeUTF((String) b1.b());
+            dataoutputstream.writeUTF((String) watchableobject.b());
             break;
 
         case 5: // '\005'
-            ItemStack itemstack = (ItemStack) b1.b();
+            ItemStack itemstack = (ItemStack) watchableobject.b();
 
             dataoutputstream.writeShort(itemstack.a().ba);
             dataoutputstream.writeByte(itemstack.a);
@@ -139,27 +139,27 @@ public class gx {
             }
             int i = (byte0 & 0xe0) >> 5;
             int j = byte0 & 0x1f;
-            b b1 = null;
+            WatchableObject watchableobject = null;
 
             switch (i) {
             case 0: // '\0'
-                b1 = new b(i, j, ((Byte.valueOf(datainputstream.readByte()))));
+                watchableobject = new WatchableObject(i, j, ((Byte.valueOf(datainputstream.readByte()))));
                 break;
 
             case 1: // '\001'
-                b1 = new b(i, j, ((Short.valueOf(datainputstream.readShort()))));
+                watchableobject = new WatchableObject(i, j, ((Short.valueOf(datainputstream.readShort()))));
                 break;
 
             case 2: // '\002'
-                b1 = new b(i, j, ((Integer.valueOf(datainputstream.readInt()))));
+                watchableobject = new WatchableObject(i, j, ((Integer.valueOf(datainputstream.readInt()))));
                 break;
 
             case 3: // '\003'
-                b1 = new b(i, j, ((Float.valueOf(datainputstream.readFloat()))));
+                watchableobject = new WatchableObject(i, j, ((Float.valueOf(datainputstream.readFloat()))));
                 break;
 
             case 4: // '\004'
-                b1 = new b(i, j, ((datainputstream.readUTF())));
+                watchableobject = new WatchableObject(i, j, ((datainputstream.readUTF())));
                 break;
 
             case 5: // '\005'
@@ -167,10 +167,10 @@ public class gx {
                 byte byte1 = datainputstream.readByte();
                 short word1 = datainputstream.readShort();
 
-                b1 = new b(i, j, ((new ItemStack(((int) (word0)), ((int) (byte1)), ((int) (word1))))));
+                watchableobject = new WatchableObject(i, j, ((new ItemStack(((int) (word0)), ((int) (byte1)), ((int) (word1))))));
                 break;
             }
-            arraylist.add(((b1)));
+            arraylist.add(((watchableobject)));
         }
 
         return ((List) (arraylist));

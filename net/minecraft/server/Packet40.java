@@ -11,19 +11,19 @@ public class Packet40 extends Packet {
 
     public Packet40() {}
 
-    public Packet40(int i, gx gx1) {
+    public Packet40(int i, DataWatcher datawatcher) {
         a = i;
-        b = ((List) (gx1.b()));
+        b = ((List) (datawatcher.b()));
     }
 
     public void a(DataInputStream datainputstream) {
         a = datainputstream.readInt();
-        b = gx.a(datainputstream);
+        b = DataWatcher.a(datainputstream);
     }
 
     public void a(DataOutputStream dataoutputstream) {
         dataoutputstream.writeInt(a);
-        gx.a(b, dataoutputstream);
+        DataWatcher.a(b, dataoutputstream);
     }
 
     public void a(NetHandler nethandler) {

@@ -2,12 +2,12 @@ package net.minecraft.server;
 
 import java.util.*;
 
-public class gt implements CraftingRecipe {
+public class ShapelessRecipes implements CraftingRecipe {
 
     private final ItemStack a;
     private final List b;
 
-    public gt(ItemStack itemstack, List list) {
+    public ShapelessRecipes(ItemStack itemstack, List list) {
         a = itemstack;
         b = list;
     }

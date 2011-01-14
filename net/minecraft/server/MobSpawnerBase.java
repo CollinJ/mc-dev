@@ -4,13 +4,13 @@ import java.util.Random;
 
 public class MobSpawnerBase {
 
-    public static final MobSpawnerBase a = (new ls()).b(0x8fa36).a("Rainforest").a(0x1ff458);
+    public static final MobSpawnerBase a = (new MobSpawnerRainforest()).b(0x8fa36).a("Rainforest").a(0x1ff458);
     public static final MobSpawnerBase b = (new MobSpawnerSwamp()).b(0x7f9b2).a("Swampland").a(0x8baf48);
     public static final MobSpawnerBase c = (new MobSpawnerBase()).b(0x9be023).a("Seasonal Forest");
-    public static final MobSpawnerBase d = (new dk()).b(0x56621).a("Forest").a(0x4eba31);
+    public static final MobSpawnerBase d = (new MobSpawnerForest()).b(0x56621).a("Forest").a(0x4eba31);
     public static final MobSpawnerBase e = (new MobSpawnerDesert()).b(0xd9e023).a("Savanna");
     public static final MobSpawnerBase f = (new MobSpawnerBase()).b(0xa1ad20).a("Shrubland");
-    public static final MobSpawnerBase g = (new g()).b(0x2eb153).a("Taiga").b().a(0x7bb731);
+    public static final MobSpawnerBase g = (new MobSpawnerTaiga()).b(0x2eb153).a("Taiga").b().a(0x7bb731);
     public static final MobSpawnerBase h = (new MobSpawnerDesert()).b(0xfa9418).a("Desert");
     public static final MobSpawnerBase i = (new MobSpawnerDesert()).b(0xffd910).a("Plains");
     public static final MobSpawnerBase j = (new MobSpawnerDesert()).b(0xffed93).a("Ice Desert").b().a(0xc4d339);
@@ -124,14 +124,14 @@ public class MobSpawnerBase {
         }
     }
 
-    public Class[] a(ma ma1) {
-        if (ma1 == ma.a) {
+    public Class[] a(EnumCreatureType enumcreaturetype) {
+        if (enumcreaturetype == EnumCreatureType.a) {
             return r;
         }
-        if (ma1 == ma.b) {
+        if (enumcreaturetype == EnumCreatureType.b) {
             return s;
         }
-        if (ma1 == ma.c) {
+        if (enumcreaturetype == EnumCreatureType.c) {
             return t;
         } else {
             return null;

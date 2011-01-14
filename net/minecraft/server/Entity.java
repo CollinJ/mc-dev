@@ -59,7 +59,7 @@ public abstract class Entity {
     public int ad;
     private boolean c;
     protected boolean ae;
-    protected gx af;
+    protected DataWatcher af;
     private double d;
     private double e;
     public boolean ag;
@@ -99,7 +99,7 @@ public abstract class Entity {
         ad = 300;
         c = true;
         ae = false;
-        af = new gx();
+        af = new DataWatcher();
         ag = false;
         l = world;
         a(0.0D, 0.0D, 0.0D);
@@ -109,7 +109,7 @@ public abstract class Entity {
 
     protected abstract void a();
 
-    public gx p() {
+    public DataWatcher p() {
         return af;
     }
 

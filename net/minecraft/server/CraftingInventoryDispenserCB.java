@@ -1,14 +1,14 @@
 package net.minecraft.server;
 
-public class ew extends CraftingInventoryCB {
+public class CraftingInventoryDispenserCB extends CraftingInventoryCB {
 
-    private bf a;
+    private TileEntityDispenser a;
 
-    public ew(IInventory iinventory, bf bf1) {
-        a = bf1;
+    public CraftingInventoryDispenserCB(IInventory iinventory, TileEntityDispenser tileentitydispenser) {
+        a = tileentitydispenser;
         for (int i = 0; i < 3; i++) {
             for (int l = 0; l < 3; l++) {
-                a(new Slot(((IInventory) (bf1)), l + i * 3, 61 + l * 18, 17 + i * 18));
+                a(new Slot(((IInventory) (tileentitydispenser)), l + i * 3, 61 + l * 18, 17 + i * 18));
             }
         }
 

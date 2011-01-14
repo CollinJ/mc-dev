@@ -1,8 +1,8 @@
 package net.minecraft.server;
 
-public class ax extends EntityCreature implements IAnimals {
+public class EntityWaterMob extends EntityCreature implements IAnimals {
 
-    public ax(World world) {
+    public EntityWaterMob(World world) {
         super(world);
     }
 

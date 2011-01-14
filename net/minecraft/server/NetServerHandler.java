@@ -371,11 +371,11 @@ public class NetServerHandler extends NetHandler implements ICommandListener {
         }
     }
 
-    public void a(gv gv1) {
-        System.out.println((new StringBuilder()).append("handlePlayerCommand ").append(gv1.a).append(" ").append(gv1.b).toString());
-        if (gv1.b == 1) {
+    public void a(Packet19 packet19) {
+        System.out.println((new StringBuilder()).append("handlePlayerCommand ").append(packet19.a).append(" ").append(packet19.b).toString());
+        if (packet19.b == 1) {
             e.b(true);
-        } else if (gv1.b == 2) {
+        } else if (packet19.b == 2) {
             e.b(false);
         }
     }

@@ -19,7 +19,7 @@ public class ChunkProviderLoadOrGenerate implements IChunkProvider {
         f = new Chunk[1024];
         a = 0xc4653601;
         b = 0xc4653601;
-        c = ((Chunk) (new lz(world, new byte[32768], 0, 0)));
+        c = ((Chunk) (new EmptyChunk(world, new byte[32768], 0, 0)));
         g = world;
         e = ichunkloader;
         d = ichunkprovider;

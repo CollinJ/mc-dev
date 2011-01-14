@@ -62,9 +62,9 @@ public class BlockDispenser extends BlockContainer {
         if (world.z) {
             return true;
         } else {
-            bf bf1 = (bf) world.m(i, j, k);
+            TileEntityDispenser tileentitydispenser = (TileEntityDispenser) world.m(i, j, k);
 
-            entityplayer.a(bf1);
+            entityplayer.a(tileentitydispenser);
             return true;
         }
     }
@@ -83,8 +83,8 @@ public class BlockDispenser extends BlockContainer {
         } else {
             f = -1F;
         }
-        bf bf1 = (bf) world.m(i, j, k);
-        ItemStack itemstack = bf1.e();
+        TileEntityDispenser tileentitydispenser = (TileEntityDispenser) world.m(i, j, k);
+        ItemStack itemstack = tileentitydispenser.e();
         double d = (double) i + (double) f * 0.5D + 0.5D;
         double d1 = (double) j + 0.5D;
         double d2 = (double) k + (double) f1 * 0.5D + 0.5D;
@@ -154,7 +154,7 @@ public class BlockDispenser extends BlockContainer {
     }
 
     protected TileEntity a_() {
-        return ((TileEntity) (new bf()));
+        return ((TileEntity) (new TileEntityDispenser()));
     }
 
     public void a(World world, int i, int j, int k, EntityLiving entityliving) {

@@ -88,9 +88,9 @@ public class TileEntity {
     static {
         a(net.minecraft.server.TileEntityFurnace.class, "Furnace");
         a(net.minecraft.server.TileEntityChest.class, "Chest");
-        a(net.minecraft.server.bf.class, "Trap");
+        a(net.minecraft.server.TileEntityDispenser.class, "Trap");
         a(net.minecraft.server.TileEntitySign.class, "Sign");
         a(net.minecraft.server.TileEntityMobSpawner.class, "MobSpawner");
-        a(net.minecraft.server.gl.class, "Music");
+        a(net.minecraft.server.TileEntityNote.class, "Music");
     }
 }

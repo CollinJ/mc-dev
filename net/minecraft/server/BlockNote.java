@@ -1,8 +1,8 @@
 package net.minecraft.server;
 
-public class cj extends BlockContainer {
+public class BlockNote extends BlockContainer {
 
-    public cj(int i) {
+    public BlockNote(int i) {
         super(i, 74, Material.c);
     }
 
@@ -13,13 +13,13 @@ public class cj extends BlockContainer {
     public void b(World world, int i, int j, int k, int l) {
         if (l > 0 && Block.m[l].c()) {
             boolean flag = world.o(i, j, k);
-            gl gl1 = (gl) world.m(i, j, k);
+            TileEntityNote tileentitynote = (TileEntityNote) world.m(i, j, k);
 
-            if (gl1.f != flag) {
+            if (tileentitynote.f != flag) {
                 if (flag) {
-                    gl1.a(world, i, j, k);
+                    tileentitynote.a(world, i, j, k);
                 }
-                gl1.f = flag;
+                tileentitynote.f = flag;
             }
         }
     }
@@ -28,10 +28,10 @@ public class cj extends BlockContainer {
         if (world.z) {
             return true;
         } else {
-            gl gl1 = (gl) world.m(i, j, k);
+            TileEntityNote tileentitynote = (TileEntityNote) world.m(i, j, k);
 
-            gl1.a();
-            gl1.a(world, i, j, k);
+            tileentitynote.a();
+            tileentitynote.a(world, i, j, k);
             return true;
         }
     }
@@ -40,15 +40,15 @@ public class cj extends BlockContainer {
         if (world.z) {
             return;
         } else {
-            gl gl1 = (gl) world.m(i, j, k);
+            TileEntityNote tileentitynote = (TileEntityNote) world.m(i, j, k);
 
-            gl1.a(world, i, j, k);
+            tileentitynote.a(world, i, j, k);
             return;
         }
     }
 
     protected TileEntity a_() {
-        return ((TileEntity) (new gl()));
+        return ((TileEntity) (new TileEntityNote()));
     }
 
     public void a(World world, int i, int j, int k, int l, int i1) {

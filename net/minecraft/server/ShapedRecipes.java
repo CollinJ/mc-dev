@@ -1,6 +1,6 @@
 package net.minecraft.server;
 
-public class jf implements CraftingRecipe {
+public class ShapedRecipes implements CraftingRecipe {
 
     private int b;
     private int c;
@@ -8,7 +8,7 @@ public class jf implements CraftingRecipe {
     private ItemStack e;
     public final int a;
 
-    public jf(int i, int j, ItemStack aitemstack[], ItemStack itemstack) {
+    public ShapedRecipes(int i, int j, ItemStack aitemstack[], ItemStack itemstack) {
         a = itemstack.c;
         b = i;
         c = j;

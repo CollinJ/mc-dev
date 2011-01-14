@@ -12,10 +12,10 @@ class RecipeSorter implements Comparator {
     }
 
     public int a(CraftingRecipe craftingrecipe, CraftingRecipe craftingrecipe1) {
-        if ((craftingrecipe instanceof gt) && (craftingrecipe1 instanceof jf)) {
+        if ((craftingrecipe instanceof ShapelessRecipes) && (craftingrecipe1 instanceof ShapedRecipes)) {
             return 1;
         }
-        if ((craftingrecipe1 instanceof gt) && (craftingrecipe instanceof jf)) {
+        if ((craftingrecipe1 instanceof ShapelessRecipes) && (craftingrecipe instanceof ShapedRecipes)) {
             return -1;
         }
         if (craftingrecipe1.a() < craftingrecipe.a()) {

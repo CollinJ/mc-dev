@@ -104,7 +104,7 @@ public abstract class Packet {
         a(15, net.minecraft.server.Packet15Place.class);
         a(16, net.minecraft.server.Packet16BlockItemSwitch.class);
         a(18, net.minecraft.server.Packet18ArmAnimation.class);
-        a(19, net.minecraft.server.gv.class);
+        a(19, net.minecraft.server.Packet19.class);
         a(20, net.minecraft.server.Packet20NamedEntitySpawn.class);
         a(21, net.minecraft.server.Packet21PickupSpawn.class);
         a(22, net.minecraft.server.Packet22Collect.class);

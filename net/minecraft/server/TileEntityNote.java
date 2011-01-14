@@ -1,11 +1,11 @@
 package net.minecraft.server;
 
-public class gl extends TileEntity {
+public class TileEntityNote extends TileEntity {
 
     public byte e;
     public boolean f;
 
-    public gl() {
+    public TileEntityNote() {
         e = 0;
         f = false;
     }

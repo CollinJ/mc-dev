@@ -2,7 +2,7 @@ package net.minecraft.server;
 
 import java.util.Random;
 
-public class EntitySquid extends ax {
+public class EntitySquid extends EntityWaterMob {
 
     public float a;
     public float b;
