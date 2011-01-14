@@ -158,16 +158,20 @@ public abstract class CraftingInventoryCB {
                                         itemstack1.a += j1;
                                     }
                                 }
-                            } else if (itemstack1.c == inventoryplayer.i().c && inventoryplayer.i().b() > 1) {
-                                int k1 = itemstack1.a;
+                            } else {
+                                ItemStack itemstack3 = inventoryplayer.i();
 
-                                if (k1 > 0 && k1 + inventoryplayer.i().a <= inventoryplayer.i().b()) {
-                                    inventoryplayer.i().a += k1;
-                                    itemstack1.a(k1);
-                                    if (itemstack1.a == 0) {
-                                        slot.b(((ItemStack) (null)));
+                                if (itemstack1.c == itemstack3.c && itemstack3.b() > 1 && (!itemstack1.e() || itemstack1.h() == itemstack3.h())) {
+                                    int k1 = itemstack1.a;
+
+                                    if (k1 > 0 && k1 + itemstack3.a <= itemstack3.b()) {
+                                        itemstack3.a += k1;
+                                        itemstack1.a(k1);
+                                        if (itemstack1.a == 0) {
+                                            slot.b(((ItemStack) (null)));
+                                        }
+                                        slot.b();
                                     }
-                                    slot.b();
                                 }
                             }
                         }

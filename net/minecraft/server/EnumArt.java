@@ -26,15 +26,16 @@ public final class EnumArt extends Enum {
     public static final EnumArt v;
     public static final EnumArt w;
     public static final EnumArt x;
-    public final String y;
-    public final int z;
+    public static final EnumArt y;
+    public final String z;
     public final int A;
     public final int B;
     public final int C;
-    private static final EnumArt D[]; /* synthetic field */
+    public final int D;
+    private static final EnumArt E[]; /* synthetic field */
 
     public static EnumArt[] values() {
-        return (EnumArt[]) ((EnumArt[]) (D)).clone();
+        return (EnumArt[]) ((EnumArt[]) (E)).clone();
     }
 
     public static EnumArt valueOf(String s1) {
@@ -43,11 +44,11 @@ public final class EnumArt extends Enum {
 
     private EnumArt(String s1, int i1, String s2, int j1, int k1, int l1, int i2) {
         super(s1, i1);
-        y = s2;
-        z = j1;
-        A = k1;
-        B = l1;
-        C = i2;
+        z = s2;
+        A = j1;
+        B = k1;
+        C = l1;
+        D = i2;
     }
 
     static {
@@ -73,10 +74,11 @@ public final class EnumArt extends Enum {
         t = new EnumArt("Fighters", 19, "Fighters", 64, 32, 0, 96);
         u = new EnumArt("Pointer", 20, "Pointer", 64, 64, 0, 192);
         v = new EnumArt("Pigscene", 21, "Pigscene", 64, 64, 64, 192);
-        w = new EnumArt("Skeleton", 22, "Skeleton", 64, 48, 192, 64);
-        x = new EnumArt("DonkeyKong", 23, "DonkeyKong", 64, 48, 192, 112);
-        D = (new EnumArt[] {
-            a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x
+        w = new EnumArt("BurningSkull", 22, "BurningSkull", 64, 64, 128, 192);
+        x = new EnumArt("Skeleton", 23, "Skeleton", 64, 48, 192, 64);
+        y = new EnumArt("DonkeyKong", 24, "DonkeyKong", 64, 48, 192, 112);
+        E = (new EnumArt[] {
+            a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y
         });
     }
 }

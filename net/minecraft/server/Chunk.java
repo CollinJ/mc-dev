@@ -64,14 +64,27 @@ public class Chunk {
         for (int j1 = 0; j1 < 16; j1++) {
             for (int l1 = 0; l1 < 16; l1++) {
                 int j2 = 127;
+                int k2;
 
-                for (int k2 = j1 << 11 | l1 << 7; j2 > 0 && Block.q[b[(k2 + j2) - 1]] == 0; j2--) {
+                for (k2 = j1 << 11 | l1 << 7; j2 > 0 && Block.q[b[(k2 + j2) - 1]] == 0; j2--) {
                     ;
                 }
                 h[l1 << 4 | j1] = (byte) j2;
                 if (j2 < i1) {
                     i1 = j2;
                 }
+                if (d.q.e) {
+                    continue;
+                }
+                int l2 = 15;
+                int i3 = 127;
+
+                do {
+                    l2 -= Block.q[b[k2 + i3]];
+                    if (l2 > 0) {
+                        f.a(j1, i3, l1, l2);
+                    }
+                } while (--i3 > 0 && l2 > 0);
             }
         }
 
@@ -250,10 +263,10 @@ public class Chunk {
         }
         d.a(EnumSkyBlock.b, l2, j1, i3, l2, j1, i3);
         c(i1, k1);
+        e.a(i1, j1, k1, i2);
         if (l1 != 0) {
             Block.m[l1].e(d, l2, j1, i3);
         }
-        e.a(i1, j1, k1, i2);
         o = true;
         return true;
     }

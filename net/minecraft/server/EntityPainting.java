@@ -49,9 +49,9 @@ public class EntityPainting extends Entity {
     public void a(int i) {
         a = i;
         x = v = i * 90;
-        float f1 = e.z;
-        float f2 = e.A;
-        float f3 = e.z;
+        float f1 = e.A;
+        float f2 = e.B;
+        float f3 = e.A;
 
         if (i == 0 || i == 2) {
             f3 = 0.5F;
@@ -79,18 +79,18 @@ public class EntityPainting extends Entity {
             f4 += f7;
         }
         if (i == 0) {
-            f4 -= d(e.z);
+            f4 -= d(e.A);
         }
         if (i == 1) {
-            f6 += d(e.z);
+            f6 += d(e.A);
         }
         if (i == 2) {
-            f4 += d(e.z);
+            f4 += d(e.A);
         }
         if (i == 3) {
-            f6 -= d(e.z);
+            f6 -= d(e.A);
         }
-        f5 += d(e.A);
+        f5 += d(e.B);
         a(f4, f5, f6);
         float f8 = -0.00625F;
 
@@ -118,25 +118,25 @@ public class EntityPainting extends Entity {
         if (this.l.a(((Entity) (this)), z).size() > 0) {
             return false;
         }
-        int i = e.z / 16;
-        int j = e.A / 16;
+        int i = e.A / 16;
+        int j = e.B / 16;
         int k = b;
         int l = c;
         int i1 = d;
 
         if (a == 0) {
-            k = MathHelper.b(p - (double) ((float) e.z / 32F));
+            k = MathHelper.b(p - (double) ((float) e.A / 32F));
         }
         if (a == 1) {
-            i1 = MathHelper.b(r - (double) ((float) e.z / 32F));
+            i1 = MathHelper.b(r - (double) ((float) e.A / 32F));
         }
         if (a == 2) {
-            k = MathHelper.b(p - (double) ((float) e.z / 32F));
+            k = MathHelper.b(p - (double) ((float) e.A / 32F));
         }
         if (a == 3) {
-            i1 = MathHelper.b(r - (double) ((float) e.z / 32F));
+            i1 = MathHelper.b(r - (double) ((float) e.A / 32F));
         }
-        l = MathHelper.b(q - (double) ((float) e.A / 32F));
+        l = MathHelper.b(q - (double) ((float) e.B / 32F));
         for (int j1 = 0; j1 < i; j1++) {
             for (int k1 = 0; k1 < j; k1++) {
                 Material material;
@@ -178,7 +178,7 @@ public class EntityPainting extends Entity {
 
     public void a(NBTTagCompound nbttagcompound) {
         nbttagcompound.a("Dir", (byte) a);
-        nbttagcompound.a("Motive", e.y);
+        nbttagcompound.a("Motive", e.z);
         nbttagcompound.a("TileX", b);
         nbttagcompound.a("TileY", c);
         nbttagcompound.a("TileZ", d);
@@ -196,7 +196,7 @@ public class EntityPainting extends Entity {
         for (int j = 0; j < i; j++) {
             EnumArt enumart = aenumart[j];
 
-            if (enumart.y.equals(((s)))) {
+            if (enumart.z.equals(((s)))) {
                 e = enumart;
             }
         }

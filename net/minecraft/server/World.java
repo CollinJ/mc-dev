@@ -1331,7 +1331,7 @@ public class World implements IBlockAccess {
         int i3 = A.size();
 
         if (flag) {
-            int j3 = 10;
+            int j3 = 5;
 
             if (j3 > i3) {
                 j3 = i3;
