@@ -68,7 +68,7 @@ public class WorldGenTaiga2 extends WorldGenerator {
             }
 
             if (k2 >= i3) {
-                k2 = ((int) (flag1));
+                k2 = flag1 ? 1 : 0;
                 flag1 = true;
                 if (++i3 > k1) {
                     i3 = k1;
