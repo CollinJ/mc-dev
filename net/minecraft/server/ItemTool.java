@@ -3,7 +3,7 @@ package net.minecraft.server;
 public class ItemTool extends Item {
 
     private Block bg[];
-    private float bh;
+    public float bh;
     private int bi;
     protected EnumToolMaterial a;
 
